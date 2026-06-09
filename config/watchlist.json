@@ -1,0 +1,13 @@
+{
+  "_description": "观察列表 — 希望买入但尚未买入的标的。脚本自动做技术面+基本面分析。",
+  "_format": {
+    "symbol": "股票代码",
+    "market": "A / HK / US",
+    "name": "可选，标的名称",
+    "sector": "可选，赛道标签",
+    "added": "加入日期 YYYY-MM-DD",
+    "notes": "可选，个人备注"
+  },
+  "symbols": [
+  ]
+}

@@ -1,0 +1,520 @@
+"""Market data fetcher — standalone, no local personal_agent dependency.
+
+Supports:
+  - A/HK stocks via efinance (free, no API key)
+  - US stocks & macro indices via yfinance (free, no API key)
+  - Sector fund flow via efinance
+
+All data saved as JSON under data/{date}/ for later consumption by local agent.
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+import os
+import sys
+import time
+from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
+from typing import Any, Optional
+
+from utils import TradingCalendar, retry, RateLimiter
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+)
+logger = logging.getLogger("fetch")
+
+# ---------------------------------------------------------------------------
+# Constants
+# ---------------------------------------------------------------------------
+ROOT = Path(__file__).resolve().parent.parent
+CONFIG_DIR = ROOT / "config"
+DATA_DIR = ROOT / "data"
+
+# Beijing timezone
+TZ_BEIJING = timezone(timedelta(hours=8))
+
+# Market close times (Beijing time)
+MARKET_CLOSE = {
+    "A": 15,   # 15:00
+    "HK": 16,  # 16:00
+    "US": 5,   # 05:00 next day (16:00 EST)
+}
+
+# efinance market code mapping
+EM_MARKET = {"A": "1", "HK": "116"}
+# yfinance symbol suffix
+YF_SUFFIX = {"A": ".SS", "HK": ".HK", "US": ""}
+
+_rate_limiter = RateLimiter(min_interval=0.5)  # min 500ms between API calls
+
+
+# ============================================================================
+# Configuration loading
+# ============================================================================
+
+def load_config(name: str) -> dict:
+    """Load a JSON config file."""
+    path = CONFIG_DIR / f"{name}.json"
+    if not path.exists():
+        logger.warning("Config %s not found, using empty defaults", path)
+        return {}
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_symbols(name: str) -> list[dict]:
+    """Load holdings or watchlist symbols."""
+    cfg = load_config(name)
+    return cfg.get("symbols", [])
+
+
+# ============================================================================
+# efinance (A/HK) fetchers
+# ============================================================================
+
+def _efinance_secid(symbol: str, market: str) -> str:
+    """Build eastmoney secid from symbol.
+
+    Examples:
+      002008.SZ → 0.002008 (Shenzhen)
+      600519.SH → 1.600519 (Shanghai)
+      0189HK → 116.00189
+    """
+    import urllib.request
+    code = symbol.upper().replace(".SH", "").replace(".SZ", "").replace(".HK", "")
+    if market == "A":
+        if code.startswith(("0", "3")):
+            return f"0.{code}"  # Shenzhen
+        return f"1.{code}"  # Shanghai
+    if market == "HK":
+        # Remove leading zeros for efinance HK
+        return f"116.{code}"
+    return f"1.{code}"
+
+
+def _efinance_http(url: str, timeout: int = 15) -> Optional[dict]:
+    """Simple HTTP GET to efinance API."""
+    import urllib.request
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return json.loads(resp.read().decode())
+    except Exception as e:
+        logger.warning("efinance HTTP error: %s", str(e)[:80])
+        return None
+
+
+@retry(max_attempts=2, delay=1.0)
+def fetch_efinance_kline(symbol: str, market: str, days: int = 120) -> Optional[list[dict]]:
+    """Fetch daily K-line from efinance (A/HK)."""
+    secid = _efinance_secid(symbol, market)
+
+    url = (
+        f"https://push2his.eastmoney.com/api/qt/stock/kline/get"
+        f"?secid={secid}&fields1=f1,f2,f3&fields2=f51,f52,f53,f54,f55,f56,f57"
+        f"&klt=101&fqt=1&end=20500101&lmt={days}"
+    )
+
+    _rate_limiter.wait()
+    data = _efinance_http(url)
+    if not data or "data" not in data or not data["data"]:
+        return None
+
+    klines = data["data"].get("klines", [])
+    if not klines:
+        return None
+
+    result = []
+    for line in klines:
+        parts = line.split(",")
+        if len(parts) < 7:
+            continue
+        result.append({
+            "date": parts[0],
+            "open": float(parts[1]),
+            "close": float(parts[2]),
+            "high": float(parts[3]),
+            "low": float(parts[4]),
+            "volume": float(parts[5]),
+            "amount": float(parts[6]),
+            "adj": "qfq",
+            "source": "efinance",
+        })
+    return result
+
+
+@retry(max_attempts=2, delay=1.0)
+def fetch_efinance_realtime(symbol: str, market: str) -> Optional[dict]:
+    """Fetch real-time quote from efinance."""
+    secid = _efinance_secid(symbol, market)
+
+    url = (
+        f"https://push2.eastmoney.com/api/qt/stock/get"
+        f"?secid={secid}"
+        f"&fields=f43,f44,f45,f46,f47,f48,f57,f58,f60,f116,f117,f170"
+    )
+
+    _rate_limiter.wait()
+    data = _efinance_http(url)
+    if not data or "data" not in data or not data["data"]:
+        return None
+
+    d = data["data"]
+    now = datetime.now(TZ_BEIJING)
+
+    price = d.get("f43", 0) / 100 if d.get("f43") else 0
+    if price <= 0:
+        return None
+
+    return {
+        "symbol": symbol.upper(),
+        "name": d.get("f58", ""),
+        "price": price,
+        "change_pct": d.get("f170", 0) / 100 if d.get("f170") else 0,
+        "high": d.get("f44", 0) / 100 if d.get("f44") else 0,
+        "low": d.get("f45", 0) / 100 if d.get("f45") else 0,
+        "open": d.get("f46", 0) / 100 if d.get("f46") else 0,
+        "pre_close": d.get("f60", 0) / 100 if d.get("f60") else 0,
+        "volume": d.get("f47", 0),
+        "amount": d.get("f48", 0),
+        "adj": "normal",
+        "source": "efinance",
+        "timestamp": now.isoformat(),
+        "trade_date": now.strftime("%Y-%m-%d"),
+    }
+
+
+@retry(max_attempts=2, delay=1.0)
+def fetch_sector_flow() -> Optional[list[dict]]:
+    """Fetch sector fund flow rankings."""
+    url = (
+        "https://push2.eastmoney.com/api/qt/clt/get"
+        "?fields=f12,f14,f62,f66,f69,f72,f75,f78,f81,f84,f87"
+        "&fid=f62&po=1&pz=20&np=1&fltt=2&invt=2"
+    )
+
+    _rate_limiter.wait()
+    data = _efinance_http(url)
+    if not data or "data" not in data:
+        return None
+
+    entries = data["data"].get("diff", [])
+    if not entries:
+        return None
+
+    result = []
+    for e in entries[:20]:
+        result.append({
+            "code": e.get("f12", ""),
+            "name": e.get("f14", ""),
+            "net_inflow": e.get("f62", 0),
+            "inflow_ratio": e.get("f66", 0),
+            "change_pct": e.get("f69", 0) / 100 if e.get("f69") else 0,
+        })
+    return result
+
+
+# ============================================================================
+# yfinance (US/macro) fetchers
+# ============================================================================
+
+def _check_yfinance() -> bool:
+    try:
+        import yfinance as yf  # noqa: F401
+        return True
+    except ImportError:
+        logger.warning("yfinance not installed — US/HK data unavailable")
+        return False
+
+
+@retry(max_attempts=2, delay=2.0)
+def fetch_yfinance_history(symbol: str, period: str = "3mo") -> Optional[list[dict]]:
+    """Fetch OHLCV from yfinance."""
+    if not _check_yfinance():
+        return None
+
+    import yfinance as yf
+
+    _rate_limiter.wait()
+    try:
+        ticker = yf.Ticker(symbol)
+        df = ticker.history(period=period, auto_adjust=True)
+        if df.empty:
+            return None
+
+        result = []
+        for idx, row in df.iterrows():
+            result.append({
+                "date": idx.strftime("%Y-%m-%d") if hasattr(idx, "strftime") else str(idx)[:10],
+                "open": float(row["Open"]),
+                "high": float(row["High"]),
+                "low": float(row["Low"]),
+                "close": float(row["Close"]),
+                "volume": float(row["Volume"]),
+                "adj": "qfq",
+                "source": "yfinance",
+            })
+        return result
+    except Exception as e:
+        logger.warning("yfinance history(%s) error: %s", symbol, str(e)[:80])
+        return None
+
+
+@retry(max_attempts=2, delay=2.0)
+def fetch_yfinance_realtime(symbol: str) -> Optional[dict]:
+    """Fetch real-time quote from yfinance."""
+    if not _check_yfinance():
+        return None
+
+    import yfinance as yf
+
+    _rate_limiter.wait()
+    try:
+        ticker = yf.Ticker(symbol)
+        info = ticker.fast_info if hasattr(ticker, "fast_info") else ticker.info
+
+        now = datetime.now(TZ_BEIJING)
+        price = (
+            getattr(info, "last_price", 0)
+            or getattr(info, "regular_market_price", 0)
+            or 0
+        )
+        if price <= 0:
+            return None
+
+        return {
+            "symbol": symbol.upper(),
+            "price": price,
+            "previous_close": getattr(info, "previous_close", 0) or getattr(info, "regular_market_previous_close", 0) or 0,
+            "open": getattr(info, "open", 0) or getattr(info, "regular_market_open", 0) or 0,
+            "day_high": getattr(info, "day_high", 0) or getattr(info, "regular_market_day_high", 0) or 0,
+            "day_low": getattr(info, "day_low", 0) or getattr(info, "regular_market_day_low", 0) or 0,
+            "volume": getattr(info, "last_volume", 0) or getattr(info, "regular_market_volume", 0) or 0,
+            "adj": "normal",
+            "source": "yfinance",
+            "timestamp": now.isoformat(),
+            "trade_date": now.strftime("%Y-%m-%d"),
+        }
+    except Exception as e:
+        logger.warning("yfinance realtime(%s) error: %s", symbol, str(e)[:80])
+        return None
+
+
+@retry(max_attempts=2, delay=2.0)
+def fetch_yfinance_fundamentals(symbol: str) -> Optional[dict]:
+    """Fetch PE, PB, dividend yield, market cap."""
+    if not _check_yfinance():
+        return None
+
+    import yfinance as yf
+
+    _rate_limiter.wait()
+    try:
+        ticker = yf.Ticker(symbol)
+        info = ticker.info
+
+        now = datetime.now(TZ_BEIJING)
+        return {
+            "symbol": symbol.upper(),
+            "pe_ratio": info.get("trailingPE") or info.get("forwardPE"),
+            "pb_ratio": info.get("priceToBook"),
+            "dividend_yield": info.get("dividendYield"),
+            "market_cap": info.get("marketCap"),
+            "sector": info.get("sector", ""),
+            "industry": info.get("industry", ""),
+            "source": "yfinance",
+            "timestamp": now.isoformat(),
+            "trade_date": now.strftime("%Y-%m-%d"),
+        }
+    except Exception as e:
+        logger.warning("yfinance fundamentals(%s) error: %s", symbol, str(e)[:80])
+        return None
+
+
+# ============================================================================
+# Main orchestration
+# ============================================================================
+
+def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
+    """Fetch all data for today. Returns summary dict.
+
+    Args:
+        today: Target date (default: today Beijing time).
+
+    Returns:
+        {"quotes": {symbol: path}, "macro": path, "sectors": path, "errors": [...]}
+    """
+    if today is None:
+        today = datetime.now(TZ_BEIJING).date()
+
+    date_str = today.strftime("%Y-%m-%d")
+    quotes_dir = DATA_DIR / date_str / "quotes"
+    macro_dir = DATA_DIR / date_str
+    quotes_dir.mkdir(parents=True, exist_ok=True)
+
+    cal = TradingCalendar()
+    errors: list[str] = []
+    fetched: dict[str, str] = {}
+    skipped: list[str] = []
+
+    # ------------------------------------------------------------------
+    # 1. Holdings symbols — OHLCV
+    # ------------------------------------------------------------------
+    holdings = load_symbols("holdings")
+    logger.info("Fetching %d holdings symbols...", len(holdings))
+
+    for item in holdings:
+        sym = item["symbol"]
+        market = item.get("market", "A")
+
+        # Skip if market closed and no real-time needed for daily fetch
+        if not cal.should_fetch(market, today):
+            skipped.append(f"{sym} ({market}: market closed or not in fetch window)")
+            continue
+
+        # Fetch kline
+        kline = None
+        if market in ("A", "HK"):
+            kline = fetch_efinance_kline(sym, market)
+        elif market == "US":
+            kline = fetch_yfinance_history(sym, period="3mo")
+
+        if kline:
+            out_path = quotes_dir / f"{sym}.json"
+            out_path.write_text(
+                json.dumps(kline, ensure_ascii=False, default=str),
+                encoding="utf-8",
+            )
+            fetched[sym] = str(out_path)
+            logger.info("  %s: %d bars saved", sym, len(kline))
+        else:
+            errors.append(f"{sym}: kline fetch failed")
+            logger.warning("  %s: FAILED", sym)
+
+    # Also fetch watchlist symbols
+    watchlist = load_symbols("watchlist")
+    if watchlist:
+        logger.info("Fetching %d watchlist symbols...", len(watchlist))
+        for item in watchlist:
+            sym = item["symbol"]
+            market = item.get("market", "A")
+
+            if market in ("A", "HK"):
+                kline = fetch_efinance_kline(sym, market)
+            elif market == "US":
+                kline = fetch_yfinance_history(sym, period="3mo")
+
+            if kline:
+                out_path = quotes_dir / f"{sym}.json"
+                out_path.write_text(
+                    json.dumps(kline, ensure_ascii=False, default=str),
+                    encoding="utf-8",
+                )
+                fetched[sym] = str(out_path)
+            else:
+                errors.append(f"{sym} (watchlist): kline fetch failed")
+
+    # ------------------------------------------------------------------
+    # 2. Macro indicators
+    # ------------------------------------------------------------------
+    macro_cfg = load_config("macro")
+    macro_indicators = macro_cfg.get("indicators", [])
+    macro_results: dict[str, Any] = {}
+
+    logger.info("Fetching %d macro indicators...", len(macro_indicators))
+    for ind in macro_indicators:
+        sym = ind["symbol"]
+        src = ind.get("source", "yfinance")
+        mkt = ind.get("market", "US")
+
+        if src == "efinance":
+            kline = fetch_efinance_kline(sym, mkt, days=30)
+            if kline and len(kline) > 0:
+                latest = kline[-1]
+                macro_results[sym] = {
+                    "name": ind["name"],
+                    "price": latest["close"],
+                    "date": latest["date"],
+                    "change_pct": None,
+                }
+        else:
+            kline = fetch_yfinance_history(sym, period="1mo")
+            if kline and len(kline) > 0:
+                latest = kline[-1]
+                prev = kline[-2] if len(kline) >= 2 else latest
+                chg = ((latest["close"] - prev["close"]) / prev["close"] * 100) if prev["close"] > 0 else 0
+                macro_results[sym] = {
+                    "name": ind["name"],
+                    "price": round(latest["close"], 2),
+                    "date": latest["date"],
+                    "change_pct": round(chg, 2),
+                }
+
+    if macro_results:
+        macro_path = macro_dir / "macro.json"
+        macro_path.write_text(
+            json.dumps(macro_results, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        fetched["_macro"] = str(macro_path)
+
+    # ------------------------------------------------------------------
+    # 3. Sector flow
+    # ------------------------------------------------------------------
+    logger.info("Fetching sector fund flow...")
+    sectors = fetch_sector_flow()
+    if sectors:
+        sector_path = macro_dir / "sectors.json"
+        sector_path.write_text(
+            json.dumps(sectors, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        fetched["_sectors"] = str(sector_path)
+    else:
+        errors.append("sector_flow: fetch failed")
+
+    # ------------------------------------------------------------------
+    # Summary
+    # ------------------------------------------------------------------
+    n_success = len([k for k in fetched if not k.startswith("_")])
+    logger.info(
+        "Fetch complete: %d/%d symbols OK, %d errors, %d skipped",
+        n_success, len(holdings) + len(watchlist), len(errors), len(skipped),
+    )
+
+    return {
+        "date": date_str,
+        "quotes_fetched": n_success,
+        "total_holdings": len(holdings),
+        "total_watchlist": len(watchlist),
+        "errors": errors,
+        "skipped": skipped,
+        "files": fetched,
+    }
+
+
+# ============================================================================
+# CLI entry point
+# ============================================================================
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Fetch market data")
+    parser.add_argument("--date", type=str, default=None, help="Date YYYY-MM-DD (default: today)")
+    parser.add_argument("--force", action="store_true", help="Force fetch even outside recommended window")
+    args = parser.parse_args()
+
+    target = date.fromisoformat(args.date) if args.date else None
+    result = fetch_all(target)
+
+    print(json.dumps({k: v for k, v in result.items() if k != "files"}, ensure_ascii=False, indent=2))
+
+    if result["errors"]:
+        print(f"\n⚠️  {len(result['errors'])} errors:", file=sys.stderr)
+        for e in result["errors"]:
+            print(f"  - {e}", file=sys.stderr)
+        sys.exit(1)

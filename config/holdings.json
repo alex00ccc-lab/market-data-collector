@@ -1,0 +1,17 @@
+{
+  "_description": "当前持仓标的清单。添加/删除标的即可，脚本自动识别市场。",
+  "_format": {
+    "symbol": "股票代码（efinance格式：A股用code.SH/code.SZ，港股用code.HK，美股用ticker）",
+    "market": "A / HK / US",
+    "name": "可选，标的名称",
+    "sector": "可选，赛道标签"
+  },
+  "symbols": [
+    {"symbol": "002008.SZ", "market": "A", "name": "大族激光", "sector": "硬科技"},
+    {"symbol": "300408.SZ", "market": "A", "name": "三环集团", "sector": "MLCC"},
+    {"symbol": "300593.SZ", "market": "A", "name": "新雷能", "sector": "军工电源"},
+    {"symbol": "160644",    "market": "A", "name": "酒ETF", "sector": "消费"},
+    {"symbol": "0189HK",    "market": "HK", "name": "东岳集团", "sector": "周期"},
+    {"symbol": "09992.HK",  "market": "HK", "name": "泡泡玛特", "sector": "消费"}
+  ]
+}

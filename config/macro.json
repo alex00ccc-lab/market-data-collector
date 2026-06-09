@@ -1,0 +1,12 @@
+{
+  "_description": "宏观市场指标清单。所有数据来自公开API，每日自动抓取。",
+  "indicators": [
+    {"symbol": "^VIX",    "market": "US", "name": "VIX 恐慌指数",      "source": "yfinance"},
+    {"symbol": "^TNX",    "market": "US", "name": "10年期美债收益率",    "source": "yfinance"},
+    {"symbol": "^KS11",   "market": "KR", "name": "韩国KOSPI指数",      "source": "yfinance"},
+    {"symbol": "BZ=F",    "market": "US", "name": "布伦特原油期货",      "source": "yfinance"},
+    {"symbol": "DX-Y.NYB","market": "US", "name": "美元指数DXY",         "source": "yfinance"},
+    {"symbol": "000001.SH","market": "A", "name": "上证指数",            "source": "efinance"},
+    {"symbol": "HSI",     "market": "HK", "name": "恒生指数",            "source": "yfinance"}
+  ]
+}

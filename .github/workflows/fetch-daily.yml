@@ -1,0 +1,80 @@
+name: Daily Market Data Fetch
+
+# Runs on trading days after market close (Beijing time):
+#   A-share: 15:10 CST (07:10 UTC)
+#   HK:      16:10 CST (08:10 UTC)
+#   US:      05:30 CST next day (21:30 UTC previous day)
+#
+# Strategy: run 3 times per weekday to cover all markets.
+# Each run checks TradingCalendar.should_fetch() before proceeding,
+# so non-trading-day runs are no-ops.
+
+on:
+  schedule:
+    # A-share close (15:10 Beijing = 07:10 UTC)
+    - cron: '10 07 * * 1-5'
+    # HK close (16:10 Beijing = 08:10 UTC)
+    - cron: '10 08 * * 1-5'
+    # US close next day (05:30 Beijing = 21:30 UTC)
+    - cron: '30 21 * * 1-5'
+    # US Friday close captured Saturday morning Beijing time
+    - cron: '30 21 * * 6'
+  # Manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force fetch (ignore time window)'
+        type: boolean
+        default: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install efinance yfinance
+
+      - name: Fetch market data
+        id: fetch
+        run: |
+          FORCE_FLAG=""
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force }}" = "true" ]; then
+            FORCE_FLAG="--force"
+          fi
+          python scripts/fetch.py $FORCE_FLAG 2>&1 | tee fetch.log
+          echo "exit_code=${PIPESTATUS[0]}" >> $GITHUB_OUTPUT
+
+      - name: Compute indicators
+        if: steps.fetch.outputs.exit_code == '0' || github.event_name == 'workflow_dispatch'
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          python scripts/indicators.py --date "$TODAY" 2>&1 | tee indicators.log
+
+      - name: Commit and push
+        if: always() && (steps.fetch.outputs.exit_code == '0' || github.event_name == 'workflow_dispatch')
+        run: |
+          git config user.name "market-data-bot"
+          git config user.email "bot@market-data-collector.local"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            TODAY=$(date +%Y-%m-%d)
+            git commit -m "data: market snapshot $TODAY"
+            git push
+          fi

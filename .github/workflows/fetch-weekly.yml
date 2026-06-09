@@ -1,0 +1,77 @@
+name: Weekly Fundamentals Fetch
+
+# Runs every Saturday morning (Beijing time) to capture weekly fundamentals snapshot.
+# PE, PB, dividend yield, market cap — updated weekly, not daily.
+
+on:
+  schedule:
+    # Saturday 08:00 Beijing = 00:00 UTC
+    - cron: '0 0 * * 6'
+  workflow_dispatch:
+
+jobs:
+  fetch-weekly:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install yfinance
+
+      - name: Fetch fundamentals
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          echo "Fetching fundamentals for $TODAY"
+          python -c "
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, 'scripts')
+          from fetch import fetch_yfinance_fundamentals, load_symbols
+
+          today = '$TODAY'
+          out_dir = Path('data') / today / 'fundamentals'
+          out_dir.mkdir(parents=True, exist_ok=True)
+
+          # Holdings + Watchlist (US stocks only)
+          all_syms = []
+          for cfg_name in ('holdings', 'watchlist'):
+              syms = load_symbols(cfg_name)
+              all_syms.extend([s for s in syms if s.get('market') == 'US'])
+
+          for item in all_syms:
+              sym = item['symbol']
+              data = fetch_yfinance_fundamentals(sym)
+              if data:
+                  (out_dir / f'{sym}.json').write_text(
+                      json.dumps(data, ensure_ascii=False, indent=2),
+                      encoding='utf-8',
+                  )
+                  print(f'  {sym}: PE={data.get(\"pe_ratio\")}, PB={data.get(\"pb_ratio\")}')
+              else:
+                  print(f'  {sym}: FAILED')
+          "
+        shell: bash
+
+      - name: Commit and push
+        run: |
+          git config user.name "market-data-bot"
+          git config user.email "bot@market-data-collector.local"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            TODAY=$(date +%Y-%m-%d)
+            git commit -m "data: weekly fundamentals $TODAY"
+            git push
+          fi
