@@ -1,0 +1,72 @@
+{
+  "symbol": "0189HK",
+  "date": "2026-06-09",
+  "close": 15.619999885559082,
+  "currency": "",
+  "ma": {
+    "ma5": 16.33,
+    "ma10": 16.41,
+    "ma20": 14.4,
+    "ma60": 12.66,
+    "alignment": "mixed"
+  },
+  "rsi": {
+    "value": 66.2,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": 1.1309,
+    "dea": 1.1417,
+    "histogram": -0.0216,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 42.7,
+    "d": 47.6,
+    "j": 33.0,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 18.88,
+    "middle": 14.4,
+    "lower": 9.91,
+    "bandwidth": 62.3,
+    "position": 0.64,
+    "signal": "above_middle"
+  },
+  "volume": {
+    "ratio": 0.2,
+    "signal": "shrink"
+  },
+  "fibonacci": {
+    "high": 18.5,
+    "low": 10.29,
+    "0.0%": 18.5,
+    "23.6%": 16.56,
+    "38.2%": 15.36,
+    "50.0%": 14.4,
+    "61.8%": 13.43,
+    "78.6%": 12.05,
+    "100.0%": 10.29
+  },
+  "trend_strength": "震荡",
+  "supports": [
+    10.62,
+    11.17,
+    11.35
+  ],
+  "resistances": [
+    11.85,
+    12.89,
+    17.54
+  ],
+  "risk_flags": [
+    "缩量警示"
+  ],
+  "resonance": {
+    "bullish": 1,
+    "neutral": 3,
+    "bearish": 2,
+    "overall": "neutral"
+  }
+}

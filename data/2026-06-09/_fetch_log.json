@@ -1,0 +1,15 @@
+{
+  "run_at": "2026-06-09T12:47:03.835347+08:00",
+  "date": "2026-06-09",
+  "symbols_attempted": 6,
+  "symbols_succeeded": 5,
+  "symbols_failed": [
+    "160644",
+    "sector_flow"
+  ],
+  "errors": [
+    "160644: kline fetch failed",
+    "sector_flow: fetch failed"
+  ],
+  "skipped": []
+}

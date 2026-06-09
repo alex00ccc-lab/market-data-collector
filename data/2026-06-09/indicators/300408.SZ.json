@@ -1,0 +1,68 @@
+{
+  "symbol": "300408.SZ",
+  "date": "2026-06-09",
+  "close": 129.75,
+  "currency": "",
+  "ma": {
+    "ma5": 132.28,
+    "ma10": 130.54,
+    "ma20": 114.82,
+    "ma60": 81.14,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 71.4,
+    "signal": "overbought"
+  },
+  "macd": {
+    "diff": 13.9042,
+    "dea": 14.9154,
+    "histogram": -2.0224,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 47.5,
+    "d": 49.2,
+    "j": 44.2,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 151.03,
+    "middle": 114.82,
+    "lower": 78.6,
+    "bandwidth": 63.1,
+    "position": 0.71,
+    "signal": "above_middle"
+  },
+  "volume": {
+    "ratio": 0.6,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 142.9,
+    "low": 50.44,
+    "0.0%": 142.9,
+    "23.6%": 121.08,
+    "38.2%": 107.58,
+    "50.0%": 96.67,
+    "61.8%": 85.76,
+    "78.6%": 70.22,
+    "100.0%": 50.44
+  },
+  "trend_strength": "空头",
+  "supports": [
+    50.85,
+    52.57,
+    85.7
+  ],
+  "resistances": [],
+  "risk_flags": [
+    "RSI超买"
+  ],
+  "resonance": {
+    "bullish": 1,
+    "neutral": 2,
+    "bearish": 3,
+    "overall": "mildly_bearish"
+  }
+}

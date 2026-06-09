@@ -1,0 +1,69 @@
+{
+  "symbol": "300593.SZ",
+  "date": "2026-06-09",
+  "close": 37.63999938964844,
+  "currency": "",
+  "ma": {
+    "ma5": 34.82,
+    "ma10": 35.69,
+    "ma20": 34.16,
+    "ma60": 29.06,
+    "alignment": "mixed"
+  },
+  "rsi": {
+    "value": 57.8,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": 1.5384,
+    "dea": 2.0917,
+    "histogram": -1.1066,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 59.5,
+    "d": 53.2,
+    "j": 72.1,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 40.95,
+    "middle": 34.16,
+    "lower": 27.37,
+    "bandwidth": 39.7,
+    "position": 0.76,
+    "signal": "above_middle"
+  },
+  "volume": {
+    "ratio": 1.6,
+    "signal": "surge_up"
+  },
+  "fibonacci": {
+    "high": 42.43,
+    "low": 22.35,
+    "0.0%": 42.43,
+    "23.6%": 37.69,
+    "38.2%": 34.76,
+    "50.0%": 32.39,
+    "61.8%": 30.02,
+    "78.6%": 26.65,
+    "100.0%": 22.35
+  },
+  "trend_strength": "多头",
+  "supports": [
+    22.71,
+    28.59,
+    28.85
+  ],
+  "resistances": [
+    30.52,
+    40.43
+  ],
+  "risk_flags": [],
+  "resonance": {
+    "bullish": 3,
+    "neutral": 2,
+    "bearish": 1,
+    "overall": "mildly_bullish"
+  }
+}

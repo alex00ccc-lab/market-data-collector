@@ -13,21 +13,21 @@
   },
   "^KS11": {
     "name": "韩国KOSPI指数",
-    "price": 7927.2,
+    "price": 8004.95,
     "date": "2026-06-09",
-    "change_pct": 5.92
+    "change_pct": 6.95
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 93.5,
+    "price": 93.44,
     "date": "2026-06-09",
-    "change_pct": -0.8
+    "change_pct": -0.86
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 99.96,
+    "price": 99.93,
     "date": "2026-06-09",
-    "change_pct": -0.08
+    "change_pct": -0.12
   },
   "^HSI": {
     "name": "恒生指数",

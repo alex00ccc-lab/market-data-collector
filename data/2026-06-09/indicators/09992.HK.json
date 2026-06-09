@@ -1,0 +1,73 @@
+{
+  "symbol": "09992.HK",
+  "date": "2026-06-09",
+  "close": 171.0,
+  "currency": "",
+  "ma": {
+    "ma5": 174.94,
+    "ma10": 172.26,
+    "ma20": 162.8,
+    "ma60": 165.57,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 72.0,
+    "signal": "overbought"
+  },
+  "macd": {
+    "diff": 3.9266,
+    "dea": 2.1201,
+    "histogram": 3.613,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 48.8,
+    "d": 49.6,
+    "j": 47.2,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 185.3,
+    "middle": 162.8,
+    "lower": 140.3,
+    "bandwidth": 27.6,
+    "position": 0.68,
+    "signal": "above_middle"
+  },
+  "volume": {
+    "ratio": 0.3,
+    "signal": "shrink"
+  },
+  "fibonacci": {
+    "high": 220.89,
+    "low": 137.66,
+    "0.0%": 220.89,
+    "23.6%": 201.24,
+    "38.2%": 189.09,
+    "50.0%": 179.27,
+    "61.8%": 169.45,
+    "78.6%": 155.47,
+    "100.0%": 137.66
+  },
+  "trend_strength": "震荡",
+  "supports": [
+    139.33,
+    149.9,
+    150.53
+  ],
+  "resistances": [
+    161.93,
+    165.17,
+    179.6
+  ],
+  "risk_flags": [
+    "RSI超买",
+    "缩量警示"
+  ],
+  "resonance": {
+    "bullish": 2,
+    "neutral": 2,
+    "bearish": 2,
+    "overall": "neutral"
+  }
+}
