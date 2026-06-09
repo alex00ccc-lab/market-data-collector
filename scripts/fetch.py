@@ -48,6 +48,15 @@ MARKET_CLOSE = {
 EM_MARKET = {"A": "1", "HK": "116"}
 # yfinance symbol suffix
 YF_SUFFIX = {"A": ".SS", "HK": ".HK", "US": ""}
+# Symbol mapping for yfinance compatibility
+YF_SYMBOL_MAP = {
+    "09992.HK": "9992.HK",
+    "09992HK": "9992.HK",
+    "00189.HK": "0189.HK",
+    "160644": None,  # Fund ETF, yfinance doesn't support — skip yfinance fallback
+}
+# Currency per market
+MARKET_CURRENCY = {"A": "CNY", "HK": "HKD", "US": "USD"}
 
 _rate_limiter = RateLimiter(min_interval=0.5)  # min 500ms between API calls
 
@@ -382,16 +391,19 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
             kline = fetch_efinance_kline(sym, market)
             # Fallback: yfinance for HK stocks (efinance may block non-CN IPs)
             if not kline and market == "HK":
-                yf_sym = sym.replace("HK", ".HK")
-                kline = fetch_yfinance_history(yf_sym, period="3mo")
-                if kline:
-                    logger.info("  %s: yfinance fallback OK (%d bars)", sym, len(kline))
+                # Use symbol map or auto-convert
+                yf_sym = YF_SYMBOL_MAP.get(sym, sym.replace("HK", ".HK"))
+                if yf_sym:  # None means "skip yfinance for this symbol"
+                    kline = fetch_yfinance_history(yf_sym, period="3mo")
+                    if kline:
+                        logger.info("  %s: yfinance fallback OK (%d bars via %s)", sym, len(kline), yf_sym)
             # Fallback: yfinance for A-shares
             if not kline and market == "A":
-                yf_sym = sym  # yfinance uses .SZ/.SS natively
-                kline = fetch_yfinance_history(yf_sym, period="3mo")
-                if kline:
-                    logger.info("  %s: yfinance fallback OK (%d bars)", sym, len(kline))
+                yf_sym = YF_SYMBOL_MAP.get(sym, sym)
+                if yf_sym:  # None means skip
+                    kline = fetch_yfinance_history(yf_sym, period="3mo")
+                    if kline:
+                        logger.info("  %s: yfinance fallback OK (%d bars)", sym, len(kline))
         elif market == "US":
             kline = fetch_yfinance_history(sym, period="3mo")
 
@@ -418,10 +430,13 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
             if market in ("A", "HK"):
                 kline = fetch_efinance_kline(sym, market)
                 if not kline and market == "HK":
-                    yf_sym = sym.replace("HK", ".HK")
-                    kline = fetch_yfinance_history(yf_sym, period="3mo")
+                    yf_sym = YF_SYMBOL_MAP.get(sym, sym.replace("HK", ".HK"))
+                    if yf_sym:
+                        kline = fetch_yfinance_history(yf_sym, period="3mo")
                 if not kline and market == "A":
-                    kline = fetch_yfinance_history(sym, period="3mo")
+                    yf_sym = YF_SYMBOL_MAP.get(sym, sym)
+                    if yf_sym:
+                        kline = fetch_yfinance_history(yf_sym, period="3mo")
             elif market == "US":
                 kline = fetch_yfinance_history(sym, period="3mo")
 
@@ -495,9 +510,40 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
         errors.append("sector_flow: fetch failed")
 
     # ------------------------------------------------------------------
-    # Summary
+    # Write _fetch_log.json
     # ------------------------------------------------------------------
     n_success = len([k for k in fetched if not k.startswith("_")])
+    log_data = {
+        "run_at": datetime.now(TZ_BEIJING).isoformat(),
+        "date": date_str,
+        "symbols_attempted": len(holdings) + len(watchlist),
+        "symbols_succeeded": n_success,
+        "symbols_failed": [e.split(":")[0].strip() for e in errors],
+        "errors": errors,
+        "skipped": skipped,
+    }
+    log_path = macro_dir / "_fetch_log.json"
+    log_path.write_text(json.dumps(log_data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # Write fallback skeletons for failed symbols (prevents Obsidian render errors)
+    for item in holdings + watchlist:
+        sym = item["symbol"]
+        if sym not in fetched:
+            skeleton_path = quotes_dir / f"{sym}.json"
+            if not skeleton_path.exists():
+                skeleton_data = {
+                    "symbol": sym,
+                    "error": "fetch_failed",
+                    "market": item.get("market", ""),
+                    "close": None,
+                    "message": f"Data unavailable for {date_str}",
+                }
+                skeleton_path.write_text(
+                    json.dumps([skeleton_data], ensure_ascii=False),
+                    encoding="utf-8",
+                )
+                logger.info("  %s: fallback skeleton written", sym)
+
     logger.info(
         "Fetch complete: %d/%d symbols OK, %d errors, %d skipped",
         n_success, len(holdings) + len(watchlist), len(errors), len(skipped),

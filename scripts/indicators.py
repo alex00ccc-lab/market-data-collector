@@ -78,10 +78,11 @@ class IndicatorResult:
     overall: str = "neutral"           # bullish / mildly_bullish / neutral / mildly_bearish / bearish
 
     def to_dict(self) -> dict:
-        return {
+        d = {
             "symbol": self.symbol,
             "date": self.date,
             "close": self.close,
+            "currency": getattr(self, "currency", ""),
             "ma": {"ma5": self.ma5, "ma10": self.ma10, "ma20": self.ma20, "ma60": self.ma60,
                    "alignment": self.ma_alignment},
             "rsi": {"value": self.rsi14, "signal": self.rsi_signal},
@@ -95,6 +96,7 @@ class IndicatorResult:
             "trend_strength": self.trend_strength,
             "supports": self.supports,
             "resistances": self.resistances,
+            "risk_flags": getattr(self, "_risk_flags", []),
             "resonance": {
                 "bullish": self.bullish_count,
                 "neutral": self.neutral_count,
@@ -102,6 +104,10 @@ class IndicatorResult:
                 "overall": self.overall,
             },
         }
+        # Remove empty risk_flags to keep JSON clean
+        if not d["risk_flags"]:
+            d["risk_flags"] = []
+        return d
 
 
 # ============================================================================
@@ -408,7 +414,7 @@ def compute_all(symbol: str, kline_data: list[dict]) -> IndicatorResult:
     result.supports, result.resistances = calc_support_resistance(highs, lows, closes)
 
     # Resonance: count bullish/neutral/bearish across 6 indicators
-    indicators = [
+    raw_signals = [
         (ma["alignment"], "bullish" if ma["alignment"] == "bullish" else ("bearish" if ma["alignment"] == "bearish" else "neutral")),
         (macd["signal"], "bullish" if macd["signal"] == "golden_cross" else ("bearish" if macd["signal"] == "death_cross" else "neutral")),
         (kdj["signal"], "bullish" if kdj["signal"] in ("oversold", "bullish") else ("bearish" if kdj["signal"] in ("overbought", "bearish") else "neutral")),
@@ -417,9 +423,27 @@ def compute_all(symbol: str, kline_data: list[dict]) -> IndicatorResult:
         (bb["signal"], "bullish" if bb["signal"] == "lower_band" else ("bearish" if bb["signal"] == "upper_band" else "neutral")),
     ]
 
-    result.bullish_count = sum(1 for _, s in indicators if s == "bullish")
-    result.neutral_count = sum(1 for _, s in indicators if s == "neutral")
-    result.bearish_count = sum(1 for _, s in indicators if s == "bearish")
+    result.bullish_count = sum(1 for _, s in raw_signals if s == "bullish")
+    result.neutral_count = sum(1 for _, s in raw_signals if s == "neutral")
+    result.bearish_count = sum(1 for _, s in raw_signals if s == "bearish")
+
+    # Risk flags (technical only — no position data)
+    risk_flags = []
+    if rsi["value"] > 70:
+        risk_flags.append("RSI超买")
+    elif rsi["value"] < 30:
+        risk_flags.append("RSI超卖")
+    if closes[-1] < (rsi.get("_ma20", ma["ma20"])):
+        risk_flags.append("跌破MA20")
+    if vol["signal"] in ("surge_down",):
+        risk_flags.append("放量下跌")
+    elif vol["signal"] == "shrink":
+        risk_flags.append("缩量警示")
+    if bb["position"] > 0.95:
+        risk_flags.append("触及布林上轨")
+    elif bb["position"] < 0.05:
+        risk_flags.append("触及布林下轨")
+    result._risk_flags = risk_flags  # store for to_dict()
 
     # Overall
     b = result.bullish_count
