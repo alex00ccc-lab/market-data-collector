@@ -1,7 +1,7 @@
 {
   "symbol": "300593.SZ",
   "date": "2026-06-09",
-  "close": 37.63999938964844,
+  "close": 37.64,
   "currency": "",
   "ma": {
     "ma5": 34.82,
@@ -15,9 +15,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 1.5384,
-    "dea": 2.0917,
-    "histogram": -1.1066,
+    "diff": 1.5207,
+    "dea": 2.0671,
+    "histogram": -1.0928,
     "signal": "death_cross"
   },
   "kdj": {
@@ -57,6 +57,7 @@
   ],
   "resistances": [
     30.52,
+    33.95,
     40.43
   ],
   "risk_flags": [],
