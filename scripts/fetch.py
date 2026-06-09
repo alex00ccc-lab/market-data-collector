@@ -376,10 +376,22 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
             skipped.append(f"{sym} ({market}: market closed or not in fetch window)")
             continue
 
-        # Fetch kline
+        # Fetch kline — efinance first, yfinance fallback for A/HK
         kline = None
         if market in ("A", "HK"):
             kline = fetch_efinance_kline(sym, market)
+            # Fallback: yfinance for HK stocks (efinance may block non-CN IPs)
+            if not kline and market == "HK":
+                yf_sym = sym.replace("HK", ".HK")
+                kline = fetch_yfinance_history(yf_sym, period="3mo")
+                if kline:
+                    logger.info("  %s: yfinance fallback OK (%d bars)", sym, len(kline))
+            # Fallback: yfinance for A-shares
+            if not kline and market == "A":
+                yf_sym = sym  # yfinance uses .SZ/.SS natively
+                kline = fetch_yfinance_history(yf_sym, period="3mo")
+                if kline:
+                    logger.info("  %s: yfinance fallback OK (%d bars)", sym, len(kline))
         elif market == "US":
             kline = fetch_yfinance_history(sym, period="3mo")
 
@@ -405,6 +417,11 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
 
             if market in ("A", "HK"):
                 kline = fetch_efinance_kline(sym, market)
+                if not kline and market == "HK":
+                    yf_sym = sym.replace("HK", ".HK")
+                    kline = fetch_yfinance_history(yf_sym, period="3mo")
+                if not kline and market == "A":
+                    kline = fetch_yfinance_history(sym, period="3mo")
             elif market == "US":
                 kline = fetch_yfinance_history(sym, period="3mo")
 

@@ -7,6 +7,6 @@
     {"symbol": "BZ=F",    "market": "US", "name": "布伦特原油期货",      "source": "yfinance"},
     {"symbol": "DX-Y.NYB","market": "US", "name": "美元指数DXY",         "source": "yfinance"},
     {"symbol": "000001.SH","market": "A", "name": "上证指数",            "source": "efinance"},
-    {"symbol": "HSI",     "market": "HK", "name": "恒生指数",            "source": "yfinance"}
+    {"symbol": "^HSI",     "market": "HK", "name": "恒生指数",            "source": "yfinance"}
   ]
 }
