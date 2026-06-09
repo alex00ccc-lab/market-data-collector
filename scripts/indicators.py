@@ -33,7 +33,7 @@ logger = logging.getLogger("indicators")
 class IndicatorResult:
     """Complete technical indicator snapshot for one symbol."""
     symbol: str
-    date: str                          # Latest data date
+    date: str = ""                     # Latest data date
     close: float = 0.0
     # MA
     ma5: float = 0.0
