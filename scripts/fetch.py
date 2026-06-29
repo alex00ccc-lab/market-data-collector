@@ -507,7 +507,7 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
         )
         fetched["_sectors"] = str(sector_path)
     else:
-        errors.append("sector_flow: fetch failed")
+        logger.warning("sector_flow: fetch failed (non-critical, continuing)")
 
     # ------------------------------------------------------------------
     # Write _fetch_log.json

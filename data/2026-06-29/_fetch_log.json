@@ -1,0 +1,33 @@
+{
+  "run_at": "2026-06-29T16:18:54.554073+08:00",
+  "date": "2026-06-29",
+  "symbols_attempted": 15,
+  "symbols_succeeded": 4,
+  "symbols_failed": [
+    "160644",
+    "0189HK",
+    "BB",
+    "DPZ",
+    "IGV",
+    "MSFT",
+    "NOK",
+    "NVDA",
+    "SGOV",
+    "TSLA",
+    "SIVE"
+  ],
+  "errors": [
+    "160644: kline fetch failed",
+    "0189HK: kline fetch failed",
+    "BB: kline fetch failed",
+    "DPZ: kline fetch failed",
+    "IGV: kline fetch failed",
+    "MSFT: kline fetch failed",
+    "NOK: kline fetch failed",
+    "NVDA: kline fetch failed",
+    "SGOV: kline fetch failed",
+    "TSLA: kline fetch failed",
+    "SIVE: kline fetch failed"
+  ],
+  "skipped": []
+}
