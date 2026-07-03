@@ -52,6 +52,25 @@ HK_HOLIDAYS_2026 = {
     "2026-12-25",   # Christmas
 }
 
+# Japan (TSE) market holidays 2026
+JP_HOLIDAYS_2026 = {
+    "2026-01-01", "2026-01-02",   # New Year's
+    "2026-01-12",                  # Coming of Age Day
+    "2026-02-11",                  # National Foundation Day
+    "2026-02-23",                  # Emperor's Birthday
+    "2026-03-20",                  # Vernal Equinox
+    "2026-04-29",                  # Showa Day
+    "2026-05-03", "2026-05-04", "2026-05-05", "2026-05-06",  # Golden Week
+    "2026-07-20",                  # Marine Day
+    "2026-08-11",                  # Mountain Day
+    "2026-09-21",                  # Respect for the Aged Day
+    "2026-09-23",                  # Autumnal Equinox
+    "2026-10-12",                  # Sports Day
+    "2026-11-03",                  # Culture Day
+    "2026-11-23",                  # Labor Thanksgiving
+    "2026-12-31",                  # New Year's Eve (half day)
+}
+
 
 class TradingCalendar:
     """Check if a given date is a trading day for a specific market."""
@@ -60,6 +79,7 @@ class TradingCalendar:
         self._cn_holidays = CN_HOLIDAYS_2026
         self._us_holidays = US_HOLIDAYS_2026
         self._hk_holidays = HK_HOLIDAYS_2026
+        self._jp_holidays = JP_HOLIDAYS_2026
 
     def is_trading_day(self, market: str, d: Optional[date] = None) -> bool:
         """Check if `d` is a trading day for the market."""
@@ -67,10 +87,15 @@ class TradingCalendar:
             d = datetime.now(TZ_BEIJING).date()
 
         # Weekend check
-        if market in ("A", "HK"):
+        if market in ("A", "HK", "JP"):
             if d.weekday() >= 5:  # Sat/Sun
                 return False
-            holidays = self._cn_holidays if market == "A" else self._hk_holidays
+            if market == "A":
+                holidays = self._cn_holidays
+            elif market == "HK":
+                holidays = self._hk_holidays
+            else:
+                holidays = self._jp_holidays
         elif market == "US":
             if d.weekday() >= 5:
                 return False
@@ -121,7 +146,7 @@ class TradingCalendar:
         if now is None:
             now = datetime.now(TZ_BEIJING)
 
-        close_hour = {"A": 15, "HK": 16, "US": 5}.get(market, 15)
+        close_hour = {"A": 15, "HK": 16, "US": 5, "JP": 14}.get(market, 15)  # JP: 15:00 JST = 14:00 BJT
         current_hour = now.hour + now.minute / 60.0
 
         if current_hour < close_hour:

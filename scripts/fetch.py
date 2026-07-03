@@ -42,12 +42,13 @@ MARKET_CLOSE = {
     "A": 15,   # 15:00
     "HK": 16,  # 16:00
     "US": 5,   # 05:00 next day (16:00 EST)
+    "JP": 14,  # 14:00 (15:00 JST)
 }
 
 # efinance market code mapping
 EM_MARKET = {"A": "1", "HK": "116"}
 # yfinance symbol suffix
-YF_SUFFIX = {"A": ".SS", "HK": ".HK", "US": ""}
+YF_SUFFIX = {"A": ".SS", "HK": ".HK", "US": "", "JP": ".T"}
 # Symbol mapping for yfinance compatibility
 YF_SYMBOL_MAP = {
     "09992.HK": "9992.HK",
@@ -56,7 +57,7 @@ YF_SYMBOL_MAP = {
     "160644": None,  # Fund ETF, yfinance doesn't support — skip yfinance fallback
 }
 # Currency per market
-MARKET_CURRENCY = {"A": "CNY", "HK": "HKD", "US": "USD"}
+MARKET_CURRENCY = {"A": "CNY", "HK": "HKD", "US": "USD", "JP": "JPY"}
 
 _rate_limiter = RateLimiter(min_interval=0.5)  # min 500ms between API calls
 
@@ -406,6 +407,12 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
                         logger.info("  %s: yfinance fallback OK (%d bars)", sym, len(kline))
         elif market == "US":
             kline = fetch_yfinance_history(sym, period="3mo")
+        elif market == "JP":
+            # Japanese stocks via yfinance with .T suffix
+            yf_sym = sym if sym.endswith(".T") else f"{sym}.T"
+            kline = fetch_yfinance_history(yf_sym, period="3mo")
+            if kline:
+                logger.info("  %s: yfinance OK (%d bars via %s)", sym, len(kline), yf_sym)
 
         if kline:
             out_path = quotes_dir / f"{sym}.json"
@@ -439,6 +446,9 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
                         kline = fetch_yfinance_history(yf_sym, period="3mo")
             elif market == "US":
                 kline = fetch_yfinance_history(sym, period="3mo")
+            elif market == "JP":
+                yf_sym = sym if sym.endswith(".T") else f"{sym}.T"
+                kline = fetch_yfinance_history(yf_sym, period="3mo")
 
             if kline:
                 out_path = quotes_dir / f"{sym}.json"
