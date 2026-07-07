@@ -346,14 +346,91 @@ def fetch_yfinance_fundamentals(symbol: str) -> Optional[dict]:
 
 
 # ============================================================================
+# Stooq adapter (simple CSV downloader) — free, no API key
+# ============================================================================
+
+@retry(max_attempts=2, delay=1.0)
+def fetch_stooq_history(symbol: str) -> Optional[list[dict]]:
+    """Fetch daily OHLCV from Stooq CSV endpoint.
+
+    Stooq uses lowercase symbols and US tickers typically end with `.us`.
+    This function will try some sensible mappings and return a list of
+    dicts with keys: date, open, high, low, close, volume, source.
+    """
+    import urllib.request
+
+    # Build candidate stooq symbol forms to try
+    cand = []
+    s = symbol.strip()
+    if "." in s:
+        base, suf = s.split(".", 1)
+        # try with common forms
+        cand.append(f"{base.lower()}.{suf.lower()}")
+        cand.append(base.lower())
+    else:
+        # no suffix — assume US ticker
+        cand.append(f"{s.lower()}.us")
+        cand.append(s.lower())
+
+    headers = {"User-Agent": "Mozilla/5.0"}
+
+    for c in cand:
+        url = f"https://stooq.com/q/d/l/?s={c}&i=d"
+        _rate_limiter.wait()
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                text = resp.read().decode("utf-8-sig")
+        except Exception as e:
+            logger.debug("stooq(%s) request failed: %s", c, str(e)[:80])
+            continue
+
+        # Parse CSV
+        lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+        if not lines or lines[0].lower().startswith("no data"):
+            continue
+        # Expect header: Date,Open,High,Low,Close,Volume
+        rows = []
+        for ln in lines[1:]:
+            parts = ln.split(",")
+            if len(parts) < 6:
+                continue
+            try:
+                dt = parts[0]
+                open_p = float(parts[1])
+                high_p = float(parts[2])
+                low_p = float(parts[3])
+                close_p = float(parts[4])
+                vol = int(float(parts[5])) if parts[5] not in ("","-") else 0
+            except Exception:
+                continue
+            rows.append({
+                "date": dt,
+                "open": open_p,
+                "high": high_p,
+                "low": low_p,
+                "close": close_p,
+                "volume": vol,
+                "source": "stooq",
+            })
+
+        if rows:
+            logger.info("stooq(%s) OK — %d rows", c, len(rows))
+            return rows
+
+    return None
+
+
+# ============================================================================
 # Main orchestration
 # ============================================================================
 
-def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
+def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, Any]:
     """Fetch all data for today. Returns summary dict.
 
     Args:
         today: Target date (default: today Beijing time).
+        force: Force fetch even if the calendar suggests skipping.
 
     Returns:
         {"quotes": {symbol: path}, "macro": path, "sectors": path, "errors": [...]}
@@ -370,6 +447,7 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
     errors: list[str] = []
     fetched: dict[str, str] = {}
     skipped: list[str] = []
+    per_symbol: dict[str, dict[str, Any]] = {}
 
     # ------------------------------------------------------------------
     # 1. Holdings symbols — OHLCV
@@ -382,7 +460,7 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
         market = item.get("market", "A")
 
         # Skip if market closed and no real-time needed for daily fetch
-        if not cal.should_fetch(market, today):
+        if not force and not cal.should_fetch(market, today):
             skipped.append(f"{sym} ({market}: market closed or not in fetch window)")
             continue
 
@@ -407,6 +485,23 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
                         logger.info("  %s: yfinance fallback OK (%d bars)", sym, len(kline))
         elif market == "US":
             kline = fetch_yfinance_history(sym, period="3mo")
+            # realtime fallback for US if history empty
+            if not kline:
+                realtime = fetch_yfinance_realtime(sym)
+                if realtime:
+                    now_ts = datetime.now(TZ_BEIJING).isoformat()
+                    kline = [{
+                        "date": realtime.get("trade_date", now_ts[:10]),
+                        "close": realtime.get("price"),
+                        "open": realtime.get("open", 0),
+                        "high": realtime.get("day_high", 0),
+                        "low": realtime.get("day_low", 0),
+                        "volume": realtime.get("volume", 0),
+                        "adj": realtime.get("adj", "normal"),
+                        "source": "realtime-fallback",
+                        "timestamp": realtime.get("timestamp", now_ts),
+                    }]
+                    logger.info("  %s: realtime fallback OK (price=%s)", sym, kline[0]["close"])
         elif market == "JP":
             # Japanese stocks via yfinance with .T suffix
             yf_sym = sym if sym.endswith(".T") else f"{sym}.T"
@@ -416,15 +511,69 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
 
         if kline:
             out_path = quotes_dir / f"{sym}.json"
+            # attach fetched_at for traceability
+            fetched_at = datetime.now(TZ_BEIJING).isoformat()
+            # if kline is a list of dicts, ensure each has source and (optionally) timestamp
+            try:
+                for e in kline:
+                    if isinstance(e, dict):
+                        if "source" not in e:
+                            e["source"] = e.get("source", "yfinance")
+                        if "timestamp" not in e:
+                            e["timestamp"] = fetched_at
+            except Exception:
+                pass
+
             out_path.write_text(
                 json.dumps(kline, ensure_ascii=False, default=str),
                 encoding="utf-8",
             )
             fetched[sym] = str(out_path)
-            logger.info("  %s: %d bars saved", sym, len(kline))
+            source = kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "unknown"
+            per_symbol[sym] = {"status": "ok", "source": source, "fetched_at": fetched_at, "path": str(out_path)}
+            logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), source)
         else:
-            errors.append(f"{sym}: kline fetch failed")
-            logger.warning("  %s: FAILED", sym)
+            # Attempt configured fallback sources (e.g., Stooq) if yfinance failed
+            cfg = load_config("sources")
+            priority = cfg.get("priority", []) if isinstance(cfg, dict) else []
+            tried_alt = False
+            if "stooq" in priority:
+                try:
+                    # prefer yf_sym when available in this scope
+                    yf_try = locals().get('yf_sym') or sym
+                    stooq_k = fetch_stooq_history(yf_try)
+                    tried_alt = True
+                    if stooq_k:
+                        kline = stooq_k
+                        logger.info("  %s: stooq fallback OK (%d bars)", sym, len(kline))
+                except Exception:
+                    logger.debug("stooq fallback failed for %s", sym)
+
+            if kline:
+                out_path = quotes_dir / f"{sym}.json"
+                fetched_at = datetime.now(TZ_BEIJING).isoformat()
+                try:
+                    for e in kline:
+                        if isinstance(e, dict):
+                            if "source" not in e:
+                                e["source"] = e.get("source", "stooq")
+                            if "timestamp" not in e:
+                                e["timestamp"] = fetched_at
+                except Exception:
+                    pass
+
+                out_path.write_text(
+                    json.dumps(kline, ensure_ascii=False, default=str),
+                    encoding="utf-8",
+                )
+                fetched[sym] = str(out_path)
+                per_symbol[sym] = {"status": "ok", "source": kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "stooq", "fetched_at": fetched_at, "path": str(out_path)}
+                logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), per_symbol[sym]["source"])
+            else:
+                err_msg = f"{sym}: kline fetch failed"
+                errors.append(err_msg)
+                per_symbol[sym] = {"status": "failed", "error": err_msg}
+                logger.warning("  %s: FAILED", sym)
 
     # Also fetch watchlist symbols
     watchlist = load_symbols("watchlist")
@@ -452,13 +601,26 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
 
             if kline:
                 out_path = quotes_dir / f"{sym}.json"
+                fetched_at = datetime.now(TZ_BEIJING).isoformat()
+                try:
+                    for e in kline:
+                        if isinstance(e, dict):
+                            if "source" not in e:
+                                e["source"] = e.get("source", "yfinance")
+                            if "timestamp" not in e:
+                                e["timestamp"] = fetched_at
+                except Exception:
+                    pass
                 out_path.write_text(
                     json.dumps(kline, ensure_ascii=False, default=str),
                     encoding="utf-8",
                 )
                 fetched[sym] = str(out_path)
+                per_symbol[sym] = {"status": "ok", "source": kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "yfinance", "fetched_at": fetched_at, "path": str(out_path)}
             else:
-                errors.append(f"{sym} (watchlist): kline fetch failed")
+                err_msg = f"{sym} (watchlist): kline fetch failed"
+                errors.append(err_msg)
+                per_symbol[sym] = {"status": "failed", "error": err_msg}
 
     # ------------------------------------------------------------------
     # 2. Macro indicators
@@ -531,6 +693,7 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
         "symbols_failed": [e.split(":")[0].strip() for e in errors],
         "errors": errors,
         "skipped": skipped,
+        "per_symbol": per_symbol,
     }
     log_path = macro_dir / "_fetch_log.json"
     log_path.write_text(json.dumps(log_data, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -541,15 +704,23 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
         if sym not in fetched:
             skeleton_path = quotes_dir / f"{sym}.json"
             if not skeleton_path.exists():
-                skeleton_data = {
+                # Write a single-bar OHLCV skeleton so downstream indicator
+                # computation can safely read `date` and short-length series.
+                skeleton_bar = {
                     "symbol": sym,
-                    "error": "fetch_failed",
+                    "date": date_str,
+                    "open": 0.0,
+                    "high": 0.0,
+                    "low": 0.0,
+                    "close": 0.0,
+                    "volume": 0,
                     "market": item.get("market", ""),
-                    "close": None,
+                    "source": "fallback",
                     "message": f"Data unavailable for {date_str}",
+                    "fetched_at": datetime.now(TZ_BEIJING).isoformat(),
                 }
                 skeleton_path.write_text(
-                    json.dumps([skeleton_data], ensure_ascii=False),
+                    json.dumps([skeleton_bar], ensure_ascii=False),
                     encoding="utf-8",
                 )
                 logger.info("  %s: fallback skeleton written", sym)
@@ -582,7 +753,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     target = date.fromisoformat(args.date) if args.date else None
-    result = fetch_all(target)
+    result = fetch_all(target, force=args.force)
 
     print(json.dumps({k: v for k, v in result.items() if k != "files"}, ensure_ascii=False, indent=2))
 

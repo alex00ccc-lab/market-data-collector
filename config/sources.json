@@ -1,0 +1,6 @@
+{
+  "priority": ["yfinance", "stooq"],
+  "stooq": {
+    "enabled": true
+  }
+}
