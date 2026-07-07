@@ -1,27 +1,82 @@
 {
-  "_description": "当前持仓标的清单。添加/删除标的即可，脚本自动识别市场。",
-  "_format": {
-    "symbol": "股票代码（A股用code.SH/code.SZ，港股用code.HK，美股用ticker，日股用code.T）",
-    "market": "A / HK / US / JP",
-    "name": "可选，标的名称",
-    "sector": "可选，赛道标签"
-  },
   "symbols": [
-    {"symbol": "002008.SZ", "market": "A", "name": "大族激光", "sector": "硬科技"},
-    {"symbol": "300408.SZ", "market": "A", "name": "三环集团", "sector": "MLCC"},
-    {"symbol": "300593.SZ", "market": "A", "name": "新雷能", "sector": "军工电源"},
-    {"symbol": "160644",    "market": "A", "name": "互联网QD", "sector": "互联网"},
-    {"symbol": "0189HK",    "market": "HK", "name": "东岳集团", "sector": "周期"},
-    {"symbol": "09992.HK",  "market": "HK", "name": "泡泡玛特", "sector": "消费"},
-    {"symbol": "BB",        "market": "US", "name": "黑莓", "sector": "科技"},
-    {"symbol": "DPZ",       "market": "US", "name": "达美乐披萨", "sector": "消费"},
-    {"symbol": "IGV",       "market": "US", "name": "北美科技软件", "sector": "科技"},
-    {"symbol": "MSFT",      "market": "US", "name": "微软", "sector": "科技"},
-    {"symbol": "NOK",       "market": "US", "name": "诺基亚", "sector": "通信"},
-    {"symbol": "NVDA",      "market": "US", "name": "英伟达", "sector": "半导体"},
-    {"symbol": "SGOV",      "market": "US", "name": "美债(1-3月)", "sector": "债券"},
-    {"symbol": "TSLA",      "market": "US", "name": "特斯拉", "sector": "新能源"},
-    {"symbol": "SIVE",      "market": "US", "name": "SIVE", "sector": "其他"},
-    {"symbol": "6981.T",    "market": "JP", "name": "村田製作所", "sector": "电子元件"}
+    {
+      "symbol": "300476.SZ",
+      "market": "A",
+      "name": "胜宏科技",
+      "sector": ""
+    },
+    {
+      "symbol": "159316",
+      "market": "A",
+      "name": "港股创新药ETF易方达",
+      "sector": ""
+    },
+    {
+      "symbol": "300136.SZ",
+      "market": "A",
+      "name": "信维通信",
+      "sector": ""
+    },
+    {
+      "symbol": "002407.SH",
+      "market": "A",
+      "name": "多氟多",
+      "sector": ""
+    },
+    {
+      "symbol": "3317.HK",
+      "market": "HK",
+      "name": "迅策科技",
+      "sector": ""
+    },
+    {
+      "symbol": "9992.HK",
+      "market": "HK",
+      "name": "泡泡玛特",
+      "sector": ""
+    },
+    {
+      "symbol": "NOK",
+      "market": "US",
+      "name": "诺基亚",
+      "sector": ""
+    },
+    {
+      "symbol": "ARM",
+      "market": "US",
+      "name": "ARM控股",
+      "sector": ""
+    },
+    {
+      "symbol": "SGOV",
+      "market": "US",
+      "name": "美债(1-3月)",
+      "sector": ""
+    },
+    {
+      "symbol": "TSLA",
+      "market": "US",
+      "name": "特斯拉",
+      "sector": ""
+    },
+    {
+      "symbol": "SIVE",
+      "market": "US",
+      "name": "SIVE",
+      "sector": ""
+    },
+    {
+      "symbol": "LRCX",
+      "market": "US",
+      "name": "泛林集团",
+      "sector": ""
+    },
+    {
+      "symbol": "6981",
+      "market": "JP",
+      "name": "村田制作所",
+      "sector": ""
+    }
   ]
 }
