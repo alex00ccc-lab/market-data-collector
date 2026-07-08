@@ -136,13 +136,24 @@ class SourceManager:
         self._adapters[adapter.name] = adapter
 
     def get_priority(self, market: str) -> list[str]:
-        """Read priority order from config/sources.json, filtered to market."""
+        """Read priority order from config/sources.json, filtered to market.
+
+        If ``market_overrides`` has a market-specific list, that takes precedence
+        over the global ``priority`` list (e.g. A-shares use efinance first).
+        Each candidate is then filtered to adapters that actually support the market.
+        """
         cfg = self._load_sources_config()
-        priority = cfg.get("priority", ["yfinance", "stooq"])
-        # Filter to adapters that support this market
+        priority = (
+            cfg.get("market_overrides", {}).get(market)
+            or cfg.get("priority", ["yfinance", "stooq"])
+        )
+        # Filter to adapters that support this market AND are enabled
+        adapters_cfg = cfg.get("adapters", {})
         return [
             name for name in priority
-            if name in self._adapters and self._adapters[name].supports_market(market)
+            if name in self._adapters
+            and self._adapters[name].supports_market(market)
+            and adapters_cfg.get(name, {}).get("enabled", True)
         ]
 
     def fetch_with_fallback(
