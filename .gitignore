@@ -18,3 +18,6 @@ Thumbs.db
 
 # Cache (transient)
 *.pyc
+
+# Runtime data (generated daily)
+data/

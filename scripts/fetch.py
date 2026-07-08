@@ -511,9 +511,8 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
 
         if kline:
             out_path = quotes_dir / f"{sym}.json"
-            # attach fetched_at for traceability
             fetched_at = datetime.now(TZ_BEIJING).isoformat()
-            # if kline is a list of dicts, ensure each has source and (optionally) timestamp
+            quote_date = None
             try:
                 for e in kline:
                     if isinstance(e, dict):
@@ -521,6 +520,8 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
                             e["source"] = e.get("source", "yfinance")
                         if "timestamp" not in e:
                             e["timestamp"] = fetched_at
+                        if quote_date is None and e.get("date"):
+                            quote_date = e.get("date")
             except Exception:
                 pass
 
@@ -530,7 +531,13 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
             )
             fetched[sym] = str(out_path)
             source = kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "unknown"
-            per_symbol[sym] = {"status": "ok", "source": source, "fetched_at": fetched_at, "path": str(out_path)}
+            per_symbol[sym] = {
+                "status": "ok",
+                "source": source,
+                "fetched_at": fetched_at,
+                "quote_date": quote_date or date_str,
+                "path": str(out_path),
+            }
             logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), source)
         else:
             # Attempt configured fallback sources (e.g., Stooq) if yfinance failed
@@ -552,6 +559,7 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
             if kline:
                 out_path = quotes_dir / f"{sym}.json"
                 fetched_at = datetime.now(TZ_BEIJING).isoformat()
+                quote_date = None
                 try:
                     for e in kline:
                         if isinstance(e, dict):
@@ -559,6 +567,8 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
                                 e["source"] = e.get("source", "stooq")
                             if "timestamp" not in e:
                                 e["timestamp"] = fetched_at
+                            if quote_date is None and e.get("date"):
+                                quote_date = e.get("date")
                 except Exception:
                     pass
 
@@ -567,7 +577,13 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
                     encoding="utf-8",
                 )
                 fetched[sym] = str(out_path)
-                per_symbol[sym] = {"status": "ok", "source": kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "stooq", "fetched_at": fetched_at, "path": str(out_path)}
+                per_symbol[sym] = {
+                    "status": "ok",
+                    "source": kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "stooq",
+                    "fetched_at": fetched_at,
+                    "quote_date": quote_date or date_str,
+                    "path": str(out_path),
+                }
                 logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), per_symbol[sym]["source"])
             else:
                 err_msg = f"{sym}: kline fetch failed"
@@ -615,8 +631,21 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
                     json.dumps(kline, ensure_ascii=False, default=str),
                     encoding="utf-8",
                 )
+                quote_date = None
+                try:
+                    for e in kline:
+                        if isinstance(e, dict) and quote_date is None:
+                            quote_date = e.get("date")
+                except Exception:
+                    pass
                 fetched[sym] = str(out_path)
-                per_symbol[sym] = {"status": "ok", "source": kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "yfinance", "fetched_at": fetched_at, "path": str(out_path)}
+                per_symbol[sym] = {
+                    "status": "ok",
+                    "source": kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "yfinance",
+                    "fetched_at": fetched_at,
+                    "quote_date": quote_date or date_str,
+                    "path": str(out_path),
+                }
             else:
                 err_msg = f"{sym} (watchlist): kline fetch failed"
                 errors.append(err_msg)
@@ -723,6 +752,13 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
                     json.dumps([skeleton_bar], ensure_ascii=False),
                     encoding="utf-8",
                 )
+                per_symbol[sym] = {
+                    "status": "failed",
+                    "source": "fallback",
+                    "fetched_at": skeleton_bar["fetched_at"],
+                    "quote_date": date_str,
+                    "path": str(skeleton_path),
+                }
                 logger.info("  %s: fallback skeleton written", sym)
 
     logger.info(
