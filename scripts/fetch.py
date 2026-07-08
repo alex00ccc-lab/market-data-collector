@@ -485,64 +485,29 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
     per_symbol: dict[str, dict[str, Any]] = {}
 
     # ------------------------------------------------------------------
-    # 1. Holdings symbols — OHLCV
+    # 1. Holdings + Watchlist symbols — OHLCV via SourceManager
     # ------------------------------------------------------------------
-    holdings = load_symbols("holdings")
-    logger.info("Fetching %d holdings symbols...", len(holdings))
+    from source_manager import SourceManager
+    mgr = SourceManager()
+    mgr.reset_stats()
 
-    for item in holdings:
+    holdings = load_symbols("holdings")
+    watchlist = load_symbols("watchlist")
+    all_symbols = holdings + watchlist
+    logger.info("Fetching %d holdings + %d watchlist symbols via multi-source pipeline...",
+               len(holdings), len(watchlist))
+
+    for item in all_symbols:
         sym = item["symbol"]
         market = item.get("market", "A")
 
-        # Skip if market closed and no real-time needed for daily fetch
+        # Skip if market closed and not forcing
         if not force and not cal.should_fetch(market, today):
             skipped.append(f"{sym} ({market}: market closed or not in fetch window)")
             continue
 
-        # Fetch kline — efinance first, yfinance fallback for A/HK
-        kline = None
-        if market in ("A", "HK"):
-            kline = fetch_efinance_kline(sym, market)
-            # Fallback: yfinance for HK stocks (efinance may block non-CN IPs)
-            if not kline and market == "HK":
-                # Use symbol map or auto-convert
-                yf_sym = YF_SYMBOL_MAP.get(sym, sym.replace("HK", ".HK"))
-                if yf_sym:  # None means "skip yfinance for this symbol"
-                    kline = fetch_yfinance_history(yf_sym, period="3mo")
-                    if kline:
-                        logger.info("  %s: yfinance fallback OK (%d bars via %s)", sym, len(kline), yf_sym)
-            # Fallback: yfinance for A-shares
-            if not kline and market == "A":
-                yf_sym = YF_SYMBOL_MAP.get(sym, sym)
-                if yf_sym:  # None means skip
-                    kline = fetch_yfinance_history(yf_sym, period="3mo")
-                    if kline:
-                        logger.info("  %s: yfinance fallback OK (%d bars)", sym, len(kline))
-        elif market == "US":
-            kline = fetch_yfinance_history(sym, period="3mo")
-            # realtime fallback for US if history empty
-            if not kline:
-                realtime = fetch_yfinance_realtime(sym)
-                if realtime:
-                    now_ts = datetime.now(TZ_BEIJING).isoformat()
-                    kline = [{
-                        "date": realtime.get("trade_date", now_ts[:10]),
-                        "close": realtime.get("price"),
-                        "open": realtime.get("open", 0),
-                        "high": realtime.get("day_high", 0),
-                        "low": realtime.get("day_low", 0),
-                        "volume": realtime.get("volume", 0),
-                        "adj": realtime.get("adj", "normal"),
-                        "source": "realtime-fallback",
-                        "timestamp": realtime.get("timestamp", now_ts),
-                    }]
-                    logger.info("  %s: realtime fallback OK (price=%s)", sym, kline[0]["close"])
-        elif market == "JP":
-            # Japanese stocks via yfinance with .T suffix
-            yf_sym = sym if sym.endswith(".T") else f"{sym}.T"
-            kline = fetch_yfinance_history(yf_sym, period="3mo")
-            if kline:
-                logger.info("  %s: yfinance OK (%d bars via %s)", sym, len(kline), yf_sym)
+        # ═══ Multi-source fetch with automatic fallback ═══
+        kline = mgr.fetch_with_fallback(sym, market)
 
         if kline:
             out_path = quotes_dir / f"{sym}.json"
@@ -575,120 +540,11 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
             }
             logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), source)
         else:
-            # Attempt configured fallback sources (e.g., Stooq) if yfinance failed
-            cfg = load_config("sources")
-            priority = cfg.get("priority", []) if isinstance(cfg, dict) else []
-            tried_alt = False
-            if "stooq" in priority:
-                try:
-                    # prefer yf_sym when available in this scope
-                    yf_try = locals().get('yf_sym') or sym
-                    stooq_k = fetch_stooq_history(yf_try, market=market)
-                    tried_alt = True
-                    if stooq_k:
-                        kline = stooq_k
-                        logger.info("  %s: stooq fallback OK (%d bars)", sym, len(kline))
-                except Exception:
-                    logger.debug("stooq fallback failed for %s", sym)
-
-            if kline:
-                out_path = quotes_dir / f"{sym}.json"
-                fetched_at = datetime.now(TZ_BEIJING).isoformat()
-                quote_date = None
-                try:
-                    for e in kline:
-                        if isinstance(e, dict):
-                            if "source" not in e:
-                                e["source"] = e.get("source", "stooq")
-                            if "timestamp" not in e:
-                                e["timestamp"] = fetched_at
-                            if quote_date is None and e.get("date"):
-                                quote_date = e.get("date")
-                except Exception:
-                    pass
-
-                out_path.write_text(
-                    json.dumps(kline, ensure_ascii=False, default=str),
-                    encoding="utf-8",
-                )
-                fetched[sym] = str(out_path)
-                per_symbol[sym] = {
-                    "status": "ok",
-                    "source": kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "stooq",
-                    "fetched_at": fetched_at,
-                    "quote_date": quote_date or date_str,
-                    "path": str(out_path),
-                }
-                logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), per_symbol[sym]["source"])
-            else:
-                sources_tried = ", ".join(priority) if priority else "yfinance"
-                if tried_alt:
-                    err_msg = f"{sym}: all sources failed (tried: {sources_tried})"
-                else:
-                    err_msg = f"{sym}: kline fetch failed (tried: yfinance)"
-                errors.append(err_msg)
-                per_symbol[sym] = {"status": "failed", "error": err_msg, "sources_tried": sources_tried}
-                logger.warning("  %s: FAILED (tried: %s)", sym, sources_tried)
-
-    # Also fetch watchlist symbols
-    watchlist = load_symbols("watchlist")
-    if watchlist:
-        logger.info("Fetching %d watchlist symbols...", len(watchlist))
-        for item in watchlist:
-            sym = item["symbol"]
-            market = item.get("market", "A")
-
-            if market in ("A", "HK"):
-                kline = fetch_efinance_kline(sym, market)
-                if not kline and market == "HK":
-                    yf_sym = YF_SYMBOL_MAP.get(sym, sym.replace("HK", ".HK"))
-                    if yf_sym:
-                        kline = fetch_yfinance_history(yf_sym, period="3mo")
-                if not kline and market == "A":
-                    yf_sym = YF_SYMBOL_MAP.get(sym, sym)
-                    if yf_sym:
-                        kline = fetch_yfinance_history(yf_sym, period="3mo")
-            elif market == "US":
-                kline = fetch_yfinance_history(sym, period="3mo")
-            elif market == "JP":
-                yf_sym = sym if sym.endswith(".T") else f"{sym}.T"
-                kline = fetch_yfinance_history(yf_sym, period="3mo")
-
-            if kline:
-                out_path = quotes_dir / f"{sym}.json"
-                fetched_at = datetime.now(TZ_BEIJING).isoformat()
-                try:
-                    for e in kline:
-                        if isinstance(e, dict):
-                            if "source" not in e:
-                                e["source"] = e.get("source", "yfinance")
-                            if "timestamp" not in e:
-                                e["timestamp"] = fetched_at
-                except Exception:
-                    pass
-                out_path.write_text(
-                    json.dumps(kline, ensure_ascii=False, default=str),
-                    encoding="utf-8",
-                )
-                quote_date = None
-                try:
-                    for e in kline:
-                        if isinstance(e, dict) and quote_date is None:
-                            quote_date = e.get("date")
-                except Exception:
-                    pass
-                fetched[sym] = str(out_path)
-                per_symbol[sym] = {
-                    "status": "ok",
-                    "source": kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "yfinance",
-                    "fetched_at": fetched_at,
-                    "quote_date": quote_date or date_str,
-                    "path": str(out_path),
-                }
-            else:
-                err_msg = f"{sym} (watchlist): kline fetch failed"
-                errors.append(err_msg)
-                per_symbol[sym] = {"status": "failed", "error": err_msg}
+            priority = mgr.get_priority(market)
+            err_msg = f"{sym}: all sources failed (tried: {', '.join(priority)})"
+            errors.append(err_msg)
+            per_symbol[sym] = {"status": "failed", "error": err_msg, "sources_tried": ", ".join(priority)}
+            logger.warning("  %s: FAILED (tried: %s)", sym, ", ".join(priority))
 
     # ------------------------------------------------------------------
     # 2. Macro indicators
@@ -762,6 +618,7 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
         "errors": errors,
         "skipped": skipped,
         "per_symbol": per_symbol,
+        "source_health": mgr.health_summary(),
     }
     log_path = macro_dir / "_fetch_log.json"
     log_path.write_text(json.dumps(log_data, ensure_ascii=False, indent=2), encoding="utf-8")

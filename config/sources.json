@@ -1,6 +1,20 @@
 {
-  "priority": ["yfinance", "stooq"],
+  "priority": ["yfinance", "alpha_vantage", "stooq"],
+  "yfinance": {
+    "enabled": true,
+    "note": "Primary source for US/JP/HK. Free, no API key. May rate-limit."
+  },
+  "alpha_vantage": {
+    "enabled": true,
+    "note": "Secondary source for US stocks. Free tier: 25 calls/day, 5 calls/min.",
+    "api_key_env": "ALPHA_VANTAGE_API_KEY"
+  },
   "stooq": {
-    "enabled": true
+    "enabled": true,
+    "note": "Tertiary fallback for all markets. Free, no API key. CSV-based, may have data delays."
+  },
+  "efinance": {
+    "enabled": true,
+    "note": "Primary source for A/HK. Free, no API key. May block non-Chinese IPs."
   }
 }
