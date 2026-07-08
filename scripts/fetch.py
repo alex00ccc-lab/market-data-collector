@@ -59,7 +59,7 @@ YF_SYMBOL_MAP = {
 # Currency per market
 MARKET_CURRENCY = {"A": "CNY", "HK": "HKD", "US": "USD", "JP": "JPY"}
 
-_rate_limiter = RateLimiter(min_interval=0.5)  # min 500ms between API calls
+_rate_limiter = RateLimiter(min_interval=1.5)  # min 1.5s between API calls to avoid rate limiting
 
 
 # ============================================================================
