@@ -243,7 +243,11 @@ def _check_yfinance() -> bool:
 
 @retry(max_attempts=2, delay=2.0)
 def fetch_yfinance_history(symbol: str, period: str = "3mo") -> Optional[list[dict]]:
-    """Fetch OHLCV from yfinance."""
+    """Fetch OHLCV from yfinance.
+
+    If primary period fails, automatically retries with '5d' short window
+    before giving up.  Detailed error logging helps diagnose root causes.
+    """
     if not _check_yfinance():
         return None
 
@@ -254,7 +258,16 @@ def fetch_yfinance_history(symbol: str, period: str = "3mo") -> Optional[list[di
         ticker = yf.Ticker(symbol)
         df = ticker.history(period=period, auto_adjust=True)
         if df.empty:
-            return None
+            # Try shorter window as fallback
+            if period != "5d":
+                logger.debug("yfinance(%s): empty for %s, retrying with 5d window", symbol, period)
+                _rate_limiter.wait()
+                df = ticker.history(period="5d", auto_adjust=True)
+                if df.empty:
+                    logger.debug("yfinance(%s): empty for 5d too", symbol)
+                    return None
+            else:
+                return None
 
         result = []
         for idx, row in df.iterrows():
@@ -270,7 +283,17 @@ def fetch_yfinance_history(symbol: str, period: str = "3mo") -> Optional[list[di
             })
         return result
     except Exception as e:
-        logger.warning("yfinance history(%s) error: %s", symbol, str(e)[:80])
+        err_type = type(e).__name__
+        err_msg = str(e)[:120]
+        # Classify error for easier diagnosis
+        if "Connection" in err_type or "RemoteDisconnected" in err_type:
+            logger.warning("yfinance(%s): NETWORK error — %s: %s", symbol, err_type, err_msg)
+        elif "Timeout" in err_type or "timed out" in err_msg.lower():
+            logger.warning("yfinance(%s): TIMEOUT — %s: %s", symbol, err_type, err_msg)
+        elif "Rate" in err_msg or "Too Many" in err_msg:
+            logger.warning("yfinance(%s): RATE LIMITED — %s: %s", symbol, err_type, err_msg)
+        else:
+            logger.warning("yfinance(%s): %s — %s", symbol, err_type, err_msg)
         return None
 
 
@@ -350,27 +373,37 @@ def fetch_yfinance_fundamentals(symbol: str) -> Optional[dict]:
 # ============================================================================
 
 @retry(max_attempts=2, delay=1.0)
-def fetch_stooq_history(symbol: str) -> Optional[list[dict]]:
+def fetch_stooq_history(symbol: str, market: str = "US") -> Optional[list[dict]]:
     """Fetch daily OHLCV from Stooq CSV endpoint.
 
-    Stooq uses lowercase symbols and US tickers typically end with `.us`.
-    This function will try some sensible mappings and return a list of
-    dicts with keys: date, open, high, low, close, volume, source.
+    Stooq uses lowercase symbols with market-specific suffixes:
+      - US: {ticker}.us  (e.g. tsla.us)
+      - JP: {ticker}.jp  (e.g. 6981.jp)
+      - HK: {ticker}.hk  (e.g. 09992.hk)
+    Falls back to bare ticker and tries multiple variants.
     """
     import urllib.request
 
     # Build candidate stooq symbol forms to try
     cand = []
     s = symbol.strip()
+    suffix_map = {"US": ".us", "JP": ".jp", "HK": ".hk", "A": ".sh"}
+
     if "." in s:
         base, suf = s.split(".", 1)
-        # try with common forms
         cand.append(f"{base.lower()}.{suf.lower()}")
         cand.append(base.lower())
+        # Also try market suffix
+        msuf = suffix_map.get(market, ".us")
+        cand.append(f"{base.lower()}{msuf}")
     else:
-        # no suffix — assume US ticker
-        cand.append(f"{s.lower()}.us")
+        # No suffix — try market-appropriate forms
+        msuf = suffix_map.get(market, ".us")
+        cand.append(f"{s.lower()}{msuf}")
         cand.append(s.lower())
+        # For US tickers, also try without suffix (some work bare)
+        if market == "US":
+            cand.append(f"{s.lower()}.usd")
 
     headers = {"User-Agent": "Mozilla/5.0"}
 
@@ -388,6 +421,7 @@ def fetch_stooq_history(symbol: str) -> Optional[list[dict]]:
         # Parse CSV
         lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
         if not lines or lines[0].lower().startswith("no data"):
+            logger.debug("stooq(%s): no data returned", c)
             continue
         # Expect header: Date,Open,High,Low,Close,Volume
         rows = []
@@ -415,9 +449,10 @@ def fetch_stooq_history(symbol: str) -> Optional[list[dict]]:
             })
 
         if rows:
-            logger.info("stooq(%s) OK — %d rows", c, len(rows))
+            logger.info("stooq(%s) OK — %d rows via candidate '%s'", symbol, len(rows), c)
             return rows
 
+    logger.debug("stooq(%s): all %d candidates failed", symbol, len(cand))
     return None
 
 
@@ -548,7 +583,7 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
                 try:
                     # prefer yf_sym when available in this scope
                     yf_try = locals().get('yf_sym') or sym
-                    stooq_k = fetch_stooq_history(yf_try)
+                    stooq_k = fetch_stooq_history(yf_try, market=market)
                     tried_alt = True
                     if stooq_k:
                         kline = stooq_k
@@ -586,10 +621,14 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
                 }
                 logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), per_symbol[sym]["source"])
             else:
-                err_msg = f"{sym}: kline fetch failed"
+                sources_tried = ", ".join(priority) if priority else "yfinance"
+                if tried_alt:
+                    err_msg = f"{sym}: all sources failed (tried: {sources_tried})"
+                else:
+                    err_msg = f"{sym}: kline fetch failed (tried: yfinance)"
                 errors.append(err_msg)
-                per_symbol[sym] = {"status": "failed", "error": err_msg}
-                logger.warning("  %s: FAILED", sym)
+                per_symbol[sym] = {"status": "failed", "error": err_msg, "sources_tried": sources_tried}
+                logger.warning("  %s: FAILED (tried: %s)", sym, sources_tried)
 
     # Also fetch watchlist symbols
     watchlist = load_symbols("watchlist")
@@ -786,6 +825,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch market data")
     parser.add_argument("--date", type=str, default=None, help="Date YYYY-MM-DD (default: today)")
     parser.add_argument("--force", action="store_true", help="Force fetch even outside recommended window")
+    parser.add_argument("--lenient", action="store_true", help="Exit 0 even if some symbols fail (for CI pipelines)")
     args = parser.parse_args()
 
     target = date.fromisoformat(args.date) if args.date else None
@@ -794,7 +834,12 @@ if __name__ == "__main__":
     print(json.dumps({k: v for k, v in result.items() if k != "files"}, ensure_ascii=False, indent=2))
 
     if result["errors"]:
-        print(f"\n⚠️  {len(result['errors'])} errors:", file=sys.stderr)
+        n_ok = result.get("quotes_fetched", 0)
+        n_total = result.get("total_holdings", 0) + result.get("total_watchlist", 0)
+        print(f"\n⚠️  {len(result['errors'])} errors ({n_ok}/{n_total} OK):", file=sys.stderr)
         for e in result["errors"]:
             print(f"  - {e}", file=sys.stderr)
-        sys.exit(1)
+        if not args.lenient:
+            sys.exit(1)
+        else:
+            print("[lenient] Continuing despite errors (CI pipeline mode)", file=sys.stderr)
