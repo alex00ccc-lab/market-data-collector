@@ -1,0 +1,10 @@
+# API Keys for market-data-collector
+# ===================================
+# Copy this file to keys.yaml and fill in your actual keys.
+# keys.yaml is git-ignored — never committed to the repository.
+#
+# Priority: Environment variable > keys.yaml
+
+# Alpha Vantage — free US stock data (25 calls/day, 5 calls/min)
+# Get key: https://www.alphavantage.co/support/#api-key
+alpha_vantage_api_key: ""

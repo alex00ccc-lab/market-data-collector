@@ -41,18 +41,39 @@ class AlphaVantageAdapter(BaseAdapter):
     def supports_market(self, market: str) -> bool:
         return market == "US"
 
-    def _is_available(self) -> bool:
+    def _resolve_key(self) -> str:
+        """Get Alpha Vantage API key: env var > local keys.yaml."""
         import os
-        return bool(os.getenv("ALPHA_VANTAGE_API_KEY", "").strip())
+
+        # 1. Environment variable (CI / GitHub Actions)
+        val = os.getenv("ALPHA_VANTAGE_API_KEY", "").strip()
+        if val:
+            return val
+
+        # 2. Local config file (market_data/config/keys.yaml)
+        keys_file = CONFIG_DIR / "keys.yaml"
+        if keys_file.exists():
+            try:
+                import yaml
+                with open(keys_file, encoding="utf-8") as f:
+                    cfg = yaml.safe_load(f) or {}
+                val = (cfg.get("alpha_vantage_api_key") or "").strip()
+                if val:
+                    return val
+            except Exception:
+                pass
+
+        return ""
+
+    def _is_available(self) -> bool:
+        return bool(self._resolve_key())
 
     def fetch_kline(self, symbol: str, market: str, days: int = 120) -> Optional[list[dict]]:
-        if not self._is_available():
+        api_key = self._resolve_key()
+        if not api_key:
             return None
 
-        import os
         import urllib.request
-
-        api_key = os.getenv("ALPHA_VANTAGE_API_KEY", "").strip()
         # Use TIME_SERIES_DAILY (compact returns last 100 data points)
         url = (
             f"https://www.alphavantage.co/query"

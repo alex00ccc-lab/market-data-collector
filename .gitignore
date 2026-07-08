@@ -15,6 +15,7 @@ Thumbs.db
 .env
 *.key
 *.pem
+config/keys.yaml
 
 # Cache (transient)
 *.pyc
