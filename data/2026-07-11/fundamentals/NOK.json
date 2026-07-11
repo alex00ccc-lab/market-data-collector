@@ -1,0 +1,12 @@
+{
+  "symbol": "NOK",
+  "pe_ratio": 77.75,
+  "pb_ratio": 2.878304,
+  "dividend_yield": 1.27,
+  "market_cap": 69446721536,
+  "sector": "Technology",
+  "industry": "Communication Equipment",
+  "source": "yfinance",
+  "timestamp": "2026-07-11T10:55:34.454499+08:00",
+  "trade_date": "2026-07-11"
+}
