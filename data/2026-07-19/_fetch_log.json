@@ -1,0 +1,26 @@
+{
+  "run_at": "2026-07-19T06:23:15.107881+08:00",
+  "date": "2026-07-19",
+  "symbols_attempted": 16,
+  "symbols_succeeded": 0,
+  "symbols_failed": [],
+  "errors": [],
+  "skipped": [
+    "002008.SZ (A: market closed or not in fetch window)",
+    "300408.SZ (A: market closed or not in fetch window)",
+    "300593.SZ (A: market closed or not in fetch window)",
+    "160644 (A: market closed or not in fetch window)",
+    "0189HK (HK: market closed or not in fetch window)",
+    "09992.HK (HK: market closed or not in fetch window)",
+    "BB (US: market closed or not in fetch window)",
+    "DPZ (US: market closed or not in fetch window)",
+    "IGV (US: market closed or not in fetch window)",
+    "MSFT (US: market closed or not in fetch window)",
+    "NOK (US: market closed or not in fetch window)",
+    "NVDA (US: market closed or not in fetch window)",
+    "SGOV (US: market closed or not in fetch window)",
+    "TSLA (US: market closed or not in fetch window)",
+    "SIVE (US: market closed or not in fetch window)",
+    "6981.T (JP: market closed or not in fetch window)"
+  ]
+}
