@@ -59,7 +59,7 @@ YF_SYMBOL_MAP = {
 # Currency per market
 MARKET_CURRENCY = {"A": "CNY", "HK": "HKD", "US": "USD", "JP": "JPY"}
 
-_rate_limiter = RateLimiter(min_interval=0.5)  # min 500ms between API calls
+_rate_limiter = RateLimiter(min_interval=1.5)  # min 1.5s between API calls to avoid rate limiting
 
 
 # ============================================================================
@@ -243,7 +243,11 @@ def _check_yfinance() -> bool:
 
 @retry(max_attempts=2, delay=2.0)
 def fetch_yfinance_history(symbol: str, period: str = "3mo") -> Optional[list[dict]]:
-    """Fetch OHLCV from yfinance."""
+    """Fetch OHLCV from yfinance.
+
+    If primary period fails, automatically retries with '5d' short window
+    before giving up.  Detailed error logging helps diagnose root causes.
+    """
     if not _check_yfinance():
         return None
 
@@ -254,7 +258,16 @@ def fetch_yfinance_history(symbol: str, period: str = "3mo") -> Optional[list[di
         ticker = yf.Ticker(symbol)
         df = ticker.history(period=period, auto_adjust=True)
         if df.empty:
-            return None
+            # Try shorter window as fallback
+            if period != "5d":
+                logger.debug("yfinance(%s): empty for %s, retrying with 5d window", symbol, period)
+                _rate_limiter.wait()
+                df = ticker.history(period="5d", auto_adjust=True)
+                if df.empty:
+                    logger.debug("yfinance(%s): empty for 5d too", symbol)
+                    return None
+            else:
+                return None
 
         result = []
         for idx, row in df.iterrows():
@@ -270,7 +283,17 @@ def fetch_yfinance_history(symbol: str, period: str = "3mo") -> Optional[list[di
             })
         return result
     except Exception as e:
-        logger.warning("yfinance history(%s) error: %s", symbol, str(e)[:80])
+        err_type = type(e).__name__
+        err_msg = str(e)[:120]
+        # Classify error for easier diagnosis
+        if "Connection" in err_type or "RemoteDisconnected" in err_type:
+            logger.warning("yfinance(%s): NETWORK error — %s: %s", symbol, err_type, err_msg)
+        elif "Timeout" in err_type or "timed out" in err_msg.lower():
+            logger.warning("yfinance(%s): TIMEOUT — %s: %s", symbol, err_type, err_msg)
+        elif "Rate" in err_msg or "Too Many" in err_msg:
+            logger.warning("yfinance(%s): RATE LIMITED — %s: %s", symbol, err_type, err_msg)
+        else:
+            logger.warning("yfinance(%s): %s — %s", symbol, err_type, err_msg)
         return None
 
 
@@ -346,14 +369,103 @@ def fetch_yfinance_fundamentals(symbol: str) -> Optional[dict]:
 
 
 # ============================================================================
+# Stooq adapter (simple CSV downloader) — free, no API key
+# ============================================================================
+
+@retry(max_attempts=2, delay=1.0)
+def fetch_stooq_history(symbol: str, market: str = "US") -> Optional[list[dict]]:
+    """Fetch daily OHLCV from Stooq CSV endpoint.
+
+    Stooq uses lowercase symbols with market-specific suffixes:
+      - US: {ticker}.us  (e.g. tsla.us)
+      - JP: {ticker}.jp  (e.g. 6981.jp)
+      - HK: {ticker}.hk  (e.g. 09992.hk)
+    Falls back to bare ticker and tries multiple variants.
+    """
+    import urllib.request
+
+    # Build candidate stooq symbol forms to try
+    cand = []
+    s = symbol.strip()
+    suffix_map = {"US": ".us", "JP": ".jp", "HK": ".hk", "A": ".sh"}
+
+    if "." in s:
+        base, suf = s.split(".", 1)
+        cand.append(f"{base.lower()}.{suf.lower()}")
+        cand.append(base.lower())
+        # Also try market suffix
+        msuf = suffix_map.get(market, ".us")
+        cand.append(f"{base.lower()}{msuf}")
+    else:
+        # No suffix — try market-appropriate forms
+        msuf = suffix_map.get(market, ".us")
+        cand.append(f"{s.lower()}{msuf}")
+        cand.append(s.lower())
+        # For US tickers, also try without suffix (some work bare)
+        if market == "US":
+            cand.append(f"{s.lower()}.usd")
+
+    headers = {"User-Agent": "Mozilla/5.0"}
+
+    for c in cand:
+        url = f"https://stooq.com/q/d/l/?s={c}&i=d"
+        _rate_limiter.wait()
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                text = resp.read().decode("utf-8-sig")
+        except Exception as e:
+            logger.debug("stooq(%s) request failed: %s", c, str(e)[:80])
+            continue
+
+        # Parse CSV
+        lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+        if not lines or lines[0].lower().startswith("no data"):
+            logger.debug("stooq(%s): no data returned", c)
+            continue
+        # Expect header: Date,Open,High,Low,Close,Volume
+        rows = []
+        for ln in lines[1:]:
+            parts = ln.split(",")
+            if len(parts) < 6:
+                continue
+            try:
+                dt = parts[0]
+                open_p = float(parts[1])
+                high_p = float(parts[2])
+                low_p = float(parts[3])
+                close_p = float(parts[4])
+                vol = int(float(parts[5])) if parts[5] not in ("","-") else 0
+            except Exception:
+                continue
+            rows.append({
+                "date": dt,
+                "open": open_p,
+                "high": high_p,
+                "low": low_p,
+                "close": close_p,
+                "volume": vol,
+                "source": "stooq",
+            })
+
+        if rows:
+            logger.info("stooq(%s) OK — %d rows via candidate '%s'", symbol, len(rows), c)
+            return rows
+
+    logger.debug("stooq(%s): all %d candidates failed", symbol, len(cand))
+    return None
+
+
+# ============================================================================
 # Main orchestration
 # ============================================================================
 
-def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
+def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, Any]:
     """Fetch all data for today. Returns summary dict.
 
     Args:
         today: Target date (default: today Beijing time).
+        force: Force fetch even if the calendar suggests skipping.
 
     Returns:
         {"quotes": {symbol: path}, "macro": path, "sectors": path, "errors": [...]}
@@ -370,95 +482,69 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
     errors: list[str] = []
     fetched: dict[str, str] = {}
     skipped: list[str] = []
+    per_symbol: dict[str, dict[str, Any]] = {}
 
     # ------------------------------------------------------------------
-    # 1. Holdings symbols — OHLCV
+    # 1. Holdings + Watchlist symbols — OHLCV via SourceManager
     # ------------------------------------------------------------------
+    from source_manager import SourceManager
+    mgr = SourceManager()
+    mgr.reset_stats()
+
     holdings = load_symbols("holdings")
-    logger.info("Fetching %d holdings symbols...", len(holdings))
+    watchlist = load_symbols("watchlist")
+    all_symbols = holdings + watchlist
+    logger.info("Fetching %d holdings + %d watchlist symbols via multi-source pipeline...",
+               len(holdings), len(watchlist))
 
-    for item in holdings:
+    for item in all_symbols:
         sym = item["symbol"]
         market = item.get("market", "A")
 
-        # Skip if market closed and no real-time needed for daily fetch
-        if not cal.should_fetch(market, today):
+        # Skip if market closed and not forcing
+        if not force and not cal.should_fetch(market, today):
             skipped.append(f"{sym} ({market}: market closed or not in fetch window)")
             continue
 
-        # Fetch kline — efinance first, yfinance fallback for A/HK
-        kline = None
-        if market in ("A", "HK"):
-            kline = fetch_efinance_kline(sym, market)
-            # Fallback: yfinance for HK stocks (efinance may block non-CN IPs)
-            if not kline and market == "HK":
-                # Use symbol map or auto-convert
-                yf_sym = YF_SYMBOL_MAP.get(sym, sym.replace("HK", ".HK"))
-                if yf_sym:  # None means "skip yfinance for this symbol"
-                    kline = fetch_yfinance_history(yf_sym, period="3mo")
-                    if kline:
-                        logger.info("  %s: yfinance fallback OK (%d bars via %s)", sym, len(kline), yf_sym)
-            # Fallback: yfinance for A-shares
-            if not kline and market == "A":
-                yf_sym = YF_SYMBOL_MAP.get(sym, sym)
-                if yf_sym:  # None means skip
-                    kline = fetch_yfinance_history(yf_sym, period="3mo")
-                    if kline:
-                        logger.info("  %s: yfinance fallback OK (%d bars)", sym, len(kline))
-        elif market == "US":
-            kline = fetch_yfinance_history(sym, period="3mo")
-        elif market == "JP":
-            # Japanese stocks via yfinance with .T suffix
-            yf_sym = sym if sym.endswith(".T") else f"{sym}.T"
-            kline = fetch_yfinance_history(yf_sym, period="3mo")
-            if kline:
-                logger.info("  %s: yfinance OK (%d bars via %s)", sym, len(kline), yf_sym)
+        # ═══ Multi-source fetch with automatic fallback ═══
+        kline = mgr.fetch_with_fallback(sym, market)
 
         if kline:
             out_path = quotes_dir / f"{sym}.json"
+            fetched_at = datetime.now(TZ_BEIJING).isoformat()
+            quote_date = None
+            try:
+                for e in kline:
+                    if isinstance(e, dict):
+                        if "source" not in e:
+                            e["source"] = e.get("source", "yfinance")
+                        if "timestamp" not in e:
+                            e["timestamp"] = fetched_at
+                        if quote_date is None and e.get("date"):
+                            quote_date = e.get("date")
+            except Exception:
+                pass
+
             out_path.write_text(
                 json.dumps(kline, ensure_ascii=False, default=str),
                 encoding="utf-8",
             )
             fetched[sym] = str(out_path)
-            logger.info("  %s: %d bars saved", sym, len(kline))
+            source = kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "unknown"
+            per_symbol[sym] = {
+                "status": "ok",
+                "source": source,
+                "fetched_at": fetched_at,
+                "quote_date": quote_date or date_str,
+                "path": str(out_path),
+            }
+            logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), source)
         else:
-            errors.append(f"{sym}: kline fetch failed")
-            logger.warning("  %s: FAILED", sym)
-
-    # Also fetch watchlist symbols
-    watchlist = load_symbols("watchlist")
-    if watchlist:
-        logger.info("Fetching %d watchlist symbols...", len(watchlist))
-        for item in watchlist:
-            sym = item["symbol"]
-            market = item.get("market", "A")
-
-            if market in ("A", "HK"):
-                kline = fetch_efinance_kline(sym, market)
-                if not kline and market == "HK":
-                    yf_sym = YF_SYMBOL_MAP.get(sym, sym.replace("HK", ".HK"))
-                    if yf_sym:
-                        kline = fetch_yfinance_history(yf_sym, period="3mo")
-                if not kline and market == "A":
-                    yf_sym = YF_SYMBOL_MAP.get(sym, sym)
-                    if yf_sym:
-                        kline = fetch_yfinance_history(yf_sym, period="3mo")
-            elif market == "US":
-                kline = fetch_yfinance_history(sym, period="3mo")
-            elif market == "JP":
-                yf_sym = sym if sym.endswith(".T") else f"{sym}.T"
-                kline = fetch_yfinance_history(yf_sym, period="3mo")
-
-            if kline:
-                out_path = quotes_dir / f"{sym}.json"
-                out_path.write_text(
-                    json.dumps(kline, ensure_ascii=False, default=str),
-                    encoding="utf-8",
-                )
-                fetched[sym] = str(out_path)
-            else:
-                errors.append(f"{sym} (watchlist): kline fetch failed")
+            priority = mgr.get_priority(market)
+            err_msg = f"{sym}: all sources failed (tried: {', '.join(priority)})"
+            errors.append(err_msg)
+            per_symbol[sym] = {"status": "failed", "error": err_msg, "sources_tried": ", ".join(priority)}
+            logger.warning("  %s: FAILED (tried: %s)", sym, ", ".join(priority))
 
     # ------------------------------------------------------------------
     # 2. Macro indicators
@@ -531,6 +617,8 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
         "symbols_failed": [e.split(":")[0].strip() for e in errors],
         "errors": errors,
         "skipped": skipped,
+        "per_symbol": per_symbol,
+        "source_health": mgr.health_summary(),
     }
     log_path = macro_dir / "_fetch_log.json"
     log_path.write_text(json.dumps(log_data, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -541,17 +629,32 @@ def fetch_all(today: Optional[date] = None) -> dict[str, Any]:
         if sym not in fetched:
             skeleton_path = quotes_dir / f"{sym}.json"
             if not skeleton_path.exists():
-                skeleton_data = {
+                # Write a single-bar OHLCV skeleton so downstream indicator
+                # computation can safely read `date` and short-length series.
+                skeleton_bar = {
                     "symbol": sym,
-                    "error": "fetch_failed",
+                    "date": date_str,
+                    "open": 0.0,
+                    "high": 0.0,
+                    "low": 0.0,
+                    "close": 0.0,
+                    "volume": 0,
                     "market": item.get("market", ""),
-                    "close": None,
+                    "source": "fallback",
                     "message": f"Data unavailable for {date_str}",
+                    "fetched_at": datetime.now(TZ_BEIJING).isoformat(),
                 }
                 skeleton_path.write_text(
-                    json.dumps([skeleton_data], ensure_ascii=False),
+                    json.dumps([skeleton_bar], ensure_ascii=False),
                     encoding="utf-8",
                 )
+                per_symbol[sym] = {
+                    "status": "failed",
+                    "source": "fallback",
+                    "fetched_at": skeleton_bar["fetched_at"],
+                    "quote_date": date_str,
+                    "path": str(skeleton_path),
+                }
                 logger.info("  %s: fallback skeleton written", sym)
 
     logger.info(
@@ -579,15 +682,21 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch market data")
     parser.add_argument("--date", type=str, default=None, help="Date YYYY-MM-DD (default: today)")
     parser.add_argument("--force", action="store_true", help="Force fetch even outside recommended window")
+    parser.add_argument("--lenient", action="store_true", help="Exit 0 even if some symbols fail (for CI pipelines)")
     args = parser.parse_args()
 
     target = date.fromisoformat(args.date) if args.date else None
-    result = fetch_all(target)
+    result = fetch_all(target, force=args.force)
 
     print(json.dumps({k: v for k, v in result.items() if k != "files"}, ensure_ascii=False, indent=2))
 
     if result["errors"]:
-        print(f"\n⚠️  {len(result['errors'])} errors:", file=sys.stderr)
+        n_ok = result.get("quotes_fetched", 0)
+        n_total = result.get("total_holdings", 0) + result.get("total_watchlist", 0)
+        print(f"\n⚠️  {len(result['errors'])} errors ({n_ok}/{n_total} OK):", file=sys.stderr)
         for e in result["errors"]:
             print(f"  - {e}", file=sys.stderr)
-        sys.exit(1)
+        if not args.lenient:
+            sys.exit(1)
+        else:
+            print("[lenient] Continuing despite errors (CI pipeline mode)", file=sys.stderr)

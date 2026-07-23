@@ -208,14 +208,28 @@ The data format is standard JSON. Any tool that can read JSON files can consume 
 
 ---
 
+## Obsidian Export
+
+The repository now includes an exporter script for Obsidian-compatible snapshots.
+Run from `market_data`:
+
+```bash
+python scripts/export_to_obsidian.py --date YYYY-MM-DD
+```
+
+This writes markdown output to `market_data/data/{date}/obsidian.md` and optionally to a configured Obsidian vault path if your environment is set up.
+
+---
+
 ## API Sources
 
 | Source | Market | Cost | Rate Limit |
 |--------|--------|------|------------|
 | [efinance](https://github.com/Micro-sheep/efinance) | A-shares, HK | **Free** | No official limit (use RateLimiter) |
 | [yfinance](https://github.com/ranaroussi/yfinance) | US, Indices | **Free** | Moderate (RateLimiter 500ms) |
+| [Stooq](https://stooq.com) | US, some global tickers | **Free** | No API key required, public CSV |
 
-No API keys required for either source. Both use public HTTP endpoints.
+No API keys required for these sources. All use public HTTP endpoints.
 
 ---
 
