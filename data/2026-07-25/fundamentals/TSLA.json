@@ -1,0 +1,12 @@
+{
+  "symbol": "TSLA",
+  "pe_ratio": 295.31134,
+  "pb_ratio": 13.97393,
+  "dividend_yield": null,
+  "market_cap": 1236326809600,
+  "sector": "Consumer Cyclical",
+  "industry": "Auto Manufacturers",
+  "source": "yfinance",
+  "timestamp": "2026-07-25T10:55:53.524901+08:00",
+  "trade_date": "2026-07-25"
+}
