@@ -1,0 +1,44 @@
+{
+  "^VIX": {
+    "name": "VIX 恐慌指数",
+    "price": 18.7,
+    "date": "2026-07-23",
+    "change_pct": 12.38
+  },
+  "^TNX": {
+    "name": "10年期美债收益率",
+    "price": 4.7,
+    "date": "2026-07-23",
+    "change_pct": 0.99
+  },
+  "^KS11": {
+    "name": "韩国KOSPI指数",
+    "price": NaN,
+    "date": "2026-07-24",
+    "change_pct": NaN
+  },
+  "BZ=F": {
+    "name": "布伦特原油期货",
+    "price": 96.78,
+    "date": "2026-07-24",
+    "change_pct": -3.88
+  },
+  "DX-Y.NYB": {
+    "name": "美元指数DXY",
+    "price": 101.43,
+    "date": "2026-07-23",
+    "change_pct": 0.29
+  },
+  "^HSI": {
+    "name": "恒生指数",
+    "price": 25210.81,
+    "date": "2026-07-23",
+    "change_pct": 1.28
+  },
+  "^N225": {
+    "name": "日经225指数",
+    "price": 66422.6,
+    "date": "2026-07-23",
+    "change_pct": 0.46
+  }
+}
