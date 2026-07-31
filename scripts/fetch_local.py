@@ -139,37 +139,35 @@ def step_fetch(markets: list[str]) -> tuple[bool, list[str]]:
     logger.info("Step 2/4: Fetch market data (%s)", ", ".join(markets))
     errors = []
 
-    for mkt in markets:
-        # Only fetch if we have holdings in this market
-        active = markets_from_holdings()
-        if active and mkt not in active:
-            logger.info("Skipping %s: no holdings in this market", mkt)
-            continue
+    # fetch.py handles ALL symbols internally — call once, not per-market
+    result = _run(
+        [sys.executable, str(ROOT / "scripts" / "fetch.py"), "--force", "--lenient"],
+        cwd=ROOT,
+        timeout=600,
+    )
 
-        logger.info("--- Fetching %s ---", mkt)
-        result = _run(
-            [sys.executable, str(ROOT / "scripts" / "fetch.py"), "--force", "--lenient"],
-            cwd=ROOT,
-            timeout=600,
-        )
+    # Parse fetch log for errors
+    today_str = NOW.strftime("%Y-%m-%d")
+    fetch_log_path = DATA_DIR / today_str / "_fetch_log.json"
+    if fetch_log_path.exists():
+        try:
+            flog = json.loads(fetch_log_path.read_text(encoding="utf-8"))
+            errs = flog.get("errors", [])
+            if errs:
+                errors.extend(errs)
+            ok = flog.get("symbols_succeeded", 0)
+            total = flog.get("symbols_attempted", 0)
+            logger.info("Fetch: %d/%d OK, %d errors", ok, total, len(errs))
+            # Log per-source health
+            health = flog.get("source_health", {})
+            for src, h in health.items():
+                logger.info("  source %s: %s (%d ok, %d failed)",
+                           src, h.get("success_rate", "?"), h.get("ok", 0), h.get("failed", 0))
+        except Exception:
+            pass
 
-        # Parse fetch log for errors
-        today_str = NOW.strftime("%Y-%m-%d")
-        fetch_log_path = DATA_DIR / today_str / "_fetch_log.json"
-        if fetch_log_path.exists():
-            try:
-                flog = json.loads(fetch_log_path.read_text(encoding="utf-8"))
-                errs = flog.get("errors", [])
-                if errs:
-                    errors.extend(errs)
-                logger.info("Fetch %s: %d/%d OK, %d errors",
-                           mkt, flog.get("symbols_succeeded", 0),
-                           flog.get("symbols_attempted", 0), len(errs))
-            except Exception:
-                pass
-
-        if not _run_ok(result):
-            errors.append(f"Fetch script failed for market={mkt} (exit {result.returncode})")
+    if not _run_ok(result):
+        errors.append(f"Fetch script failed (exit {result.returncode})")
 
     return len(errors) == 0, errors
 
