@@ -5,6 +5,41 @@
 
 ---
 
+## v2 — 2026-07-31 — 本地抓取管线 + 币种后缀回退 + CI schedule 禁用
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v9 |
+| **涉及仓库** | market-data-collector |
+
+### 改动文件
+
+| Commit | 文件 | 改动 |
+|--------|------|------|
+| `a080813` | `scripts/fetch_local.py` | 新建 — 本地一体抓取管线 (sync→fetch→indicators→push) |
+| `992edcf` | `scripts/fetch_local.py` | 修复 — fetch.py 从 4次/市场 改为 1次全局调用 |
+| `a080813` | `scripts/fetch.py` | `CURRENCY_SUFFIX_MAP` + 币种→交易所后缀回退 (SEK→.ST 等) |
+| `a080813` | `scripts/adapters/yfinance_adapter.py` | 北欧交易所后缀候选列表 |
+| `a080813` | `.github/workflows/fetch-daily.yml` | schedule 禁用，保留 workflow_dispatch |
+| `a080813` | `.github/workflows/fetch-weekly.yml` | schedule 禁用，保留 workflow_dispatch |
+| `a080813` | `config/holdings.json` | 同步 12 只持仓（含 currency 字段，6981 JP/JPY） |
+| `a080813` | `.gitignore` | 新增 `logs/` |
+
+### 关键结果
+
+- 本地抓取恢复：A 股 efinance 2/2 OK（之前 CI 上 0%）
+- 数据抓取入口统一：仅 fetch_local.py 写入 data/
+- 币种后缀回退就绪：SIVE (SEK→.ST) 等北欧股票可自动适配 yfinance
+- CI schedule 禁用：不再重复抓取
+
+### 回滚方法
+
+```bash
+cd D:\holdings-briefing\market_data && git revert 992edcf
+```
+
+---
+
 ## v1 — 2026-07-16 — 多源适配器 + SourceManager + Key 管理
 
 | 属性 | 值 |
