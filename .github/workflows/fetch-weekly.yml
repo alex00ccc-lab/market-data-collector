@@ -1,12 +1,14 @@
 name: Weekly Fundamentals Fetch
 
-# Runs every Saturday morning (Beijing time) to capture weekly fundamentals snapshot.
-# PE, PB, dividend yield, market cap — updated weekly, not daily.
+# ⚠️ SCHEDULE DISABLED — data fetching moved to local Windows scheduled task.
+#   workflow_dispatch kept as manual backup.
+#
+# Original schedule (disabled 2026-07-31):
+#   Saturday 08:00 Beijing = 00:00 UTC
 
 on:
-  schedule:
-    # Saturday 08:00 Beijing = 00:00 UTC
-    - cron: '0 0 * * 6'
+#  schedule:
+#    - cron: '0 0 * * 6'
   workflow_dispatch:
 
 jobs:

@@ -1,82 +1,88 @@
 {
   "symbols": [
     {
-      "symbol": "300476.SZ",
+      "symbol": "513010",
       "market": "A",
-      "name": "胜宏科技",
-      "sector": ""
+      "name": "恒生科技ETF易方达",
+      "sector": "",
+      "currency": "CNY"
     },
     {
-      "symbol": "159316",
+      "symbol": "588080",
       "market": "A",
-      "name": "港股创新药ETF易方达",
-      "sector": ""
+      "name": "科创50ETF易方达",
+      "sector": "",
+      "currency": "CNY"
     },
     {
-      "symbol": "300136.SZ",
-      "market": "A",
-      "name": "信维通信",
-      "sector": ""
-    },
-    {
-      "symbol": "002407.SH",
-      "market": "A",
-      "name": "多氟多",
-      "sector": ""
-    },
-    {
-      "symbol": "3317.HK",
+      "symbol": "6880.HK",
       "market": "HK",
-      "name": "迅策科技",
-      "sector": ""
+      "name": "MOMENTA",
+      "sector": "",
+      "currency": "HKD"
     },
     {
       "symbol": "9992.HK",
       "market": "HK",
       "name": "泡泡玛特",
-      "sector": ""
+      "sector": "",
+      "currency": "HKD"
+    },
+    {
+      "symbol": "2631.HK",
+      "market": "HK",
+      "name": "天岳先进",
+      "sector": "",
+      "currency": "HKD"
+    },
+    {
+      "symbol": "3308.HK",
+      "market": "HK",
+      "name": "中际旭创",
+      "sector": "",
+      "currency": "HKD"
     },
     {
       "symbol": "NOK",
       "market": "US",
       "name": "诺基亚",
-      "sector": ""
-    },
-    {
-      "symbol": "ARM",
-      "market": "US",
-      "name": "ARM控股",
-      "sector": ""
+      "sector": "",
+      "currency": "USD"
     },
     {
       "symbol": "SGOV",
       "market": "US",
       "name": "美债(1-3月)",
-      "sector": ""
+      "sector": "",
+      "currency": "USD"
     },
     {
       "symbol": "TSLA",
       "market": "US",
       "name": "特斯拉",
-      "sector": ""
+      "sector": "",
+      "currency": "USD"
     },
     {
       "symbol": "SIVE",
       "market": "US",
       "name": "SIVE",
-      "sector": ""
+      "sector": "",
+      "currency": "SEK"
     },
     {
       "symbol": "LRCX",
       "market": "US",
       "name": "泛林集团",
-      "sector": ""
+      "sector": "",
+      "currency": "USD"
     },
     {
       "symbol": "6981",
       "market": "JP",
       "name": "村田制作所",
-      "sector": ""
+      "sector": "",
+      "currency": "JPY"
     }
   ]
 }

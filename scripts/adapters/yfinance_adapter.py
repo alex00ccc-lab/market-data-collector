@@ -64,38 +64,47 @@ class YFinanceAdapter(BaseAdapter):
         else:
             period = "3mo"
 
-        _rate_limit()
-        try:
-            ticker = yf.Ticker(yf_sym)
-            df = ticker.history(period=period, auto_adjust=True)
-            if df.empty and period != "5d":
-                _rate_limit()
-                df = ticker.history(period="5d", auto_adjust=True)
-            if df.empty:
-                return None
+        # Candidates: primary ticker first, then exchange-suffix fallbacks
+        # (handles Nordic/European stocks marked as US market, e.g. SIVE → SIVE.ST)
+        candidates = [yf_sym]
+        if market == "US" and "." not in symbol:
+            candidates.extend([f"{symbol}.ST", f"{symbol}.CO", f"{symbol}.OL"])
 
-            result = []
-            for idx, row in df.iterrows():
-                result.append({
-                    "date": idx.strftime("%Y-%m-%d") if hasattr(idx, "strftime") else str(idx)[:10],
-                    "open": float(row["Open"]),
-                    "high": float(row["High"]),
-                    "low": float(row["Low"]),
-                    "close": float(row["Close"]),
-                    "volume": float(row["Volume"]),
-                    "source": "yfinance",
-                })
-            return result
-        except Exception as e:
-            err_type = type(e).__name__
-            err_msg = str(e)[:120]
-            if "Rate" in err_msg or "Too Many" in err_msg:
-                logger.warning("yfinance(%s): RATE LIMITED — %s", symbol, err_msg)
-            elif "Connection" in err_type:
-                logger.warning("yfinance(%s): NETWORK — %s", symbol, err_msg)
-            else:
-                logger.warning("yfinance(%s): %s — %s", symbol, err_type, err_msg)
+        _rate_limit()
+        df = None
+        for cand in candidates:
+            try:
+                ticker = yf.Ticker(cand)
+                df = ticker.history(period=period, auto_adjust=True)
+                if not df.empty:
+                    if cand != yf_sym:
+                        logger.info("yfinance(%s): resolved via fallback suffix %s", symbol, cand)
+                    break
+                if period != "5d":
+                    _rate_limit()
+                    df = ticker.history(period="5d", auto_adjust=True)
+                    if not df.empty:
+                        if cand != yf_sym:
+                            logger.info("yfinance(%s): resolved via fallback suffix %s (5d)", symbol, cand)
+                        break
+            except Exception:
+                continue
+
+        if df is None or df.empty:
             return None
+
+        result = []
+        for idx, row in df.iterrows():
+            result.append({
+                "date": idx.strftime("%Y-%m-%d") if hasattr(idx, "strftime") else str(idx)[:10],
+                "open": float(row["Open"]),
+                "high": float(row["High"]),
+                "low": float(row["Low"]),
+                "close": float(row["Close"]),
+                "volume": float(row["Volume"]),
+                "source": "yfinance",
+            })
+        return result
 
     def fetch_realtime(self, symbol: str, market: str) -> Optional[dict]:
         yf = self._import()

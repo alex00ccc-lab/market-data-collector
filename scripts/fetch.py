@@ -58,6 +58,15 @@ YF_SYMBOL_MAP = {
 }
 # Currency per market
 MARKET_CURRENCY = {"A": "CNY", "HK": "HKD", "US": "USD", "JP": "JPY"}
+# Currency → yfinance exchange suffix fallback (for non-US stocks with US market label)
+CURRENCY_SUFFIX_MAP = {
+    "SEK": [".ST"],   # Nasdaq Stockholm (e.g. SIVE → SIVE.ST)
+    "DKK": [".CO"],   # Nasdaq Copenhagen
+    "NOK": [".OL"],   # Oslo Børs
+    "EUR": [".DE", ".PA", ".AS", ".MI"],  # Xetra, Euronext Paris, Amsterdam, Milan
+    "CHF": [".SW"],   # SIX Swiss Exchange
+    "GBP": [".L"],    # London Stock Exchange
+}
 
 _rate_limiter = RateLimiter(min_interval=1.5)  # min 1.5s between API calls to avoid rate limiting
 
@@ -508,6 +517,18 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
 
         # ═══ Multi-source fetch with automatic fallback ═══
         kline = mgr.fetch_with_fallback(sym, market)
+
+        # Currency-based suffix fallback for Nordic/European stocks
+        # (e.g. SIVE on Nasdaq Stockholm needs .ST suffix for yfinance)
+        if not kline:
+            currency = item.get("currency", "")
+            suffixes = CURRENCY_SUFFIX_MAP.get(currency, [])
+            for suffix in suffixes:
+                alt_sym = f"{sym}{suffix}"
+                kline = mgr.fetch_with_fallback(alt_sym, market)
+                if kline:
+                    logger.info("  %s: resolved via currency suffix %s → %s", sym, suffix, alt_sym)
+                    break
 
         if kline:
             out_path = quotes_dir / f"{sym}.json"
