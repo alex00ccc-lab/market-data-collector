@@ -1,0 +1,12 @@
+{
+  "symbol": "MSFT",
+  "pe_ratio": 22.73377,
+  "pb_ratio": 6.8433228,
+  "dividend_yield": 0.95,
+  "market_cap": 2835433652224,
+  "sector": "Technology",
+  "industry": "Software - Infrastructure",
+  "source": "yfinance",
+  "timestamp": "2026-07-25T10:55:51.526643+08:00",
+  "trade_date": "2026-07-25"
+}

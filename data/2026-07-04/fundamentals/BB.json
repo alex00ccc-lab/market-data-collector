@@ -1,0 +1,12 @@
+{
+  "symbol": "BB",
+  "pe_ratio": 115.1,
+  "pb_ratio": 8.9851675,
+  "dividend_yield": null,
+  "market_cap": 6746015744,
+  "sector": "Technology",
+  "industry": "Software - Infrastructure",
+  "source": "yfinance",
+  "timestamp": "2026-07-04T11:31:44.846492+08:00",
+  "trade_date": "2026-07-04"
+}

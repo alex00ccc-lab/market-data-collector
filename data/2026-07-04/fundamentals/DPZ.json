@@ -1,0 +1,12 @@
+{
+  "symbol": "DPZ",
+  "pe_ratio": 17.952765,
+  "pb_ratio": -2.6726925,
+  "dividend_yield": 2.55,
+  "market_cap": 10366394368,
+  "sector": "Consumer Cyclical",
+  "industry": "Restaurants",
+  "source": "yfinance",
+  "timestamp": "2026-07-04T11:31:45.211394+08:00",
+  "trade_date": "2026-07-04"
+}

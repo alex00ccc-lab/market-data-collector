@@ -1,0 +1,12 @@
+{
+  "symbol": "NVDA",
+  "pe_ratio": 32.30628,
+  "pb_ratio": 26.141266,
+  "dividend_yield": 0.49,
+  "market_cap": 5109662089216,
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "source": "yfinance",
+  "timestamp": "2026-07-11T10:55:34.952880+08:00",
+  "trade_date": "2026-07-11"
+}
