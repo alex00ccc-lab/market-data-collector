@@ -101,6 +101,23 @@ class AlphaVantageAdapter(BaseAdapter):
                 continue
 
         if result:
+            # ── Stale data detection ──
+            # AV free tier sometimes returns data months/years old.
+            # Flag stale data so downstream consumers can treat it differently.
+            latest_date_str = result[-1].get("date", "")
+            try:
+                from datetime import date as _date
+                latest_date = _date.fromisoformat(latest_date_str)
+                today = _date.today()
+                days_old = (today - latest_date).days
+                if days_old > 3:
+                    logger.warning("alpha_vantage(%s): STALE — latest data is %s (%d days old)",
+                                   symbol, latest_date_str, days_old)
+                    for bar in result:
+                        bar["stale"] = True
+            except (ValueError, TypeError):
+                pass
+
             logger.info("alpha_vantage(%s) OK — %d bars", symbol, len(result))
         return result if result else None
 
@@ -183,7 +200,10 @@ class SourceManager:
 
             kline = adapter.fetch_kline(symbol, market, days)
             if kline and len(kline) > 0:
-                self._record(name, symbol, "ok", len(kline))
+                # Detect stale data (adapter sets "stale": True on each bar)
+                is_stale = any(e.get("stale") for e in kline if isinstance(e, dict))
+                status = "stale" if is_stale else "ok"
+                self._record(name, symbol, status, len(kline))
                 return kline
             else:
                 self._record(name, symbol, "failed", 0)
@@ -220,7 +240,7 @@ class SourceManager:
 
     def _record(self, source: str, symbol: str, status: str, bars: int):
         if source not in self._stats:
-            self._stats[source] = {"ok": 0, "failed": 0, "bars": 0, "symbols": {}}
+            self._stats[source] = {"ok": 0, "failed": 0, "stale": 0, "bars": 0, "symbols": {}}
         s = self._stats[source]
         s[status] = s.get(status, 0) + 1
         s["bars"] += bars
@@ -230,12 +250,13 @@ class SourceManager:
         """Return a health dashboard suitable for _fetch_log.json."""
         result = {}
         for name, s in sorted(self._stats.items()):
-            total = s["ok"] + s["failed"]
+            total = s["ok"] + s["failed"] + s.get("stale", 0)
             rate = f"{s['ok'] / total * 100:.0f}%" if total > 0 else "N/A"
             result[name] = {
                 "success_rate": rate,
                 "ok": s["ok"],
                 "failed": s["failed"],
+                "stale": s.get("stale", 0),
                 "bars_fetched": s["bars"],
             }
         return result

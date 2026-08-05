@@ -72,6 +72,7 @@ class YFinanceAdapter(BaseAdapter):
 
         _rate_limit()
         df = None
+        had_errors = False
         for cand in candidates:
             try:
                 ticker = yf.Ticker(cand)
@@ -88,9 +89,14 @@ class YFinanceAdapter(BaseAdapter):
                             logger.info("yfinance(%s): resolved via fallback suffix %s (5d)", symbol, cand)
                         break
             except Exception:
+                had_errors = True
                 continue
 
         if df is None or df.empty:
+            if had_errors:
+                logger.debug("yfinance(%s): connection/API error — all %d candidates failed", symbol, len(candidates))
+            else:
+                logger.debug("yfinance(%s): no data returned (market closed or no trading)", symbol)
             return None
 
         result = []

@@ -513,6 +513,13 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
         # Skip if market closed and not forcing
         if not force and not cal.should_fetch(market, today):
             skipped.append(f"{sym} ({market}: market closed or not in fetch window)")
+            per_symbol[sym] = {
+                "status": "skipped",
+                "reason": f"{market} market closed on {date_str}",
+                "source": None,
+                "fetched_at": datetime.now(TZ_BEIJING).isoformat(),
+                "quote_date": None,
+            }
             continue
 
         # ═══ Multi-source fetch with automatic fallback ═══
@@ -552,14 +559,23 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
             )
             fetched[sym] = str(out_path)
             source = kline[0].get("source") if isinstance(kline, list) and kline and isinstance(kline[0], dict) else "unknown"
+
+            # Detect stale data (e.g. Alpha Vantage returning months-old data)
+            is_stale = any(e.get("stale") for e in kline if isinstance(e, dict))
+            status = "stale" if is_stale else "ok"
+
             per_symbol[sym] = {
-                "status": "ok",
+                "status": status,
                 "source": source,
                 "fetched_at": fetched_at,
                 "quote_date": quote_date or date_str,
                 "path": str(out_path),
             }
-            logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), source)
+            if is_stale:
+                logger.warning("  %s: %d bars saved (source=%s, STALE — latest=%s)",
+                             sym, len(kline), source, quote_date)
+            else:
+                logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), source)
         else:
             priority = mgr.get_priority(market)
             err_msg = f"{sym}: all sources failed (tried: {', '.join(priority)})"
@@ -629,12 +645,17 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
     # ------------------------------------------------------------------
     # Write _fetch_log.json
     # ------------------------------------------------------------------
-    n_success = len([k for k in fetched if not k.startswith("_")])
+    n_ok = len([k for k in per_symbol if per_symbol[k].get("status") == "ok"])
+    n_stale = len([k for k in per_symbol if per_symbol[k].get("status") == "stale"])
+    n_skipped = len(skipped)
+    n_real_success = n_ok  # only fresh data counts as success
     log_data = {
         "run_at": datetime.now(TZ_BEIJING).isoformat(),
         "date": date_str,
         "symbols_attempted": len(holdings) + len(watchlist),
-        "symbols_succeeded": n_success,
+        "symbols_succeeded": n_real_success,
+        "symbols_stale": n_stale,
+        "symbols_skipped": n_skipped,
         "symbols_failed": [e.split(":")[0].strip() for e in errors],
         "errors": errors,
         "skipped": skipped,
@@ -645,9 +666,10 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
     log_path.write_text(json.dumps(log_data, ensure_ascii=False, indent=2), encoding="utf-8")
 
     # Write fallback skeletons for failed symbols (prevents Obsidian render errors)
+    # Skipped symbols (market closed) don't need skeletons — they'll use prior data
     for item in holdings + watchlist:
         sym = item["symbol"]
-        if sym not in fetched:
+        if sym not in fetched and per_symbol.get(sym, {}).get("status") != "skipped":
             skeleton_path = quotes_dir / f"{sym}.json"
             if not skeleton_path.exists():
                 # Write a single-bar OHLCV skeleton so downstream indicator

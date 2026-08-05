@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import msvcrt
 import subprocess
 import sys
 import traceback
@@ -50,11 +51,29 @@ logger.addHandler(ch)
 
 # ── Helpers ──────────────────────────────────────────────────────────────
 
+def _acquire_lock() -> bool:
+    """Acquire a file lock to prevent concurrent fetch_local.py runs.
+
+    Returns True if lock acquired, False if another instance is already running.
+    """
+    lock_path = LOGS_DIR / "fetch.lock"
+    try:
+        lock_fd = open(str(lock_path), "w")
+        msvcrt.locking(lock_fd.fileno(), msvcrt.LK_NBLCK, 1)
+        # Store fd globally so it stays open for the process lifetime
+        _acquire_lock._fd = lock_fd
+        return True
+    except (IOError, OSError):
+        logger.warning("Another fetch_local.py is running (fetch.lock held) — exiting")
+        return False
+
+
 def _run(cmd: list[str], cwd: Path = None, timeout: int = 300) -> subprocess.CompletedProcess:
     """Run a command, log output, return result."""
     cwd = cwd or ROOT
     logger.info("Running: %s (cwd=%s)", " ".join(cmd), cwd)
-    return subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, cwd=str(cwd))
+    return subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, cwd=str(cwd),
+                          encoding="utf-8", errors="replace")
 
 
 def _run_ok(result: subprocess.CompletedProcess) -> bool:
@@ -97,14 +116,20 @@ def _git_status_clean(cwd: Path = None) -> bool:
 # ── Market detection ─────────────────────────────────────────────────────
 
 def auto_markets() -> list[str]:
-    """Determine which markets to fetch based on current Beijing time."""
+    """Determine which markets to fetch based on current Beijing time.
+
+    Timing rationale:
+      - 08:00-14:00 → US (previous trading day close was ~05:00 BJT)
+      - 14:00-20:00 → A (15:00 close) + HK (16:00 close) + JP (14:00 BJT close)
+      - default → US
+    """
     hour = NOW.hour
     if 8 <= hour < 14:
-        return ["US", "JP"]   # Morning: US (previous close) + JP
+        return ["US"]           # Morning: US previous close
     elif 14 <= hour < 20:
-        return ["A", "HK"]    # Afternoon: A + HK after close
+        return ["A", "HK", "JP"]  # Afternoon: A+HK+JP after all three markets close
     else:
-        return ["US", "JP"]   # Default fallback
+        return ["US"]           # Default fallback
 
 
 def markets_from_holdings() -> set[str]:
@@ -133,38 +158,61 @@ def step_sync_holdings() -> bool:
     return _run_ok(result)
 
 
-def step_fetch(markets: list[str]) -> tuple[bool, list[str]]:
-    """Run fetch.py for specified markets."""
+def step_fetch(markets: list[str], force: bool = False) -> tuple[bool, list[str]]:
+    """Run fetch.py for specified markets.
+
+    Calendar awareness: TradingCalendar.should_fetch() in fetch.py decides
+    per-symbol whether to attempt fetch.  On weekends/holidays, symbols are
+    skipped rather than reported as failures.
+    """
     logger.info("=" * 60)
     logger.info("Step 2/4: Fetch market data (%s)", ", ".join(markets))
     errors = []
 
-    # fetch.py handles ALL symbols internally — call once, not per-market
-    result = _run(
-        [sys.executable, str(ROOT / "scripts" / "fetch.py"), "--force", "--lenient"],
-        cwd=ROOT,
-        timeout=600,
-    )
+    # Build fetch.py args — only pass --force when explicitly requested
+    fetch_args = [sys.executable, str(ROOT / "scripts" / "fetch.py"), "--lenient"]
+    if force:
+        fetch_args.append("--force")
+
+    result = _run(fetch_args, cwd=ROOT, timeout=600)
 
     # Parse fetch log for errors
     today_str = NOW.strftime("%Y-%m-%d")
     fetch_log_path = DATA_DIR / today_str / "_fetch_log.json"
+    skipped_count = 0
+    stale_count = 0
     if fetch_log_path.exists():
         try:
             flog = json.loads(fetch_log_path.read_text(encoding="utf-8"))
             errs = flog.get("errors", [])
+            skipped_list = flog.get("skipped", [])
+            skipped_count = len(skipped_list)
             if errs:
                 errors.extend(errs)
             ok = flog.get("symbols_succeeded", 0)
             total = flog.get("symbols_attempted", 0)
-            logger.info("Fetch: %d/%d OK, %d errors", ok, total, len(errs))
+            logger.info("Fetch: %d/%d OK, %d errors, %d skipped (market closed)",
+                       ok, total, len(errs), skipped_count)
             # Log per-source health
             health = flog.get("source_health", {})
             for src, h in health.items():
-                logger.info("  source %s: %s (%d ok, %d failed)",
-                           src, h.get("success_rate", "?"), h.get("ok", 0), h.get("failed", 0))
+                stale = h.get("stale", 0)
+                if stale:
+                    stale_count += stale
+                    logger.info("  source %s: %s (%d ok, %d failed, %d stale)",
+                               src, h.get("success_rate", "?"), h.get("ok", 0), h.get("failed", 0), stale)
+                else:
+                    logger.info("  source %s: %s (%d ok, %d failed)",
+                               src, h.get("success_rate", "?"), h.get("ok", 0), h.get("failed", 0))
         except Exception:
             pass
+
+    # If all symbols were skipped (market closed), that's not an error
+    if not errors and skipped_count > 0 and not _run_ok(result):
+        # fetch.py returned non-zero because lenient didn't help,
+        # but there were no real errors — only skips
+        logger.info("All %d symbols skipped (markets closed) — no errors", skipped_count)
+        return True, []
 
     if not _run_ok(result):
         errors.append(f"Fetch script failed (exit {result.returncode})")
@@ -236,9 +284,16 @@ def main():
                         help="Comma-separated markets (US,JP,A,HK). Default: auto-detect by time.")
     parser.add_argument("--all", action="store_true",
                         help="Fetch all markets regardless of time")
+    parser.add_argument("--force", action="store_true",
+                        help="Force fetch even outside trading hours / on non-trading days")
     parser.add_argument("--dry-run", action="store_true",
                         help="Fetch + indicators only, skip git push")
     args = parser.parse_args()
+
+    # ── File lock: prevent concurrent runs ──
+    if not _acquire_lock():
+        logger.info("Exiting — another fetch_local.py instance is already running")
+        return 0
 
     if args.all:
         markets = ["US", "JP", "A", "HK"]
@@ -247,11 +302,26 @@ def main():
     else:
         markets = auto_markets()
 
+    # ── Calendar check ──
+    from utils import TradingCalendar
+    cal = TradingCalendar()
+    today = NOW.date()
+    weekday_name = ["一","二","三","四","五","六","日"][today.weekday()]
+    open_markets = [m for m in markets if cal.should_fetch(m, today) or args.force]
+    closed_markets = [m for m in markets if m not in open_markets]
+
     logger.info("╔══════════════════════════════════════════════════════════╗")
-    logger.info("║  fetch_local.py — %s", NOW.strftime("%Y-%m-%d %H:%M"))
+    logger.info("║  fetch_local.py — %s (周%s)", NOW.strftime("%Y-%m-%d %H:%M"), weekday_name)
     logger.info("║  Markets: %s", ", ".join(markets))
-    logger.info("║  Dry run: %s", args.dry_run)
+    if closed_markets and not args.force:
+        logger.info("║  Closed (will skip): %s", ", ".join(closed_markets))
+    logger.info("║  Force: %s | Dry run: %s", args.force, args.dry_run)
     logger.info("╚══════════════════════════════════════════════════════════╝")
+
+    # If no markets are open and not forcing, exit cleanly
+    if not open_markets and not args.force:
+        logger.info("All markets closed on %s — nothing to fetch, exiting cleanly", today)
+        return 0
 
     all_errors: list[str] = []
     success = True
@@ -261,8 +331,8 @@ def main():
         all_errors.append("holdings sync failed")
         success = False
 
-    # Step 2: Fetch
-    fetch_ok, fetch_errors = step_fetch(markets)
+    # Step 2: Fetch (calendar-aware — fetch.py skips closed-market symbols)
+    fetch_ok, fetch_errors = step_fetch(markets, force=args.force)
     all_errors.extend(fetch_errors)
     if not fetch_ok:
         success = False
@@ -285,8 +355,13 @@ def main():
     if success:
         logger.info("SUCCESS: fetch pipeline complete for %s", ", ".join(markets))
     else:
-        logger.error("FAILURE: %d errors in fetch pipeline", len(all_errors))
-        _send_failure_notification(all_errors)
+        # Only send WeChat notification for genuine errors (not market-closed skips)
+        real_errors = [e for e in all_errors if "market closed" not in e.lower() and "skipped" not in e.lower()]
+        if real_errors:
+            logger.error("FAILURE: %d errors in fetch pipeline", len(all_errors))
+            _send_failure_notification(all_errors)
+        else:
+            logger.info("No real errors — all failures were market-closed skips, suppressing notification")
 
     # Write health JSON
     health_path = DATA_DIR / "_health.json"
