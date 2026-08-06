@@ -702,12 +702,12 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
 
     logger.info(
         "Fetch complete: %d/%d symbols OK, %d errors, %d skipped",
-        n_success, len(holdings) + len(watchlist), len(errors), len(skipped),
+        n_ok, len(holdings) + len(watchlist), len(errors), len(skipped),
     )
 
     return {
         "date": date_str,
-        "quotes_fetched": n_success,
+        "quotes_fetched": n_ok,
         "total_holdings": len(holdings),
         "total_watchlist": len(watchlist),
         "errors": errors,

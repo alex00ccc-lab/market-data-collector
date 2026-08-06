@@ -13,6 +13,11 @@ logger = logging.getLogger(__name__)
 
 ENV_MAP = {
     "alpha_vantage_api_key": "ALPHA_VANTAGE_API_KEY",
+    "finnhub_api_key": "FINNHUB_API_KEY",
+    "twelvedata_api_key": "TWELVEDATA_API_KEY",
+    "polygon_api_key": "POLYGON_API_KEY",
+    "tiingo_api_key": "TIINGO_API_KEY",
+    "marketstack_api_key": "MARKETSTACK_API_KEY",
 }
 
 _SCRIPT_DIR = Path(__file__).resolve().parent.parent  # market_data/
@@ -54,3 +59,53 @@ def get_key(name: str, default: str = "") -> str:
         return val.strip()
 
     return default
+
+
+# ── Quota thresholds per source ───────────────────────────────────────────
+QUOTA_THRESHOLDS = {
+    "finnhub_api_key": {
+        "name": "Finnhub",
+        "limit_per_minute": 60,
+        "warn_pct": 0.8,
+    },
+    "alpha_vantage_api_key": {
+        "name": "Alpha Vantage",
+        "limit_per_day": 25,
+        "warn_pct": 0.8,
+    },
+    "twelvedata_api_key": {
+        "name": "Twelve Data",
+        "limit_per_day": 800,
+        "warn_pct": 0.7,
+    },
+}
+
+
+def check_quota() -> dict[str, bool]:
+    """Check which API keys are configured and log warnings near quota limits.
+
+    Returns:
+        {source_name: is_configured} dict.
+    """
+    result = {}
+    for key_name, cfg in QUOTA_THRESHOLDS.items():
+        key_val = get_key(key_name, "")
+        name = cfg["name"]
+        configured = bool(key_val)
+
+        if not configured:
+            logger.info("Key %s: not configured — adapter will be skipped", name)
+        else:
+            logger.debug("Key %s: configured", name)
+
+        result[name.lower().replace(" ", "_")] = configured
+
+    configured = [k for k, v in result.items() if v]
+    missing = [k for k, v in result.items() if not v]
+    if missing:
+        logger.info("API keys: %d/%d configured — missing: %s",
+                    len(configured), len(result), ", ".join(missing))
+    else:
+        logger.info("API keys: all %d configured", len(result))
+
+    return result

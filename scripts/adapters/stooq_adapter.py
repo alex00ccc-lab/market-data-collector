@@ -1,3 +1,12 @@
+# ⚠️ DEPRECATED — 2026-08-06
+# stooq.com now requires JavaScript (Cloudflare Challenge). urllib.request
+# cannot execute JS, so this adapter is permanently non-functional.
+# Kept for reference only. Do not re-enable.
+#
+# Replaced by:
+#   - finnhub adapter (US stocks, independent third-party)
+#   - aktools adapter (A-shares, Sina/Tencent source)
+#   - yahoo_chart adapter (US/JP/HK, same Yahoo IP pool as yfinance)
 """Stooq adapter — free CSV-based OHLCV data, no API key required."""
 
 from __future__ import annotations

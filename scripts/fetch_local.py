@@ -118,18 +118,18 @@ def _git_status_clean(cwd: Path = None) -> bool:
 def auto_markets() -> list[str]:
     """Determine which markets to fetch based on current Beijing time.
 
+    US/JP/HK data is fetched by GitHub Actions (fetch-daily.yml).
+    Local is responsible only for A-shares (efinance needs CN IP).
+
     Timing rationale:
-      - 08:00-14:00 → US (previous trading day close was ~05:00 BJT)
-      - 14:00-20:00 → A (15:00 close) + HK (16:00 close) + JP (14:00 BJT close)
-      - default → US
+      - 15:00-20:00 → A (15:00 close, efinance needs CN IP)
+      - default → A (always safe to fetch A-shares)
     """
     hour = NOW.hour
-    if 8 <= hour < 14:
-        return ["US"]           # Morning: US previous close
-    elif 14 <= hour < 20:
-        return ["A", "HK", "JP"]  # Afternoon: A+HK+JP after all three markets close
+    if 15 <= hour < 20:
+        return ["A"]            # Afternoon: A-shares after market close
     else:
-        return ["US"]           # Default fallback
+        return ["A"]            # Default: A-shares only
 
 
 def markets_from_holdings() -> set[str]:
@@ -325,6 +325,16 @@ def main():
 
     all_errors: list[str] = []
     success = True
+
+    # Step 0: Git pull — sync latest CI data before adding local A-share data
+    if not args.dry_run:
+        logger.info("=" * 60)
+        logger.info("Step 0/4: Git pull (sync CI data)")
+        result = _run(["git", "pull", "origin", "master"], cwd=ROOT, timeout=60)
+        if _run_ok(result):
+            logger.info("CI data synced")
+        else:
+            logger.warning("Git pull failed — continuing with local data only")
 
     # Step 1: Sync holdings
     if not step_sync_holdings():

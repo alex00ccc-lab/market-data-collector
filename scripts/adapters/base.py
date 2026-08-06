@@ -79,3 +79,20 @@ class BaseAdapter(ABC):
     def health_check(self) -> bool:
         """Quick connectivity test. Default: True (assume OK until proven otherwise)."""
         return True
+
+    # ── Cooldown interface (standard for all adapters) ─────────────────
+
+    def is_rate_limited(self) -> bool:
+        """Whether this adapter is currently in cooldown (rate-limited).
+
+        SourceManager calls this before fetch_with_fallback to skip
+        adapters that were recently rate-limited.
+        """
+        return hasattr(self, "_cooldown_until") and getattr(self, "_cooldown_until", 0) > __import__("time").time()
+
+    def set_cooldown(self, seconds: int = 900):
+        """Mark this adapter as rate-limited for ``seconds`` (default 15 min).
+
+        After the cooldown expires, the adapter will be retried automatically.
+        """
+        self._cooldown_until = __import__("time").time() + seconds

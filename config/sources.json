@@ -1,30 +1,51 @@
 {
-  "priority": ["yfinance", "efinance", "alpha_vantage", "stooq"],
+  "priority": ["yfinance", "yahoo_chart", "finnhub", "alpha_vantage", "stooq"],
   "market_overrides": {
-    "A": ["efinance", "stooq"],
-    "HK": ["efinance", "yfinance", "stooq"]
+    "A": ["efinance", "aktools", "stooq"],
+    "HK": ["efinance", "yfinance", "yahoo_chart", "finnhub", "stooq"]
   },
   "adapters": {
     "yfinance": {
       "enabled": true,
       "markets": ["US", "JP", "HK"],
-      "note": "Primary for US/JP. Free, no API key. May rate-limit."
+      "note": "Primary for US/JP. Free, no key. May rate-limit. Same IP pool as yahoo_chart.",
+      "cooldown_on_rate_limit": 900
     },
-    "efinance": {
+    "yahoo_chart": {
       "enabled": true,
-      "markets": ["A", "HK"],
-      "note": "Primary for A-shares/HK. Free, no key. May block non-China IPs."
+      "markets": ["US", "JP", "HK"],
+      "note": "Yahoo Chart API v8. Same IP as yfinance — NOT independent. Different endpoint may have different availability.",
+      "cooldown_on_rate_limit": 900
+    },
+    "finnhub": {
+      "enabled": true,
+      "markets": ["US"],
+      "note": "INDEPENDENT third-party. 60 calls/min free. Requires free API key (finnhub_api_key). True escape hatch from Yahoo rate limits.",
+      "api_key_name": "finnhub_api_key",
+      "cooldown_on_rate_limit": 900
     },
     "alpha_vantage": {
       "enabled": true,
       "markets": ["US"],
-      "note": "Secondary for US. 25 calls/day, 5 calls/min. Free API key required.",
-      "api_key_env": "ALPHA_VANTAGE_API_KEY"
+      "note": "US fallback. 25 calls/day, 5 calls/min. Free API key required (alpha_vantage_api_key).",
+      "api_key_name": "alpha_vantage_api_key",
+      "cooldown_on_rate_limit": 60
+    },
+    "efinance": {
+      "enabled": true,
+      "markets": ["A", "HK"],
+      "note": "Primary for A-shares/HK. Free, no key. East Money API — may block non-China IPs."
+    },
+    "aktools": {
+      "enabled": true,
+      "markets": ["A"],
+      "note": "A-share fallback via Sina/Tencent sources. pip install akshare. No API key. Usually accessible from outside China.",
+      "cooldown_on_rate_limit": 300
     },
     "stooq": {
-      "enabled": true,
+      "enabled": false,
       "markets": ["US", "JP", "HK", "A"],
-      "note": "Universal fallback. Free, CSV-based. May have data delays."
+      "note": "PERMANENTLY DISABLED 2026-08-06 — stooq.com now requires JavaScript (Cloudflare Challenge). Replaced by finnhub (US) + aktools (A) + yahoo_chart."
     }
   }
 }

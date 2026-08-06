@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import logging
+import time as _time
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Any, Optional
@@ -17,11 +18,16 @@ from adapters.base import BaseAdapter
 from adapters.yfinance_adapter import YFinanceAdapter
 from adapters.stooq_adapter import StooqAdapter
 from adapters.efinance_adapter import EFinanceAdapter
+from adapters.yahoo_chart_adapter import YahooChartAdapter
+from adapters.finnhub_adapter import FinnhubAdapter
+from adapters.aktools_adapter import AkToolsAdapter
+from utils.constants import TZ_BEIJING, LOG_TRUNCATE_LENGTH
+from utils.exceptions import RateLimitError
 
 logger = logging.getLogger(__name__)
-TZ_BEIJING = timezone(timedelta(hours=8))
 
 CONFIG_DIR = Path(__file__).resolve().parent.parent / "config"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 
 # ---------------------------------------------------------------------------
@@ -66,10 +72,10 @@ class AlphaVantageAdapter(BaseAdapter):
 
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=15) as resp:
+            with urllib.request.urlopen(req, timeout=12) as resp:
                 data = json.loads(resp.read().decode())
         except Exception as e:
-            logger.warning("alpha_vantage(%s): request error — %s", symbol, str(e)[:80])
+            logger.warning("alpha_vantage(%s): request error — %s", symbol, str(e)[:LOG_TRUNCATE_LENGTH])
             return None
 
         # Check for rate limit / error messages
@@ -136,23 +142,71 @@ class SourceManager:
 
     The manager tries each adapter in the configured priority order until one
     returns data.  Health statistics are tracked per-source and per-symbol.
+
+    Cooldown state is persisted to ``data/_cooldown.json`` so that rate-limit
+    backoff survives script restarts.
     """
 
     def __init__(self):
         self._adapters: dict[str, BaseAdapter] = {}
         self._stats: dict[str, dict[str, Any]] = {}   # per-source health
+        self._cooldown_path = DATA_DIR / "_cooldown.json"
+        self._cooldown_dirty = False
+        self._load_cooldowns()
         self._register_defaults()
 
     def _register_defaults(self):
         """Register all built-in adapters."""
         self.register(YFinanceAdapter())
+        self.register(YahooChartAdapter())
+        self.register(FinnhubAdapter())
         self.register(StooqAdapter())
         self.register(EFinanceAdapter())
+        self.register(AkToolsAdapter())
         # Alpha Vantage is registered but will no-op until API key is set
         self.register(AlphaVantageAdapter())
 
     def register(self, adapter: BaseAdapter):
         self._adapters[adapter.name] = adapter
+
+    # ── Cooldown persistence ──────────────────────────────────────────
+
+    def _load_cooldowns(self):
+        """Restore cooldown state from disk (survives script restart)."""
+        try:
+            if self._cooldown_path.exists():
+                data = json.loads(self._cooldown_path.read_text(encoding="utf-8"))
+                now = _time.time()
+                for name, until_ts in data.items():
+                    if until_ts > now:
+                        adapter = self._adapters.get(name)
+                        if adapter:
+                            adapter._cooldown_until = until_ts
+                            remaining = int((until_ts - now) // 60)
+                            logger.info("%s: cooldown resumed — %d min remaining", name, remaining)
+        except Exception:
+            pass
+
+    def _save_cooldowns(self):
+        """Persist all adapter cooldowns to disk (lazy — called after batch)."""
+        if not self._cooldown_dirty:
+            return
+        try:
+            self._cooldown_path.parent.mkdir(parents=True, exist_ok=True)
+            data = {}
+            for name, adapter in self._adapters.items():
+                if adapter.is_rate_limited():
+                    data[name] = getattr(adapter, "_cooldown_until", 0)
+            if data:
+                self._cooldown_path.write_text(
+                    json.dumps(data, ensure_ascii=False), encoding="utf-8")
+            elif self._cooldown_path.exists():
+                self._cooldown_path.unlink()
+            self._cooldown_dirty = False
+        except Exception as e:
+            logger.debug("Failed to save cooldown state: %s", e)
+
+    # ── Priority resolution ───────────────────────────────────────────
 
     def get_priority(self, market: str) -> list[str]:
         """Read priority order from config/sources.json, filtered to market.
@@ -175,6 +229,8 @@ class SourceManager:
             and adapters_cfg.get(name, {}).get("enabled", True)
         ]
 
+    # ── Core fetch with fallback ──────────────────────────────────────
+
     def fetch_with_fallback(
         self,
         symbol: str,
@@ -182,6 +238,9 @@ class SourceManager:
         days: int = 120,
     ) -> Optional[list[dict]]:
         """Fetch OHLCV data, trying adapters in priority order.
+
+        Skips adapters in cooldown.  On RateLimitError, persists cooldown
+        and falls through to the next adapter.
 
         Returns:
             First successful kline data, or None if all adapters fail.
@@ -198,16 +257,38 @@ class SourceManager:
             if not adapter.supports_market(market):
                 continue
 
-            kline = adapter.fetch_kline(symbol, market, days)
+            # Skip adapters currently in cooldown (rate-limited)
+            if adapter.is_rate_limited():
+                remaining = int(getattr(adapter, "_cooldown_until", 0) - _time.time())
+                logger.debug("%s: skipped — cooldown %ds remaining", name, max(0, remaining))
+                continue
+
+            try:
+                kline = adapter.fetch_kline(symbol, market, days)
+            except RateLimitError:
+                # Adapter signalled rate-limit — persist cooldown, fall through
+                self._cooldown_dirty = True
+                self._save_cooldowns()
+                self._record(name, symbol, "rate_limited", 0)
+                continue
+            except Exception as e:
+                logger.debug("%s(%s): unexpected error — %s",
+                           name, symbol, str(e)[:LOG_TRUNCATE_LENGTH])
+                self._record(name, symbol, "failed", 0)
+                continue
+
             if kline and len(kline) > 0:
                 # Detect stale data (adapter sets "stale": True on each bar)
                 is_stale = any(e.get("stale") for e in kline if isinstance(e, dict))
                 status = "stale" if is_stale else "ok"
                 self._record(name, symbol, status, len(kline))
+                # Flush cooldowns after successful fetch (batch write)
+                self._save_cooldowns()
                 return kline
             else:
                 self._record(name, symbol, "failed", 0)
 
+        self._save_cooldowns()
         return None
 
     def fetch_realtime(self, symbol: str, market: str) -> Optional[dict]:

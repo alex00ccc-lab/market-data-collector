@@ -1,49 +1,47 @@
-name: Daily Market Data Fetch
+name: Fetch US / JP / HK Market Data
 
-# ⚠️ SCHEDULE DISABLED — data fetching moved to local Windows scheduled task.
-#   Local PC (China IP) → fetch_local.py → push to market-data-collector.
-#   Holdings-briefing CI git-pulls this submodule for fresh data.
-#   workflow_dispatch kept as manual backup.
-#
-# Original schedule (disabled 2026-07-31):
-#   A-share: 15:10 CST (07:10 UTC)
-#   HK:      16:10 CST (08:10 UTC)
-#   US:      05:30 CST next day (21:30 UTC previous day)
-
+# ── Schedule (Beijing time) ──────────────────────────────────────────
+# 08:05 BJT — US previous trading day close available (~05:00 BJT next day)
+# 17:05 BJT — JP (14:00 BJT) + HK (16:00 BJT) closed
 on:
-#  schedule:
-#    - cron: '10 07 * * 1-5'
-#    - cron: '10 08 * * 1-5'
-#    - cron: '30 21 * * 1-5'
-#    - cron: '30 21 * * 6'
+  schedule:
+    - cron: '5 0 * * 1-5'
+    - cron: '5 9 * * 1-5'
   workflow_dispatch:
     inputs:
       force:
-        description: 'Force fetch (ignore time window)'
+        description: 'Force fetch (ignore trading calendar)'
         type: boolean
         default: false
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     permissions:
       contents: write
+    strategy:
+      fail-fast: false
+
+    env:
+      ALPHA_VANTAGE_API_KEY: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
+      FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+      TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+      WECOM_WEBHOOK_URL: ${{ secrets.WECOM_WEBHOOK_URL }}
+      CI: true
+      GITHUB_ACTIONS: true
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install efinance yfinance
+        run: pip install -r requirements.txt
 
       - name: Fetch market data
         id: fetch
@@ -52,25 +50,82 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force }}" = "true" ]; then
             FORCE_FLAG="--force"
           fi
-          python scripts/fetch.py $FORCE_FLAG 2>&1 | tee fetch.log
-          echo "exit_code=${PIPESTATUS[0]}" >> $GITHUB_OUTPUT
+          # Retry up to 2 times on failure (network blips)
+          for attempt in 1 2; do
+            python scripts/fetch.py --lenient $FORCE_FLAG 2>&1 | tee fetch.log
+            EXIT_CODE=${PIPESTATUS[0]}
+            if [ "$EXIT_CODE" -eq 0 ]; then
+              echo "exit_code=0" >> $GITHUB_OUTPUT
+              break
+            fi
+            if [ "$attempt" -eq 2 ]; then
+              echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+            else
+              echo "Fetch attempt $attempt failed — retrying in 60s..."
+              sleep 60
+            fi
+          done
+
+      - name: Validate fetched data
+        if: steps.fetch.outputs.exit_code == '0' || github.event_name == 'workflow_dispatch'
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          DATA_DIR="data/$TODAY/quotes"
+          BAD_FILES=0
+          if [ -d "$DATA_DIR" ]; then
+            for f in "$DATA_DIR"/*.json; do
+              [ -f "$f" ] || continue
+              # Check JSON is valid and has at least one bar with close > 0
+              python -c "
+          import json, sys
+          try:
+              data = json.loads(open('$f').read())
+              if not isinstance(data, list) or len(data) == 0:
+                  sys.exit(1)
+              if data[0].get('close', 0) <= 0:
+                  sys.exit(1)
+          except: sys.exit(1)
+          " 2>/dev/null || { echo "INVALID: $f"; BAD_FILES=$((BAD_FILES + 1)); }
+            done
+          fi
+          if [ "$BAD_FILES" -gt 0 ]; then
+            echo "WARNING: $BAD_FILES invalid data files found"
+          fi
+          echo "bad_files=$BAD_FILES" >> $GITHUB_OUTPUT
 
       - name: Compute indicators
         if: steps.fetch.outputs.exit_code == '0' || github.event_name == 'workflow_dispatch'
         run: |
           TODAY=$(date +%Y-%m-%d)
-          python scripts/indicators.py --date "$TODAY" 2>&1 | tee indicators.log
+          python scripts/indicators.py --date "$TODAY"
 
-      - name: Commit and push
+      - name: Commit and push data
         if: always() && (steps.fetch.outputs.exit_code == '0' || github.event_name == 'workflow_dispatch')
         run: |
           git config user.name "market-data-bot"
           git config user.email "bot@market-data-collector.local"
-          git add data/
+          git add -f data/
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
             TODAY=$(date +%Y-%m-%d)
-            git commit -m "data: market snapshot $TODAY"
+            git commit -m "data: auto fetch $TODAY"
             git push
           fi
+
+      - name: Alert on fetch failure
+        if: failure() && github.event_name == 'schedule'
+        env:
+          WECOM_WEBHOOK_URL: ${{ secrets.WECOM_WEBHOOK_URL }}
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          python -c "
+          import json, urllib.request, os
+          webhook = os.getenv('WECOM_WEBHOOK_URL', '')
+          if webhook:
+              msg = f'⚠️ CI 数据抓取异常\n\n日期: $TODAY\n仓库: market-data-collector\n\n请检查 Actions 日志: https://github.com/alex00ccc-lab/market-data-collector/actions'
+              data = json.dumps({'msgtype': 'text', 'text': {'content': msg}}).encode()
+              req = urllib.request.Request(webhook, data=data, headers={'Content-Type': 'application/json'})
+              urllib.request.urlopen(req, timeout=10)
+              print('WeChat alert sent')
+          "

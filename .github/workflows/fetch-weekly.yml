@@ -1,35 +1,36 @@
 name: Weekly Fundamentals Fetch
 
-# ⚠️ SCHEDULE DISABLED — data fetching moved to local Windows scheduled task.
-#   workflow_dispatch kept as manual backup.
-#
-# Original schedule (disabled 2026-07-31):
-#   Saturday 08:00 Beijing = 00:00 UTC
-
 on:
-#  schedule:
-#    - cron: '0 0 * * 6'
+  schedule:
+    # Saturday 08:00 BJT = 00:00 UTC
+    - cron: '0 0 * * 6'
   workflow_dispatch:
 
 jobs:
   fetch-weekly:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: write
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    env:
+      ALPHA_VANTAGE_API_KEY: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
+      FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+      TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+      CI: true
+      GITHUB_ACTIONS: true
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install yfinance
+        run: pip install -r requirements.txt
 
       - name: Fetch fundamentals
         run: |
@@ -39,21 +40,25 @@ jobs:
           import json, sys
           from pathlib import Path
           sys.path.insert(0, 'scripts')
-          from fetch import fetch_yfinance_fundamentals, load_symbols
+          from source_manager import SourceManager
 
+          mgr = SourceManager()
           today = '$TODAY'
           out_dir = Path('data') / today / 'fundamentals'
           out_dir.mkdir(parents=True, exist_ok=True)
 
-          # Holdings + Watchlist (US stocks only)
+          # Load US holdings + watchlist
+          holdings_path = Path('config/holdings.json')
+          watchlist_path = Path('config/watchlist.json')
           all_syms = []
-          for cfg_name in ('holdings', 'watchlist'):
-              syms = load_symbols(cfg_name)
-              all_syms.extend([s for s in syms if s.get('market') == 'US'])
+          for cfg_path in (holdings_path, watchlist_path):
+              if cfg_path.exists():
+                  cfg = json.loads(cfg_path.read_text(encoding='utf-8'))
+                  all_syms.extend([s for s in cfg.get('symbols', []) if s.get('market') == 'US'])
 
           for item in all_syms:
               sym = item['symbol']
-              data = fetch_yfinance_fundamentals(sym)
+              data = mgr.fetch_fundamentals(sym, 'US')
               if data:
                   (out_dir / f'{sym}.json').write_text(
                       json.dumps(data, ensure_ascii=False, indent=2),
@@ -62,14 +67,13 @@ jobs:
                   print(f'  {sym}: PE={data.get(\"pe_ratio\")}, PB={data.get(\"pb_ratio\")}')
               else:
                   print(f'  {sym}: FAILED')
-          "
-        shell: bash
+          " 2>&1
 
       - name: Commit and push
         run: |
           git config user.name "market-data-bot"
           git config user.email "bot@market-data-collector.local"
-          git add data/
+          git add -f data/
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else

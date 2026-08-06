@@ -15,6 +15,13 @@
       "currency": "CNY"
     },
     {
+      "symbol": "588710",
+      "market": "A",
+      "name": "科创半导体",
+      "sector": "",
+      "currency": "CNY"
+    },
+    {
       "symbol": "6880.HK",
       "market": "HK",
       "name": "MOMENTA",
@@ -36,9 +43,9 @@
       "currency": "HKD"
     },
     {
-      "symbol": "3308.HK",
+      "symbol": "1888.HK",
       "market": "HK",
-      "name": "中际旭创",
+      "name": "建涛积层板",
       "sector": "",
       "currency": "HKD"
     },

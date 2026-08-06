@@ -1,10 +1,70 @@
-# API Keys for market-data-collector
-# ===================================
+# ═══════════════════════════════════════════════════════════════════════════
+# 🔐 运维注意事项
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# 密钥轮换: 建议每季度更新一次所有 API Key
+# 轮换流程:
+#   1. 在数据源官网生成新 Key
+#   2. 更新本文件的对应字段
+#   3. 更新 GitHub Secrets（Settings → Secrets → Actions → Update）
+#   4. 删除旧 Key（数据源官网 → Revoke）
+#
+# CI 权限: 所有 API Key 通过 GitHub Secrets 注入 workflow，采用最小权限原则
+#   - 仅 fetch-daily.yml / fetch-weekly.yml 两个 workflow 可见
+#   - 不在 logs / artifacts 中打印 key 值
+#
+# 泄露应急:
+#   1. GitHub UI → Settings → Secrets → Actions → 立即删除泄露的 Secret
+#   2. 数据源官网 → Revoke 旧 Key
+#   3. 生成新 Key → 更新本文件 + GitHub Secret
+#   4. 检查 workflow 运行历史是否有可疑请求
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# ═══════════════════════════════════════════════════════════════════════════
+# market_data API Keys
+# ═══════════════════════════════════════════════════════════════════════════
 # Copy this file to keys.yaml and fill in your actual keys.
 # keys.yaml is git-ignored — never committed to the repository.
 #
-# Priority: Environment variable > keys.yaml
+# Priority: Environment variable > keys.yaml > D:\.keys.yaml
+# ═══════════════════════════════════════════════════════════════════════════
 
-# Alpha Vantage — free US stock data (25 calls/day, 5 calls/min)
-# Get key: https://www.alphavantage.co/support/#api-key
+# ── 免费源（无需 Key）──────────────────────────────────────
+# yfinance        — Yahoo Finance library，零配置，可能限流
+# yahoo_chart     — Yahoo Chart API (v8)，零配置，不同限流池
+# 以上两个无需填写任何 key，系统自动启用
+
+# ── 免费源（需注册 Key）────────────────────────────────────
+
+# Alpha Vantage — US stocks
+# 注册: https://www.alphavantage.co/support/#api-key
+# 免费额度: 25 次/天, 5 次/分钟
 alpha_vantage_api_key: ""
+
+# Finnhub — US stocks（推荐备用）
+# 注册: https://finnhub.io/register
+# 免费额度: 60 次/分钟, 仅美股
+finnhub_api_key: ""
+
+# Twelve Data — 全球市场（US/JP/HK/A）
+# 注册: https://twelvedata.com/apikey
+# 免费额度: 800 次/天, 支持全球市场
+twelvedata_api_key: ""
+
+# ── 付费源（低成本，更稳定）─────────────────────────────────
+# 当免费源额度不够时，可以注册以下付费 API 并填入 key
+
+# Polygon.io — 美股实时+历史数据
+# 注册: https://polygon.io/pricing
+# 最低 $29/月, 无限调用
+# polygon_api_key: ""
+
+# Tiingo — 美股高质量历史数据
+# 注册: https://www.tiingo.com/pricing
+# 最低 $10/月
+# tiingo_api_key: ""
+
+# MarketStack — 全球股票数据
+# 注册: https://marketstack.com/product
+# 免费 1000 次/月, 付费 $11.99/月起
+# marketstack_api_key: ""
