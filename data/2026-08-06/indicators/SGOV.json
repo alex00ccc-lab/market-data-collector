@@ -1,0 +1,64 @@
+{
+  "symbol": "SGOV",
+  "date": "2026-08-05",
+  "close": 100.44999694824219,
+  "currency": "",
+  "ma": {
+    "ma5": 100.42,
+    "ma10": 100.38,
+    "ma20": 100.31,
+    "ma60": 100.02,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 99.0,
+    "signal": "overbought"
+  },
+  "macd": {
+    "diff": 0.1016,
+    "dea": 0.1015,
+    "histogram": 0.0002,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 66.7,
+    "d": 55.6,
+    "j": 88.9,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 100.47,
+    "middle": 100.31,
+    "lower": 100.15,
+    "bandwidth": 0.3,
+    "position": 0.93,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 0.8,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 100.45,
+    "low": 99.58,
+    "0.0%": 100.45,
+    "23.6%": 100.25,
+    "38.2%": 100.12,
+    "50.0%": 100.02,
+    "61.8%": 99.91,
+    "78.6%": 99.77,
+    "100.0%": 99.58
+  },
+  "trend_strength": "多头",
+  "supports": [],
+  "resistances": [],
+  "risk_flags": [
+    "RSI超买"
+  ],
+  "resonance": {
+    "bullish": 3,
+    "neutral": 1,
+    "bearish": 2,
+    "overall": "mildly_bullish"
+  }
+}
