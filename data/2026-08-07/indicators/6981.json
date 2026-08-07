@@ -1,41 +1,41 @@
 {
   "symbol": "6981",
   "date": "2026-08-07",
-  "close": 7133.0,
+  "close": 7263.0,
   "currency": "",
   "ma": {
-    "ma5": 7334.6,
-    "ma10": 7199.1,
-    "ma20": 7915.8,
-    "ma60": 8998.6,
+    "ma5": 7360.6,
+    "ma10": 7212.1,
+    "ma20": 7922.3,
+    "ma60": 9000.77,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 45.9,
+    "value": 46.9,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -605.8834,
-    "dea": -663.4473,
-    "histogram": 115.1278,
+    "diff": -595.5131,
+    "dea": -662.2951,
+    "histogram": 133.564,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 54.0,
-    "d": 51.3,
-    "j": 59.3,
+    "k": 56.1,
+    "d": 52.0,
+    "j": 64.2,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 9756.57,
-    "middle": 7915.8,
-    "lower": 6075.03,
-    "bandwidth": 46.5,
-    "position": 0.29,
+    "upper": 9752.86,
+    "middle": 7922.3,
+    "lower": 6091.74,
+    "bandwidth": 46.2,
+    "position": 0.32,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.6,
+    "ratio": 1.0,
     "signal": "normal"
   },
   "fibonacci": {

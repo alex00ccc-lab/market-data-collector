@@ -1,7 +1,7 @@
 {
   "symbol": "588710",
   "date": "2026-08-07",
-  "close": 3.126,
+  "close": 3.122,
   "currency": "",
   "ma": {
     "ma5": 2.87,
@@ -15,15 +15,15 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": -0.1204,
+    "diff": -0.1208,
     "dea": -0.1215,
-    "histogram": 0.0022,
+    "histogram": 0.0014,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 59.1,
+    "k": 58.9,
     "d": 53.0,
-    "j": 71.2,
+    "j": 70.8,
     "signal": "bullish"
   },
   "bollinger": {
@@ -35,8 +35,8 @@
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.3,
-    "signal": "shrink"
+    "ratio": 0.9,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 4.55,
@@ -60,9 +60,7 @@
     4.26,
     4.32
   ],
-  "risk_flags": [
-    "缩量警示"
-  ],
+  "risk_flags": [],
   "resonance": {
     "bullish": 3,
     "neutral": 3,

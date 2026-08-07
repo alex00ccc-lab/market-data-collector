@@ -1,7 +1,7 @@
 {
   "symbol": "513010",
   "date": "2026-08-07",
-  "close": 0.627,
+  "close": 0.631,
   "currency": "",
   "ma": {
     "ma5": 0.63,
@@ -11,32 +11,32 @@
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 52.2,
+    "value": 53.8,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 0.0059,
+    "diff": 0.0063,
     "dea": 0.0046,
-    "histogram": 0.0026,
+    "histogram": 0.0034,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 49.5,
-    "d": 49.8,
-    "j": 48.9,
-    "signal": "bearish"
+    "k": 53.3,
+    "d": 51.1,
+    "j": 57.8,
+    "signal": "bullish"
   },
   "bollinger": {
     "upper": 0.64,
     "middle": 0.62,
     "lower": 0.6,
     "bandwidth": 7.1,
-    "position": 0.61,
+    "position": 0.69,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.3,
-    "signal": "shrink"
+    "ratio": 0.7,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 0.67,
@@ -59,13 +59,11 @@
     0.63,
     0.67
   ],
-  "risk_flags": [
-    "缩量警示"
-  ],
+  "risk_flags": [],
   "resonance": {
-    "bullish": 3,
+    "bullish": 4,
     "neutral": 2,
-    "bearish": 1,
-    "overall": "mildly_bullish"
+    "bearish": 0,
+    "overall": "bullish"
   }
 }
