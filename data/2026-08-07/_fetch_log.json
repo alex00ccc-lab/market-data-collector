@@ -1,0 +1,141 @@
+{
+  "run_at": "2026-08-07T10:41:29.684217+08:00",
+  "date": "2026-08-07",
+  "symbols_attempted": 13,
+  "symbols_succeeded": 12,
+  "symbols_stale": 1,
+  "symbols_skipped": 0,
+  "symbols_failed": [],
+  "errors": [],
+  "skipped": [],
+  "per_symbol": {
+    "513010": {
+      "status": "ok",
+      "source": "efinance",
+      "fetched_at": "2026-08-07T10:40:44.994353+08:00",
+      "quote_date": "2026-02-06",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/513010.json"
+    },
+    "588080": {
+      "status": "ok",
+      "source": "efinance",
+      "fetched_at": "2026-08-07T10:40:45.950132+08:00",
+      "quote_date": "2026-02-06",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/588080.json"
+    },
+    "588710": {
+      "status": "ok",
+      "source": "efinance",
+      "fetched_at": "2026-08-07T10:40:48.079199+08:00",
+      "quote_date": "2026-02-06",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/588710.json"
+    },
+    "6880.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-07T10:40:53.389429+08:00",
+      "quote_date": "2026-07-08",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/6880.HK.json"
+    },
+    "9992.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-07T10:40:55.175404+08:00",
+      "quote_date": "2026-05-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/9992.HK.json"
+    },
+    "2631.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-07T10:40:57.163407+08:00",
+      "quote_date": "2026-05-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/2631.HK.json"
+    },
+    "1888.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-07T10:41:00.089471+08:00",
+      "quote_date": "2026-05-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/1888.HK.json"
+    },
+    "NOK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-07T10:41:02.127075+08:00",
+      "quote_date": "2026-05-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/NOK.json"
+    },
+    "SGOV": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-07T10:41:04.055260+08:00",
+      "quote_date": "2026-05-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/SGOV.json"
+    },
+    "TSLA": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-07T10:41:06.048079+08:00",
+      "quote_date": "2026-05-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/TSLA.json"
+    },
+    "SIVE": {
+      "status": "stale",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-08-07T10:41:11.071425+08:00",
+      "quote_date": "2022-12-16",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/SIVE.json"
+    },
+    "LRCX": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-07T10:41:12.128908+08:00",
+      "quote_date": "2026-05-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/LRCX.json"
+    },
+    "6981": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-07T10:41:14.159624+08:00",
+      "quote_date": "2026-05-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-07/quotes/6981.json"
+    }
+  },
+  "source_health": {
+    "alpha_vantage": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 0,
+      "stale": 1,
+      "bars_fetched": 100
+    },
+    "efinance": {
+      "success_rate": "43%",
+      "ok": 3,
+      "failed": 4,
+      "stale": 0,
+      "bars_fetched": 360
+    },
+    "finnhub": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 1,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "yahoo_chart": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 1,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "yfinance": {
+      "success_rate": "90%",
+      "ok": 9,
+      "failed": 1,
+      "stale": 0,
+      "bars_fetched": 533
+    }
+  }
+}

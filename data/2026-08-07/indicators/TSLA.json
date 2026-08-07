@@ -1,0 +1,73 @@
+{
+  "symbol": "TSLA",
+  "date": "2026-08-06",
+  "close": 319.5299987792969,
+  "currency": "",
+  "ma": {
+    "ma5": 320.34,
+    "ma10": 313.86,
+    "ma20": 347.29,
+    "ma60": 389.78,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 27.8,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": -21.9942,
+    "dea": -24.0782,
+    "histogram": 4.168,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 56.3,
+    "d": 52.1,
+    "j": 64.6,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 422.65,
+    "middle": 347.29,
+    "lower": 271.93,
+    "bandwidth": 43.4,
+    "position": 0.32,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.7,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 453.4,
+    "low": 297.38,
+    "0.0%": 453.4,
+    "23.6%": 416.58,
+    "38.2%": 393.8,
+    "50.0%": 375.39,
+    "61.8%": 356.98,
+    "78.6%": 330.77,
+    "100.0%": 297.38
+  },
+  "trend_strength": "多头",
+  "supports": [
+    298.32,
+    375.12,
+    381.59
+  ],
+  "resistances": [
+    411.15,
+    425.3,
+    442.1
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20"
+  ],
+  "resonance": {
+    "bullish": 3,
+    "neutral": 2,
+    "bearish": 1,
+    "overall": "mildly_bullish"
+  }
+}

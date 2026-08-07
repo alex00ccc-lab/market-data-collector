@@ -1,0 +1,72 @@
+{
+  "symbol": "588710",
+  "date": "2026-08-07",
+  "close": 3.126,
+  "currency": "",
+  "ma": {
+    "ma5": 2.87,
+    "ma10": 2.93,
+    "ma20": 3.1,
+    "ma60": 3.11,
+    "alignment": "mixed"
+  },
+  "rsi": {
+    "value": 56.6,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": -0.1204,
+    "dea": -0.1215,
+    "histogram": 0.0022,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 59.1,
+    "d": 53.0,
+    "j": 71.2,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 3.71,
+    "middle": 3.1,
+    "lower": 2.49,
+    "bandwidth": 39.3,
+    "position": 0.52,
+    "signal": "above_middle"
+  },
+  "volume": {
+    "ratio": 0.3,
+    "signal": "shrink"
+  },
+  "fibonacci": {
+    "high": 4.55,
+    "low": 2.31,
+    "0.0%": 4.55,
+    "23.6%": 4.02,
+    "38.2%": 3.7,
+    "50.0%": 3.43,
+    "61.8%": 3.17,
+    "78.6%": 2.79,
+    "100.0%": 2.31
+  },
+  "trend_strength": "多头",
+  "supports": [
+    2.39,
+    2.8,
+    3.68
+  ],
+  "resistances": [
+    2.81,
+    4.26,
+    4.32
+  ],
+  "risk_flags": [
+    "缩量警示"
+  ],
+  "resonance": {
+    "bullish": 3,
+    "neutral": 3,
+    "bearish": 0,
+    "overall": "mildly_bullish"
+  }
+}

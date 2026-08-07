@@ -1,0 +1,60 @@
+{
+  "symbol": "6880.HK",
+  "date": "2026-08-07",
+  "close": 266.3999938964844,
+  "currency": "",
+  "ma": {
+    "ma5": 258.12,
+    "ma10": 260.9,
+    "ma20": 269.55,
+    "ma60": 0,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 51.4,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": 0,
+    "dea": 0,
+    "histogram": 0,
+    "signal": "insufficient_data"
+  },
+  "kdj": {
+    "k": 50.8,
+    "d": 50.3,
+    "j": 51.8,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 302.48,
+    "middle": 269.55,
+    "lower": 236.62,
+    "bandwidth": 24.4,
+    "position": 0.45,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.1,
+    "signal": "shrink"
+  },
+  "fibonacci": {},
+  "trend_strength": "震荡",
+  "supports": [
+    243.6
+  ],
+  "resistances": [
+    290.0,
+    296.4
+  ],
+  "risk_flags": [
+    "跌破MA20",
+    "缩量警示"
+  ],
+  "resonance": {
+    "bullish": 2,
+    "neutral": 3,
+    "bearish": 1,
+    "overall": "neutral"
+  }
+}

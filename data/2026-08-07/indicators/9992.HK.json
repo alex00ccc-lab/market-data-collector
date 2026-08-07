@@ -1,0 +1,73 @@
+{
+  "symbol": "9992.HK",
+  "date": "2026-08-07",
+  "close": 156.3000030517578,
+  "currency": "",
+  "ma": {
+    "ma5": 159.02,
+    "ma10": 161.53,
+    "ma20": 161.11,
+    "ma60": 161.78,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 37.9,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -0.1727,
+    "dea": 0.7305,
+    "histogram": -1.8064,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 41.6,
+    "d": 47.2,
+    "j": 30.4,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 168.54,
+    "middle": 161.11,
+    "lower": 153.68,
+    "bandwidth": 9.2,
+    "position": 0.18,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.3,
+    "signal": "shrink"
+  },
+  "fibonacci": {
+    "high": 187.1,
+    "low": 144.0,
+    "0.0%": 187.1,
+    "23.6%": 176.93,
+    "38.2%": 170.64,
+    "50.0%": 165.55,
+    "61.8%": 160.46,
+    "78.6%": 153.22,
+    "100.0%": 144.0
+  },
+  "trend_strength": "空头",
+  "supports": [
+    149.9,
+    150.7,
+    168.5
+  ],
+  "resistances": [
+    166.4,
+    168.1,
+    183.0
+  ],
+  "risk_flags": [
+    "跌破MA20",
+    "缩量警示"
+  ],
+  "resonance": {
+    "bullish": 0,
+    "neutral": 3,
+    "bearish": 3,
+    "overall": "mildly_bearish"
+  }
+}
