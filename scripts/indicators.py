@@ -76,6 +76,7 @@ class IndicatorResult:
     neutral_count: int = 0
     bearish_count: int = 0
     overall: str = "neutral"           # bullish / mildly_bullish / neutral / mildly_bearish / bearish
+    skeleton: bool = False              # True if close=0 (data unavailable, fallback skeleton)
 
     def to_dict(self) -> dict:
         d = {
@@ -83,6 +84,7 @@ class IndicatorResult:
             "date": self.date,
             "close": self.close,
             "currency": getattr(self, "currency", ""),
+            "skeleton": self.skeleton,
             "ma": {"ma5": self.ma5, "ma10": self.ma10, "ma20": self.ma20, "ma60": self.ma60,
                    "alignment": self.ma_alignment},
             "rsi": {"value": self.rsi14, "signal": self.rsi_signal},
@@ -354,8 +356,15 @@ def compute_all(symbol: str, kline_data: list[dict]) -> IndicatorResult:
     """
     result = IndicatorResult(symbol=symbol)
 
+    # Detect skeleton data (close=0 from fetch.py fallback)
+    if kline_data and len(kline_data) == 1 and kline_data[0].get("close", 0) <= 0:
+        result.date = kline_data[0]["date"]
+        result.skeleton = True
+        return result
+
     if not kline_data or len(kline_data) < 20:
         result.date = kline_data[-1]["date"] if kline_data else ""
+        result.skeleton = False
         return result
 
     closes = [b["close"] for b in kline_data]

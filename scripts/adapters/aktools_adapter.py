@@ -47,9 +47,16 @@ class AkToolsAdapter(BaseAdapter):
         return market == "A"
 
     def _import_ak(self):
-        """Lazy-import akshare (heavy dependency)."""
+        """Lazy-import akshare (heavy dependency) with version check."""
         try:
-            import akshare as ak  # noqa: F401
+            import akshare as ak
+            _MIN_VER = "1.14.0"
+            if hasattr(ak, "__version__") and ak.__version__ < _MIN_VER:
+                logger.warning(
+                    "aktools: akshare version %s too old (min %s) — upgrade: pip install -U akshare",
+                    ak.__version__, _MIN_VER,
+                )
+                return None
             return ak
         except ImportError:
             logger.warning("aktools: akshare not installed — pip install akshare")

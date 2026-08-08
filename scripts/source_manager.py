@@ -152,8 +152,8 @@ class SourceManager:
         self._stats: dict[str, dict[str, Any]] = {}   # per-source health
         self._cooldown_path = DATA_DIR / "_cooldown.json"
         self._cooldown_dirty = False
+        self._register_defaults()      # register first — _load_cooldowns needs adapters
         self._load_cooldowns()
-        self._register_defaults()
 
     def _register_defaults(self):
         """Register all built-in adapters."""
@@ -177,15 +177,22 @@ class SourceManager:
             if self._cooldown_path.exists():
                 data = json.loads(self._cooldown_path.read_text(encoding="utf-8"))
                 now = _time.time()
-                for name, until_ts in data.items():
-                    if until_ts > now:
-                        adapter = self._adapters.get(name)
-                        if adapter:
-                            adapter._cooldown_until = until_ts
-                            remaining = int((until_ts - now) // 60)
-                            logger.info("%s: cooldown resumed — %d min remaining", name, remaining)
-        except Exception:
-            pass
+                raw_count = len(data)
+                # Auto-filter expired cooldowns
+                active = {k: v for k, v in data.items() if v > now}
+                expire_count = raw_count - len(active)
+                if expire_count > 0:
+                    logger.info("Cooldown: auto-cleaned %d expired entries", expire_count)
+                for name, until_ts in active.items():
+                    adapter = self._adapters.get(name)
+                    if adapter:
+                        adapter._cooldown_until = until_ts
+                        remaining = int((until_ts - now) // 60)
+                        logger.info("%s: cooldown resumed — %d min remaining", name, remaining)
+                if active:
+                    logger.info("Cooldown: loaded %d active entries", len(active))
+        except (json.JSONDecodeError, OSError):
+            logger.warning("Cooldown file corrupted — resetting")
 
     def _save_cooldowns(self):
         """Persist all adapter cooldowns to disk (lazy — called after batch)."""
