@@ -5,6 +5,26 @@
 
 ---
 
+## v3 — 2026-08-09 — CI 告警代码清理（随 holdings-briefing v13）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v13 |
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `.github/workflows/fetch-daily.yml` | 清理 inline webhook Python 代码，改为结构化调用（待 vendored wechat_alert.py 后切换） |
+
+### 回滚方法
+
+```bash
+git revert <commit>
+```
+
+---
+
 ## v2 — 2026-07-31 — 本地抓取管线 + 币种后缀回退 + CI schedule 禁用
 
 | 属性 | 值 |

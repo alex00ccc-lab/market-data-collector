@@ -119,13 +119,20 @@ jobs:
           WECOM_WEBHOOK_URL: ${{ secrets.WECOM_WEBHOOK_URL }}
         run: |
           TODAY=$(date +%Y-%m-%d)
+          # NOTE: market_data has its own repo — cannot import holdings-briefing's wechat_alert.py.
+          # When wechat_alert.py is vendored into this repo, replace this inline call.
           python -c "
-          import json, urllib.request, os
+          import json, os, urllib.request
           webhook = os.getenv('WECOM_WEBHOOK_URL', '')
-          if webhook:
-              msg = f'⚠️ CI 数据抓取异常\n\n日期: $TODAY\n仓库: market-data-collector\n\n请检查 Actions 日志: https://github.com/alex00ccc-lab/market-data-collector/actions'
-              data = json.dumps({'msgtype': 'text', 'text': {'content': msg}}).encode()
-              req = urllib.request.Request(webhook, data=data, headers={'Content-Type': 'application/json'})
+          if not webhook:
+              print('WECOM_WEBHOOK_URL not set — alert skipped')
+              exit(0)
+          msg = f'⚠️ CI 数据抓取异常\\n\\n日期: $TODAY\\n仓库: market-data-collector\\n\\n请检查 Actions 日志: https://github.com/alex00ccc-lab/market-data-collector/actions'
+          data = json.dumps({'msgtype': 'text', 'text': {'content': msg}}).encode()
+          req = urllib.request.Request(webhook, data=data, headers={'Content-Type': 'application/json'})
+          try:
               urllib.request.urlopen(req, timeout=10)
               print('WeChat alert sent')
+          except Exception as e:
+              print(f'WeChat alert failed: {e}')
           "
