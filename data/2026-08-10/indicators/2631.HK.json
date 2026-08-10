@@ -1,43 +1,43 @@
 {
   "symbol": "2631.HK",
   "date": "2026-08-10",
-  "close": 76.80000305175781,
+  "close": 76.19999694824219,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 67.81,
-    "ma10": 61.15,
-    "ma20": 64.82,
-    "ma60": 87.28,
+    "ma5": 67.69,
+    "ma10": 61.08,
+    "ma20": 64.79,
+    "ma60": 87.27,
     "alignment": "mixed"
   },
   "rsi": {
-    "value": 58.4,
+    "value": 57.8,
     "signal": "bullish"
   },
   "macd": {
-    "diff": -4.4617,
-    "dea": -8.3944,
-    "histogram": 7.8654,
+    "diff": -4.5096,
+    "dea": -8.3997,
+    "histogram": 7.7802,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 65.6,
-    "d": 55.2,
-    "j": 86.5,
+    "k": 64.9,
+    "d": 55.0,
+    "j": 84.7,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 80.08,
-    "middle": 64.82,
-    "lower": 49.56,
-    "bandwidth": 47.1,
-    "position": 0.89,
+    "upper": 79.96,
+    "middle": 64.79,
+    "lower": 49.62,
+    "bandwidth": 46.8,
+    "position": 0.88,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.1,
-    "signal": "shrink"
+    "ratio": 1.1,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 138.7,
@@ -60,9 +60,7 @@
     109.0,
     127.4
   ],
-  "risk_flags": [
-    "缩量警示"
-  ],
+  "risk_flags": [],
   "resonance": {
     "bullish": 3,
     "neutral": 3,

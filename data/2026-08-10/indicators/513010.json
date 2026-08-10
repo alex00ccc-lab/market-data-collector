@@ -36,8 +36,8 @@
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.2,
-    "signal": "shrink"
+    "ratio": 0.8,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 0.67,
@@ -60,9 +60,7 @@
     0.63,
     0.67
   ],
-  "risk_flags": [
-    "缩量警示"
-  ],
+  "risk_flags": [],
   "resonance": {
     "bullish": 4,
     "neutral": 2,
