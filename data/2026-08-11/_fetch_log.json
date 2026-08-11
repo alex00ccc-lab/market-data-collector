@@ -1,0 +1,131 @@
+{
+  "run_at": "2026-08-11T09:46:01.610797+08:00",
+  "date": "2026-08-11",
+  "symbols_attempted": 13,
+  "symbols_succeeded": 9,
+  "symbols_stale": 0,
+  "symbols_skipped": 1,
+  "symbols_failed": [
+    "513010",
+    "588080",
+    "SIVE"
+  ],
+  "errors": [
+    "513010: all sources failed (tried: efinance, aktools)",
+    "588080: all sources failed (tried: efinance, aktools)",
+    "SIVE: all sources failed (tried: )"
+  ],
+  "skipped": [
+    "6981 (JP: market closed or not in fetch window)"
+  ],
+  "per_symbol": {
+    "513010": {
+      "status": "failed",
+      "error": "513010: all sources failed (tried: efinance, aktools)",
+      "sources_tried": "efinance, aktools"
+    },
+    "588080": {
+      "status": "failed",
+      "error": "588080: all sources failed (tried: efinance, aktools)",
+      "sources_tried": "efinance, aktools"
+    },
+    "588710": {
+      "status": "ok",
+      "source": "efinance",
+      "fetched_at": "2026-08-11T09:45:29.394200+08:00",
+      "quote_date": "2026-02-10",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-11/quotes/588710.json"
+    },
+    "6880.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-11T09:45:30.626329+08:00",
+      "quote_date": "2026-07-08",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-11/quotes/6880.HK.json"
+    },
+    "9992.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-11T09:45:32.488247+08:00",
+      "quote_date": "2026-05-11",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-11/quotes/9992.HK.json"
+    },
+    "2631.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-11T09:45:34.471820+08:00",
+      "quote_date": "2026-05-11",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-11/quotes/2631.HK.json"
+    },
+    "1888.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-11T09:45:36.532923+08:00",
+      "quote_date": "2026-05-11",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-11/quotes/1888.HK.json"
+    },
+    "NOK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-11T09:45:38.545831+08:00",
+      "quote_date": "2026-05-11",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-11/quotes/NOK.json"
+    },
+    "SGOV": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-11T09:45:40.510057+08:00",
+      "quote_date": "2026-05-11",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-11/quotes/SGOV.json"
+    },
+    "TSLA": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-11T09:45:42.511292+08:00",
+      "quote_date": "2026-05-11",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-11/quotes/TSLA.json"
+    },
+    "SIVE": {
+      "status": "failed",
+      "error": "SIVE: all sources failed (tried: )",
+      "sources_tried": ""
+    },
+    "LRCX": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-11T09:45:44.505145+08:00",
+      "quote_date": "2026-05-11",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-11/quotes/LRCX.json"
+    },
+    "6981": {
+      "status": "skipped",
+      "reason": "JP market closed on 2026-08-11",
+      "source": null,
+      "fetched_at": "2026-08-11T09:45:44.505633+08:00",
+      "quote_date": null
+    }
+  },
+  "source_health": {
+    "aktools": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 2,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "efinance": {
+      "success_rate": "14%",
+      "ok": 1,
+      "failed": 6,
+      "stale": 0,
+      "bars_fetched": 120
+    },
+    "yfinance": {
+      "success_rate": "100%",
+      "ok": 8,
+      "failed": 0,
+      "stale": 0,
+      "bars_fetched": 468
+    }
+  }
+}

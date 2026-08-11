@@ -1,0 +1,75 @@
+{
+  "symbol": "9992.HK",
+  "date": "2026-08-11",
+  "close": 154.6999969482422,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 157.12,
+    "ma10": 159.79,
+    "ma20": 161.21,
+    "ma60": 161.76,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 42.4,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -0.8474,
+    "dea": 0.4022,
+    "histogram": -2.4992,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 39.1,
+    "d": 46.4,
+    "j": 24.6,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 168.35,
+    "middle": 161.21,
+    "lower": 154.08,
+    "bandwidth": 8.8,
+    "position": 0.04,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 0.0,
+    "signal": "shrink"
+  },
+  "fibonacci": {
+    "high": 187.1,
+    "low": 144.0,
+    "0.0%": 187.1,
+    "23.6%": 176.93,
+    "38.2%": 170.64,
+    "50.0%": 165.55,
+    "61.8%": 160.46,
+    "78.6%": 153.22,
+    "100.0%": 144.0
+  },
+  "trend_strength": "空头",
+  "supports": [
+    149.9,
+    150.7,
+    168.5
+  ],
+  "resistances": [
+    166.4,
+    168.1,
+    183.0
+  ],
+  "risk_flags": [
+    "跌破MA20",
+    "缩量警示",
+    "触及布林下轨"
+  ],
+  "resonance": {
+    "bullish": 1,
+    "neutral": 2,
+    "bearish": 3,
+    "overall": "mildly_bearish"
+  }
+}
