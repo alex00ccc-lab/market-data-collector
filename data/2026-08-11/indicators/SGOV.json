@@ -36,7 +36,7 @@
     "signal": "upper_band"
   },
   "volume": {
-    "ratio": 0.7,
+    "ratio": 0.8,
     "signal": "normal"
   },
   "fibonacci": {
