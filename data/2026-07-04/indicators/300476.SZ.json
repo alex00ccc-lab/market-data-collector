@@ -1,0 +1,72 @@
+{
+  "symbol": "300476.SZ",
+  "date": "2026-07-03",
+  "close": 308.07,
+  "currency": "",
+  "ma": {
+    "ma5": 320.56,
+    "ma10": 331.96,
+    "ma20": 336.47,
+    "ma60": 337.01,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 45.0,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -7.234,
+    "dea": -1.7511,
+    "histogram": -10.9658,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 40.5,
+    "d": 46.8,
+    "j": 27.8,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 372.82,
+    "middle": 336.47,
+    "lower": 300.12,
+    "bandwidth": 21.6,
+    "position": 0.11,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.7,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 402.6,
+    "low": 261.02,
+    "0.0%": 402.6,
+    "23.6%": 369.19,
+    "38.2%": 348.52,
+    "50.0%": 331.81,
+    "61.8%": 315.1,
+    "78.6%": 291.32,
+    "100.0%": 261.02
+  },
+  "trend_strength": "空头",
+  "supports": [
+    313.06,
+    314.8,
+    331.4
+  ],
+  "resistances": [
+    369.0,
+    387.4,
+    392.95
+  ],
+  "risk_flags": [
+    "跌破MA20"
+  ],
+  "resonance": {
+    "bullish": 0,
+    "neutral": 3,
+    "bearish": 3,
+    "overall": "mildly_bearish"
+  }
+}

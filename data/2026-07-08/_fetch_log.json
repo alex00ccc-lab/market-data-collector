@@ -1,0 +1,130 @@
+{
+  "run_at": "2026-07-08T16:40:22.998412+08:00",
+  "date": "2026-07-08",
+  "symbols_attempted": 13,
+  "symbols_succeeded": 6,
+  "symbols_failed": [
+    "300476.SZ",
+    "159316",
+    "300136.SZ",
+    "002407.SH",
+    "3317.HK",
+    "9992.HK",
+    "6981"
+  ],
+  "errors": [
+    "300476.SZ: all sources failed (tried: efinance, stooq)",
+    "159316: all sources failed (tried: efinance, stooq)",
+    "300136.SZ: all sources failed (tried: efinance, stooq)",
+    "002407.SH: all sources failed (tried: efinance, stooq)",
+    "3317.HK: all sources failed (tried: efinance, yfinance, stooq)",
+    "9992.HK: all sources failed (tried: efinance, yfinance, stooq)",
+    "6981: all sources failed (tried: yfinance, stooq)"
+  ],
+  "skipped": [],
+  "per_symbol": {
+    "300476.SZ": {
+      "status": "failed",
+      "error": "300476.SZ: all sources failed (tried: efinance, stooq)",
+      "sources_tried": "efinance, stooq"
+    },
+    "159316": {
+      "status": "failed",
+      "error": "159316: all sources failed (tried: efinance, stooq)",
+      "sources_tried": "efinance, stooq"
+    },
+    "300136.SZ": {
+      "status": "failed",
+      "error": "300136.SZ: all sources failed (tried: efinance, stooq)",
+      "sources_tried": "efinance, stooq"
+    },
+    "002407.SH": {
+      "status": "failed",
+      "error": "002407.SH: all sources failed (tried: efinance, stooq)",
+      "sources_tried": "efinance, stooq"
+    },
+    "3317.HK": {
+      "status": "failed",
+      "error": "3317.HK: all sources failed (tried: efinance, yfinance, stooq)",
+      "sources_tried": "efinance, yfinance, stooq"
+    },
+    "9992.HK": {
+      "status": "failed",
+      "error": "9992.HK: all sources failed (tried: efinance, yfinance, stooq)",
+      "sources_tried": "efinance, yfinance, stooq"
+    },
+    "NOK": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-07-08T16:39:33.716471+08:00",
+      "quote_date": "2026-02-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-07-08\\quotes\\NOK.json"
+    },
+    "ARM": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-07-08T16:39:36.111575+08:00",
+      "quote_date": "2026-02-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-07-08\\quotes\\ARM.json"
+    },
+    "SGOV": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-07-08T16:39:37.918822+08:00",
+      "quote_date": "2026-02-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-07-08\\quotes\\SGOV.json"
+    },
+    "TSLA": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-07-08T16:39:40.002205+08:00",
+      "quote_date": "2026-02-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-07-08\\quotes\\TSLA.json"
+    },
+    "SIVE": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-07-08T16:39:42.079333+08:00",
+      "quote_date": "2022-12-16",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-07-08\\quotes\\SIVE.json"
+    },
+    "LRCX": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-07-08T16:39:43.747692+08:00",
+      "quote_date": "2026-02-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-07-08\\quotes\\LRCX.json"
+    },
+    "6981": {
+      "status": "failed",
+      "error": "6981: all sources failed (tried: yfinance, stooq)",
+      "sources_tried": "yfinance, stooq"
+    }
+  },
+  "source_health": {
+    "alpha_vantage": {
+      "success_rate": "100%",
+      "ok": 6,
+      "failed": 0,
+      "bars_fetched": 600
+    },
+    "efinance": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 6,
+      "bars_fetched": 0
+    },
+    "stooq": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 7,
+      "bars_fetched": 0
+    },
+    "yfinance": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 9,
+      "bars_fetched": 0
+    }
+  }
+}

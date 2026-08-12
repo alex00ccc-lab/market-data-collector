@@ -1,0 +1,72 @@
+{
+  "symbol": "588080",
+  "date": "2026-08-05",
+  "close": 1.731,
+  "currency": "",
+  "ma": {
+    "ma5": 1.65,
+    "ma10": 1.72,
+    "ma20": 1.85,
+    "ma60": 1.87,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 42.2,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -0.0792,
+    "dea": -0.0574,
+    "histogram": -0.0436,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 50.2,
+    "d": 50.1,
+    "j": 50.5,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 2.2,
+    "middle": 1.85,
+    "lower": 1.5,
+    "bandwidth": 37.9,
+    "position": 0.33,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 1.0,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 2.32,
+    "low": 1.59,
+    "0.0%": 2.32,
+    "23.6%": 2.15,
+    "38.2%": 2.04,
+    "50.0%": 1.95,
+    "61.8%": 1.87,
+    "78.6%": 1.74,
+    "100.0%": 1.59
+  },
+  "trend_strength": "震荡",
+  "supports": [
+    1.63,
+    1.75,
+    2.04
+  ],
+  "resistances": [
+    1.94,
+    2.26,
+    2.27
+  ],
+  "risk_flags": [
+    "跌破MA20"
+  ],
+  "resonance": {
+    "bullish": 1,
+    "neutral": 3,
+    "bearish": 2,
+    "overall": "neutral"
+  }
+}

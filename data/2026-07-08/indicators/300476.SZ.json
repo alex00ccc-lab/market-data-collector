@@ -1,0 +1,74 @@
+{
+  "symbol": "300476.SZ",
+  "date": "2026-07-08",
+  "close": 279.6600036621094,
+  "currency": "",
+  "ma": {
+    "ma5": 294.3,
+    "ma10": 312.99,
+    "ma20": 329.53,
+    "ma60": 337.59,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 28.0,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": -14.1033,
+    "dea": -6.2372,
+    "histogram": -15.7322,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 34.5,
+    "d": 44.8,
+    "j": 13.8,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 380.37,
+    "middle": 329.53,
+    "lower": 278.69,
+    "bandwidth": 30.9,
+    "position": 0.01,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 0.7,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 402.6,
+    "low": 277.01,
+    "0.0%": 402.6,
+    "23.6%": 372.96,
+    "38.2%": 354.62,
+    "50.0%": 339.81,
+    "61.8%": 324.99,
+    "78.6%": 303.89,
+    "100.0%": 277.01
+  },
+  "trend_strength": "空头",
+  "supports": [
+    313.06,
+    314.8,
+    331.4
+  ],
+  "resistances": [
+    369.0,
+    387.4,
+    392.95
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20",
+    "触及布林下轨"
+  ],
+  "resonance": {
+    "bullish": 2,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish"
+  }
+}

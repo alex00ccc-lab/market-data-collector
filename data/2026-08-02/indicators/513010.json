@@ -1,0 +1,52 @@
+{
+  "symbol": "513010",
+  "date": "2026-08-02",
+  "close": 0.0,
+  "currency": "",
+  "ma": {
+    "ma5": 0.0,
+    "ma10": 0.0,
+    "ma20": 0.0,
+    "ma60": 0.0,
+    "alignment": "unknown"
+  },
+  "rsi": {
+    "value": 50.0,
+    "signal": "neutral"
+  },
+  "macd": {
+    "diff": 0.0,
+    "dea": 0.0,
+    "histogram": 0.0,
+    "signal": "neutral"
+  },
+  "kdj": {
+    "k": 50.0,
+    "d": 50.0,
+    "j": 50.0,
+    "signal": "neutral"
+  },
+  "bollinger": {
+    "upper": 0.0,
+    "middle": 0.0,
+    "lower": 0.0,
+    "bandwidth": 0.0,
+    "position": 0.5,
+    "signal": "neutral"
+  },
+  "volume": {
+    "ratio": 1.0,
+    "signal": "normal"
+  },
+  "fibonacci": {},
+  "trend_strength": "震荡",
+  "supports": [],
+  "resistances": [],
+  "risk_flags": [],
+  "resonance": {
+    "bullish": 0,
+    "neutral": 0,
+    "bearish": 0,
+    "overall": "neutral"
+  }
+}

@@ -1,38 +1,38 @@
 {
   "symbol": "SGOV",
   "date": "2026-08-11",
-  "close": 100.51,
+  "close": NaN,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 100.48,
-    "ma10": 100.53,
-    "ma20": 100.57,
-    "ma60": 100.55,
+    "ma5": NaN,
+    "ma10": NaN,
+    "ma20": NaN,
+    "ma60": NaN,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 40.8,
-    "signal": "bearish"
+    "value": 99.0,
+    "signal": "overbought"
   },
   "macd": {
-    "diff": -0.0181,
-    "dea": 0.0037,
-    "histogram": -0.0436,
-    "signal": "death_cross"
+    "diff": NaN,
+    "dea": NaN,
+    "histogram": NaN,
+    "signal": "divergence"
   },
   "kdj": {
-    "k": 43.3,
-    "d": 47.8,
-    "j": 34.4,
+    "k": NaN,
+    "d": NaN,
+    "j": NaN,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 100.74,
-    "middle": 100.57,
-    "lower": 100.39,
-    "bandwidth": 0.4,
-    "position": 0.34,
+    "upper": NaN,
+    "middle": NaN,
+    "lower": NaN,
+    "bandwidth": 0,
+    "position": NaN,
     "signal": "below_middle"
   },
   "volume": {
@@ -40,27 +40,21 @@
     "signal": "normal"
   },
   "fibonacci": {
-    "high": 100.72,
-    "low": 100.39,
-    "0.0%": 100.72,
-    "23.6%": 100.64,
-    "38.2%": 100.59,
-    "50.0%": 100.56,
-    "61.8%": 100.52,
-    "78.6%": 100.46,
-    "100.0%": 100.39
+    "high": 100.5,
+    "low": 99.64,
+    "0.0%": 100.5,
+    "23.6%": 100.3,
+    "38.2%": 100.17,
+    "50.0%": 100.07,
+    "61.8%": 99.97,
+    "78.6%": 99.83,
+    "100.0%": 99.64
   },
   "trend_strength": "空头",
-  "supports": [
-    100.4,
-    100.42
-  ],
-  "resistances": [
-    100.67,
-    100.71
-  ],
+  "supports": [],
+  "resistances": [],
   "risk_flags": [
-    "跌破MA20"
+    "RSI超买"
   ],
   "resonance": {
     "bullish": 0,

@@ -1,0 +1,73 @@
+{
+  "symbol": "NOK",
+  "date": "2026-07-30",
+  "close": 9.09,
+  "currency": "",
+  "ma": {
+    "ma5": 8.96,
+    "ma10": 9.57,
+    "ma20": 10.72,
+    "ma60": 13.09,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 22.9,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": -1.1545,
+    "dea": -1.0225,
+    "histogram": -0.264,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 43.4,
+    "d": 47.8,
+    "j": 34.5,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 13.39,
+    "middle": 10.72,
+    "lower": 8.05,
+    "bandwidth": 49.8,
+    "position": 0.19,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.9,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 17.45,
+    "low": 8.37,
+    "0.0%": 17.45,
+    "23.6%": 15.31,
+    "38.2%": 13.98,
+    "50.0%": 12.91,
+    "61.8%": 11.84,
+    "78.6%": 10.31,
+    "100.0%": 8.37
+  },
+  "trend_strength": "空头",
+  "supports": [
+    12.35,
+    13.4,
+    13.62
+  ],
+  "resistances": [
+    14.71,
+    14.82,
+    16.85
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20"
+  ],
+  "resonance": {
+    "bullish": 1,
+    "neutral": 2,
+    "bearish": 3,
+    "overall": "mildly_bearish"
+  }
+}

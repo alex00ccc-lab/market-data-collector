@@ -1,0 +1,69 @@
+{
+  "symbol": "SGOV",
+  "date": "2026-07-07",
+  "close": 100.46,
+  "currency": "",
+  "ma": {
+    "ma5": 100.48,
+    "ma10": 100.56,
+    "ma20": 100.54,
+    "ma60": 100.54,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 42.6,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -0.0107,
+    "dea": 0.0154,
+    "histogram": -0.0522,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 41.4,
+    "d": 47.1,
+    "j": 29.9,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 100.71,
+    "middle": 100.54,
+    "lower": 100.38,
+    "bandwidth": 0.3,
+    "position": 0.26,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.7,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 100.68,
+    "low": 100.39,
+    "0.0%": 100.68,
+    "23.6%": 100.61,
+    "38.2%": 100.57,
+    "50.0%": 100.53,
+    "61.8%": 100.5,
+    "78.6%": 100.45,
+    "100.0%": 100.39
+  },
+  "trend_strength": "空头",
+  "supports": [
+    100.4,
+    100.41
+  ],
+  "resistances": [
+    100.67
+  ],
+  "risk_flags": [
+    "跌破MA20"
+  ],
+  "resonance": {
+    "bullish": 0,
+    "neutral": 3,
+    "bearish": 3,
+    "overall": "mildly_bearish"
+  }
+}

@@ -1,43 +1,43 @@
 {
   "symbol": "9992.HK",
   "date": "2026-08-12",
-  "close": 153.1999969482422,
+  "close": 151.0,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 155.08,
-    "ma10": 158.27,
-    "ma20": 160.91,
-    "ma60": 161.74,
+    "ma5": 154.64,
+    "ma10": 158.05,
+    "ma20": 160.8,
+    "ma60": 161.71,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 35.1,
+    "value": 32.1,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -1.3447,
-    "dea": 0.106,
-    "histogram": -2.9014,
+    "diff": -1.5202,
+    "dea": 0.0865,
+    "histogram": -3.2134,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 39.0,
-    "d": 46.3,
-    "j": 24.4,
+    "k": 34.1,
+    "d": 44.7,
+    "j": 12.9,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 169.05,
-    "middle": 160.91,
-    "lower": 152.77,
-    "bandwidth": 10.1,
-    "position": 0.03,
+    "upper": 169.4,
+    "middle": 160.8,
+    "lower": 152.2,
+    "bandwidth": 10.7,
+    "position": -0.07,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 0.1,
-    "signal": "shrink"
+    "ratio": 1.1,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 187.1,
@@ -63,7 +63,6 @@
   ],
   "risk_flags": [
     "跌破MA20",
-    "缩量警示",
     "触及布林下轨"
   ],
   "resonance": {

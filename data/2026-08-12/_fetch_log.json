@@ -1,136 +1,129 @@
 {
-  "run_at": "2026-08-12T16:29:13.285965+08:00",
+  "run_at": "2026-08-12T18:06:01.985227+08:00",
   "date": "2026-08-12",
-  "symbols_attempted": 12,
-  "symbols_succeeded": 7,
+  "symbols_attempted": 13,
+  "symbols_succeeded": 9,
   "symbols_stale": 0,
   "symbols_skipped": 0,
   "symbols_failed": [
-    "9992.HK",
-    "2631.HK",
-    "1888.HK",
-    "SIVE.ST",
-    "6981.T"
+    "513010",
+    "588080",
+    "588710",
+    "SIVE"
   ],
   "errors": [
-    "9992.HK: all sources failed (tried: efinance, yfinance, yahoo_chart)",
-    "2631.HK: all sources failed (tried: efinance, yfinance, yahoo_chart)",
-    "1888.HK: all sources failed (tried: efinance, yfinance, yahoo_chart)",
-    "SIVE.ST: all sources failed (tried: yfinance, yahoo_chart, finnhub, alpha_vantage)",
-    "6981.T: all sources failed (tried: yfinance, yahoo_chart, finnhub, alpha_vantage)"
+    "513010: all sources failed (tried: efinance, aktools)",
+    "588080: all sources failed (tried: efinance, aktools)",
+    "588710: all sources failed (tried: efinance, aktools)",
+    "SIVE: all sources failed (tried: )"
   ],
   "skipped": [],
   "per_symbol": {
     "513010": {
-      "status": "ok",
-      "source": "efinance",
-      "fetched_at": "2026-08-12T16:27:11.146210+08:00",
-      "quote_date": "2026-02-11",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-12\\quotes\\513010.json"
+      "status": "failed",
+      "error": "513010: all sources failed (tried: efinance, aktools)",
+      "sources_tried": "efinance, aktools"
     },
     "588080": {
-      "status": "ok",
-      "source": "efinance",
-      "fetched_at": "2026-08-12T16:27:11.421720+08:00",
-      "quote_date": "2026-02-11",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-12\\quotes\\588080.json"
+      "status": "failed",
+      "error": "588080: all sources failed (tried: efinance, aktools)",
+      "sources_tried": "efinance, aktools"
     },
     "588710": {
+      "status": "failed",
+      "error": "588710: all sources failed (tried: efinance, aktools)",
+      "sources_tried": "efinance, aktools"
+    },
+    "6880.HK": {
       "status": "ok",
-      "source": "efinance",
-      "fetched_at": "2026-08-12T16:27:11.916837+08:00",
-      "quote_date": "2026-02-11",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-12\\quotes\\588710.json"
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T18:05:29.853299+08:00",
+      "quote_date": "2026-07-08",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/6880.HK.json"
     },
     "9992.HK": {
-      "status": "failed",
-      "error": "9992.HK: all sources failed (tried: efinance, yfinance, yahoo_chart)",
-      "sources_tried": "efinance, yfinance, yahoo_chart"
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T18:05:31.461410+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/9992.HK.json"
     },
     "2631.HK": {
-      "status": "failed",
-      "error": "2631.HK: all sources failed (tried: efinance, yfinance, yahoo_chart)",
-      "sources_tried": "efinance, yfinance, yahoo_chart"
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T18:05:33.452926+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/2631.HK.json"
     },
     "1888.HK": {
-      "status": "failed",
-      "error": "1888.HK: all sources failed (tried: efinance, yfinance, yahoo_chart)",
-      "sources_tried": "efinance, yfinance, yahoo_chart"
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T18:05:35.493600+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/1888.HK.json"
     },
     "NOK": {
       "status": "ok",
-      "source": "alpha_vantage",
-      "fetched_at": "2026-08-12T16:27:51.331451+08:00",
-      "quote_date": "2026-03-19",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-12\\quotes\\NOK.json"
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T18:05:37.504846+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/NOK.json"
     },
     "SGOV": {
       "status": "ok",
-      "source": "alpha_vantage",
-      "fetched_at": "2026-08-12T16:27:59.285485+08:00",
-      "quote_date": "2026-03-19",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-12\\quotes\\SGOV.json"
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T18:05:39.468246+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/SGOV.json"
     },
     "TSLA": {
       "status": "ok",
-      "source": "alpha_vantage",
-      "fetched_at": "2026-08-12T16:28:07.270888+08:00",
-      "quote_date": "2026-03-19",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-12\\quotes\\TSLA.json"
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T18:05:41.450670+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/TSLA.json"
     },
-    "SIVE.ST": {
+    "SIVE": {
       "status": "failed",
-      "error": "SIVE.ST: all sources failed (tried: yfinance, yahoo_chart, finnhub, alpha_vantage)",
-      "sources_tried": "yfinance, yahoo_chart, finnhub, alpha_vantage"
+      "error": "SIVE: all sources failed (tried: )",
+      "sources_tried": ""
     },
     "LRCX": {
       "status": "ok",
-      "source": "alpha_vantage",
-      "fetched_at": "2026-08-12T16:28:31.481071+08:00",
-      "quote_date": "2026-03-19",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-12\\quotes\\LRCX.json"
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T18:05:43.476048+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/LRCX.json"
     },
-    "6981.T": {
-      "status": "failed",
-      "error": "6981.T: all sources failed (tried: yfinance, yahoo_chart, finnhub, alpha_vantage)",
-      "sources_tried": "yfinance, yahoo_chart, finnhub, alpha_vantage"
+    "6981": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T18:05:45.515909+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/6981.json"
     }
   },
   "source_health": {
-    "alpha_vantage": {
-      "success_rate": "57%",
-      "ok": 4,
+    "aktools": {
+      "success_rate": "0%",
+      "ok": 0,
       "failed": 3,
       "stale": 0,
-      "bars_fetched": 400
+      "bars_fetched": 0
     },
     "efinance": {
-      "success_rate": "50%",
-      "ok": 3,
-      "failed": 3,
-      "stale": 0,
-      "bars_fetched": 360
-    },
-    "finnhub": {
       "success_rate": "0%",
       "ok": 0,
       "failed": 7,
       "stale": 0,
       "bars_fetched": 0
     },
-    "yahoo_chart": {
-      "success_rate": "0%",
-      "ok": 0,
-      "failed": 10,
-      "stale": 0,
-      "bars_fetched": 0
-    },
     "yfinance": {
-      "success_rate": "0%",
-      "ok": 0,
-      "failed": 10,
+      "success_rate": "100%",
+      "ok": 9,
+      "failed": 0,
       "stale": 0,
-      "bars_fetched": 0
+      "bars_fetched": 535
     }
   }
 }
