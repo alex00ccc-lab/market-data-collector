@@ -118,18 +118,14 @@ def _git_status_clean(cwd: Path = None) -> bool:
 def auto_markets() -> list[str]:
     """Determine which markets to fetch based on current Beijing time.
 
-    US/JP/HK data is fetched by GitHub Actions (fetch-daily.yml).
+    US/JP/HK quote data is fetched by GitHub Actions (fetch-daily.yml).
     Local is responsible only for A-shares (efinance needs CN IP).
 
-    Timing rationale:
-      - 15:00-20:00 → A (15:00 close, efinance needs CN IP)
-      - default → A (always safe to fetch A-shares)
+    Note: actual behavior always returns ["A"] regardless of time;
+    scheduled tasks pass --markets explicitly so this function is a
+    fallback for manual runs.
     """
-    hour = NOW.hour
-    if 15 <= hour < 20:
-        return ["A"]            # Afternoon: A-shares after market close
-    else:
-        return ["A"]            # Default: A-shares only
+    return ["A"]  # Always A-shares only (US/JP/HK handled by CI)
 
 
 def markets_from_holdings() -> set[str]:
@@ -256,8 +252,8 @@ def step_git_push() -> bool:
 
     msg = f"data: local fetch {today_str} ({n_ok}/{n_total} OK)"
 
-    # Stage
-    result = _run(["git", "add", "data/"], cwd=ROOT)
+    # Stage (force-add because data/ is gitignored — CI uses -f as well)
+    result = _run(["git", "add", "-f", "data/"], cwd=ROOT)
     if not _run_ok(result):
         return False
 

@@ -16,15 +16,16 @@ logger = logging.getLogger(__name__)
 # Beijing timezone
 TZ_BEIJING = timezone(timedelta(hours=8))
 
-# Chinese public holidays 2026 (approximate — update yearly)
+# Chinese public holidays 2026 (verified against official calendar)
 # Format: "YYYY-MM-DD"
 CN_HOLIDAYS_2026 = {
     "2026-01-01", "2026-01-02",           # 元旦
-    "2026-01-28", "2026-01-29", "2026-01-30", "2026-01-31", "2026-02-01", "2026-02-02", "2026-02-03",  # 春节
+    "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20",  # 春节 (2/17 周二, 除夕 2/16)
     "2026-04-05", "2026-04-06",           # 清明节
     "2026-05-01", "2026-05-02", "2026-05-03", "2026-05-04", "2026-05-05",  # 劳动节
     "2026-06-22", "2026-06-23", "2026-06-24",  # 端午节
-    "2026-10-01", "2026-10-02", "2026-10-03", "2026-10-04", "2026-10-05", "2026-10-06", "2026-10-07",  # 国庆+中秋
+    "2026-09-25",                         # 中秋节 (9/25 周五)
+    "2026-10-01", "2026-10-02", "2026-10-03", "2026-10-04", "2026-10-05", "2026-10-06", "2026-10-07",  # 国庆
 }
 
 # US market holidays 2026 (NYSE)
@@ -108,15 +109,31 @@ class TradingCalendar:
     def should_fetch(self, market: str, d: Optional[date] = None) -> bool:
         """Check if we should attempt to fetch data.
 
-        Returns True if it's a trading day OR if data might still be available
-        (e.g., Friday US data available on Saturday morning Beijing time).
+        Returns True if it's a trading day (or Saturday for US Friday close)
+        AND the market close has already happened (time-of-day check).
+
+        Previously this was date-only, which caused Monday 08:05 BJT US fetches
+        to run before the Monday US session had even opened (BJT Monday evening).
+        Now wired to in_fetch_window() for time-of-day awareness.
         """
         if d is None:
             d = datetime.now(TZ_BEIJING).date()
 
-        # On a trading day: always fetch
+        # On a trading day: check time-of-day
         if self.is_trading_day(market, d):
-            return True
+            now = datetime.now(TZ_BEIJING)
+            in_window, label = self.in_fetch_window(market, now)
+            if label == "pre_close":
+                # Market hasn't closed yet today.
+                # For US: allow if yesterday was a trading day
+                # (fetching the previous session's close, e.g. Tue 08:05
+                # fetching Mon's close which happened ~Tue 05:00 BJT)
+                if market == "US":
+                    yesterday = d - timedelta(days=1)
+                    if self.is_trading_day(market, yesterday):
+                        return True
+                return False
+            return True  # post_close or off_hours
 
         # On Saturday Beijing time: US Friday data might be available
         if market == "US" and d.weekday() == 5:  # Saturday

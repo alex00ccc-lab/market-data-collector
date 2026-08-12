@@ -3,9 +3,11 @@ name: Fetch US / JP / HK Market Data
 # ── Schedule (Beijing time) ──────────────────────────────────────────
 # 08:05 BJT — US previous trading day close available (~05:00 BJT next day)
 # 17:05 BJT — JP (14:00 BJT) + HK (16:00 BJT) closed
+# Sat 08:05 BJT — US Friday close (needed for Saturday weekly review + Monday briefing)
 on:
   schedule:
     - cron: '5 0 * * 1-5'
+    - cron: '5 0 * * 6'
     - cron: '5 9 * * 1-5'
   workflow_dispatch:
     inputs:

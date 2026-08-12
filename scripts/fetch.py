@@ -548,7 +548,8 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
                             e["source"] = e.get("source", "yfinance")
                         if "timestamp" not in e:
                             e["timestamp"] = fetched_at
-                        if quote_date is None and e.get("date"):
+                        # Track the LATEST bar date (not first — was a bug)
+                        if e.get("date"):
                             quote_date = e.get("date")
             except Exception:
                 pass
@@ -584,28 +585,31 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
             logger.warning("  %s: FAILED (tried: %s)", sym, ", ".join(priority))
 
     # ------------------------------------------------------------------
-    # 2. Macro indicators
+    # 2. Macro indicators (gated by trading calendar — no longer runs unconditionally)
     # ------------------------------------------------------------------
-    macro_cfg = load_config("macro")
-    macro_indicators = macro_cfg.get("indicators", [])
-    macro_results: dict[str, Any] = {}
+    if not force and not cal.should_fetch(market="US", d=today):
+        logger.info("Skipping macro fetch — not a trading day or outside fetch window")
+    else:
+        macro_cfg = load_config("macro")
+        macro_indicators = macro_cfg.get("indicators", [])
+        macro_results: dict[str, Any] = {}
 
-    logger.info("Fetching %d macro indicators...", len(macro_indicators))
-    for ind in macro_indicators:
-        sym = ind["symbol"]
-        src = ind.get("source", "yfinance")
-        mkt = ind.get("market", "US")
+        logger.info("Fetching %d macro indicators...", len(macro_indicators))
+        for ind in macro_indicators:
+            sym = ind["symbol"]
+            src = ind.get("source", "yfinance")
+            mkt = ind.get("market", "US")
 
-        if src == "efinance":
-            kline = fetch_efinance_kline(sym, mkt, days=30)
-            if kline and len(kline) > 0:
-                latest = kline[-1]
-                macro_results[sym] = {
-                    "name": ind["name"],
-                    "price": latest["close"],
-                    "date": latest["date"],
-                    "change_pct": None,
-                }
+            if src == "efinance":
+                kline = fetch_efinance_kline(sym, mkt, days=30)
+                if kline and len(kline) > 0:
+                    latest = kline[-1]
+                    macro_results[sym] = {
+                        "name": ind["name"],
+                        "price": latest["close"],
+                        "date": latest["date"],
+                        "change_pct": None,
+                    }
         else:
             kline = fetch_yfinance_history(sym, period="1mo")
             if kline and len(kline) > 0:
@@ -619,13 +623,13 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
                     "change_pct": round(chg, 2),
                 }
 
-    if macro_results:
-        macro_path = macro_dir / "macro.json"
-        macro_path.write_text(
-            json.dumps(macro_results, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-        fetched["_macro"] = str(macro_path)
+        if macro_results:
+            macro_path = macro_dir / "macro.json"
+            macro_path.write_text(
+                json.dumps(macro_results, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            fetched["_macro"] = str(macro_path)
 
     # ------------------------------------------------------------------
     # 3. Sector flow
