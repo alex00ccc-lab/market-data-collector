@@ -1,14 +1,14 @@
 {
   "symbol": "LRCX",
   "date": "2026-08-11",
-  "close": 311.4100036621094,
+  "close": 311.41,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 308.47,
     "ma10": 299.78,
     "ma20": 305.09,
-    "ma60": 331.37,
+    "ma60": 331.45,
     "alignment": "mixed"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -7.8671,
-    "dea": -12.8156,
-    "histogram": 9.897,
+    "diff": -8.1633,
+    "dea": -13.2258,
+    "histogram": 10.125,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -36,7 +36,7 @@
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.7,
+    "ratio": 0.8,
     "signal": "normal"
   },
   "fibonacci": {
@@ -53,12 +53,12 @@
   "trend_strength": "震荡",
   "supports": [
     252.35,
-    303.07,
+    303.28,
     326.13
   ],
   "resistances": [
     317.74,
-    343.47,
+    343.71,
     433.33
   ],
   "risk_flags": [],

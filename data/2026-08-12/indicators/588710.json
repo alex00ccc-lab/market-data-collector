@@ -1,53 +1,71 @@
 {
   "symbol": "588710",
   "date": "2026-08-12",
-  "close": 0.0,
+  "close": 3.216,
   "currency": "",
-  "skeleton": true,
+  "skeleton": false,
   "ma": {
-    "ma5": 0.0,
-    "ma10": 0.0,
-    "ma20": 0.0,
-    "ma60": 0.0,
-    "alignment": "unknown"
+    "ma5": 3.15,
+    "ma10": 2.96,
+    "ma20": 3.03,
+    "ma60": 3.14,
+    "alignment": "mixed"
   },
   "rsi": {
-    "value": 50.0,
-    "signal": "neutral"
+    "value": 54.9,
+    "signal": "bullish"
   },
   "macd": {
-    "diff": 0.0,
-    "dea": 0.0,
-    "histogram": 0.0,
-    "signal": "neutral"
+    "diff": -0.0577,
+    "dea": -0.121,
+    "histogram": 0.1266,
+    "signal": "golden_cross"
   },
   "kdj": {
-    "k": 50.0,
-    "d": 50.0,
-    "j": 50.0,
-    "signal": "neutral"
+    "k": 64.3,
+    "d": 54.8,
+    "j": 83.3,
+    "signal": "bullish"
   },
   "bollinger": {
-    "upper": 0.0,
-    "middle": 0.0,
-    "lower": 0.0,
-    "bandwidth": 0.0,
-    "position": 0.5,
-    "signal": "neutral"
+    "upper": 3.43,
+    "middle": 3.03,
+    "lower": 2.63,
+    "bandwidth": 26.4,
+    "position": 0.73,
+    "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.0,
+    "ratio": 0.6,
     "signal": "normal"
   },
-  "fibonacci": {},
-  "trend_strength": "震荡",
-  "supports": [],
-  "resistances": [],
+  "fibonacci": {
+    "high": 4.55,
+    "low": 2.35,
+    "0.0%": 4.55,
+    "23.6%": 4.03,
+    "38.2%": 3.71,
+    "50.0%": 3.45,
+    "61.8%": 3.19,
+    "78.6%": 2.82,
+    "100.0%": 2.35
+  },
+  "trend_strength": "多头",
+  "supports": [
+    2.57,
+    2.8,
+    3.68
+  ],
+  "resistances": [
+    2.81,
+    4.26,
+    4.32
+  ],
   "risk_flags": [],
   "resonance": {
-    "bullish": 0,
-    "neutral": 0,
+    "bullish": 3,
+    "neutral": 3,
     "bearish": 0,
-    "overall": "neutral"
+    "overall": "mildly_bullish"
   }
 }

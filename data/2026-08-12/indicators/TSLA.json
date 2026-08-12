@@ -1,7 +1,7 @@
 {
   "symbol": "TSLA",
   "date": "2026-08-11",
-  "close": 332.80999755859375,
+  "close": 332.81,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -16.8961,
-    "dea": -22.6029,
-    "histogram": 11.4136,
+    "diff": -16.3609,
+    "dea": -21.8606,
+    "histogram": 10.9994,
     "signal": "golden_cross"
   },
   "kdj": {

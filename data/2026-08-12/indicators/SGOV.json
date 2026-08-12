@@ -1,65 +1,71 @@
 {
   "symbol": "SGOV",
   "date": "2026-08-11",
-  "close": 100.51000213623047,
+  "close": 100.51,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 100.48,
-    "ma10": 100.44,
-    "ma20": 100.37,
-    "ma60": 100.07,
-    "alignment": "bullish"
+    "ma10": 100.53,
+    "ma20": 100.57,
+    "ma60": 100.55,
+    "alignment": "bearish"
   },
   "rsi": {
-    "value": 99.0,
-    "signal": "overbought"
+    "value": 40.8,
+    "signal": "bearish"
   },
   "macd": {
-    "diff": 0.1028,
-    "dea": 0.1016,
-    "histogram": 0.0024,
-    "signal": "golden_cross"
+    "diff": -0.0181,
+    "dea": 0.0037,
+    "histogram": -0.0436,
+    "signal": "death_cross"
   },
   "kdj": {
-    "k": 66.7,
-    "d": 55.6,
-    "j": 88.9,
-    "signal": "bullish"
+    "k": 43.3,
+    "d": 47.8,
+    "j": 34.4,
+    "signal": "bearish"
   },
   "bollinger": {
-    "upper": 100.54,
-    "middle": 100.37,
-    "lower": 100.2,
-    "bandwidth": 0.3,
-    "position": 0.92,
-    "signal": "upper_band"
+    "upper": 100.74,
+    "middle": 100.57,
+    "lower": 100.39,
+    "bandwidth": 0.4,
+    "position": 0.34,
+    "signal": "below_middle"
   },
   "volume": {
     "ratio": 0.7,
     "signal": "normal"
   },
   "fibonacci": {
-    "high": 100.51,
-    "low": 99.64,
-    "0.0%": 100.51,
-    "23.6%": 100.31,
-    "38.2%": 100.18,
-    "50.0%": 100.08,
-    "61.8%": 99.97,
-    "78.6%": 99.83,
-    "100.0%": 99.64
+    "high": 100.72,
+    "low": 100.39,
+    "0.0%": 100.72,
+    "23.6%": 100.64,
+    "38.2%": 100.59,
+    "50.0%": 100.56,
+    "61.8%": 100.52,
+    "78.6%": 100.46,
+    "100.0%": 100.39
   },
-  "trend_strength": "多头",
-  "supports": [],
-  "resistances": [],
+  "trend_strength": "空头",
+  "supports": [
+    100.4,
+    100.42
+  ],
+  "resistances": [
+    100.67,
+    100.71
+  ],
   "risk_flags": [
-    "RSI超买"
+    "跌破MA20"
   ],
   "resonance": {
-    "bullish": 3,
-    "neutral": 1,
-    "bearish": 2,
-    "overall": "mildly_bullish"
+    "bullish": 0,
+    "neutral": 3,
+    "bearish": 3,
+    "overall": "mildly_bearish"
   }
 }

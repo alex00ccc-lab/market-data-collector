@@ -71,6 +71,11 @@ class IndicatorResult:
     # Support / Resistance
     supports: list[float] = field(default_factory=list)
     resistances: list[float] = field(default_factory=list)
+    # Frame indicators (v14 — multi-master framework scoring inputs)
+    avg_dollar_volume: float = 0.0          # 20-day avg dollar volume (close × volume)
+    pe_percentile_5y: Optional[float] = None  # PE 5-year percentile (0-100), None if unavailable
+    sector_momentum_30d: float = 0.0        # Sector 30-day return % (ETF proxy for flow)
+    sector_ma_disparity: float = 0.0        # Peer gross margin CV (supply-structure proxy)
     # Resonance
     bullish_count: int = 0
     neutral_count: int = 0
@@ -99,6 +104,12 @@ class IndicatorResult:
             "supports": self.supports,
             "resistances": self.resistances,
             "risk_flags": getattr(self, "_risk_flags", []),
+            "frame": {
+                "avg_dollar_volume": self.avg_dollar_volume,
+                "pe_percentile_5y": self.pe_percentile_5y,
+                "sector_momentum_30d": self.sector_momentum_30d,
+                "sector_ma_disparity": self.sector_ma_disparity,
+            },
             "resonance": {
                 "bullish": self.bullish_count,
                 "neutral": self.neutral_count,
@@ -341,15 +352,78 @@ def calc_support_resistance(highs: list[float], lows: list[float], closes: list[
 
 
 # ============================================================================
+# Frame indicators (v14 — multi-master framework scoring inputs)
+# ============================================================================
+
+def _calc_avg_dollar_volume(closes: list[float], volumes: list[float], period: int = 20) -> float:
+    """20-day average dollar volume (close × volume). Used for liquidity red-line check."""
+    if len(closes) < period or len(volumes) < period:
+        return 0.0
+    dollar_vols = [c * v for c, v in zip(closes[-period:], volumes[-period:])]
+    return round(sum(dollar_vols) / period, 2)
+
+
+def _calc_pe_percentile(current_pe: float, pe_history: list[float]) -> Optional[float]:
+    """PE 5-year percentile (0–100). Lower = cheaper vs own history.
+
+    Returns None if PE history is insufficient or current PE is invalid.
+    """
+    if not pe_history or len(pe_history) < 60 or current_pe <= 0:
+        return None
+    below = sum(1 for pe in pe_history if pe < current_pe)
+    return round(below / len(pe_history) * 100, 1)
+
+
+def _calc_sector_momentum(sector_daily_returns: list[float], period: int = 30) -> float:
+    """Sector 30-day cumulative return (%). Positive = sector trending up.
+
+    Used as automated alternative to 13F institutional flow data.
+    """
+    if len(sector_daily_returns) < period:
+        return 0.0
+    cumulative = 1.0
+    for r in sector_daily_returns[-period:]:
+        cumulative *= (1 + r / 100) if abs(r) < 100 else 1.0  # guard against bad data
+    return round((cumulative - 1) * 100, 2)
+
+
+def _calc_sector_ma_disparity(peer_gross_margins: list[float]) -> float:
+    """Coefficient of variation of peer gross margins. Higher = more fragmented industry.
+
+    Used as automated proxy for industry concentration (CR4/HHI alternative).
+    Returns 0.0 if insufficient peer data.
+    """
+    if len(peer_gross_margins) < 3:
+        return 0.0
+    mean_gm = sum(peer_gross_margins) / len(peer_gross_margins)
+    if mean_gm <= 0:
+        return 0.0
+    variance = sum((gm - mean_gm) ** 2 for gm in peer_gross_margins) / len(peer_gross_margins)
+    std = variance ** 0.5
+    return round(std / mean_gm, 4)  # coefficient of variation
+
+
+# ============================================================================
 # Main: Compute all indicators for one symbol
 # ============================================================================
 
-def compute_all(symbol: str, kline_data: list[dict]) -> IndicatorResult:
+def compute_all(
+    symbol: str,
+    kline_data: list[dict],
+    pe_history: Optional[list[float]] = None,
+    current_pe: float = 0.0,
+    sector_daily_returns: Optional[list[float]] = None,
+    peer_gross_margins: Optional[list[float]] = None,
+) -> IndicatorResult:
     """Compute all technical indicators from kline data.
 
     Args:
         symbol: Stock symbol.
         kline_data: List of OHLCV dicts with 'close', 'high', 'low', 'volume' keys.
+        pe_history: Optional 5-year monthly PE history for percentile calculation.
+        current_pe: Current PE ratio (TTM). Used with pe_history for percentile.
+        sector_daily_returns: Optional sector ETF daily return series (%).
+        peer_gross_margins: Optional list of peer company gross margins for disparity calc.
 
     Returns:
         IndicatorResult with all computed values.
@@ -421,6 +495,12 @@ def compute_all(symbol: str, kline_data: list[dict]) -> IndicatorResult:
 
     # Support / Resistance
     result.supports, result.resistances = calc_support_resistance(highs, lows, closes)
+
+    # Frame indicators (v14)
+    result.avg_dollar_volume = _calc_avg_dollar_volume(closes, volumes)
+    result.pe_percentile_5y = _calc_pe_percentile(current_pe, pe_history) if pe_history else None
+    result.sector_momentum_30d = _calc_sector_momentum(sector_daily_returns) if sector_daily_returns else 0.0
+    result.sector_ma_disparity = _calc_sector_ma_disparity(peer_gross_margins) if peer_gross_margins else 0.0
 
     # Resonance: count bullish/neutral/bearish across 6 indicators
     raw_signals = [
