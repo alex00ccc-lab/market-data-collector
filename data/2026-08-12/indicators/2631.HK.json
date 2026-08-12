@@ -1,0 +1,72 @@
+{
+  "symbol": "2631.HK",
+  "date": "2026-08-12",
+  "close": 78.69999694824219,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 74.97,
+    "ma10": 65.98,
+    "ma20": 65.23,
+    "ma60": 85.85,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 64.4,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": -1.9981,
+    "dea": -6.7671,
+    "histogram": 9.538,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 64.2,
+    "d": 54.7,
+    "j": 83.2,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 81.66,
+    "middle": 65.23,
+    "lower": 48.8,
+    "bandwidth": 50.4,
+    "position": 0.91,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 0.1,
+    "signal": "shrink"
+  },
+  "fibonacci": {
+    "high": 132.0,
+    "low": 51.6,
+    "0.0%": 132.0,
+    "23.6%": 113.03,
+    "38.2%": 101.29,
+    "50.0%": 91.8,
+    "61.8%": 82.31,
+    "78.6%": 68.81,
+    "100.0%": 51.6
+  },
+  "trend_strength": "多头",
+  "supports": [
+    51.7,
+    80.9,
+    96.45
+  ],
+  "resistances": [
+    109.0,
+    127.4
+  ],
+  "risk_flags": [
+    "缩量警示"
+  ],
+  "resonance": {
+    "bullish": 4,
+    "neutral": 1,
+    "bearish": 1,
+    "overall": "bullish"
+  }
+}

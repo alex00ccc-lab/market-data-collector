@@ -1,0 +1,129 @@
+{
+  "run_at": "2026-08-12T09:58:11.874682+08:00",
+  "date": "2026-08-12",
+  "symbols_attempted": 13,
+  "symbols_succeeded": 9,
+  "symbols_stale": 0,
+  "symbols_skipped": 0,
+  "symbols_failed": [
+    "513010",
+    "588080",
+    "588710",
+    "SIVE"
+  ],
+  "errors": [
+    "513010: all sources failed (tried: efinance, aktools)",
+    "588080: all sources failed (tried: efinance, aktools)",
+    "588710: all sources failed (tried: efinance, aktools)",
+    "SIVE: all sources failed (tried: )"
+  ],
+  "skipped": [],
+  "per_symbol": {
+    "513010": {
+      "status": "failed",
+      "error": "513010: all sources failed (tried: efinance, aktools)",
+      "sources_tried": "efinance, aktools"
+    },
+    "588080": {
+      "status": "failed",
+      "error": "588080: all sources failed (tried: efinance, aktools)",
+      "sources_tried": "efinance, aktools"
+    },
+    "588710": {
+      "status": "failed",
+      "error": "588710: all sources failed (tried: efinance, aktools)",
+      "sources_tried": "efinance, aktools"
+    },
+    "6880.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T09:57:41.090247+08:00",
+      "quote_date": "2026-07-08",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/6880.HK.json"
+    },
+    "9992.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T09:57:42.279721+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/9992.HK.json"
+    },
+    "2631.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T09:57:44.238081+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/2631.HK.json"
+    },
+    "1888.HK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T09:57:46.872536+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/1888.HK.json"
+    },
+    "NOK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T09:57:48.883086+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/NOK.json"
+    },
+    "SGOV": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T09:57:50.884540+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/SGOV.json"
+    },
+    "TSLA": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T09:57:52.829838+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/TSLA.json"
+    },
+    "SIVE": {
+      "status": "failed",
+      "error": "SIVE: all sources failed (tried: )",
+      "sources_tried": ""
+    },
+    "LRCX": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T09:57:54.831084+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/LRCX.json"
+    },
+    "6981": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-12T09:57:56.883680+08:00",
+      "quote_date": "2026-05-12",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-12/quotes/6981.json"
+    }
+  },
+  "source_health": {
+    "aktools": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 3,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "efinance": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 7,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "yfinance": {
+      "success_rate": "100%",
+      "ok": 9,
+      "failed": 0,
+      "stale": 0,
+      "bars_fetched": 535
+    }
+  }
+}
