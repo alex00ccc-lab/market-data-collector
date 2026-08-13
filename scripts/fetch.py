@@ -167,47 +167,6 @@ def fetch_efinance_kline(symbol: str, market: str, days: int = 120) -> Optional[
 
 
 @retry(max_attempts=2, delay=1.0)
-def fetch_efinance_realtime(symbol: str, market: str) -> Optional[dict]:
-    """Fetch real-time quote from efinance."""
-    secid = _efinance_secid(symbol, market)
-
-    url = (
-        f"https://push2.eastmoney.com/api/qt/stock/get"
-        f"?secid={secid}"
-        f"&fields=f43,f44,f45,f46,f47,f48,f57,f58,f60,f116,f117,f170"
-    )
-
-    _rate_limiter.wait()
-    data = _efinance_http(url)
-    if not data or "data" not in data or not data["data"]:
-        return None
-
-    d = data["data"]
-    now = datetime.now(TZ_BEIJING)
-
-    price = d.get("f43", 0) / 100 if d.get("f43") else 0
-    if price <= 0:
-        return None
-
-    return {
-        "symbol": symbol.upper(),
-        "name": d.get("f58", ""),
-        "price": price,
-        "change_pct": d.get("f170", 0) / 100 if d.get("f170") else 0,
-        "high": d.get("f44", 0) / 100 if d.get("f44") else 0,
-        "low": d.get("f45", 0) / 100 if d.get("f45") else 0,
-        "open": d.get("f46", 0) / 100 if d.get("f46") else 0,
-        "pre_close": d.get("f60", 0) / 100 if d.get("f60") else 0,
-        "volume": d.get("f47", 0),
-        "amount": d.get("f48", 0),
-        "adj": "normal",
-        "source": "efinance",
-        "timestamp": now.isoformat(),
-        "trade_date": now.strftime("%Y-%m-%d"),
-    }
-
-
-@retry(max_attempts=2, delay=1.0)
 def fetch_sector_flow() -> Optional[list[dict]]:
     """Fetch sector fund flow rankings."""
     url = (
