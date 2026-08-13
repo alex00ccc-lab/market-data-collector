@@ -5,6 +5,34 @@
 
 ---
 
+## v5 — 2026-08-13 — A股交易日历扩展到 2020–2026（多年度休市日）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.6（cache_status 假阳性告警修复） |
+
+### 背景
+
+`cache_status()` 用「工作日数」估算应有交易日，把 A股节假日误算为「缺失」。A股缓存跨 2020–2026，而 `CN_HOLIDAYS_2026` 只含 2026，导致 513010/588080 误报「缺失 95/105 天」。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/utils/calendar_utils.py` | `CN_HOLIDAYS_2026` → `CN_HOLIDAYS`，补 2020–2025 各年休市日（仅工作日闭市日；周末由 `is_trading_day` 的 weekend 检查覆盖）；`TradingCalendar.__init__` 引用同步更新 |
+
+### 验证
+
+- `--cache-status`：513010 missing 95→3、588080 105→3（均 < 20 告警阈值）✅
+
+### 回滚方法
+
+```bash
+cd D:\holdings-briefing\market_data && git revert <v5 commit>
+```
+
+---
+
 ## v4 — 2026-08-13 — 死代码清理（随 holdings-briefing v14.3）
 
 | 属性 | 值 |
