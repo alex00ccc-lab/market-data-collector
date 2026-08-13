@@ -1,0 +1,79 @@
+{
+  "symbol": "TSLA",
+  "date": "2026-08-12",
+  "close": 327.510009765625,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 327.86,
+    "ma10": 323.03,
+    "ma20": 333.62,
+    "ma60": 382.71,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 55.1,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": -15.774,
+    "dea": -21.412,
+    "histogram": 11.276,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 58.2,
+    "d": 52.7,
+    "j": 69.1,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 389.04,
+    "middle": 333.62,
+    "lower": 278.21,
+    "bandwidth": 33.2,
+    "position": 0.44,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 1.0,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 445.6,
+    "low": 297.38,
+    "0.0%": 445.6,
+    "23.6%": 410.62,
+    "38.2%": 388.98,
+    "50.0%": 371.49,
+    "61.8%": 354.0,
+    "78.6%": 329.1,
+    "100.0%": 297.38
+  },
+  "trend_strength": "多头",
+  "supports": [
+    298.32,
+    375.12,
+    381.59
+  ],
+  "resistances": [
+    411.15,
+    425.3,
+    442.1
+  ],
+  "risk_flags": [
+    "跌破MA20"
+  ],
+  "frame": {
+    "avg_dollar_volume": 12801693681.19,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 3,
+    "neutral": 2,
+    "bearish": 1,
+    "overall": "mildly_bullish"
+  }
+}
