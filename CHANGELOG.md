@@ -5,6 +5,30 @@
 
 ---
 
+## v4 — 2026-08-13 — 死代码清理（随 holdings-briefing v14.3）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.3（Phase 3 死代码清理 · M17） |
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/fetch.py` | 删除死函数 `fetch_efinance_realtime`（全仓零调用；efinance 实时行情已由 source_manager / `EFinanceAdapter` 路径替代） |
+
+### 保留说明
+
+`fetch_stooq_history` 未删除 —— 仍被 holdings-briefing `src/report/data_collector.py` 的 backfill 路径（US 回退 / JP 主源）调用。
+
+### 回滚方法
+
+```bash
+cd D:\holdings-briefing\market_data && git revert <M17 commit>
+```
+
+---
+
 ## v3 — 2026-08-09 — CI 告警代码清理（随 holdings-briefing v13）
 
 | 属性 | 值 |
