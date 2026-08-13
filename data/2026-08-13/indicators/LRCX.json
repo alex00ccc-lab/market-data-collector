@@ -36,7 +36,7 @@
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.0,
+    "ratio": 1.1,
     "signal": "normal"
   },
   "fibonacci": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 3303573290.12,
+    "avg_dollar_volume": 3316705331.59,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0

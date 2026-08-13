@@ -36,7 +36,7 @@
     "signal": "upper_band"
   },
   "volume": {
-    "ratio": 0.9,
+    "ratio": 1.1,
     "signal": "normal"
   },
   "fibonacci": {
@@ -57,7 +57,7 @@
     "RSI超买"
   ],
   "frame": {
-    "avg_dollar_volume": 1969390509.27,
+    "avg_dollar_volume": 1987890274.79,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
