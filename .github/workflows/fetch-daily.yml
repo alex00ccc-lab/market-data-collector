@@ -1,8 +1,8 @@
-name: Fetch US / JP / HK Market Data
+name: Fetch US / JP Market Data
 
 # ── Schedule (Beijing time) ──────────────────────────────────────────
 # 08:05 BJT — US previous trading day close available (~05:00 BJT next day)
-# 17:05 BJT — JP (14:00 BJT) + HK (16:00 BJT) closed
+# 17:05 BJT — JP (14:00 BJT) closed (HK is local efinance, not CI)
 # Sat 08:05 BJT — US Friday close (needed for Saturday weekly review + Monday briefing)
 on:
   schedule:
@@ -45,6 +45,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Validate market labels
+        run: python scripts/market_validate.py
+
       - name: Fetch market data
         id: fetch
         run: |
@@ -54,7 +57,7 @@ jobs:
           fi
           # Retry up to 2 times on failure (network blips)
           for attempt in 1 2; do
-            python scripts/fetch.py --lenient $FORCE_FLAG 2>&1 | tee fetch.log
+            python scripts/fetch.py --lenient --markets US,JP,EU $FORCE_FLAG 2>&1 | tee fetch.log
             EXIT_CODE=${PIPESTATUS[0]}
             if [ "$EXIT_CODE" -eq 0 ]; then
               echo "exit_code=0" >> $GITHUB_OUTPUT

@@ -1,19 +1,20 @@
 {
   "priority": ["yfinance", "yahoo_chart", "finnhub", "alpha_vantage", "stooq"],
   "market_overrides": {
-    "A": ["efinance", "aktools", "stooq"],
-    "HK": ["efinance", "yfinance", "yahoo_chart", "finnhub", "stooq"]
+    "A": ["efinance", "aktools"],
+    "HK": ["efinance", "aktools"],
+    "EU": ["yfinance", "yahoo_chart"]
   },
   "adapters": {
     "yfinance": {
       "enabled": true,
-      "markets": ["US", "JP", "HK"],
+      "markets": ["US", "JP", "HK", "EU"],
       "note": "Primary for US/JP. Free, no key. May rate-limit. Same IP pool as yahoo_chart.",
       "cooldown_on_rate_limit": 900
     },
     "yahoo_chart": {
       "enabled": true,
-      "markets": ["US", "JP", "HK"],
+      "markets": ["US", "JP", "HK", "EU"],
       "note": "Yahoo Chart API v8. Same IP as yfinance — NOT independent. Different endpoint may have different availability.",
       "cooldown_on_rate_limit": 900
     },
@@ -38,8 +39,8 @@
     },
     "aktools": {
       "enabled": true,
-      "markets": ["A"],
-      "note": "A-share fallback via Sina/Tencent sources. pip install akshare. No API key. Usually accessible from outside China.",
+      "markets": ["A", "HK"],
+      "note": "A-share + HK fallback via akshare (East Money / Sina / Tencent). pip install akshare. No API key.",
       "cooldown_on_rate_limit": 300
     },
     "stooq": {

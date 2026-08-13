@@ -22,13 +22,6 @@
       "currency": "CNY"
     },
     {
-      "symbol": "6880.HK",
-      "market": "HK",
-      "name": "MOMENTA",
-      "sector": "",
-      "currency": "HKD"
-    },
-    {
       "symbol": "9992.HK",
       "market": "HK",
       "name": "泡泡玛特",
@@ -71,7 +64,7 @@
       "currency": "USD"
     },
     {
-      "symbol": "SIVE",
+      "symbol": "SIVE.ST",
       "market": "EU",
       "name": "SIVE",
       "sector": "",
@@ -85,7 +78,7 @@
       "currency": "USD"
     },
     {
-      "symbol": "6981",
+      "symbol": "6981.T",
       "market": "JP",
       "name": "村田制作所",
       "sector": "",

@@ -1,8 +1,9 @@
-"""AkTools adapter — free A-share data via Sina/Tencent sources.
+"""AkTools adapter — free A-share / HK stock data via akshare.
 
-Alternative to efinance when East Money API is geo-blocked.
-Uses ``akshare`` library which reads from Sina Finance and Tencent Finance —
-typically accessible from outside China.
+Alternative to efinance when the East Money API is unreachable or rate-limited.
+``akshare`` aggregates several upstream providers (East Money, Sina, Tencent);
+this adapter uses its A-share and HK daily-K interfaces, which are typically
+accessible from mainland China.
 
 Install: pip install akshare
 """
@@ -22,6 +23,10 @@ logger = logging.getLogger(__name__)
 _last_call = 0.0
 _MIN_INTERVAL = 0.5
 
+# Minimum akshare version (as a comparable tuple — fixes M16: string
+# comparison mis-orders versions like "1.9.0" vs "1.14.0").
+_MIN_VER = (1, 14, 0)
+
 
 def _rate_limit():
     global _last_call
@@ -31,12 +36,20 @@ def _rate_limit():
     _last_call = _time.time()
 
 
-class AkToolsAdapter(BaseAdapter):
-    """Fetches A-share daily K-line via akshare (Sina/Tencent source).
+def _version_tuple(version) -> tuple:
+    """Parse a dotted version string into an int tuple for correct comparison."""
+    try:
+        return tuple(int(x) for x in str(version).split("."))
+    except (ValueError, TypeError):
+        return (0,)
 
-    No API key required.  Uses Sina Finance and Tencent Finance as upstream —
-    these are typically accessible from outside mainland China, making this
-    a viable fallback when efinance (East Money) is geo-blocked.
+
+class AkToolsAdapter(BaseAdapter):
+    """Fetches daily K-line for A-shares and HK stocks via akshare.
+
+    No API key required.  A-share path uses ``stock_zh_a_hist``; HK path uses
+    ``stock_hk_hist``.  Serves as the local fallback when efinance (East Money)
+    fails, so HK fetch keeps working from a mainland-China host.
     """
 
     @property
@@ -44,17 +57,16 @@ class AkToolsAdapter(BaseAdapter):
         return "aktools"
 
     def supports_market(self, market: str) -> bool:
-        return market == "A"
+        return market in ("A", "HK")
 
     def _import_ak(self):
         """Lazy-import akshare (heavy dependency) with version check."""
         try:
             import akshare as ak
-            _MIN_VER = "1.14.0"
-            if hasattr(ak, "__version__") and ak.__version__ < _MIN_VER:
+            if hasattr(ak, "__version__") and _version_tuple(ak.__version__) < _MIN_VER:
                 logger.warning(
                     "aktools: akshare version %s too old (min %s) — upgrade: pip install -U akshare",
-                    ak.__version__, _MIN_VER,
+                    ak.__version__, ".".join(map(str, _MIN_VER)),
                 )
                 return None
             return ak
@@ -66,24 +78,43 @@ class AkToolsAdapter(BaseAdapter):
         """Normalize A-share symbol: strip .SH/.SZ suffix for akshare."""
         return symbol.upper().replace(".SH", "").replace(".SZ", "")
 
+    def _clean_hk_symbol(self, symbol: str) -> str:
+        """Normalize HK symbol: strip .HK suffix and zero-pad to 5 digits.
+
+        akshare ``stock_hk_hist`` expects a 5-digit code with leading zero,
+        e.g. ``9992.HK`` → ``09992``.
+        """
+        code = symbol.upper().replace(".HK", "").strip()
+        return code.zfill(5)
+
     def fetch_kline(self, symbol: str, market: str, days: int = 120) -> Optional[list[dict]]:
         ak = self._import_ak()
         if ak is None:
             return None
 
-        clean = self._clean_symbol(symbol)
         start_date = (datetime.now() - timedelta(days=days * 2)).strftime("%Y%m%d")
         end_date = datetime.now().strftime("%Y%m%d")
 
         _rate_limit()
         try:
-            df = ak.stock_zh_a_hist(
-                symbol=clean,
-                period="daily",
-                start_date=start_date,
-                end_date=end_date,
-                adjust="qfq",
-            )
+            if market == "HK":
+                code = self._clean_hk_symbol(symbol)
+                df = ak.stock_hk_hist(
+                    symbol=code,
+                    period="daily",
+                    start_date=start_date,
+                    end_date=end_date,
+                    adjust="qfq",
+                )
+            else:
+                clean = self._clean_symbol(symbol)
+                df = ak.stock_zh_a_hist(
+                    symbol=clean,
+                    period="daily",
+                    start_date=start_date,
+                    end_date=end_date,
+                    adjust="qfq",
+                )
         except Exception as e:
             logger.debug("aktools(%s): request error — %s", symbol, str(e)[:LOG_TRUNCATE_LENGTH])
             return None
@@ -92,6 +123,8 @@ class AkToolsAdapter(BaseAdapter):
             logger.debug("aktools(%s): empty response", symbol)
             return None
 
+        # Both stock_zh_a_hist and stock_hk_hist return Chinese columns:
+        # 日期/开盘/收盘/最高/最低/成交量/成交额 — shared mapping below.
         bars = []
         for _, row in df.iterrows():
             # Filter NaN close values (non-trading days, data gaps)

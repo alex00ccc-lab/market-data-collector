@@ -35,7 +35,7 @@ class YFinanceAdapter(BaseAdapter):
         return "yfinance"
 
     def supports_market(self, market: str) -> bool:
-        return market in ("US", "JP", "HK")
+        return market in ("US", "JP", "HK", "EU")
 
     def _import(self):
         try:

@@ -72,6 +72,11 @@ JP_HOLIDAYS_2026 = {
     "2026-12-31",                  # New Year's Eve (half day)
 }
 
+# European exchanges (Stockholm, Frankfurt, etc.) — 2026 holidays.
+# Kept minimal: yfinance gracefully returns the last trading day's close on
+# exchange holidays, so the weekend check is the only hard requirement.
+EU_HOLIDAYS_2026 = set()
+
 
 class TradingCalendar:
     """Check if a given date is a trading day for a specific market."""
@@ -81,6 +86,7 @@ class TradingCalendar:
         self._us_holidays = US_HOLIDAYS_2026
         self._hk_holidays = HK_HOLIDAYS_2026
         self._jp_holidays = JP_HOLIDAYS_2026
+        self._eu_holidays = EU_HOLIDAYS_2026
 
     def is_trading_day(self, market: str, d: Optional[date] = None) -> bool:
         """Check if `d` is a trading day for the market."""
@@ -97,10 +103,10 @@ class TradingCalendar:
                 holidays = self._hk_holidays
             else:
                 holidays = self._jp_holidays
-        elif market == "US":
+        elif market in ("US", "EU"):
             if d.weekday() >= 5:
                 return False
-            holidays = self._us_holidays
+            holidays = self._us_holidays if market == "US" else self._eu_holidays
         else:
             return True
 
@@ -128,7 +134,7 @@ class TradingCalendar:
                 # For US: allow if yesterday was a trading day
                 # (fetching the previous session's close, e.g. Tue 08:05
                 # fetching Mon's close which happened ~Tue 05:00 BJT)
-                if market == "US":
+                if market in ("US", "EU"):
                     yesterday = d - timedelta(days=1)
                     if self.is_trading_day(market, yesterday):
                         return True
@@ -163,7 +169,7 @@ class TradingCalendar:
         if now is None:
             now = datetime.now(TZ_BEIJING)
 
-        close_hour = {"A": 15, "HK": 16, "US": 5, "JP": 14}.get(market, 15)  # JP: 15:00 JST = 14:00 BJT
+        close_hour = {"A": 15, "HK": 16, "US": 5, "JP": 14, "EU": 5}.get(market, 15)  # JP: 15:00 JST = 14:00 BJT; EU closes overnight (~00:30 BJT) → treated like US
         current_hour = now.hour + now.minute / 60.0
 
         if current_hour < close_hour:

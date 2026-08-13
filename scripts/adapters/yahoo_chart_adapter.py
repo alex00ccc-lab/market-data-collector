@@ -95,7 +95,7 @@ class YahooChartAdapter(BaseAdapter):
         return "yahoo_chart"
 
     def supports_market(self, market: str) -> bool:
-        return market in ("US", "JP", "HK")
+        return market in ("US", "JP", "HK", "EU")
 
     def fetch_kline(self, symbol: str, market: str, days: int = 120) -> Optional[list[dict]]:
         # Build Yahoo ticker suffix

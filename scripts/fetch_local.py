@@ -118,14 +118,13 @@ def _git_status_clean(cwd: Path = None) -> bool:
 def auto_markets() -> list[str]:
     """Determine which markets to fetch based on current Beijing time.
 
-    US/JP/HK quote data is fetched by GitHub Actions (fetch-daily.yml).
-    Local is responsible only for A-shares (efinance needs CN IP).
+    US/JP/EU quote data is fetched by GitHub Actions (fetch-daily.yml).
+    Local is responsible for A + HK (efinance needs CN IP).
 
-    Note: actual behavior always returns ["A"] regardless of time;
-    scheduled tasks pass --markets explicitly so this function is a
-    fallback for manual runs.
+    Note: scheduled tasks pass --markets explicitly; this function is the
+    fallback for manual runs without --markets.
     """
-    return ["A"]  # Always A-shares only (US/JP/HK handled by CI)
+    return ["A", "HK"]  # A + HK only (US/JP/EU handled by CI)
 
 
 def markets_from_holdings() -> set[str]:

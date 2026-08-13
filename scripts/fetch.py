@@ -469,18 +469,24 @@ def fetch_stooq_history(symbol: str, market: str = "US") -> Optional[list[dict]]
 # Main orchestration
 # ============================================================================
 
-def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, Any]:
+def fetch_all(today: Optional[date] = None, force: bool = False,
+              markets: Optional[list[str]] = None) -> dict[str, Any]:
     """Fetch all data for today. Returns summary dict.
 
     Args:
         today: Target date (default: today Beijing time).
         force: Force fetch even if the calendar suggests skipping.
+        markets: Optional list of market codes to restrict the run to
+            (e.g. ["A", "HK"]). None = all markets (backward compatible).
 
     Returns:
         {"quotes": {symbol: path}, "macro": path, "sectors": path, "errors": [...]}
     """
     if today is None:
         today = datetime.now(TZ_BEIJING).date()
+
+    if markets is not None:
+        markets = [m.strip().upper() for m in markets if m and m.strip()]
 
     date_str = today.strftime("%Y-%m-%d")
     quotes_dir = DATA_DIR / date_str / "quotes"
@@ -503,6 +509,10 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
     holdings = load_symbols("holdings")
     watchlist = load_symbols("watchlist")
     all_symbols = holdings + watchlist
+    if markets is not None:
+        all_symbols = [it for it in all_symbols if it.get("market", "A") in markets]
+        logger.info("Restricting to markets [%s] — %d symbols in scope",
+                    ",".join(markets), len(all_symbols))
     logger.info("Fetching %d holdings + %d watchlist symbols via multi-source pipeline...",
                len(holdings), len(watchlist))
 
@@ -530,8 +540,11 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
         if not kline:
             currency = item.get("currency", "")
             suffixes = CURRENCY_SUFFIX_MAP.get(currency, [])
+            base_sym = sym.split(".")[0] if "." in sym else sym
             for suffix in suffixes:
-                alt_sym = f"{sym}{suffix}"
+                alt_sym = f"{base_sym}{suffix}"
+                if alt_sym == sym:
+                    continue
                 kline = mgr.fetch_with_fallback(alt_sym, market)
                 if kline:
                     logger.info("  %s: resolved via currency suffix %s → %s", sym, suffix, alt_sym)
@@ -581,13 +594,20 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
             priority = mgr.get_priority(market)
             err_msg = f"{sym}: all sources failed (tried: {', '.join(priority)})"
             errors.append(err_msg)
-            per_symbol[sym] = {"status": "failed", "error": err_msg, "sources_tried": ", ".join(priority)}
-            logger.warning("  %s: FAILED (tried: %s)", sym, ", ".join(priority))
+            per_symbol[sym] = {
+                "status": "missing",
+                "error": err_msg,
+                "sources_tried": ", ".join(priority),
+                "quote_date": None,
+            }
+            logger.warning("  %s: MISSING (tried: %s)", sym, ", ".join(priority))
 
     # ------------------------------------------------------------------
     # 2. Macro indicators (gated by trading calendar — no longer runs unconditionally)
     # ------------------------------------------------------------------
-    if not force and not cal.should_fetch(market="US", d=today):
+    if markets is not None and "US" not in markets:
+        logger.info("Skipping macro fetch — US not in requested markets")
+    elif not force and not cal.should_fetch(market="US", d=today):
         logger.info("Skipping macro fetch — not a trading day or outside fetch window")
     else:
         macro_cfg = load_config("macro")
@@ -610,18 +630,18 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
                         "date": latest["date"],
                         "change_pct": None,
                     }
-        else:
-            kline = fetch_yfinance_history(sym, period="1mo")
-            if kline and len(kline) > 0:
-                latest = kline[-1]
-                prev = kline[-2] if len(kline) >= 2 else latest
-                chg = ((latest["close"] - prev["close"]) / prev["close"] * 100) if prev["close"] > 0 else 0
-                macro_results[sym] = {
-                    "name": ind["name"],
-                    "price": round(latest["close"], 2),
-                    "date": latest["date"],
-                    "change_pct": round(chg, 2),
-                }
+            else:
+                kline = fetch_yfinance_history(sym, period="1mo")
+                if kline and len(kline) > 0:
+                    latest = kline[-1]
+                    prev = kline[-2] if len(kline) >= 2 else latest
+                    chg = ((latest["close"] - prev["close"]) / prev["close"] * 100) if prev["close"] > 0 else 0
+                    macro_results[sym] = {
+                        "name": ind["name"],
+                        "price": round(latest["close"], 2),
+                        "date": latest["date"],
+                        "change_pct": round(chg, 2),
+                    }
 
         if macro_results:
             macro_path = macro_dir / "macro.json"
@@ -632,19 +652,22 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
             fetched["_macro"] = str(macro_path)
 
     # ------------------------------------------------------------------
-    # 3. Sector flow
+    # 3. Sector flow (A-share only — gated by requested markets)
     # ------------------------------------------------------------------
-    logger.info("Fetching sector fund flow...")
-    sectors = fetch_sector_flow()
-    if sectors:
-        sector_path = macro_dir / "sectors.json"
-        sector_path.write_text(
-            json.dumps(sectors, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-        fetched["_sectors"] = str(sector_path)
+    if markets is not None and "A" not in markets:
+        logger.info("Skipping sector flow — A not in requested markets")
     else:
-        logger.warning("sector_flow: fetch failed (non-critical, continuing)")
+        logger.info("Fetching sector fund flow...")
+        sectors = fetch_sector_flow()
+        if sectors:
+            sector_path = macro_dir / "sectors.json"
+            sector_path.write_text(
+                json.dumps(sectors, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            fetched["_sectors"] = str(sector_path)
+        else:
+            logger.warning("sector_flow: fetch failed (non-critical, continuing)")
 
     # ------------------------------------------------------------------
     # Write _fetch_log.json
@@ -669,40 +692,10 @@ def fetch_all(today: Optional[date] = None, force: bool = False) -> dict[str, An
     log_path = macro_dir / "_fetch_log.json"
     log_path.write_text(json.dumps(log_data, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    # Write fallback skeletons for failed symbols (prevents Obsidian render errors)
-    # Skipped symbols (market closed) don't need skeletons — they'll use prior data
-    for item in holdings + watchlist:
-        sym = item["symbol"]
-        if sym not in fetched and per_symbol.get(sym, {}).get("status") != "skipped":
-            skeleton_path = quotes_dir / f"{sym}.json"
-            if not skeleton_path.exists():
-                # Write a single-bar OHLCV skeleton so downstream indicator
-                # computation can safely read `date` and short-length series.
-                skeleton_bar = {
-                    "symbol": sym,
-                    "date": date_str,
-                    "open": 0.0,
-                    "high": 0.0,
-                    "low": 0.0,
-                    "close": 0.0,
-                    "volume": 0,
-                    "market": item.get("market", ""),
-                    "source": "fallback",
-                    "message": f"Data unavailable for {date_str}",
-                    "fetched_at": datetime.now(TZ_BEIJING).isoformat(),
-                }
-                skeleton_path.write_text(
-                    json.dumps([skeleton_bar], ensure_ascii=False),
-                    encoding="utf-8",
-                )
-                per_symbol[sym] = {
-                    "status": "failed",
-                    "source": "fallback",
-                    "fetched_at": skeleton_bar["fetched_at"],
-                    "quote_date": date_str,
-                    "path": str(skeleton_path),
-                }
-                logger.info("  %s: fallback skeleton written", sym)
+    # D4 (标注式缺失): no close:0 skeleton bars.  A symbol whose fetch failed
+    # is recorded as "missing" in per_symbol above; its quote file is simply
+    # absent so downstream consumers fall back to the last valid bar instead of
+    # ingesting a 0-price bar that would corrupt MA/RSI/MACD.
 
     logger.info(
         "Fetch complete: %d/%d symbols OK, %d errors, %d skipped",
@@ -730,10 +723,13 @@ if __name__ == "__main__":
     parser.add_argument("--date", type=str, default=None, help="Date YYYY-MM-DD (default: today)")
     parser.add_argument("--force", action="store_true", help="Force fetch even outside recommended window")
     parser.add_argument("--lenient", action="store_true", help="Exit 0 even if some symbols fail (for CI pipelines)")
+    parser.add_argument("--markets", type=str, default=None,
+                        help="Comma-separated market codes to restrict fetch to (e.g. A,HK or US,JP)")
     args = parser.parse_args()
 
     target = date.fromisoformat(args.date) if args.date else None
-    result = fetch_all(target, force=args.force)
+    markets = [m.strip() for m in args.markets.split(",")] if args.markets else None
+    result = fetch_all(target, force=args.force, markets=markets)
 
     print(json.dumps({k: v for k, v in result.items() if k != "files"}, ensure_ascii=False, indent=2))
 
