@@ -33,8 +33,6 @@ logger = logging.getLogger("fetch")
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_DIR = ROOT / "config"
 DATA_DIR = ROOT / "data"
-# 宏观指标独立分区（§2.6）：与个股行情 data/ 分离，抓取失败不阻塞个股分析
-MACRO_ROOT = ROOT / "macro"
 
 # Beijing timezone
 TZ_BEIJING = timezone(timedelta(hours=8))
@@ -610,9 +608,7 @@ def fetch_all(today: Optional[date] = None, force: bool = False,
                     }
 
         if macro_results:
-            macro_out = MACRO_ROOT / date_str
-            macro_out.mkdir(parents=True, exist_ok=True)
-            macro_path = macro_out / "macro.json"
+            macro_path = macro_dir / "macro.json"
             macro_path.write_text(
                 json.dumps(macro_results, ensure_ascii=False, indent=2),
                 encoding="utf-8",

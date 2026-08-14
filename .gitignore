@@ -22,7 +22,6 @@ config/keys.yaml
 
 # Runtime data (generated daily)
 data/
-macro/
 
 # Local fetch logs
 logs/

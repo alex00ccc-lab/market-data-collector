@@ -5,36 +5,6 @@
 
 ---
 
-## v7 — 2026-08-14 — 宏观指标独立分区（market_data/macro/）
-
-| 属性 | 值 |
-|------|-----|
-| **父项目** | holdings-briefing v14.9（§2.6 宏观独立分区） |
-
-### 背景
-
-plan §2.6：宏观指标（^VIX/^TNX/DXY 等 8 项）与个股行情 `data/` 分离，独立目录 `market_data/macro/`。宏观抓取失败不阻塞个股 thesis 分析。
-
-### 改动文件
-
-| 文件 | 改动 |
-|------|------|
-| `scripts/fetch.py` | 新增 `MACRO_ROOT = ROOT / "macro"`；macro.json 写入 `macro/{date}/macro.json`（原 `data/{date}/macro.json`） |
-| `.gitignore` | 新增 `macro/`（运行时产物，不入库） |
-
-### 验证
-
-- `python -m py_compile` 通过 ✅
-- `read_macro` 新路径优先、旧 `data/` 路径回退兼容 ✅
-
-### 回滚方法
-
-```bash
-cd D:\holdings-briefing\market_data && git revert <v7 commit>
-```
-
----
-
 ## v6 — 2026-08-14 — Twelve Data + finnhub 独立源 key 接入（免费档覆盖实测）
 
 | 属性 | 值 |
