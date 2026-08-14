@@ -1,0 +1,66 @@
+{
+  "run_at": "2026-08-14T09:57:15.087927+08:00",
+  "date": "2026-08-14",
+  "symbols_attempted": 12,
+  "symbols_succeeded": 5,
+  "symbols_stale": 0,
+  "symbols_skipped": 1,
+  "symbols_failed": [],
+  "errors": [],
+  "skipped": [
+    "6981.T (JP: market closed or not in fetch window)"
+  ],
+  "per_symbol": {
+    "NOK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-14T09:56:56.576022+08:00",
+      "quote_date": "2026-08-13",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-14/quotes/NOK.json"
+    },
+    "SGOV": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-14T09:56:58.370080+08:00",
+      "quote_date": "2026-08-13",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-14/quotes/SGOV.json"
+    },
+    "TSLA": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-14T09:57:00.382972+08:00",
+      "quote_date": "2026-08-13",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-14/quotes/TSLA.json"
+    },
+    "SIVE.ST": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-14T09:57:02.369091+08:00",
+      "quote_date": "2026-08-13",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-14/quotes/SIVE.ST.json"
+    },
+    "LRCX": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-14T09:57:04.379747+08:00",
+      "quote_date": "2026-08-13",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-14/quotes/LRCX.json"
+    },
+    "6981.T": {
+      "status": "skipped",
+      "reason": "JP market closed on 2026-08-14",
+      "source": null,
+      "fetched_at": "2026-08-14T09:57:04.380246+08:00",
+      "quote_date": null
+    }
+  },
+  "source_health": {
+    "yfinance": {
+      "success_rate": "100%",
+      "ok": 5,
+      "failed": 0,
+      "stale": 0,
+      "bars_fetched": 317
+    }
+  }
+}
