@@ -2,6 +2,12 @@
 
 Completely separate from Yahoo's IP pool — serves as the primary escape hatch
 when Yahoo rate-limits the GitHub Actions IP.
+
+⚠️ 免费档限制（实测 2026-08-14）：finnhub 免费档**不含 `/stock/candle`（历史 OHLCV）**
+——`fetch_kline` 返回 403 "You don't have access to this resource"。免费档仅覆盖
+quote/company_profile2/news 等实时/基本面端点。故本 adapter 的 fetch_kline 在免费档下
+恒返回 None（降级到 twelvedata/alpha_vantage）；只有升级付费档后才真正具备 OHLCV 逃生舱能力。
+key 本身有效（`/quote` 实测正常返回），可用于 fetch_realtime / fetch_fundamentals 扩展。
 """
 
 from __future__ import annotations

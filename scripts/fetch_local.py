@@ -164,8 +164,11 @@ def step_fetch(markets: list[str], force: bool = False) -> tuple[bool, list[str]
     logger.info("Step 2/4: Fetch market data (%s)", ", ".join(markets))
     errors = []
 
-    # Build fetch.py args — only pass --force when explicitly requested
+    # Build fetch.py args — restrict to requested markets so local only fetches
+    # A/HK (US/JP/EU are CI's job via fetch-daily.yml). Only pass --force when requested.
     fetch_args = [sys.executable, str(ROOT / "scripts" / "fetch.py"), "--lenient"]
+    if markets:
+        fetch_args += ["--markets", ",".join(markets)]
     if force:
         fetch_args.append("--force")
 

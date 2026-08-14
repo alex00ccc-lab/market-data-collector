@@ -1,5 +1,5 @@
 {
-  "priority": ["yfinance", "yahoo_chart", "finnhub", "alpha_vantage", "stooq"],
+  "priority": ["yfinance", "yahoo_chart", "finnhub", "twelvedata", "alpha_vantage", "stooq"],
   "market_overrides": {
     "A": ["efinance", "aktools"],
     "HK": ["efinance", "aktools"],
@@ -31,6 +31,13 @@
       "note": "US fallback. 25 calls/day, 5 calls/min. Free API key required (alpha_vantage_api_key).",
       "api_key_name": "alpha_vantage_api_key",
       "cooldown_on_rate_limit": 60
+    },
+    "twelvedata": {
+      "enabled": true,
+      "markets": ["US"],
+      "note": "INDEPENDENT third-party US fallback. 800 calls/day free. FREE TIER = US ONLY (Tokyo/HK/TW/Stockholm need Pro/Venture). JP/EU independent source remains a gap.",
+      "api_key_name": "twelvedata_api_key",
+      "cooldown_on_rate_limit": 900
     },
     "efinance": {
       "enabled": true,

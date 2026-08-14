@@ -590,7 +590,12 @@ def fetch_all(today: Optional[date] = None, force: bool = False,
                         "change_pct": None,
                     }
             else:
-                kline = fetch_yfinance_history(sym, period="1mo")
+                # P2 fix: route through SourceManager for real fallback. Macro
+                # symbols are already Yahoo-native (^VIX, ^TNX, ^HSI…); passing
+                # market="US" keeps the adapter from appending a country suffix
+                # (^HSI→^HSI.HK would corrupt it) while US indices still gain the
+                # finnhub/alpha_vantage fallback chain.
+                kline = mgr.fetch_with_fallback(sym, "US", days=30)
                 if kline and len(kline) > 0:
                     latest = kline[-1]
                     prev = kline[-2] if len(kline) >= 2 else latest
@@ -638,7 +643,7 @@ def fetch_all(today: Optional[date] = None, force: bool = False,
     log_data = {
         "run_at": datetime.now(TZ_BEIJING).isoformat(),
         "date": date_str,
-        "symbols_attempted": len(holdings) + len(watchlist),
+        "symbols_attempted": len(all_symbols),
         "symbols_succeeded": n_real_success,
         "symbols_stale": n_stale,
         "symbols_skipped": n_skipped,
@@ -648,6 +653,14 @@ def fetch_all(today: Optional[date] = None, force: bool = False,
         "per_symbol": per_symbol,
         "source_health": mgr.health_summary(),
     }
+    # Per-run log (non-clobbering): CI (US/JP/EU) and local (A/HK) write disjoint
+    # market sets, so each keeps its own record instead of overwriting the other's.
+    run_markets = "_".join(sorted(markets)) if markets else "all"
+    (macro_dir / f"_fetch_log_{run_markets}.json").write_text(
+        json.dumps(log_data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # Aggregate log (backward-compatible): last writer wins for now; downstream
+    # can be upgraded to read per-run files for a full cross-market view.
     log_path = macro_dir / "_fetch_log.json"
     log_path.write_text(json.dumps(log_data, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -658,7 +671,7 @@ def fetch_all(today: Optional[date] = None, force: bool = False,
 
     logger.info(
         "Fetch complete: %d/%d symbols OK, %d errors, %d skipped",
-        n_ok, len(holdings) + len(watchlist), len(errors), len(skipped),
+        n_ok, len(all_symbols), len(errors), len(skipped),
     )
 
     return {
@@ -666,6 +679,7 @@ def fetch_all(today: Optional[date] = None, force: bool = False,
         "quotes_fetched": n_ok,
         "total_holdings": len(holdings),
         "total_watchlist": len(watchlist),
+        "total_attempted": len(all_symbols),
         "errors": errors,
         "skipped": skipped,
         "files": fetched,
@@ -694,7 +708,8 @@ if __name__ == "__main__":
 
     if result["errors"]:
         n_ok = result.get("quotes_fetched", 0)
-        n_total = result.get("total_holdings", 0) + result.get("total_watchlist", 0)
+        n_total = result.get("total_attempted",
+                             result.get("total_holdings", 0) + result.get("total_watchlist", 0))
         print(f"\n⚠️  {len(result['errors'])} errors ({n_ok}/{n_total} OK):", file=sys.stderr)
         for e in result["errors"]:
             print(f"  - {e}", file=sys.stderr)

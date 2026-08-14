@@ -374,6 +374,24 @@ def _calc_pe_percentile(current_pe: float, pe_history: list[float]) -> Optional[
     return round(below / len(pe_history) * 100, 1)
 
 
+def _load_current_pe(data_root: Path, symbol: str) -> float:
+    """Load the latest current PE (TTM) from the weekly fundamentals cache.
+
+    Fundamentals are fetched weekly (fetch-weekly.yml), so scan all dates for
+    the most recent ``fundamentals/{symbol}.json``. Returns 0.0 if unavailable.
+    """
+    base = symbol.split(".")[0] if "." in symbol else symbol
+    for name in (base, symbol):
+        candidates = sorted(data_root.glob(f"*/fundamentals/{name}.json"))
+        if candidates:
+            try:
+                data = json.loads(candidates[-1].read_text(encoding="utf-8"))
+                return float(data.get("pe_ratio", 0) or 0)
+            except (json.JSONDecodeError, ValueError, OSError):
+                return 0.0
+    return 0.0
+
+
 def _calc_sector_momentum(sector_daily_returns: list[float], period: int = 30) -> float:
     """Sector 30-day cumulative return (%). Positive = sector trending up.
 
@@ -590,7 +608,11 @@ def process_date(date_str: str, data_root: Optional[Path] = None) -> dict[str, A
         symbol = qf.stem
         try:
             kline = json.loads(qf.read_text(encoding="utf-8"))
-            result = compute_all(symbol, kline)
+            current_pe = _load_current_pe(data_root, symbol)
+            # NOTE: pe_history (5-year monthly PE series) has no data source yet —
+            # deferred to Phase 2. Until then pe_percentile_5y correctly stays None
+            # (never a silent/guessed value).
+            result = compute_all(symbol, kline, current_pe=current_pe)
 
             out_path = indicators_dir / f"{symbol}.json"
             out_path.write_text(

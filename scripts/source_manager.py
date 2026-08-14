@@ -20,6 +20,7 @@ from adapters.stooq_adapter import StooqAdapter
 from adapters.efinance_adapter import EFinanceAdapter
 from adapters.yahoo_chart_adapter import YahooChartAdapter
 from adapters.finnhub_adapter import FinnhubAdapter
+from adapters.twelvedata_adapter import TwelveDataAdapter
 from adapters.aktools_adapter import AkToolsAdapter
 from utils.constants import TZ_BEIJING, LOG_TRUNCATE_LENGTH
 from utils.exceptions import RateLimitError
@@ -160,6 +161,7 @@ class SourceManager:
         self.register(YFinanceAdapter())
         self.register(YahooChartAdapter())
         self.register(FinnhubAdapter())
+        self.register(TwelveDataAdapter())
         self.register(StooqAdapter())
         self.register(EFinanceAdapter())
         self.register(AkToolsAdapter())
