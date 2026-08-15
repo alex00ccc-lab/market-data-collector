@@ -1,0 +1,67 @@
+{
+  "run_at": "2026-08-15T09:24:15.097609+08:00",
+  "date": "2026-08-15",
+  "symbols_attempted": 6,
+  "symbols_succeeded": 4,
+  "symbols_stale": 0,
+  "symbols_skipped": 2,
+  "symbols_failed": [],
+  "errors": [],
+  "skipped": [
+    "SIVE.ST (EU: market closed or not in fetch window)",
+    "6981.T (JP: market closed or not in fetch window)"
+  ],
+  "per_symbol": {
+    "NOK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-15T09:23:55.121163+08:00",
+      "quote_date": "2026-08-14",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-15/quotes/NOK.json"
+    },
+    "SGOV": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-15T09:23:56.823130+08:00",
+      "quote_date": "2026-08-14",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-15/quotes/SGOV.json"
+    },
+    "TSLA": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-15T09:23:58.807285+08:00",
+      "quote_date": "2026-08-14",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-15/quotes/TSLA.json"
+    },
+    "SIVE.ST": {
+      "status": "skipped",
+      "reason": "EU market closed on 2026-08-15",
+      "source": null,
+      "fetched_at": "2026-08-15T09:23:58.807810+08:00",
+      "quote_date": null
+    },
+    "LRCX": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-15T09:24:00.828402+08:00",
+      "quote_date": "2026-08-14",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-15/quotes/LRCX.json"
+    },
+    "6981.T": {
+      "status": "skipped",
+      "reason": "JP market closed on 2026-08-15",
+      "source": null,
+      "fetched_at": "2026-08-15T09:24:00.828962+08:00",
+      "quote_date": null
+    }
+  },
+  "source_health": {
+    "yfinance": {
+      "success_rate": "100%",
+      "ok": 11,
+      "failed": 0,
+      "stale": 0,
+      "bars_fetched": 415
+    }
+  }
+}
