@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 _last_call = 0.0
 _MIN_INTERVAL = 1.1   # 800/day ≈ 每 108s 一次；突发时保守限速
-_MAX_BARS = 200       # 单次返回 K 线上限（内存护栏）
+_MAX_BARS = 1200      # 单次返回 K 线上限（免费档 outputsize 支持到 5000；1200≈5年日线，内存护栏仍充足）
 
 
 def _rate_limit():
