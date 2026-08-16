@@ -19,6 +19,7 @@ from __future__ import annotations
 import json
 import logging
 from dataclasses import dataclass, field
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional
 
@@ -349,6 +350,101 @@ def calc_support_resistance(highs: list[float], lows: list[float], closes: list[
     resistances = sorted(set(round(r, 2) for r in resistances[-3:]))
 
     return supports, resistances
+
+
+# ============================================================================
+# Weekly indicators (Phase 4 — 周线趋势判定, 点状重算无 lookahead)
+# ============================================================================
+
+def calc_weekly_ohlc(
+    highs: list[float], lows: list[float], closes: list[float],
+    volumes: list[float], dates: list[str],
+) -> dict[str, list]:
+    """Aggregate daily OHLCV into weekly bars (natural ISO week).
+
+    Point-in-time: each weekly bar uses only daily bars up to that week's last
+    trading day — no future data. The weekly bar's date is the week's last
+    trading day.
+    """
+    n = len(closes)
+    if n == 0:
+        return {"dates": [], "open": [], "high": [], "low": [], "close": [], "volume": []}
+
+    weeks: dict[str, dict[str, list]] = {}
+    order: list[str] = []
+    for i in range(n):
+        d = str(dates[i])[:10]
+        try:
+            iso = datetime.strptime(d, "%Y-%m-%d").isocalendar()
+        except ValueError:
+            continue
+        wk = f"{iso[0]}-W{iso[1]:02d}"
+        if wk not in weeks:
+            weeks[wk] = {"highs": [], "lows": [], "closes": [], "volumes": [], "open": closes[i]}
+            order.append(wk)
+        weeks[wk]["highs"].append(highs[i] if i < len(highs) else closes[i])
+        weeks[wk]["lows"].append(lows[i] if i < len(lows) else closes[i])
+        weeks[wk]["closes"].append(closes[i])
+        weeks[wk]["volumes"].append(volumes[i] if i < len(volumes) else 0)
+
+    out: dict[str, list] = {"dates": [], "open": [], "high": [], "low": [], "close": [], "volume": []}
+    for wk in order:
+        w = weeks[wk]
+        out["dates"].append(wk)                        # ISO week label (yyyy-Www)
+        out["open"].append(w["open"])
+        out["high"].append(max(w["highs"]))
+        out["low"].append(min(w["lows"]))
+        out["close"].append(w["closes"][-1])
+        out["volume"].append(sum(w["volumes"]))
+    return out
+
+
+def weekly_ma_series(closes: list[float], period: int) -> list[float]:
+    """Rolling simple MA of weekly closes (point-in-time, no lookahead).
+
+    Returns one MA value per week; weeks before ``period`` bars return 0.0
+    (insufficient data marker).
+    """
+    out: list[float] = []
+    for i in range(len(closes)):
+        if i + 1 < period:
+            out.append(0.0)
+        else:
+            out.append(sum(closes[i + 1 - period:i + 1]) / period)
+    return out
+
+
+def _weekly_divergence(closes: list[float]) -> dict[str, bool]:
+    """Simplified weekly top/bottom divergence (latest snapshot, auxiliary only).
+
+    Top divergence: price at a ~13-week high while weekly MACD histogram is
+    falling. Bottom divergence: price at a ~13-week low while MACD rising.
+    """
+    if len(closes) < 26:
+        return {"top": False, "bottom": False}
+
+    macd_now = calc_macd(closes)["histogram"]
+    macd_prev = calc_macd(closes[:-1])["histogram"]
+    price_high = closes[-1] >= max(closes[-13:])
+    price_low = closes[-1] <= min(closes[-13:])
+
+    top = price_high and macd_now < macd_prev
+    bottom = price_low and macd_now > macd_prev
+    return {"top": top, "bottom": bottom}
+
+
+def calc_weekly_indicators(weekly: dict[str, list]) -> dict[str, Any]:
+    """Weekly snapshot indicators from a weekly OHLCV dict (reuses daily calc_*).
+
+    Returns ma(5/10/20/60+alignment), macd, rsi(14), divergence.
+    """
+    closes = weekly.get("close", [])
+    return {
+        "ma": calc_ma(closes),
+        "macd": calc_macd(closes),
+        "rsi": calc_rsi(closes, period=14),
+        "divergence": _weekly_divergence(closes),
+    }
 
 
 # ============================================================================

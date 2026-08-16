@@ -5,6 +5,36 @@
 
 ---
 
+## v7 — 2026-08-16 — 周线 OHLCV 聚合（随 holdings-briefing v14.28 Phase 4 反事实引擎）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.28（Phase 4 反事实损失归因，周线破位规则） |
+
+### 背景
+
+反事实引擎的「周线破位」规则（连续 2 周收盘低于周 MA60）需要周线聚合，但 `indicators.py` 原本只有日线 `calc_*`。新增点状周线聚合（ISO 周、每周最后一个交易日），供 loss_attribution 回溯消费，无 lookahead。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/indicators.py` | **新增** `calc_weekly_ohlc()`（周 OHLCV 聚合）、`weekly_ma_series()`（周简单均线，前 period-1 根返回 0）、周 RSI/MACD/顶底背离标记；纯函数吃 list，不读文件、不写缓存 |
+
+### 验证
+
+- `python -m pytest ../tests/ -q` → 29 passed（含 13 新增反事实测试，其中周线破位路径复用本函数）
+- 纯新增，日线 `calc_*` 零行为变化（父项目零行为变化保证）
+
+### 回滚方法
+
+```bash
+git revert <v7 commit>
+# indicators.py 周线函数为纯新增，删除即回滚；日线消费方不受影响
+```
+
+---
+
 ## v6 — 2026-08-14 — Twelve Data + finnhub 独立源 key 接入（免费档覆盖实测）
 
 | 属性 | 值 |
