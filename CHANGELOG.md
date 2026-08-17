@@ -5,6 +5,36 @@
 
 ---
 
+## v8 — 2026-08-17 — calc_vwap（日内/锚定 VWAP，随 holdings-briefing v14.36 双轨报告三指标）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.36（日报/周报升级：日内 VWAP + 周报 AVWAP） |
+
+### 背景
+
+日报「日内 VWAP」与周报「AVWAP（锚定 VWAP）」需要典型价加权累计，但 `indicators.py` 无 VWAP 函数。新增 `calc_vwap`，纯 list 实现（对齐现有 `calc_ma` 接口，不依赖 pandas/numpy）。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/indicators.py` | **新增** `calc_vwap(highs, lows, closes, volumes, start_idx=0, mode="intraday")`：`typical=(H+L+C)/3`，逐 bar 累计 `Σ(typical×vol)/Σ(vol)`；`mode="intraday"` 单日序列、`mode="anchor"` 从 `start_idx` 起不重置；返回 `round(pv/vol, 4)` |
+
+### 验证
+
+- `python -m pytest ../tests/ -q` → 56 passed（含 `tests/test_stream_b_upgrade.py` 的 `test_calc_vwap_intraday`/`test_calc_vwap_anchor` 已知序列验算）
+- 纯新增，日线 `calc_*` 零行为变化
+
+### 回滚方法
+
+```bash
+git revert <v8 commit>
+# calc_vwap 为纯新增函数，删除即回滚；父项目 obsidian_writer 经 importlib 加载、缺失降级 None（不阻断）
+```
+
+---
+
 ## v7 — 2026-08-16 — 周线 OHLCV 聚合（随 holdings-briefing v14.28 Phase 4 反事实引擎）
 
 | 属性 | 值 |

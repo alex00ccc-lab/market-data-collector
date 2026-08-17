@@ -307,6 +307,44 @@ def calc_volume(volumes: list[float], closes: list[float]) -> dict:
     return {"ratio": ratio, "signal": signal}
 
 
+def calc_vwap(
+    highs: list[float],
+    lows: list[float],
+    closes: list[float],
+    volumes: list[float],
+    start_idx: int = 0,
+    mode: str = "intraday",
+) -> float:
+    """Volume-weighted average price (VWAP / anchored VWAP).
+
+    typical price = (high + low + close) / 3; VWAP = Σ(typical×vol) / Σ(vol).
+
+    mode="intraday": whole series is a single session (caller passes one day's
+      5-min bars), accumulate from bar 0 to end — the daily reset happens at the
+      caller level (per-day 5m fetch), not here.
+    mode="anchor": daily bars, accumulate from ``start_idx`` (inclusive) to end,
+      no reset — anchored VWAP from a swing low/high.
+
+    Returns 0.0 when volume sums to zero or series length mismatches.
+    """
+    if not closes or len(closes) != len(volumes):
+        return 0.0
+    n = len(closes)
+    lo = max(0, start_idx) if mode == "anchor" else 0
+    pv = 0.0
+    vol = 0.0
+    for i in range(lo, n):
+        h = highs[i] if i < len(highs) else closes[i]
+        l = lows[i] if i < len(lows) else closes[i]
+        c = closes[i]
+        v = volumes[i] if i < len(volumes) else 0.0
+        pv += ((h + l + c) / 3.0) * v
+        vol += v
+    if vol <= 0:
+        return 0.0
+    return round(pv / vol, 4)
+
+
 def calc_fibonacci(highs: list[float], lows: list[float], window: int = 60) -> dict[str, float]:
     """Calculate Fibonacci retracement levels from recent swing high/low."""
     if len(highs) < window or len(lows) < window:
