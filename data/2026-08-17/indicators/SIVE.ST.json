@@ -1,42 +1,42 @@
 {
   "symbol": "SIVE.ST",
-  "date": "2026-08-14",
-  "close": 41.29999923706055,
+  "date": "2026-08-17",
+  "close": 40.41999816894531,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 41.95,
-    "ma10": 38.91,
-    "ma20": 35.91,
-    "ma60": 58.89,
+    "ma5": 41.27,
+    "ma10": 39.83,
+    "ma20": 36.15,
+    "ma60": 58.67,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 64.9,
+    "value": 64.4,
     "signal": "bullish"
   },
   "macd": {
-    "diff": -2.5343,
-    "dea": -5.1086,
-    "histogram": 5.1486,
+    "diff": -2.2747,
+    "dea": -4.5023,
+    "histogram": 4.4552,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 53.4,
-    "d": 51.1,
-    "j": 57.9,
+    "k": 51.0,
+    "d": 50.3,
+    "j": 52.3,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 45.85,
-    "middle": 35.91,
-    "lower": 25.96,
-    "bandwidth": 55.4,
-    "position": 0.77,
+    "upper": 46.28,
+    "middle": 36.15,
+    "lower": 26.01,
+    "bandwidth": 56.1,
+    "position": 0.71,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.7,
+    "ratio": 0.5,
     "signal": "normal"
   },
   "fibonacci": {
@@ -57,12 +57,13 @@
     75.0
   ],
   "resistances": [
+    43.84,
     97.45,
     101.9
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 290790322.6,
+    "avg_dollar_volume": 284916284.12,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
