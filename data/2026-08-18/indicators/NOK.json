@@ -1,7 +1,7 @@
 {
   "symbol": "NOK",
   "date": "2026-08-17",
-  "close": 10.779999732971191,
+  "close": 10.78,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": -0.3221,
-    "dea": -0.7019,
-    "histogram": 0.7596,
+    "diff": -0.2895,
+    "dea": -0.6565,
+    "histogram": 0.734,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -65,7 +65,7 @@
     "RSI超买"
   ],
   "frame": {
-    "avg_dollar_volume": 879405389.82,
+    "avg_dollar_volume": 879405392.42,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0

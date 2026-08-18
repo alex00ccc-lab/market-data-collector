@@ -1,14 +1,14 @@
 {
   "symbol": "LRCX",
   "date": "2026-08-17",
-  "close": 343.8399963378906,
+  "close": 343.84,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 330.15,
     "ma10": 319.94,
     "ma20": 308.23,
-    "ma60": 334.9,
+    "ma60": 334.97,
     "alignment": "bullish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": 1.0883,
-    "dea": -6.4277,
-    "histogram": 15.032,
+    "diff": 0.7184,
+    "dea": -6.94,
+    "histogram": 15.3168,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -53,19 +53,19 @@
   "trend_strength": "多头",
   "supports": [
     252.35,
-    303.07,
+    303.28,
     326.13
   ],
   "resistances": [
     317.74,
-    343.47,
+    343.71,
     433.33
   ],
   "risk_flags": [
     "RSI超买"
   ],
   "frame": {
-    "avg_dollar_volume": 3228833739.75,
+    "avg_dollar_volume": 3228833753.41,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0

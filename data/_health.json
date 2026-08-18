@@ -1,15 +1,18 @@
 {
-  "last_run": "2026-08-12T16:26:58.333128+08:00",
+  "last_run": "2026-08-17T16:36:17.245282+08:00",
   "markets": [
-    "US"
+    "A",
+    "HK",
+    "JP"
   ],
   "success": false,
   "errors": [
-    "9992.HK: all sources failed (tried: efinance, yfinance, yahoo_chart)",
-    "2631.HK: all sources failed (tried: efinance, yfinance, yahoo_chart)",
-    "1888.HK: all sources failed (tried: efinance, yfinance, yahoo_chart)",
-    "SIVE.ST: all sources failed (tried: yfinance, yahoo_chart, finnhub, alpha_vantage)",
-    "6981.T: all sources failed (tried: yfinance, yahoo_chart, finnhub, alpha_vantage)",
-    "git push failed"
+    "513010: all sources failed (tried: efinance, aktools)",
+    "588080: all sources failed (tried: efinance, aktools)",
+    "588710: all sources failed (tried: efinance, aktools)",
+    "9992.HK: all sources failed (tried: efinance, aktools)",
+    "2631.HK: all sources failed (tried: efinance, aktools)",
+    "1888.HK: all sources failed (tried: efinance, aktools)",
+    "6981.T: all sources failed (tried: yfinance, yahoo_chart)"
   ]
 }
