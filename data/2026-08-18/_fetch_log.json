@@ -1,101 +1,64 @@
 {
-  "run_at": "2026-08-18T16:30:32.811501+08:00",
+  "run_at": "2026-08-18T17:34:05.994722+08:00",
   "date": "2026-08-18",
-  "symbols_attempted": 7,
-  "symbols_succeeded": 0,
+  "symbols_attempted": 6,
+  "symbols_succeeded": 6,
   "symbols_stale": 0,
   "symbols_skipped": 0,
-  "symbols_failed": [
-    "513010",
-    "588080",
-    "588710",
-    "9992.HK",
-    "2631.HK",
-    "1888.HK",
-    "6981.T"
-  ],
-  "errors": [
-    "513010: all sources failed (tried: efinance, aktools)",
-    "588080: all sources failed (tried: efinance, aktools)",
-    "588710: all sources failed (tried: efinance, aktools)",
-    "9992.HK: all sources failed (tried: efinance, aktools)",
-    "2631.HK: all sources failed (tried: efinance, aktools)",
-    "1888.HK: all sources failed (tried: efinance, aktools)",
-    "6981.T: all sources failed (tried: yfinance, yahoo_chart)"
-  ],
+  "symbols_failed": [],
+  "errors": [],
   "skipped": [],
   "per_symbol": {
-    "513010": {
-      "status": "missing",
-      "error": "513010: all sources failed (tried: efinance, aktools)",
-      "sources_tried": "efinance, aktools",
-      "quote_date": null
+    "NOK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-18T17:33:38.451382+08:00",
+      "quote_date": "2026-08-17",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-18/quotes/NOK.json"
     },
-    "588080": {
-      "status": "missing",
-      "error": "588080: all sources failed (tried: efinance, aktools)",
-      "sources_tried": "efinance, aktools",
-      "quote_date": null
+    "SGOV": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-18T17:33:40.002007+08:00",
+      "quote_date": "2026-08-17",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-18/quotes/SGOV.json"
     },
-    "588710": {
-      "status": "missing",
-      "error": "588710: all sources failed (tried: efinance, aktools)",
-      "sources_tried": "efinance, aktools",
-      "quote_date": null
+    "TSLA": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-18T17:33:42.004041+08:00",
+      "quote_date": "2026-08-17",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-18/quotes/TSLA.json"
     },
-    "9992.HK": {
-      "status": "missing",
-      "error": "9992.HK: all sources failed (tried: efinance, aktools)",
-      "sources_tried": "efinance, aktools",
-      "quote_date": null
+    "SIVE.ST": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-18T17:33:44.011684+08:00",
+      "quote_date": "2026-08-18",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-18/quotes/SIVE.ST.json"
     },
-    "2631.HK": {
-      "status": "missing",
-      "error": "2631.HK: all sources failed (tried: efinance, aktools)",
-      "sources_tried": "efinance, aktools",
-      "quote_date": null
-    },
-    "1888.HK": {
-      "status": "missing",
-      "error": "1888.HK: all sources failed (tried: efinance, aktools)",
-      "sources_tried": "efinance, aktools",
-      "quote_date": null
+    "LRCX": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-18T17:33:46.026133+08:00",
+      "quote_date": "2026-08-17",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-18/quotes/LRCX.json"
     },
     "6981.T": {
-      "status": "missing",
-      "error": "6981.T: all sources failed (tried: yfinance, yahoo_chart)",
-      "sources_tried": "yfinance, yahoo_chart",
-      "quote_date": null
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-18T17:33:48.054405+08:00",
+      "quote_date": "2026-08-18",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-18/quotes/6981.T.json"
     }
   },
   "source_health": {
-    "aktools": {
-      "success_rate": "0%",
-      "ok": 0,
-      "failed": 6,
-      "stale": 0,
-      "bars_fetched": 0
-    },
-    "efinance": {
-      "success_rate": "0%",
-      "ok": 0,
-      "failed": 6,
-      "stale": 0,
-      "bars_fetched": 0
-    },
-    "yahoo_chart": {
-      "success_rate": "0%",
-      "ok": 0,
-      "failed": 1,
-      "stale": 0,
-      "bars_fetched": 0
-    },
     "yfinance": {
-      "success_rate": "0%",
-      "ok": 0,
-      "failed": 1,
+      "success_rate": "100%",
+      "ok": 15,
+      "failed": 0,
       "stale": 0,
-      "bars_fetched": 0
+      "bars_fetched": 539
     }
   }
 }

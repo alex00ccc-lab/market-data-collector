@@ -1,42 +1,42 @@
 {
   "symbol": "SIVE.ST",
-  "date": "2026-08-17",
-  "close": NaN,
+  "date": "2026-08-18",
+  "close": 37.70000076293945,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": NaN,
-    "ma10": NaN,
-    "ma20": NaN,
-    "ma60": NaN,
-    "alignment": "bearish"
+    "ma5": 40.58,
+    "ma10": 39.94,
+    "ma20": 36.38,
+    "ma60": 58.32,
+    "alignment": "bullish"
   },
   "rsi": {
-    "value": 66.1,
+    "value": 63.5,
     "signal": "bullish"
   },
   "macd": {
-    "diff": NaN,
-    "dea": NaN,
-    "histogram": NaN,
-    "signal": "divergence"
+    "diff": -2.2074,
+    "dea": -3.8999,
+    "histogram": 3.385,
+    "signal": "golden_cross"
   },
   "kdj": {
-    "k": NaN,
-    "d": NaN,
-    "j": NaN,
+    "k": 44.7,
+    "d": 48.2,
+    "j": 37.5,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": NaN,
-    "middle": NaN,
-    "lower": NaN,
-    "bandwidth": 0,
-    "position": NaN,
-    "signal": "below_middle"
+    "upper": 46.51,
+    "middle": 36.38,
+    "lower": 26.26,
+    "bandwidth": 55.6,
+    "position": 0.57,
+    "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.1,
+    "ratio": 0.5,
     "signal": "normal"
   },
   "fibonacci": {
@@ -50,7 +50,7 @@
     "78.6%": 44.12,
     "100.0%": 26.18
   },
-  "trend_strength": "震荡",
+  "trend_strength": "多头",
   "supports": [
     26.9,
     39.36,
@@ -63,15 +63,15 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": NaN,
+    "avg_dollar_volume": 277128627.36,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 1,
-    "neutral": 3,
-    "bearish": 2,
-    "overall": "neutral"
+    "bullish": 3,
+    "neutral": 2,
+    "bearish": 1,
+    "overall": "mildly_bullish"
   }
 }
