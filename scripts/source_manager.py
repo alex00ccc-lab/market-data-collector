@@ -23,7 +23,7 @@ from adapters.finnhub_adapter import FinnhubAdapter
 from adapters.twelvedata_adapter import TwelveDataAdapter
 from adapters.aktools_adapter import AkToolsAdapter
 from utils.constants import TZ_BEIJING, LOG_TRUNCATE_LENGTH
-from utils.exceptions import RateLimitError
+from utils.exceptions import RateLimitError, GeoBlockError, AdapterNotAvailableError, MarketDataError
 
 logger = logging.getLogger(__name__)
 
@@ -280,8 +280,21 @@ class SourceManager:
                 self._save_cooldowns()
                 self._record(name, symbol, "rate_limited", 0)
                 continue
+            except GeoBlockError as e:
+                # Geo-restricted source refused this IP — not a transient failure.
+                self._record(name, symbol, "geo_blocked", 0)
+                logger.warning("%s(%s): geo-blocked — %s",
+                               name, symbol, str(e)[:LOG_TRUNCATE_LENGTH])
+                continue
+            except AdapterNotAvailableError as e:
+                # Missing dependency (e.g. akshare not installed) — distinct from
+                # a runtime failure, so operators see "install akshare" not "retry".
+                self._record(name, symbol, "unavailable", 0)
+                logger.warning("%s(%s): unavailable — %s",
+                               name, symbol, str(e)[:LOG_TRUNCATE_LENGTH])
+                continue
             except Exception as e:
-                logger.debug("%s(%s): unexpected error — %s",
+                logger.warning("%s(%s): unexpected error — %s",
                            name, symbol, str(e)[:LOG_TRUNCATE_LENGTH])
                 self._record(name, symbol, "failed", 0)
                 continue
@@ -307,7 +320,10 @@ class SourceManager:
             adapter = self._adapters.get(name)
             if adapter is None:
                 continue
-            result = adapter.fetch_realtime(symbol, market)
+            try:
+                result = adapter.fetch_realtime(symbol, market)
+            except MarketDataError:
+                continue
             if result:
                 return result
         return None
@@ -319,7 +335,10 @@ class SourceManager:
             adapter = self._adapters.get(name)
             if adapter is None:
                 continue
-            result = adapter.fetch_fundamentals(symbol, market)
+            try:
+                result = adapter.fetch_fundamentals(symbol, market)
+            except MarketDataError:
+                continue
             if result:
                 return result
         return None
@@ -340,16 +359,35 @@ class SourceManager:
         """Return a health dashboard suitable for _fetch_log.json."""
         result = {}
         for name, s in sorted(self._stats.items()):
-            total = s["ok"] + s["failed"] + s.get("stale", 0)
+            failed = s["failed"]
+            geo = s.get("geo_blocked", 0)
+            unavail = s.get("unavailable", 0)
+            # geo_blocked/unavailable count against the success-rate denominator,
+            # so a geo-blocked adapter reads 0% rather than a misleading "N/A".
+            total = s["ok"] + failed + geo + unavail + s.get("stale", 0)
             rate = f"{s['ok'] / total * 100:.0f}%" if total > 0 else "N/A"
             result[name] = {
                 "success_rate": rate,
                 "ok": s["ok"],
-                "failed": s["failed"],
+                "failed": failed,
+                "geo_blocked": geo,
+                "unavailable": unavail,
                 "stale": s.get("stale", 0),
                 "bars_fetched": s["bars"],
             }
         return result
+
+    def per_symbol_status(self, symbol: str) -> dict[str, str]:
+        """Return {source: last_status} for one symbol across all tried sources.
+
+        Used by fetch.py to enrich "all sources failed" error messages with the
+        per-source reason (rate_limited vs geo_blocked vs unavailable vs failed).
+        """
+        return {
+            name: s["symbols"].get(symbol, "")
+            for name, s in self._stats.items()
+            if symbol in s.get("symbols", {})
+        }
 
     def get_adapter(self, name: str) -> Optional[BaseAdapter]:
         return self._adapters.get(name)

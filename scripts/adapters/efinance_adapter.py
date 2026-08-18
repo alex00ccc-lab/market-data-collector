@@ -12,7 +12,10 @@ import urllib.request
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 
+from http.client import RemoteDisconnected
+
 from .base import BaseAdapter
+from utils.exceptions import GeoBlockError
 
 logger = logging.getLogger(__name__)
 TZ_BEIJING = timezone(timedelta(hours=8))
@@ -47,7 +50,8 @@ class EFinanceAdapter(BaseAdapter):
                 return f"0.{code}"
             return f"1.{code}"
         if market == "HK":
-            return f"116.{code}"
+            # East Money HK secid needs a 5-digit zero-padded code (9992 → 09992)
+            return f"116.{code.zfill(5)}"
         return f"1.{code}"
 
     def _http_get(self, url: str, timeout: int = 15) -> Optional[dict]:
@@ -55,6 +59,13 @@ class EFinanceAdapter(BaseAdapter):
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return json.loads(resp.read().decode())
+        except RemoteDisconnected as e:
+            # East Money drops the connection from non-CN IPs — geo-block symptom,
+            # not a transient rate-limit. Surface as GeoBlockError so the
+            # SourceManager can record it distinctly from a generic fetch failure.
+            raise GeoBlockError(
+                f"efinance RemoteDisconnected (likely geo-block): {url[:60]}"
+            ) from e
         except Exception as e:
             logger.debug("efinance HTTP: %s", str(e)[:80])
             return None

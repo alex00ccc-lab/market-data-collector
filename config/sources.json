@@ -2,7 +2,7 @@
   "priority": ["yfinance", "yahoo_chart", "finnhub", "twelvedata", "alpha_vantage", "stooq"],
   "market_overrides": {
     "A": ["efinance", "aktools"],
-    "HK": ["efinance", "aktools"],
+    "HK": ["efinance", "aktools", "yfinance"],
     "EU": ["yfinance", "yahoo_chart"]
   },
   "adapters": {

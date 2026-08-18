@@ -110,8 +110,8 @@ def _efinance_secid(symbol: str, market: str) -> str:
             return f"0.{code}"  # Shenzhen
         return f"1.{code}"  # Shanghai
     if market == "HK":
-        # Remove leading zeros for efinance HK
-        return f"116.{code}"
+        # East Money HK secid needs a 5-digit zero-padded code (9992 → 09992)
+        return f"116.{code.zfill(5)}"
     return f"1.{code}"
 
 
@@ -551,7 +551,15 @@ def fetch_all(today: Optional[date] = None, force: bool = False,
                 logger.info("  %s: %d bars saved (source=%s)", sym, len(kline), source)
         else:
             priority = mgr.get_priority(market)
-            err_msg = f"{sym}: all sources failed (tried: {', '.join(priority)})"
+            # C7: 追加各源失败原因(限流/断连/依赖缺失),而非笼统"all failed"
+            statuses = mgr.per_symbol_status(sym)
+            reason_parts = []
+            for name in priority:
+                st = statuses.get(name)
+                if st:
+                    reason_parts.append(f"{name}={st}")
+            reasons = ", ".join(reason_parts) if reason_parts else "no per-source status"
+            err_msg = f"{sym}: all sources failed (tried: {', '.join(priority)}; {reasons})"
             errors.append(err_msg)
             per_symbol[sym] = {
                 "status": "missing",

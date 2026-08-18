@@ -116,6 +116,7 @@ class IndicatorResult:
                 "neutral": self.neutral_count,
                 "bearish": self.bearish_count,
                 "overall": self.overall,
+                "five_q": getattr(self, "_five_q", {}),
             },
         }
         # Remove empty risk_flags to keep JSON clean
@@ -144,6 +145,22 @@ def _sma(data: list[float], period: int) -> float:
     if len(data) < period:
         return 0.0
     return sum(data[-period:]) / period
+
+
+def rolling_ma_series(closes: list[float], period: int) -> list[float]:
+    """Rolling simple MA series (point-in-time, no lookahead).
+
+    Returns one MA value per bar; bars before ``period`` return 0.0 (insufficient
+    data marker). Single source of truth for rolling MA — ``weekly_ma_series``
+    and ``loss_attribution._rolling_ma`` both delegate here.
+    """
+    out: list[float] = []
+    for i in range(len(closes)):
+        if i + 1 < period:
+            out.append(0.0)
+        else:
+            out.append(sum(closes[i + 1 - period:i + 1]) / period)
+    return out
 
 
 # ============================================================================
@@ -372,16 +389,23 @@ def calc_fibonacci(highs: list[float], lows: list[float], window: int = 60) -> d
 
 
 def calc_support_resistance(highs: list[float], lows: list[float], closes: list[float]) -> tuple[list[float], list[float]]:
-    """Identify swing lows (supports) and swing highs (resistances)."""
-    if len(closes) < 10:
+    """Identify swing lows (supports) and swing highs (resistances).
+
+    Point-in-time (no lookahead): a swing point at index ``j`` is only confirmed
+    once 5 bars after it are visible. At "now" (i = j + 5), closes[j] must be the
+    min/max of the 11-bar window [j-5, j+5] — all data at or before index i.
+    """
+    if len(closes) < 11:
         return [], []
 
     supports, resistances = [], []
-    for i in range(5, len(closes) - 5):
-        if closes[i] == min(closes[i - 5:i + 6]):
-            supports.append(closes[i])
-        if closes[i] == max(closes[i - 5:i + 6]):
-            resistances.append(closes[i])
+    for i in range(10, len(closes)):
+        j = i - 5
+        window = closes[j - 5:j + 6]  # 11 bars, all at or before index i
+        if closes[j] == min(window):
+            supports.append(closes[j])
+        if closes[j] == max(window):
+            resistances.append(closes[j])
 
     # Deduplicate and sort
     supports = sorted(set(round(s, 2) for s in supports[-3:]))
@@ -441,15 +465,9 @@ def weekly_ma_series(closes: list[float], period: int) -> list[float]:
     """Rolling simple MA of weekly closes (point-in-time, no lookahead).
 
     Returns one MA value per week; weeks before ``period`` bars return 0.0
-    (insufficient data marker).
+    (insufficient data marker). Delegates to ``rolling_ma_series``.
     """
-    out: list[float] = []
-    for i in range(len(closes)):
-        if i + 1 < period:
-            out.append(0.0)
-        else:
-            out.append(sum(closes[i + 1 - period:i + 1]) / period)
-    return out
+    return rolling_ma_series(closes, period)
 
 
 def _weekly_divergence(closes: list[float]) -> dict[str, bool]:
@@ -461,8 +479,18 @@ def _weekly_divergence(closes: list[float]) -> dict[str, bool]:
     if len(closes) < 26:
         return {"top": False, "bottom": False}
 
-    macd_now = calc_macd(closes)["histogram"]
-    macd_prev = calc_macd(closes[:-1])["histogram"]
+    # Compute the MACD histogram series once (DEA = 9-bar SMA of diff, matching
+    # calc_macd) and diff the last two bars — avoids the prior double _ema() run.
+    ema12 = _ema(closes, 12)
+    ema26 = _ema(closes, 26)
+    diffs = [e12 - e26 for e12, e26 in zip(ema12, ema26)]
+    hist: list[float] = []
+    for i in range(len(diffs)):
+        dea = sum(diffs[max(0, i - 8):i + 1]) / min(i + 1, 9)
+        hist.append(2.0 * (diffs[i] - dea))
+    macd_now = hist[-1]
+    macd_prev = hist[-2] if len(hist) >= 2 else macd_now
+
     price_high = closes[-1] >= max(closes[-13:])
     price_low = closes[-1] <= min(closes[-13:])
 
@@ -654,19 +682,74 @@ def compute_all(
     result.sector_momentum_30d = _calc_sector_momentum(sector_daily_returns) if sector_daily_returns else 0.0
     result.sector_ma_disparity = _calc_sector_ma_disparity(peer_gross_margins) if peer_gross_margins else 0.0
 
-    # Resonance: count bullish/neutral/bearish across 6 indicators
+    # ── 五问共振 (B1): 去共线性 + 修误标 ──
+    # 旧「六指」四票高度共线(KDJ≡布林 r=1.00, MACD∝−RSI −0.71),且「超卖/贴下轨」
+    # 被误标为看多(接飞刀喊成共振偏多,回测 bullish 档 20 日 −5.0%)。重构为五问,
+    # 每问独立一票,去共线性:
+    #   ①趋势 = MA20/MA60 排列
+    #   ②位置 = 现价 vs 支撑/阻力(近支撑看多;贴阻力/远离支撑=追高)
+    #   ③结构 = 布林位置代理 HH/HL(上轨=结构向上,下轨=结构向下)
+    #   ④量能 = 量价确认(放量上攻/放量下跌)
+    #   ⑤动量 = MACD 多空 + RSI 方向合并(纯动量,去「超卖=抄底」误标)
+    # 去重:KDJ 整票删除(与布林 r=1.00 共线);RSI 并入动量,不再单列超买超卖票。
+    close_now = closes[-1]
+
+    # ①趋势
+    trend_v = (
+        "bullish" if ma["alignment"] == "bullish"
+        else "bearish" if ma["alignment"] == "bearish"
+        else "neutral"
+    )
+
+    # ②位置(近支撑/贴阻力;离 AVWAP 的追高判定在 B2 门禁单独消费)
+    supports = result.supports
+    resistances = result.resistances
+    near_support = any(close_now <= s * 1.03 for s in supports) if supports else False
+    near_resistance = any(close_now >= r * 0.97 for r in resistances) if resistances else False
+    if near_support and not near_resistance:
+        position_v = "bullish"
+    elif near_resistance and not near_support:
+        position_v = "bearish"
+    else:
+        position_v = "neutral"
+
+    # ③结构(布林位置代理 HH/HL)
+    if bb["position"] > 0.55:
+        structure_v = "bullish"
+    elif bb["position"] < 0.45:
+        structure_v = "bearish"
+    else:
+        structure_v = "neutral"
+
+    # ④量能
+    volume_v = (
+        "bullish" if vol["signal"] == "surge_up"
+        else "bearish" if vol["signal"] == "surge_down"
+        else "neutral"
+    )
+
+    # ⑤动量(MACD 多空 + RSI 方向合并,去「超卖=抄底」)
+    macd_up = macd["diff"] > macd["dea"]
+    rsi_up = rsi["value"] > 50
+    if macd_up and rsi_up:
+        momentum_v = "bullish"
+    elif (not macd_up) and (not rsi_up):
+        momentum_v = "bearish"
+    else:
+        momentum_v = "neutral"
+
     raw_signals = [
-        (ma["alignment"], "bullish" if ma["alignment"] == "bullish" else ("bearish" if ma["alignment"] == "bearish" else "neutral")),
-        (macd["signal"], "bullish" if macd["signal"] == "golden_cross" else ("bearish" if macd["signal"] == "death_cross" else "neutral")),
-        (kdj["signal"], "bullish" if kdj["signal"] in ("oversold", "bullish") else ("bearish" if kdj["signal"] in ("overbought", "bearish") else "neutral")),
-        (rsi["signal"], "bullish" if rsi["signal"] in ("oversold", "bullish") else ("bearish" if rsi["signal"] == "overbought" else "neutral")),
-        (vol["signal"], "bullish" if vol["signal"] == "surge_up" else ("bearish" if vol["signal"] == "surge_down" else "neutral")),
-        (bb["signal"], "bullish" if bb["signal"] == "lower_band" else ("bearish" if bb["signal"] == "upper_band" else "neutral")),
+        ("trend", trend_v),
+        ("position", position_v),
+        ("structure", structure_v),
+        ("volume", volume_v),
+        ("momentum", momentum_v),
     ]
 
     result.bullish_count = sum(1 for _, s in raw_signals if s == "bullish")
     result.neutral_count = sum(1 for _, s in raw_signals if s == "neutral")
     result.bearish_count = sum(1 for _, s in raw_signals if s == "bearish")
+    result._five_q = {k: v for k, v in raw_signals}  # store for to_dict()/Phase 2 双轨
 
     # Risk flags (technical only — no position data)
     risk_flags = []

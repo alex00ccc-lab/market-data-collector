@@ -5,6 +5,42 @@
 
 ---
 
+## v9 — 2026-08-19 — 数据源加固(C1-C7) + 未来函数修复 + 五问共振重构（随 holdings-briefing v14.38 Phase 1）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.38（投资决策体系修复 Phase 1） |
+
+### 背景
+
+父项目诊断：旧「六指共振」是反向指标（KDJ≡布林、MACD∝−RSI、「超卖=看多」误标为接飞刀）。同时 A/HK/JP 数据源 08-18 全挂（东财 IP 连接级阻断 + akshare 缺失 + HK secid 未补零）。本版修未来函数 + 去共线性 + 五问共振重构 + 数据源加固。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/indicators.py` | **A1**: `calc_support_resistance` 窗口 `closes[i-5:i+6]`(含 5 根未来)→point-in-time；`_weekly_divergence` 只算一次 MACD；新增 `rolling_ma_series` 唯一口径；**B1**: 六指→五问共振（去 KDJ 共线票、修「超卖=看多」误标） |
+| `scripts/adapters/efinance_adapter.py` | **C1**: HK secid 补零 `116.{code.zfill(5)}`；`RemoteDisconnected`→`GeoBlockError` |
+| `scripts/fetch.py` | **C2**: `_efinance_secid` HK zfill(5)；**C7**: err_msg 追加各源失败原因（限流 vs 断连） |
+| `scripts/adapters/aktools_adapter.py` | **C3**: akshare 缺失/过旧抛 `AdapterNotAvailableError`（区分「没装」vs「抓取失败」） |
+| `scripts/source_manager.py` | **C6**: 通用异常日志 DEBUG→WARNING；捕获 GeoBlockError/AdapterNotAvailableError；新增 `per_symbol_status`；health_summary 计入 geo_blocked/unavailable |
+| `config/sources.json` | **C5**: HK 链追加 `yfinance` 兜底 |
+
+### 验证
+
+- 父项目 `python -m pytest tests/test_discipline_conformance.py -q` → 10 passed
+- 五问共振合成测试：CLEAN_UPTREND → mildly_bullish；CLEAN_DOWNTREND → neutral（旧逻辑误标 bullish，接飞刀已修）
+
+### 回滚方法
+
+```bash
+git revert <v9 commit>
+# 数据源: sources.json HK 链 + secid 补零小改，逐条 revert；akshare 卸载即退
+# 五问重构: revert indicators.py 即退六指
+```
+
+---
+
 ## v8 — 2026-08-17 — calc_vwap（日内/锚定 VWAP，随 holdings-briefing v14.36 双轨报告三指标）
 
 | 属性 | 值 |

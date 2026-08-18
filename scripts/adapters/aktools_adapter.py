@@ -17,6 +17,7 @@ from typing import Optional
 
 from .base import BaseAdapter
 from utils.constants import TZ_BEIJING, LOG_TRUNCATE_LENGTH
+from utils.exceptions import AdapterNotAvailableError
 
 logger = logging.getLogger(__name__)
 
@@ -60,19 +61,24 @@ class AkToolsAdapter(BaseAdapter):
         return market in ("A", "HK")
 
     def _import_ak(self):
-        """Lazy-import akshare (heavy dependency) with version check."""
+        """Lazy-import akshare (heavy dependency) with version check.
+
+        Raises AdapterNotAvailableError when akshare is missing or too old, so
+        SourceManager can record "unavailable" (依赖缺失) — distinct from a
+        runtime fetch failure (抓取失败) that would warrant a retry.
+        """
         try:
             import akshare as ak
-            if hasattr(ak, "__version__") and _version_tuple(ak.__version__) < _MIN_VER:
-                logger.warning(
-                    "aktools: akshare version %s too old (min %s) — upgrade: pip install -U akshare",
-                    ak.__version__, ".".join(map(str, _MIN_VER)),
-                )
-                return None
-            return ak
-        except ImportError:
-            logger.warning("aktools: akshare not installed — pip install akshare")
-            return None
+        except ImportError as e:
+            raise AdapterNotAvailableError(
+                "akshare not installed — pip install akshare>=1.14.0"
+            ) from e
+        if hasattr(ak, "__version__") and _version_tuple(ak.__version__) < _MIN_VER:
+            raise AdapterNotAvailableError(
+                f"akshare version {ak.__version__} too old "
+                f"(min {'.'.join(map(str, _MIN_VER))}) — pip install -U akshare"
+            )
+        return ak
 
     def _clean_symbol(self, symbol: str) -> str:
         """Normalize A-share symbol: strip .SH/.SZ suffix for akshare."""
@@ -154,8 +160,9 @@ class AkToolsAdapter(BaseAdapter):
 
     def health_check(self) -> bool:
         """Quick connectivity test using a well-known A-share ticker."""
-        ak = self._import_ak()
-        if ak is None:
+        try:
+            ak = self._import_ak()
+        except AdapterNotAvailableError:
             return False
         try:
             df = ak.stock_zh_a_hist(
