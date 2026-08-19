@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-08-19T02:21:47.827775+08:00",
+  "run_at": "2026-08-19T09:48:51.596408+08:00",
   "date": "2026-08-19",
   "symbols_attempted": 6,
   "symbols_succeeded": 6,
@@ -12,43 +12,43 @@
     "513010": {
       "status": "ok",
       "source": "tencent",
-      "fetched_at": "2026-08-19T02:21:45.029233+08:00",
-      "quote_date": "2026-08-18",
+      "fetched_at": "2026-08-19T09:48:48.515720+08:00",
+      "quote_date": "2026-08-19",
       "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\513010.json"
     },
     "588080": {
       "status": "ok",
       "source": "tencent",
-      "fetched_at": "2026-08-19T02:21:45.295110+08:00",
-      "quote_date": "2026-08-18",
+      "fetched_at": "2026-08-19T09:48:49.054875+08:00",
+      "quote_date": "2026-08-19",
       "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\588080.json"
     },
     "588710": {
       "status": "ok",
       "source": "tencent",
-      "fetched_at": "2026-08-19T02:21:45.517500+08:00",
-      "quote_date": "2026-08-18",
+      "fetched_at": "2026-08-19T09:48:49.258354+08:00",
+      "quote_date": "2026-08-19",
       "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\588710.json"
     },
     "9992.HK": {
       "status": "ok",
       "source": "tencent",
-      "fetched_at": "2026-08-19T02:21:45.702814+08:00",
-      "quote_date": "2026-08-18",
+      "fetched_at": "2026-08-19T09:48:49.500158+08:00",
+      "quote_date": "2026-08-19",
       "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\9992.HK.json"
     },
     "2631.HK": {
       "status": "ok",
       "source": "tencent",
-      "fetched_at": "2026-08-19T02:21:45.942889+08:00",
-      "quote_date": "2026-08-18",
+      "fetched_at": "2026-08-19T09:48:49.714217+08:00",
+      "quote_date": "2026-08-19",
       "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\2631.HK.json"
     },
     "1888.HK": {
       "status": "ok",
       "source": "tencent",
-      "fetched_at": "2026-08-19T02:21:46.157977+08:00",
-      "quote_date": "2026-08-18",
+      "fetched_at": "2026-08-19T09:48:49.936068+08:00",
+      "quote_date": "2026-08-19",
       "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\1888.HK.json"
     }
   },
@@ -60,7 +60,7 @@
       "geo_blocked": 0,
       "unavailable": 0,
       "stale": 0,
-      "bars_fetched": 720
+      "bars_fetched": 726
     }
   }
 }

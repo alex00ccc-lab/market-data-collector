@@ -1,43 +1,43 @@
 {
   "symbol": "9992.HK",
-  "date": "2026-08-18",
-  "close": 150.1,
+  "date": "2026-08-19",
+  "close": 151.3,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 152.58,
-    "ma10": 154.65,
-    "ma20": 158.45,
-    "ma60": 161.82,
+    "ma5": 152.64,
+    "ma10": 153.64,
+    "ma20": 158.05,
+    "ma60": 161.84,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 19.5,
+    "value": 25.9,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -2.3493,
-    "dea": -1.3583,
-    "histogram": -1.982,
+    "diff": -2.476,
+    "dea": -1.6294,
+    "histogram": -1.6932,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 36.2,
-    "d": 45.4,
-    "j": 17.7,
+    "k": 39.9,
+    "d": 46.6,
+    "j": 26.5,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 167.82,
-    "middle": 158.45,
-    "lower": 149.08,
-    "bandwidth": 11.8,
-    "position": 0.05,
-    "signal": "lower_band"
+    "upper": 167.91,
+    "middle": 158.05,
+    "lower": 148.19,
+    "bandwidth": 12.5,
+    "position": 0.16,
+    "signal": "below_middle"
   },
   "volume": {
-    "ratio": 1.7,
-    "signal": "surge_down"
+    "ratio": 0.1,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 187.1,
@@ -64,24 +64,24 @@
   "risk_flags": [
     "RSI超卖",
     "跌破MA20",
-    "放量下跌"
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1727140740.51,
+    "avg_dollar_volume": 1665372277.34,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 0,
-    "bearish": 4,
-    "overall": "bearish",
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
     "five_q": {
       "trend": "bearish",
       "position": "bullish",
       "structure": "bearish",
-      "volume": "bearish",
+      "volume": "neutral",
       "momentum": "bearish"
     }
   }

@@ -1,68 +1,66 @@
 {
-  "run_at": "2026-08-19T09:15:01.939706+08:00",
+  "run_at": "2026-08-19T09:48:51.596408+08:00",
   "date": "2026-08-19",
   "symbols_attempted": 6,
-  "symbols_succeeded": 5,
+  "symbols_succeeded": 6,
   "symbols_stale": 0,
-  "symbols_skipped": 1,
+  "symbols_skipped": 0,
   "symbols_failed": [],
   "errors": [],
-  "skipped": [
-    "6981.T (JP: market closed or not in fetch window)"
-  ],
+  "skipped": [],
   "per_symbol": {
-    "NOK": {
+    "513010": {
       "status": "ok",
-      "source": "yfinance",
-      "fetched_at": "2026-08-19T09:14:35.038481+08:00",
-      "quote_date": "2026-08-18",
-      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/NOK.json"
+      "source": "tencent",
+      "fetched_at": "2026-08-19T09:48:48.515720+08:00",
+      "quote_date": "2026-08-19",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\513010.json"
     },
-    "SGOV": {
+    "588080": {
       "status": "ok",
-      "source": "yfinance",
-      "fetched_at": "2026-08-19T09:14:36.693196+08:00",
-      "quote_date": "2026-08-18",
-      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/SGOV.json"
+      "source": "tencent",
+      "fetched_at": "2026-08-19T09:48:49.054875+08:00",
+      "quote_date": "2026-08-19",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\588080.json"
     },
-    "TSLA": {
+    "588710": {
       "status": "ok",
-      "source": "yfinance",
-      "fetched_at": "2026-08-19T09:14:38.645622+08:00",
-      "quote_date": "2026-08-18",
-      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/TSLA.json"
+      "source": "tencent",
+      "fetched_at": "2026-08-19T09:48:49.258354+08:00",
+      "quote_date": "2026-08-19",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\588710.json"
     },
-    "SIVE.ST": {
+    "9992.HK": {
       "status": "ok",
-      "source": "yfinance",
-      "fetched_at": "2026-08-19T09:14:40.672841+08:00",
-      "quote_date": "2026-08-18",
-      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/SIVE.ST.json"
+      "source": "tencent",
+      "fetched_at": "2026-08-19T09:48:49.500158+08:00",
+      "quote_date": "2026-08-19",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\9992.HK.json"
     },
-    "LRCX": {
+    "2631.HK": {
       "status": "ok",
-      "source": "yfinance",
-      "fetched_at": "2026-08-19T09:14:42.679871+08:00",
-      "quote_date": "2026-08-18",
-      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/LRCX.json"
+      "source": "tencent",
+      "fetched_at": "2026-08-19T09:48:49.714217+08:00",
+      "quote_date": "2026-08-19",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\2631.HK.json"
     },
-    "6981.T": {
-      "status": "skipped",
-      "reason": "JP market closed on 2026-08-19",
-      "source": null,
-      "fetched_at": "2026-08-19T09:14:42.680539+08:00",
-      "quote_date": null
+    "1888.HK": {
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-08-19T09:48:49.936068+08:00",
+      "quote_date": "2026-08-19",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\1888.HK.json"
     }
   },
   "source_health": {
-    "yfinance": {
+    "tencent": {
       "success_rate": "100%",
-      "ok": 14,
+      "ok": 6,
       "failed": 0,
       "geo_blocked": 0,
       "unavailable": 0,
       "stale": 0,
-      "bars_fetched": 506
+      "bars_fetched": 726
     }
   }
 }
