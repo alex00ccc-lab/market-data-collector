@@ -9,5 +9,21 @@
     "notes": "可选，个人备注"
   },
   "symbols": [
+    {
+      "symbol": "GOOGL",
+      "market": "US",
+      "name": "谷歌 Alphabet",
+      "sector": "通信服务",
+      "added": "2026-08-19",
+      "notes": "成长仓候选，待今晚美股抓取回填基本面"
+    },
+    {
+      "symbol": "KO",
+      "market": "US",
+      "name": "可口可乐",
+      "sector": "必选消费",
+      "added": "2026-08-19",
+      "notes": "防御分红仓候选，待今晚美股抓取回填基本面"
+    }
   ]
 }
