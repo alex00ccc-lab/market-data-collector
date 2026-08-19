@@ -1,8 +1,8 @@
 {
   "priority": ["yfinance", "yahoo_chart", "finnhub", "twelvedata", "alpha_vantage", "stooq"],
   "market_overrides": {
-    "A": ["efinance", "aktools"],
-    "HK": ["efinance", "aktools", "yfinance"],
+    "A": ["tencent", "mootdx", "efinance", "aktools"],
+    "HK": ["tencent", "efinance", "aktools", "yfinance"],
     "EU": ["yfinance", "yahoo_chart"]
   },
   "adapters": {
@@ -48,6 +48,18 @@
       "enabled": true,
       "markets": ["A", "HK"],
       "note": "A-share + HK fallback via akshare (East Money / Sina / Tencent). pip install akshare. No API key.",
+      "cooldown_on_rate_limit": 300
+    },
+    "tencent": {
+      "enabled": true,
+      "markets": ["A", "HK"],
+      "note": "腾讯财经。免费无 key、大陆直连、HTTP 接口（与 mootdx TCP 独立）。GBK 编码。A/HK primary。",
+      "cooldown_on_rate_limit": 300
+    },
+    "mootdx": {
+      "enabled": true,
+      "markets": ["A"],
+      "note": "通达信 TCP 协议。免费无 key、不封 IP。pip install mootdx。仅 A股（港股 K 线不成熟）。当前免费服务器池大面积失效，best-effort 兜底。",
       "cooldown_on_rate_limit": 300
     },
     "stooq": {

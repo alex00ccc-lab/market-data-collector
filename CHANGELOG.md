@@ -5,6 +5,45 @@
 
 ---
 
+## v10 — 2026-08-19 — A/HK 数据源换源：腾讯财经(primary) + mootdx(兜底) + 东财降级
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.41（A/HK 数据源换源） |
+
+### 背景
+
+C1-C7 加固后 A/HK 仍缺价——根因是**东财对大陆住宅 IP 的连接级间歇封锁**（本机在大陆）+ **akshare 未装**。换源根治、不靠换 IP：新增腾讯财经（HTTP、大陆直连、不被封）作 A/HK primary，mootdx（通达信 TCP）作 A股兜底，东财降为最后。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/adapters/tencent_adapter.py` | **新增**：腾讯财经 adapter。`fetch_kline`(fqkline GBK 解码、`qfqday`/`day` 键回退、bar 序 `[date,open,close,high,low,volume]` close 在 index 2)、`fetch_realtime`(qt.gtimg.cn)；代码映射 `sh`/`sz`/`hk`+zfill5；403/429→`RateLimitError` |
+| `scripts/adapters/mootdx_adapter.py` | **新增**：通达信 TCP adapter（仅 A股，港股 K 不成熟）。lazy import + `AdapterNotAvailableError`；`bars(frequency=9)` 日线；best-effort 降级（服务器池失效返回 None 不阻塞） |
+| `scripts/source_manager.py` | 注册 `TencentAdapter` + `MootdxAdapter` |
+| `config/sources.json` | A 链 `tencent→mootdx→efinance→aktools`、HK 链 `tencent→efinance→aktools→yfinance`；新增两条 adapter 配置 |
+| `scripts/adapters/__init__.py` | 导出新 adapter |
+
+### 验证
+
+- `fetch.py --lenient --markets A,HK --force` → **6/6 全走 tencent**（513010/588080/588710 + 9992/2631/1888），`_fetch_log` source_health `tencent 100%`、latest 2026-08-18
+- 父项目 `pytest tests/test_discipline_conformance.py -q` → 10 passed
+
+### 回滚方法
+
+```bash
+git revert <v10 commit>
+# 删两个新 adapter + revert source_manager 注册 + sources.json 优先级链 即退「东财-only」旧链
+# pip uninstall mootdx 即退依赖
+```
+
+### 备注（mootdx 现状）
+
+mootdx（通达信）免费服务器池已大面积失效（38 服务器抽样 5 个仅 1 个 TCP 通且返回空 DataFrame），`bestip` 在 Python 3.14 上因 `asyncio.get_event_loop()` 移除而失败。已接线为 best-effort 兜底，服务器池恢复后自动生效；当前由腾讯独立支撑 A/HK 主链路。
+
+---
+
 ## v9 — 2026-08-19 — 数据源加固(C1-C7) + 未来函数修复 + 五问共振重构（随 holdings-briefing v14.38 Phase 1）
 
 | 属性 | 值 |

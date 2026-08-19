@@ -8,6 +8,8 @@ from .base import BaseAdapter, AdapterResult
 from .yfinance_adapter import YFinanceAdapter
 from .stooq_adapter import StooqAdapter
 from .efinance_adapter import EFinanceAdapter
+from .tencent_adapter import TencentAdapter
+from .mootdx_adapter import MootdxAdapter
 
 __all__ = [
     "BaseAdapter",
@@ -15,4 +17,6 @@ __all__ = [
     "YFinanceAdapter",
     "StooqAdapter",
     "EFinanceAdapter",
+    "TencentAdapter",
+    "MootdxAdapter",
 ]

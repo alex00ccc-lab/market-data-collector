@@ -22,6 +22,8 @@ from adapters.yahoo_chart_adapter import YahooChartAdapter
 from adapters.finnhub_adapter import FinnhubAdapter
 from adapters.twelvedata_adapter import TwelveDataAdapter
 from adapters.aktools_adapter import AkToolsAdapter
+from adapters.tencent_adapter import TencentAdapter
+from adapters.mootdx_adapter import MootdxAdapter
 from utils.constants import TZ_BEIJING, LOG_TRUNCATE_LENGTH
 from utils.exceptions import RateLimitError, GeoBlockError, AdapterNotAvailableError, MarketDataError
 
@@ -165,6 +167,8 @@ class SourceManager:
         self.register(StooqAdapter())
         self.register(EFinanceAdapter())
         self.register(AkToolsAdapter())
+        self.register(TencentAdapter())
+        self.register(MootdxAdapter())
         # Alpha Vantage is registered but will no-op until API key is set
         self.register(AlphaVantageAdapter())
 
