@@ -1,94 +1,80 @@
 {
-  "run_at": "2026-08-19T16:30:22.975287+08:00",
+  "run_at": "2026-08-19T17:34:45.809000+08:00",
   "date": "2026-08-19",
-  "symbols_attempted": 7,
-  "symbols_succeeded": 6,
+  "symbols_attempted": 8,
+  "symbols_succeeded": 8,
   "symbols_stale": 0,
   "symbols_skipped": 0,
-  "symbols_failed": [
-    "6981.T"
-  ],
-  "errors": [
-    "6981.T: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)"
-  ],
+  "symbols_failed": [],
+  "errors": [],
   "skipped": [],
   "per_symbol": {
-    "513010": {
+    "NOK": {
       "status": "ok",
-      "source": "tencent",
-      "fetched_at": "2026-08-19T16:30:10.708572+08:00",
-      "quote_date": "2026-08-19",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\513010.json"
+      "source": "yfinance",
+      "fetched_at": "2026-08-19T17:34:14.046527+08:00",
+      "quote_date": "2026-08-18",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/NOK.json"
     },
-    "588080": {
+    "SGOV": {
       "status": "ok",
-      "source": "tencent",
-      "fetched_at": "2026-08-19T16:30:10.944348+08:00",
-      "quote_date": "2026-08-19",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\588080.json"
+      "source": "yfinance",
+      "fetched_at": "2026-08-19T17:34:15.796082+08:00",
+      "quote_date": "2026-08-18",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/SGOV.json"
     },
-    "588710": {
+    "TSLA": {
       "status": "ok",
-      "source": "tencent",
-      "fetched_at": "2026-08-19T16:30:11.170823+08:00",
-      "quote_date": "2026-08-19",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\588710.json"
+      "source": "yfinance",
+      "fetched_at": "2026-08-19T17:34:17.740960+08:00",
+      "quote_date": "2026-08-18",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/TSLA.json"
     },
-    "9992.HK": {
+    "SIVE.ST": {
       "status": "ok",
-      "source": "tencent",
-      "fetched_at": "2026-08-19T16:30:11.423633+08:00",
+      "source": "yfinance",
+      "fetched_at": "2026-08-19T17:34:19.729065+08:00",
       "quote_date": "2026-08-19",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\9992.HK.json"
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/SIVE.ST.json"
     },
-    "2631.HK": {
+    "LRCX": {
       "status": "ok",
-      "source": "tencent",
-      "fetched_at": "2026-08-19T16:30:11.661181+08:00",
-      "quote_date": "2026-08-19",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\2631.HK.json"
-    },
-    "1888.HK": {
-      "status": "ok",
-      "source": "tencent",
-      "fetched_at": "2026-08-19T16:30:11.895404+08:00",
-      "quote_date": "2026-08-19",
-      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-19\\quotes\\1888.HK.json"
+      "source": "yfinance",
+      "fetched_at": "2026-08-19T17:34:21.722764+08:00",
+      "quote_date": "2026-08-18",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/LRCX.json"
     },
     "6981.T": {
-      "status": "missing",
-      "error": "6981.T: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)",
-      "sources_tried": "yfinance, yahoo_chart",
-      "quote_date": null
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-19T17:34:23.847540+08:00",
+      "quote_date": "2026-08-19",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/6981.T.json"
+    },
+    "GOOGL": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-19T17:34:25.780584+08:00",
+      "quote_date": "2026-08-18",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/GOOGL.json"
+    },
+    "KO": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-19T17:34:27.939139+08:00",
+      "quote_date": "2026-08-18",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-19/quotes/KO.json"
     }
   },
   "source_health": {
-    "tencent": {
+    "yfinance": {
       "success_rate": "100%",
-      "ok": 6,
+      "ok": 17,
       "failed": 0,
       "geo_blocked": 0,
       "unavailable": 0,
       "stale": 0,
-      "bars_fetched": 726
-    },
-    "yahoo_chart": {
-      "success_rate": "0%",
-      "ok": 0,
-      "failed": 1,
-      "geo_blocked": 0,
-      "unavailable": 0,
-      "stale": 0,
-      "bars_fetched": 0
-    },
-    "yfinance": {
-      "success_rate": "0%",
-      "ok": 0,
-      "failed": 1,
-      "geo_blocked": 0,
-      "unavailable": 0,
-      "stale": 0,
-      "bars_fetched": 0
+      "bars_fetched": 709
     }
   }
 }

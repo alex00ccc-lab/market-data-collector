@@ -7,7 +7,7 @@
   "ma": {
     "ma5": 80.38,
     "ma10": 77.66,
-    "ma20": 68.06,
+    "ma20": 68.07,
     "ma60": 83.67,
     "alignment": "bullish"
   },
@@ -29,7 +29,7 @@
   },
   "bollinger": {
     "upper": 89.36,
-    "middle": 68.06,
+    "middle": 68.07,
     "lower": 46.77,
     "bandwidth": 62.6,
     "position": 0.66,
