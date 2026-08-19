@@ -1,43 +1,43 @@
 {
   "symbol": "2631.HK",
   "date": "2026-08-19",
-  "close": 77.5,
+  "close": 74.7,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 80.94,
-    "ma10": 77.94,
-    "ma20": 68.2,
-    "ma60": 83.72,
+    "ma5": 80.38,
+    "ma10": 77.66,
+    "ma20": 68.06,
+    "ma60": 83.67,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 81.1,
+    "value": 76.0,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 1.6419,
-    "dea": -1.0117,
-    "histogram": 5.3072,
+    "diff": 1.4186,
+    "dea": -1.0365,
+    "histogram": 4.9102,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 48.4,
-    "d": 49.5,
-    "j": 46.2,
+    "k": 44.0,
+    "d": 48.0,
+    "j": 36.1,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 89.71,
-    "middle": 68.2,
-    "lower": 46.7,
-    "bandwidth": 63.0,
-    "position": 0.72,
+    "upper": 89.36,
+    "middle": 68.06,
+    "lower": 46.77,
+    "bandwidth": 62.6,
+    "position": 0.66,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.2,
-    "signal": "shrink"
+    "ratio": 0.8,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 132.0,
@@ -62,11 +62,10 @@
     128.7
   ],
   "risk_flags": [
-    "RSI超买",
-    "缩量警示"
+    "RSI超买"
   ],
   "frame": {
-    "avg_dollar_volume": 201968490.25,
+    "avg_dollar_volume": 210023306.35,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0

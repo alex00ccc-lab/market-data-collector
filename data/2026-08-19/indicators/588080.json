@@ -1,43 +1,43 @@
 {
   "symbol": "588080",
   "date": "2026-08-19",
-  "close": 1.77,
+  "close": 1.71,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 1.79,
-    "ma10": 1.78,
+    "ma5": 1.78,
+    "ma10": 1.77,
     "ma20": 1.75,
     "ma60": 1.86,
-    "alignment": "bullish"
+    "alignment": "bearish"
   },
   "rsi": {
-    "value": 63.6,
+    "value": 57.4,
     "signal": "bullish"
   },
   "macd": {
-    "diff": -0.0237,
-    "dea": -0.0436,
-    "histogram": 0.0398,
+    "diff": -0.0285,
+    "dea": -0.0441,
+    "histogram": 0.0312,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 46.4,
-    "d": 48.8,
-    "j": 41.7,
+    "k": 37.7,
+    "d": 45.9,
+    "j": 21.4,
     "signal": "bearish"
   },
   "bollinger": {
     "upper": 1.89,
     "middle": 1.75,
     "lower": 1.61,
-    "bandwidth": 16.1,
-    "position": 0.57,
-    "signal": "above_middle"
+    "bandwidth": 16.2,
+    "position": 0.37,
+    "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.3,
-    "signal": "shrink"
+    "ratio": 1.9,
+    "signal": "surge_down"
   },
   "fibonacci": {
     "high": 2.32,
@@ -50,7 +50,7 @@
     "78.6%": 1.74,
     "100.0%": 1.59
   },
-  "trend_strength": "多头",
+  "trend_strength": "空头",
   "supports": [
     1.59,
     1.75,
@@ -62,24 +62,25 @@
     2.27
   ],
   "risk_flags": [
-    "缩量警示"
+    "跌破MA20",
+    "放量下跌"
   ],
   "frame": {
-    "avg_dollar_volume": 19868436.67,
+    "avg_dollar_volume": 20984224.72,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 3,
-    "neutral": 2,
-    "bearish": 0,
-    "overall": "mildly_bullish",
+    "bullish": 2,
+    "neutral": 0,
+    "bearish": 3,
+    "overall": "mildly_bearish",
     "five_q": {
-      "trend": "bullish",
-      "position": "neutral",
-      "structure": "bullish",
-      "volume": "neutral",
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "bearish",
       "momentum": "bullish"
     }
   }
