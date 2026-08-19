@@ -1,25 +1,25 @@
 {
   "symbol": "SGOV",
   "date": "2026-08-18",
-  "close": 100.57,
+  "close": 100.56999969482422,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 100.55,
     "ma10": 100.51,
-    "ma20": 100.56,
-    "ma60": 100.55,
-    "alignment": "mixed"
+    "ma20": 100.44,
+    "ma60": 100.15,
+    "alignment": "bullish"
   },
   "rsi": {
-    "value": 38.3,
-    "signal": "bearish"
+    "value": 99.0,
+    "signal": "overbought"
   },
   "macd": {
-    "diff": -0.0049,
-    "dea": -0.0136,
-    "histogram": 0.0174,
-    "signal": "golden_cross"
+    "diff": 0.1016,
+    "dea": 0.1023,
+    "histogram": -0.0014,
+    "signal": "death_cross"
   },
   "kdj": {
     "k": 64.1,
@@ -28,11 +28,11 @@
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 100.74,
-    "middle": 100.56,
-    "lower": 100.38,
-    "bandwidth": 0.4,
-    "position": 0.52,
+    "upper": 100.61,
+    "middle": 100.44,
+    "lower": 100.27,
+    "bandwidth": 0.3,
+    "position": 0.88,
     "signal": "above_middle"
   },
   "volume": {
@@ -40,41 +40,37 @@
     "signal": "normal"
   },
   "fibonacci": {
-    "high": 100.72,
-    "low": 100.39,
-    "0.0%": 100.72,
-    "23.6%": 100.64,
-    "38.2%": 100.59,
-    "50.0%": 100.56,
-    "61.8%": 100.52,
-    "78.6%": 100.46,
-    "100.0%": 100.39
+    "high": 100.58,
+    "low": 99.72,
+    "0.0%": 100.58,
+    "23.6%": 100.38,
+    "38.2%": 100.25,
+    "50.0%": 100.15,
+    "61.8%": 100.05,
+    "78.6%": 99.91,
+    "100.0%": 99.72
   },
   "trend_strength": "震荡",
-  "supports": [
-    100.4,
-    100.42
+  "supports": [],
+  "resistances": [],
+  "risk_flags": [
+    "RSI超买"
   ],
-  "resistances": [
-    100.67,
-    100.71
-  ],
-  "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 1979434953.25,
+    "avg_dollar_volume": 1977156561.27,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 0,
-    "neutral": 5,
+    "bullish": 2,
+    "neutral": 3,
     "bearish": 0,
     "overall": "neutral",
     "five_q": {
-      "trend": "neutral",
+      "trend": "bullish",
       "position": "neutral",
-      "structure": "neutral",
+      "structure": "bullish",
       "volume": "neutral",
       "momentum": "neutral"
     }

@@ -1,7 +1,7 @@
 {
   "symbol": "TSLA",
   "date": "2026-08-18",
-  "close": 336.87,
+  "close": 336.8699951171875,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": -8.9672,
-    "dea": -14.9469,
-    "histogram": 11.9594,
+    "diff": -9.4043,
+    "dea": -15.5533,
+    "histogram": 12.298,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -65,7 +65,7 @@
     "RSI超买"
   ],
   "frame": {
-    "avg_dollar_volume": 12667303080.89,
+    "avg_dollar_volume": 12667303066.51,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
