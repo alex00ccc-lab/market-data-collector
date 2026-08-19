@@ -5,6 +5,37 @@
 
 ---
 
+## v11 — 2026-08-20 — dividend_yield 单位修复（yfinance 百分比 → fraction）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.49（dividend_yield 单位一致性修复） |
+
+### 背景
+
+父项目 v14.49 修复了 `src/fundamental.py` 的 yfinance `dividendYield` 单位 bug：yfinance 返回**百分比**（KO=2.39、GOOGL=0.26），框架按 **fraction**（`0.02`=2%）读。market_data 子模块里 `yfinance_adapter.py` 与 `fetch.py` 有同款写法（`info.get("dividendYield")` 存原值、未 `/100`），口径不一致，统一修复。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/adapters/yfinance_adapter.py` | `fetch_fundamentals` 的 `dividend_yield` 由存原值改为 `/100`（percent → fraction，None/负数安全） |
+| `scripts/fetch.py` | `fetch_yfinance_fundamentals` 同款 `/100` |
+
+### 验证
+
+- 单位换算：`2.39 → 0.0239`、`0.26 → 0.0026`、None → None
+- 两文件 `ast.parse` 语法通过
+
+### 回滚方法
+
+```bash
+git revert <v11 commit>
+# 或恢复 dividend_yield: info.get("dividendYield") 原写法
+```
+
+---
+
 ## v10 — 2026-08-19 — A/HK 数据源换源：腾讯财经(primary) + mootdx(兜底) + 东财降级
 
 | 属性 | 值 |

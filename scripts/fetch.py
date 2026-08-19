@@ -319,11 +319,15 @@ def fetch_yfinance_fundamentals(symbol: str) -> Optional[dict]:
         info = ticker.info
 
         now = datetime.now(TZ_BEIJING)
+        # yfinance `dividendYield` 返回百分比（KO=2.39），统一 /100 为 fraction（0.0239）
+        dy = info.get("dividendYield")
+        dividend_yield = round(float(dy) / 100.0, 4) if isinstance(dy, (int, float)) and dy >= 0 else None
+
         return {
             "symbol": symbol.upper(),
             "pe_ratio": info.get("trailingPE") or info.get("forwardPE"),
             "pb_ratio": info.get("priceToBook"),
-            "dividend_yield": info.get("dividendYield"),
+            "dividend_yield": dividend_yield,
             "market_cap": info.get("marketCap"),
             "sector": info.get("sector", ""),
             "industry": info.get("industry", ""),
