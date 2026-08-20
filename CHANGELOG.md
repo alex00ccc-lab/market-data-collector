@@ -5,6 +5,36 @@
 
 ---
 
+## v12 — 2026-08-21 — 宏观指标补齐：^TYX(30Y) + ^SOX(半导体) + ^IXIC(纳指)
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.50（宏观轻量版：美债→DCF 传导 + 半导体指数 + 拐点预警） |
+
+### 背景
+
+父项目 v14.50「宏观轻量版」报告需补三指标：30 年期美债收益率 `^TYX`（长端，配 10Y−13W 期限结构）、费城半导体指数 `^SOX`（半导体产业链敞口佐证）、纳斯达克综合 `^IXIC`（成长股估值风向标）。三者均走 yfinance 免费档，与现有 `^TNX`/`^IRX`/`^FVX` 同链。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `config/macro.json` | `indicators` 新增 3 项：`^TYX`(30Y 美债)、`^SOX`(费城半导体)、`^IXIC`(纳指)，source=yfinance |
+
+### 验证
+
+- `json.load` 解析通过，3 新符号在列
+- 消费方 `briefing_engine` 用 `macro.get("^TYX", {})` 空值回退，抓取前不崩
+
+### 回滚方法
+
+```bash
+git revert <v12 commit>
+# 或从 macro.json indicators 移除 ^TYX/^SOX/^IXIC 三项
+```
+
+---
+
 ## v11 — 2026-08-20 — dividend_yield 单位修复（yfinance 百分比 → fraction）
 
 | 属性 | 值 |

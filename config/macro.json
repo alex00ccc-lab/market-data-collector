@@ -3,8 +3,11 @@
   "indicators": [
     {"symbol": "^VIX",    "market": "US", "name": "VIX 恐慌指数",      "source": "yfinance"},
     {"symbol": "^TNX",    "market": "US", "name": "10年期美债收益率",    "source": "yfinance"},
+    {"symbol": "^TYX",    "market": "US", "name": "30年期美债收益率",    "source": "yfinance"},
     {"symbol": "^IRX",    "market": "US", "name": "13周国库券收益率",    "source": "yfinance"},
     {"symbol": "^FVX",    "market": "US", "name": "5年期美债收益率",     "source": "yfinance"},
+    {"symbol": "^SOX",    "market": "US", "name": "费城半导体指数SOX",    "source": "yfinance"},
+    {"symbol": "^IXIC",   "market": "US", "name": "纳斯达克综合指数",      "source": "yfinance"},
     {"symbol": "^KS11",   "market": "KR", "name": "韩国KOSPI指数",      "source": "yfinance"},
     {"symbol": "BZ=F",    "market": "US", "name": "布伦特原油期货",      "source": "yfinance"},
     {"symbol": "DX-Y.NYB","market": "US", "name": "美元指数DXY",         "source": "yfinance"},
