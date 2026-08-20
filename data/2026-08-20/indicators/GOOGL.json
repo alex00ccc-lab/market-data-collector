@@ -1,14 +1,14 @@
 {
   "symbol": "GOOGL",
   "date": "2026-08-19",
-  "close": 344.72,
+  "close": 344.7200012207031,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 345.04,
     "ma10": 348.21,
     "ma20": 345.99,
-    "ma60": 356.22,
+    "ma60": 356.18,
     "alignment": "bearish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": -1.9176,
-    "dea": -0.5872,
-    "histogram": -2.6608,
+    "diff": -2.2438,
+    "dea": -1.0395,
+    "histogram": -2.4086,
     "signal": "death_cross"
   },
   "kdj": {
@@ -40,14 +40,14 @@
     "signal": "normal"
   },
   "fibonacci": {
-    "high": 393.88,
+    "high": 393.64,
     "low": 314.9,
-    "0.0%": 393.88,
-    "23.6%": 375.24,
-    "38.2%": 363.71,
-    "50.0%": 354.39,
-    "61.8%": 345.07,
-    "78.6%": 331.8,
+    "0.0%": 393.64,
+    "23.6%": 375.06,
+    "38.2%": 363.56,
+    "50.0%": 354.27,
+    "61.8%": 344.98,
+    "78.6%": 331.75,
     "100.0%": 314.9
   },
   "trend_strength": "震荡",
@@ -65,7 +65,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 10282841266.7,
+    "avg_dollar_volume": 10284018295.1,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
