@@ -1,14 +1,14 @@
 {
   "priority": ["yfinance", "yahoo_chart", "finnhub", "twelvedata", "alpha_vantage", "stooq"],
   "market_overrides": {
-    "A": ["tencent", "mootdx", "efinance", "aktools"],
+    "A": ["tencent", "mootdx", "efinance", "aktools", "yfinance"],
     "HK": ["tencent", "efinance", "aktools", "yfinance"],
     "EU": ["yfinance", "yahoo_chart"]
   },
   "adapters": {
     "yfinance": {
       "enabled": true,
-      "markets": ["US", "JP", "HK", "EU"],
+      "markets": ["US", "JP", "HK", "EU", "A"],
       "note": "Primary for US/JP. Free, no key. May rate-limit. Same IP pool as yahoo_chart.",
       "cooldown_on_rate_limit": 900
     },
