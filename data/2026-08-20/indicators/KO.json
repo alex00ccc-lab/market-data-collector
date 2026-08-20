@@ -1,14 +1,14 @@
 {
   "symbol": "KO",
   "date": "2026-08-19",
-  "close": 90.3499984741211,
+  "close": 90.35,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 88.26,
     "ma10": 87.52,
     "ma20": 86.82,
-    "ma60": 83.08,
+    "ma60": 83.2,
     "alignment": "bullish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 1.3978,
-    "dea": 1.2846,
-    "histogram": 0.2264,
+    "diff": 1.3853,
+    "dea": 1.2673,
+    "histogram": 0.236,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -41,14 +41,14 @@
   },
   "fibonacci": {
     "high": 90.92,
-    "low": 76.32,
+    "low": 76.81,
     "0.0%": 90.92,
-    "23.6%": 87.47,
-    "38.2%": 85.34,
-    "50.0%": 83.62,
-    "61.8%": 81.9,
-    "78.6%": 79.44,
-    "100.0%": 76.32
+    "23.6%": 87.59,
+    "38.2%": 85.53,
+    "50.0%": 83.87,
+    "61.8%": 82.2,
+    "78.6%": 79.83,
+    "100.0%": 76.81
   },
   "trend_strength": "多头",
   "supports": [
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 1382192522.91,
+    "avg_dollar_volume": 1382192532.78,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0

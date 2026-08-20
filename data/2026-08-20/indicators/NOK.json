@@ -1,7 +1,7 @@
 {
   "symbol": "NOK",
   "date": "2026-08-19",
-  "close": 10.130000114440918,
+  "close": 10.13,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": -0.2595,
-    "dea": -0.564,
-    "histogram": 0.609,
+    "diff": -0.2222,
+    "dea": -0.5123,
+    "histogram": 0.5802,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 876079083.6,
+    "avg_dollar_volume": 876079083.15,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
