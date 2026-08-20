@@ -1,0 +1,62 @@
+{
+  "^VIX": {
+    "name": "VIX 恐慌指数",
+    "price": 14.89,
+    "date": "2026-08-19",
+    "change_pct": -6.0
+  },
+  "^TNX": {
+    "name": "10年期美债收益率",
+    "price": 4.65,
+    "date": "2026-08-19",
+    "change_pct": -1.13
+  },
+  "^IRX": {
+    "name": "13周国库券收益率",
+    "price": 3.7,
+    "date": "2026-08-19",
+    "change_pct": -0.13
+  },
+  "^FVX": {
+    "name": "5年期美债收益率",
+    "price": 4.35,
+    "date": "2026-08-19",
+    "change_pct": -0.32
+  },
+  "^KS11": {
+    "name": "韩国KOSPI指数",
+    "price": 6781.44,
+    "date": "2026-08-20",
+    "change_pct": -1.29
+  },
+  "BZ=F": {
+    "name": "布伦特原油期货",
+    "price": 92.06,
+    "date": "2026-08-19",
+    "change_pct": 1.14
+  },
+  "DX-Y.NYB": {
+    "name": "美元指数DXY",
+    "price": 98.87,
+    "date": "2026-08-19",
+    "change_pct": -0.78
+  },
+  "000001.SH": {
+    "name": "上证指数",
+    "price": 11.27,
+    "date": "2026-08-19",
+    "change_pct": null
+  },
+  "^HSI": {
+    "name": "恒生指数",
+    "price": 25471.15,
+    "date": "2026-08-18",
+    "change_pct": 0.07
+  },
+  "^N225": {
+    "name": "日经225指数",
+    "price": 66217.87,
+    "date": "2026-08-20",
+    "change_pct": -1.84
+  }
+}
