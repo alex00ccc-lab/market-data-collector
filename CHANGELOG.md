@@ -5,6 +5,36 @@
 
 ---
 
+## v15.2 — 2026-08-21 — 上证指数改走 yfinance（efinance 被 CI 海外 IP 封禁）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.57（子模块指针，Plan: `woolly-herding-reef.md`） |
+
+### 背景
+
+v15.1 修了 `_efinance_secid` 映射（`000001.SH → 1.000001` 上证指数），但手动触发 `fetch-daily` 验证发现：`000001.SH` 的 `source=efinance`（东财）**被 GitHub Actions 美国 runner 封禁**（日志 `efinance HTTP error: Remote end closed connection without response`），CI 里该指标每次都被静默丢弃，从未进 macro.json。这正是 CLAUDE.md 记录的老问题（东财专封海外 IP，A/HK 股票早已换腾讯源），宏观指标里的上证指数漏了换源。改走 yfinance（Yahoo 原生 `000001.SS`，同一 fetch 里 `^HSI`/`^N225`/`^SOX` 均成功，证明 CI 可达）。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `config/macro.json` | 上证指数 `000001.SH`+`efinance` → `000001.SS`+`yfinance`（`market:A` 保留语义，fetch 端非 efinance 分支本就硬编码 market="US" 不加后缀，`000001.SS` 直通 Yahoo） |
+
+### 验证
+
+- 直连 eastmoney 确认 `1.000001`=上证指数 close 3905.20（secid 正确，v15.1）✅
+- yfinance `000001.SS` 为 Yahoo 原生上证指数 symbol；macro fetch 非 efinance 分支硬编码 market="US" 不加后缀 → `yf.Ticker("000001.SS")` ✅
+- 触发 `fetch-daily` 后核对 `data/{date}/macro.json` 出现 `000001.SS`、price ≈3900
+
+### 回滚方法
+
+```bash
+git revert <commit>   # 上证指数回到 efinance（CI 继续缺失该指标；本地 efinance 走 v15.1 修正后的 secid）
+```
+
+---
+
 ## v15.1 — 2026-08-21 — 修复「上证指数」secid 映射（000001.SH 误抓平安银行）
 
 | 属性 | 值 |
