@@ -24,7 +24,7 @@
   "kdj": {
     "k": 59.3,
     "d": 53.1,
-    "j": 71.8,
+    "j": 71.7,
     "signal": "bullish"
   },
   "bollinger": {
@@ -40,14 +40,14 @@
     "signal": "normal"
   },
   "fibonacci": {
-    "high": 91.86,
+    "high": 91.87,
     "low": 76.32,
-    "0.0%": 91.86,
+    "0.0%": 91.87,
     "23.6%": 88.2,
     "38.2%": 85.93,
     "50.0%": 84.09,
     "61.8%": 82.26,
-    "78.6%": 79.64,
+    "78.6%": 79.65,
     "100.0%": 76.32
   },
   "trend_strength": "多头",
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 1393979937.62,
+    "avg_dollar_volume": 1393981091.49,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0

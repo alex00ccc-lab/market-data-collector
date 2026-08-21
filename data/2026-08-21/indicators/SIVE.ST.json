@@ -1,43 +1,43 @@
 {
   "symbol": "SIVE.ST",
-  "date": "2026-08-20",
-  "close": NaN,
+  "date": "2026-08-21",
+  "close": 36.7599983215332,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": NaN,
-    "ma10": NaN,
-    "ma20": NaN,
-    "ma60": NaN,
-    "alignment": "bearish"
+    "ma5": 37.18,
+    "ma10": 39.56,
+    "ma20": 36.1,
+    "ma60": 54.69,
+    "alignment": "mixed"
   },
   "rsi": {
-    "value": 60.0,
+    "value": 58.5,
     "signal": "bullish"
   },
   "macd": {
-    "diff": NaN,
-    "dea": NaN,
-    "histogram": NaN,
-    "signal": "divergence"
+    "diff": -2.067,
+    "dea": -2.4076,
+    "histogram": 0.6812,
+    "signal": "golden_cross"
   },
   "kdj": {
-    "k": NaN,
-    "d": NaN,
-    "j": NaN,
+    "k": 42.1,
+    "d": 47.4,
+    "j": 31.6,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": NaN,
-    "middle": NaN,
-    "lower": NaN,
-    "bandwidth": 0,
-    "position": NaN,
-    "signal": "below_middle"
+    "upper": 45.96,
+    "middle": 36.1,
+    "lower": 26.24,
+    "bandwidth": 54.6,
+    "position": 0.53,
+    "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.5,
-    "signal": "normal"
+    "ratio": 0.3,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 110.0,
@@ -61,24 +61,26 @@
     97.45,
     101.9
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": NaN,
+    "avg_dollar_volume": 263754743.75,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 0,
-    "neutral": 4,
-    "bearish": 1,
+    "bullish": 2,
+    "neutral": 3,
+    "bearish": 0,
     "overall": "neutral",
     "five_q": {
-      "trend": "bearish",
-      "position": "neutral",
+      "trend": "neutral",
+      "position": "bullish",
       "structure": "neutral",
       "volume": "neutral",
-      "momentum": "neutral"
+      "momentum": "bullish"
     }
   }
 }

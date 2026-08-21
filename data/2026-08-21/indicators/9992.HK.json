@@ -1,42 +1,42 @@
 {
   "symbol": "9992.HK",
   "date": "2026-08-21",
-  "close": 148.5,
+  "close": 149.0,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 151.26,
-    "ma10": 152.27,
-    "ma20": 156.97,
-    "ma60": 161.73,
+    "ma5": 151.36,
+    "ma10": 152.32,
+    "ma20": 157.0,
+    "ma60": 161.74,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 30.3,
+    "value": 30.9,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -2.6874,
-    "dea": -2.089,
-    "histogram": -1.1968,
+    "diff": -2.648,
+    "dea": -2.0853,
+    "histogram": -1.1254,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 50.0,
-    "d": 50.0,
-    "j": 50.0,
-    "signal": "bearish"
+    "k": 51.0,
+    "d": 50.3,
+    "j": 52.3,
+    "signal": "bullish"
   },
   "bollinger": {
-    "upper": 167.56,
-    "middle": 156.97,
-    "lower": 146.39,
-    "bandwidth": 13.5,
-    "position": 0.1,
+    "upper": 167.51,
+    "middle": 157.0,
+    "lower": 146.49,
+    "bandwidth": 13.4,
+    "position": 0.12,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 2.7,
+    "ratio": 4.7,
     "signal": "surge_down"
   },
   "fibonacci": {
@@ -66,7 +66,7 @@
     "放量下跌"
   ],
   "frame": {
-    "avg_dollar_volume": 1874618891.27,
+    "avg_dollar_volume": 2015575690.72,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
