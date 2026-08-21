@@ -101,11 +101,18 @@ def _efinance_secid(symbol: str, market: str) -> str:
     Examples:
       002008.SZ → 0.002008 (Shenzhen)
       600519.SH → 1.600519 (Shanghai)
+      000001.SH → 1.000001 (上证指数 — 显式 .SH 优先于代码前缀)
       0189HK → 116.00189
     """
     import urllib.request
     code = symbol.upper().replace(".SH", "").replace(".SZ", "").replace(".HK", "")
     if market == "A":
+        # 显式后缀优先：否则 000001.SH 会被代码前缀启发式误判为深圳 0.000001=平安银行
+        if symbol.upper().endswith(".SH"):
+            return f"1.{code}"  # Shanghai
+        if symbol.upper().endswith(".SZ"):
+            return f"0.{code}"  # Shenzhen
+        # 无后缀时沿用代码前缀启发式（A 股持仓 513010/588080/588710 无后缀、以 5 开头 → 沪市，不受影响）
         if code.startswith(("0", "3")):
             return f"0.{code}"  # Shenzhen
         return f"1.{code}"  # Shanghai
