@@ -5,6 +5,36 @@
 
 ---
 
+## v15 — 2026-08-21 — finnhub `fetch_fundamentals` 兜底（修复基本面 0 文件断供）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.55（security_gate 白名单「自选股」+ 子模块指针，Plan: `woolly-herding-reef.md`） |
+
+### 背景
+
+`fetch-weekly.yml`（周六 08:00 BJT 抓 US 基本面）自 2026-07-25 起写 0 文件。排查确认：全项目只有 `yfinance_adapter` 实现 `fetch_fundamentals`（读 `ticker.info`），finnhub/twelvedata/alpha_vantage 都继承 `base.py` 返回 None；yfinance `.info` 自 08-01 起被 Yahoo 全局限流（本地实测 GOOGL/KO/MSFT/NOK 全返回 "Too Many Requests"/"Failed to connect"），整条链无兜底 → 0 文件。finnhub 免费档 `metric` 端点可用，是现成逃生舱。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/adapters/finnhub_adapter.py` | 新增 `fetch_fundamentals`：`/stock/metric?metric=all` 取 `peTTM`/`pbQuarterly`/`dividendYieldIndicatedAnnual`/`marketCapitalization` + `/stock/profile2` 取 `finnhubIndustry`；schema 逐字段对齐 `yfinance_adapter.fetch_fundamentals`；`dividendYieldIndicatedAnnual` 百分比 /100 成 fraction、`marketCapitalization` 百万美元 ×1e6 对齐 yfinance 约定 |
+
+### 验证
+
+- 本地 `SourceManager().fetch_fundamentals('GOOGL','US')` → `source=finnhub`、`pe=17.31`、`mcap=$4.2T` ✅
+- KO 股息 3.14% → fraction `0.0314`（单位正确，§6.2 精度）✅
+- 链顺序不变：yfinance 先试（限流快速失败）→ 自动落到 finnhub，零 `sources.json` 配置改动 ✅
+
+### 回滚方法
+
+```bash
+git revert <commit>   # 移除 finnhub 兜底，yfinance 链恢复原样（基本面继续降级）
+```
+
+---
+
 ## v14 — 2026-08-21 — 指标发布 `vwap` + 自选股扩到 12 只美股（供 DSA 复用）
 
 | 属性 | 值 |
