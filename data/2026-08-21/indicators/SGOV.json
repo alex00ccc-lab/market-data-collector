@@ -1,14 +1,14 @@
 {
   "symbol": "SGOV",
-  "date": "2026-08-20",
-  "close": 100.58999633789062,
+  "date": "2026-08-21",
+  "close": 100.6229019165039,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 100.57,
-    "ma10": 100.54,
-    "ma20": 100.47,
-    "ma60": 100.18,
+    "ma5": 100.59,
+    "ma10": 100.56,
+    "ma20": 100.48,
+    "ma60": 100.19,
     "alignment": "bullish"
   },
   "rsi": {
@@ -16,48 +16,49 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": 0.1001,
-    "dea": 0.1021,
-    "histogram": -0.004,
+    "diff": 0.1006,
+    "dea": 0.1019,
+    "histogram": -0.0026,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 63.6,
-    "d": 54.5,
-    "j": 81.8,
+    "k": 64.8,
+    "d": 54.9,
+    "j": 84.6,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 100.63,
-    "middle": 100.47,
-    "lower": 100.3,
+    "upper": 100.65,
+    "middle": 100.48,
+    "lower": 100.32,
     "bandwidth": 0.3,
-    "position": 0.87,
-    "signal": "above_middle"
+    "position": 0.92,
+    "signal": "upper_band"
   },
   "volume": {
-    "ratio": 1.1,
-    "signal": "normal"
+    "ratio": 0.4,
+    "signal": "shrink"
   },
   "fibonacci": {
-    "high": 100.6,
-    "low": 99.74,
-    "0.0%": 100.6,
-    "23.6%": 100.4,
-    "38.2%": 100.27,
-    "50.0%": 100.17,
-    "61.8%": 100.07,
-    "78.6%": 99.92,
-    "100.0%": 99.74
+    "high": 100.63,
+    "low": 99.75,
+    "0.0%": 100.63,
+    "23.6%": 100.42,
+    "38.2%": 100.29,
+    "50.0%": 100.19,
+    "61.8%": 100.09,
+    "78.6%": 99.94,
+    "100.0%": 99.75
   },
   "trend_strength": "震荡",
   "supports": [],
   "resistances": [],
   "risk_flags": [
-    "RSI超买"
+    "RSI超买",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 2014560818.85,
+    "avg_dollar_volume": 1974042192.72,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -76,9 +77,9 @@
     }
   },
   "vwap": {
-    "intraday": 100.1371,
-    "avwap_60d": 100.1566,
-    "anchor_idx": 3,
-    "anchor_date": "2026-05-27"
+    "intraday": 100.1397,
+    "avwap_60d": 100.1644,
+    "anchor_idx": 4,
+    "anchor_date": "2026-05-28"
   }
 }

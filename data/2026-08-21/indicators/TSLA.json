@@ -1,53 +1,53 @@
 {
   "symbol": "TSLA",
-  "date": "2026-08-20",
-  "close": 345.1300048828125,
+  "date": "2026-08-21",
+  "close": 362.4700012207031,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 342.94,
-    "ma10": 337.44,
-    "ma20": 325.65,
-    "ma60": 375.14,
+    "ma5": 346.98,
+    "ma10": 340.83,
+    "ma20": 328.12,
+    "ma60": 373.84,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 70.4,
+    "value": 72.6,
     "signal": "overbought"
   },
   "macd": {
-    "diff": -6.1541,
-    "dea": -12.3523,
-    "histogram": 12.3964,
+    "diff": -3.7406,
+    "dea": -10.6758,
+    "histogram": 13.8704,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 58.9,
-    "d": 53.0,
-    "j": 70.8,
+    "k": 65.3,
+    "d": 55.1,
+    "j": 85.7,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 353.87,
-    "middle": 325.65,
-    "lower": 297.44,
-    "bandwidth": 17.3,
-    "position": 0.85,
-    "signal": "above_middle"
+    "upper": 359.92,
+    "middle": 328.12,
+    "lower": 296.33,
+    "bandwidth": 19.4,
+    "position": 1.04,
+    "signal": "upper_band"
   },
   "volume": {
-    "ratio": 0.9,
+    "ratio": 0.7,
     "signal": "normal"
   },
   "fibonacci": {
-    "high": 445.6,
+    "high": 443.96,
     "low": 297.38,
-    "0.0%": 445.6,
-    "23.6%": 410.62,
-    "38.2%": 388.98,
-    "50.0%": 371.49,
-    "61.8%": 354.0,
-    "78.6%": 329.1,
+    "0.0%": 443.96,
+    "23.6%": 409.37,
+    "38.2%": 387.97,
+    "50.0%": 370.67,
+    "61.8%": 353.37,
+    "78.6%": 328.75,
     "100.0%": 297.38
   },
   "trend_strength": "多头",
@@ -61,10 +61,11 @@
     425.3
   ],
   "risk_flags": [
-    "RSI超买"
+    "RSI超买",
+    "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 11435753540.84,
+    "avg_dollar_volume": 10899307040.25,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -83,8 +84,8 @@
     }
   },
   "vwap": {
-    "intraday": 379.4168,
-    "avwap_60d": 327.1754,
+    "intraday": 379.2174,
+    "avwap_60d": 328.4708,
     "anchor_idx": 46,
     "anchor_date": "2026-07-29"
   }

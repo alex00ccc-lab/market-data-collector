@@ -1,43 +1,43 @@
 {
   "symbol": "SIVE.ST",
   "date": "2026-08-21",
-  "close": 36.7599983215332,
+  "close": 36.86000061035156,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 37.18,
-    "ma10": 39.56,
+    "ma5": 37.2,
+    "ma10": 39.57,
     "ma20": 36.1,
     "ma60": 54.69,
     "alignment": "mixed"
   },
   "rsi": {
-    "value": 58.5,
+    "value": 58.7,
     "signal": "bullish"
   },
   "macd": {
-    "diff": -2.067,
-    "dea": -2.4076,
-    "histogram": 0.6812,
+    "diff": -2.059,
+    "dea": -2.4067,
+    "histogram": 0.6954,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 42.1,
-    "d": 47.4,
-    "j": 31.6,
+    "k": 42.4,
+    "d": 47.5,
+    "j": 32.3,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 45.96,
+    "upper": 45.97,
     "middle": 36.1,
     "lower": 26.24,
     "bandwidth": 54.6,
-    "position": 0.53,
+    "position": 0.54,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.3,
-    "signal": "shrink"
+    "ratio": 0.6,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 110.0,
@@ -61,11 +61,9 @@
     97.45,
     101.9
   ],
-  "risk_flags": [
-    "缩量警示"
-  ],
+  "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 263754743.75,
+    "avg_dollar_volume": 266597838.15,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,5 +80,11 @@
       "volume": "neutral",
       "momentum": "bullish"
     }
+  },
+  "vwap": {
+    "intraday": 61.0595,
+    "avwap_60d": 36.4521,
+    "anchor_idx": 48,
+    "anchor_date": "2026-07-29"
   }
 }
