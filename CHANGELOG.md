@@ -5,6 +5,42 @@
 
 ---
 
+## v13 — 2026-08-21 — A/HK 抓取搬进 GitHub Actions CI（腾讯海外可达，本地保留备用）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.52+（A/HK 数据管道：电脑离线不再断 A/HK 数据） |
+
+### 背景
+
+A/HK 每日行情之前绑死本机 Windows 定时任务 `fetch_local.py`，电脑没开/睡眠就抓取失败（08-20 已实证：`MarketFetch-Afternoon` 16:30 任务因 Surface 睡眠被系统终止，退出码 0xC000013A，0 数据）。历史根因是老源东财专封海外 IP，故 A/HK 只能本机抓。v14.41 换源腾讯后，验证腾讯财经（qt.gtimg.cn 公开 CDN）**从 GitHub Actions 美国 runner 可达**，遂把 A/HK 搬进 CI，与用户电脑彻底解耦。本地 `fetch_local.py` + 定时任务**保留备用**（不删）。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `.github/workflows/fetch-daily.yml` | `--markets US,JP,EU` → `US,JP,EU,A,HK`；workflow name + 17:05 注释同步更新 |
+| `config/sources.json` | A 链加 `yfinance` 兜底（`tencent→mootdx→efinance→aktools→yfinance`）；yfinance adapter `markets` 加 `A` |
+| `scripts/adapters/yfinance_adapter.py` | `supports_market` 加 `"A"`（yfinance A 股 `.SS` 后缀逻辑早已存在） |
+
+### 验证
+
+- **CI workflow_dispatch run #32439940701**：`Fetch complete: 14/14 OK, 0 errors` — 6 A/HK 全走 `tencent`（513010/588080/588710/9992.HK/2631.HK/1888.HK 各 121 bars），8 US/JP/EU 走 `yfinance`。**腾讯从美国 runner 可达已实证**。
+- 数据已 commit+push 到 market-data-collector（`data/2026-08-21/` 含 A/HK quotes + indicators）。
+
+### 已知缺口
+
+- **A 股板块资金流（sector_flow）从 CI 失败**（efinance 东财封海外 IP，日志 `Remote end closed`/`404`），非关键、优雅降级（`sector_flow: fetch failed (non-critical)`）。板块流此前本就不在 CI 抓取范围，本次因 A 进入 markets 才被触发。如需板块流，仍走本机 `fetch_local.py` 或后续换海外可达源。
+
+### 回滚方法
+
+```bash
+git revert <v13 commit>   # 退回 US,JP,EU-only CI
+# 本地 fetch_local.py + MarketFetch-Afternoon/Morning 定时任务未动，即备用链
+```
+
+---
+
 ## v12 — 2026-08-21 — 宏观指标补齐：^TYX(30Y) + ^SOX(半导体) + ^IXIC(纳指)
 
 | 属性 | 值 |
