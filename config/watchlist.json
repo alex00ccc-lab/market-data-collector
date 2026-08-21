@@ -24,6 +24,86 @@
       "sector": "必选消费",
       "added": "2026-08-19",
       "notes": "防御分红仓候选，待今晚美股抓取回填基本面"
+    },
+    {
+      "symbol": "AAPL",
+      "market": "US",
+      "name": "苹果 Apple",
+      "sector": "科技硬件",
+      "added": "2026-08-21",
+      "notes": "DSA 自选股对齐持仓系统指标体系"
+    },
+    {
+      "symbol": "MSFT",
+      "market": "US",
+      "name": "微软 Microsoft",
+      "sector": "软件",
+      "added": "2026-08-21",
+      "notes": "DSA 自选股"
+    },
+    {
+      "symbol": "AMZN",
+      "market": "US",
+      "name": "亚马逊 Amazon",
+      "sector": "消费互联网",
+      "added": "2026-08-21",
+      "notes": "DSA 自选股"
+    },
+    {
+      "symbol": "META",
+      "market": "US",
+      "name": "Meta Platforms",
+      "sector": "社交互联网",
+      "added": "2026-08-21",
+      "notes": "DSA 自选股"
+    },
+    {
+      "symbol": "NFLX",
+      "market": "US",
+      "name": "奈飞 Netflix",
+      "sector": "流媒体",
+      "added": "2026-08-21",
+      "notes": "DSA 自选股"
+    },
+    {
+      "symbol": "AMD",
+      "market": "US",
+      "name": "超威半导体 AMD",
+      "sector": "半导体",
+      "added": "2026-08-21",
+      "notes": "DSA 自选股"
+    },
+    {
+      "symbol": "INTC",
+      "market": "US",
+      "name": "英特尔 Intel",
+      "sector": "半导体",
+      "added": "2026-08-21",
+      "notes": "DSA 自选股"
+    },
+    {
+      "symbol": "AVGO",
+      "market": "US",
+      "name": "博通 Broadcom",
+      "sector": "半导体",
+      "added": "2026-08-21",
+      "notes": "DSA 自选股"
+    },
+    {
+      "symbol": "COST",
+      "market": "US",
+      "name": "好市多 Costco",
+      "sector": "必需消费",
+      "added": "2026-08-21",
+      "notes": "DSA 自选股"
+    },
+    {
+      "symbol": "JPM",
+      "market": "US",
+      "name": "摩根大通 JPMorgan",
+      "sector": "金融",
+      "added": "2026-08-21",
+      "notes": "DSA 自选股"
     }
   ]
 }

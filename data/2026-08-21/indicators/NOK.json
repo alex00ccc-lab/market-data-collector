@@ -80,5 +80,11 @@
       "volume": "neutral",
       "momentum": "bullish"
     }
+  },
+  "vwap": {
+    "intraday": 12.6,
+    "avwap_60d": 9.8645,
+    "anchor_idx": 46,
+    "anchor_date": "2026-07-29"
   }
 }

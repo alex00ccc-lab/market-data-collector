@@ -25,6 +25,26 @@ from typing import Any, Optional
 
 logger = logging.getLogger("indicators")
 
+_INDICATOR_FLAGS_PATH = Path(__file__).resolve().parent.parent / "config" / "indicator_flags.json"
+_INDICATOR_FLAGS_CACHE: Optional[dict] = None
+
+
+def _load_indicator_flags() -> dict:
+    """Read config/indicator_flags.json (缺省/损坏回退到安全默认)。"""
+    global _INDICATOR_FLAGS_CACHE
+    if _INDICATOR_FLAGS_CACHE is not None:
+        return _INDICATOR_FLAGS_CACHE
+    defaults = {"vwap": {"publish": True, "anchor_window": 60}}
+    try:
+        if _INDICATOR_FLAGS_PATH.exists():
+            loaded = json.loads(_INDICATOR_FLAGS_PATH.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                defaults.update(loaded)
+    except Exception as e:
+        logger.warning("indicator_flags.json 读取失败，用默认值: %s", e)
+    _INDICATOR_FLAGS_CACHE = defaults
+    return defaults
+
 
 # ============================================================================
 # Data classes
@@ -83,6 +103,7 @@ class IndicatorResult:
     bearish_count: int = 0
     overall: str = "neutral"           # bullish / mildly_bullish / neutral / mildly_bearish / bearish
     skeleton: bool = False              # True if close=0 (data unavailable, fallback skeleton)
+    vwap: Optional[dict] = None         # {intraday, avwap_60d, anchor_idx, anchor_date} or None
 
     def to_dict(self) -> dict:
         d = {
@@ -122,6 +143,9 @@ class IndicatorResult:
         # Remove empty risk_flags to keep JSON clean
         if not d["risk_flags"]:
             d["risk_flags"] = []
+        # VWAP/AVWAP (publish 受 config/indicator_flags.json 控制；回滚 = publish:false)
+        if self.vwap is not None and _load_indicator_flags().get("vwap", {}).get("publish", True):
+            d["vwap"] = self.vwap
         return d
 
 
@@ -675,6 +699,24 @@ def compute_all(
 
     # Support / Resistance
     result.supports, result.resistances = calc_support_resistance(highs, lows, closes)
+
+    # VWAP / anchored AVWAP（日内 VWAP + 60 日 swing-low 锚点 AVWAP）
+    # 对齐 position_quality 的 anchor_window 与 weekly_review 的 60 日锚点。
+    flags = _load_indicator_flags()
+    vwap_cfg = flags.get("vwap", {})
+    anchor_window = int(vwap_cfg.get("anchor_window", 60) or 60)
+    vwap_intraday = calc_vwap(highs, lows, closes, volumes, start_idx=0, mode="intraday")
+    window = closes[-anchor_window:] if anchor_window > 0 else closes
+    if len(window) >= 2 and vwap_intraday > 0:
+        anchor_offset = min(range(len(window)), key=lambda i: window[i])
+        anchor_idx = len(closes) - len(window) + anchor_offset
+        avwap_60d = calc_vwap(highs, lows, closes, volumes, start_idx=anchor_idx, mode="anchor")
+        result.vwap = {
+            "intraday": round(vwap_intraday, 4),
+            "avwap_60d": round(avwap_60d, 4) if avwap_60d > 0 else None,
+            "anchor_idx": anchor_idx,
+            "anchor_date": kline_data[anchor_idx].get("date", ""),
+        }
 
     # Frame indicators (v14)
     result.avg_dollar_volume = _calc_avg_dollar_volume(closes, volumes)

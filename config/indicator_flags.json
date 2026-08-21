@@ -1,0 +1,6 @@
+{
+  "vwap": {
+    "publish": true,
+    "anchor_window": 60
+  }
+}

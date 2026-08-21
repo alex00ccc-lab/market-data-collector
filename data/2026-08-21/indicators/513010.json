@@ -82,5 +82,11 @@
       "volume": "neutral",
       "momentum": "bearish"
     }
+  },
+  "vwap": {
+    "intraday": 0.6355,
+    "avwap_60d": 0.6133,
+    "anchor_idx": 80,
+    "anchor_date": "2026-06-26"
   }
 }

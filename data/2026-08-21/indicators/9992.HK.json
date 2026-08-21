@@ -83,5 +83,11 @@
       "volume": "bearish",
       "momentum": "bearish"
     }
+  },
+  "vwap": {
+    "intraday": 166.7374,
+    "avwap_60d": 145.7333,
+    "anchor_idx": 120,
+    "anchor_date": "2026-08-21"
   }
 }

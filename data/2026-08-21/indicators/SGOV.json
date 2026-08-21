@@ -74,5 +74,11 @@
       "volume": "neutral",
       "momentum": "neutral"
     }
+  },
+  "vwap": {
+    "intraday": 100.1371,
+    "avwap_60d": 100.1566,
+    "anchor_idx": 3,
+    "anchor_date": "2026-05-27"
   }
 }

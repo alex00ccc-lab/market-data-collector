@@ -5,6 +5,43 @@
 
 ---
 
+## v14 — 2026-08-21 — 指标发布 `vwap` + 自选股扩到 12 只美股（供 DSA 复用）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.54（DeepSeek 峰谷迁移 + 自选股周更化，Plan: `woolly-herding-reef.md`） |
+
+### 背景
+
+持仓系统已有 `calc_vwap` 但从未接入 `compute_all`/`to_dict`（grep 只有 def，无调用）。自选股(DSA)周更化需要读这里的公开指标判定「距前高 + AVWAP 偏离 + 追高闸」，故把 `vwap`（日内 VWAP + 60 日锚点 AVWAP）算进每标的 JSON；同时把 watchlist 从 2 只美股扩到 12 只（对齐 DSA 自选股与持仓指标体系）。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/indicators.py` | `IndicatorResult` 加 `vwap` 字段；`compute_all` 在 support/resistance 后算 `intraday` + `avwap_60d`（60 日 swing-low 锚点）；`to_dict()` 按 `indicator_flags.json` 的 `vwap.publish` 条件输出 `vwap` key（纯增量，向后兼容） |
+| `config/indicator_flags.json` | 新增 `{"vwap": {"publish": true, "anchor_window": 60}}`（回滚开关） |
+| `config/watchlist.json` | 美股 2 → 12 只（GOOGL/KO + AAPL/MSFT/AMZN/META/NFLX/AMD/INTC/AVGO/COST/JPM） |
+
+### 验证
+
+- 旧消费方仍能 parse：`vwap` 为纯增量 key，不破坏现有 `resonance`/`ma`/`rsi` 等字段 ✅
+- 本地 `data/2026-08-21/indicators/GOOGL.json` 结构核对：`resonance.five_q`（trend/position/structure/volume/momentum）、`ma`/`rsi`/`macd`/`kdj`/`bollinger`/`volume`/`fibonacci`/`supports`/`resistances`/`frame` 齐备；`vwap` 待今晚抓取+算指标后回填 ✅
+
+### 数据源配额注记
+
+US 切片约 4(持仓) + 12(自选) = 16 只/日。链 `yfinance→finnhub→twelvedata→alpha_vantage`；真实风险是 yfinance 连发 16 次突发 429 与 alpha_vantage 25 次/日上限（若 yfinance 大面积失败）。finnhub(60/min)、twelvedata(800/day) 对 16 只绰绰有余。缓解：alpha_vantage 保持最后；`cooldown_on_rate_limit:900` + `fail-fast:false` 已隔离单标的失败。
+
+### 回滚方法
+
+```bash
+# 关 vwap 发布（字段消失，DSA 优雅降级）：
+#   market_data/config/indicator_flags.json → {"vwap": {"publish": false, ...}}
+# 缩回 2 只自选：git revert watchlist.json 相关 commit
+```
+
+---
+
 ## v13 — 2026-08-21 — A/HK 抓取搬进 GitHub Actions CI（腾讯海外可达，本地保留备用）
 
 | 属性 | 值 |
