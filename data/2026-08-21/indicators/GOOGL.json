@@ -1,38 +1,38 @@
 {
   "symbol": "GOOGL",
   "date": "2026-08-21",
-  "close": 343.8999938964844,
+  "close": 344.55999755859375,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 343.5,
-    "ma10": 345.46,
-    "ma20": 348.35,
-    "ma60": 354.64,
+    "ma5": 343.63,
+    "ma10": 345.53,
+    "ma20": 348.38,
+    "ma60": 354.65,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 24.4,
+    "value": 25.3,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -2.6307,
-    "dea": -1.7055,
-    "histogram": -1.8504,
+    "diff": -2.5781,
+    "dea": -1.6996,
+    "histogram": -1.757,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 43.1,
-    "d": 47.7,
-    "j": 33.8,
+    "k": 44.3,
+    "d": 48.1,
+    "j": 36.7,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 373.57,
-    "middle": 348.35,
-    "lower": 323.13,
+    "upper": 373.58,
+    "middle": 348.38,
+    "lower": 323.18,
     "bandwidth": 14.5,
-    "position": 0.41,
+    "position": 0.42,
     "signal": "below_middle"
   },
   "volume": {
@@ -67,7 +67,7 @@
     "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 9112838551.76,
+    "avg_dollar_volume": 9117379861.57,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,8 +86,8 @@
     }
   },
   "vwap": {
-    "intraday": 355.4446,
-    "avwap_60d": 345.236,
+    "intraday": 355.4438,
+    "avwap_60d": 345.2378,
     "anchor_idx": 42,
     "anchor_date": "2026-07-23"
   }

@@ -1,38 +1,38 @@
 {
   "symbol": "AMD",
   "date": "2026-08-21",
-  "close": 467.67999267578125,
+  "close": 468.1199951171875,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 478.79,
-    "ma10": 481.82,
-    "ma20": 480.84,
+    "ma5": 478.88,
+    "ma10": 481.86,
+    "ma20": 480.86,
     "ma60": 508.71,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 45.7,
+    "value": 45.8,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -8.7316,
-    "dea": -8.1414,
-    "histogram": -1.1804,
+    "diff": -8.6965,
+    "dea": -8.1375,
+    "histogram": -1.118,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 37.7,
-    "d": 45.9,
-    "j": 21.2,
+    "k": 37.9,
+    "d": 46.0,
+    "j": 21.8,
     "signal": "bearish"
   },
   "bollinger": {
     "upper": 519.66,
-    "middle": 480.84,
-    "lower": 442.01,
+    "middle": 480.86,
+    "lower": 442.06,
     "bandwidth": 16.1,
-    "position": 0.33,
+    "position": 0.34,
     "signal": "below_middle"
   },
   "volume": {
@@ -66,7 +66,7 @@
     "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 12597543795.24,
+    "avg_dollar_volume": 12603973602.55,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,8 +85,8 @@
     }
   },
   "vwap": {
-    "intraday": 506.9676,
-    "avwap_60d": 484.6296,
+    "intraday": 506.9625,
+    "avwap_60d": 484.6223,
     "anchor_idx": 46,
     "anchor_date": "2026-07-29"
   }

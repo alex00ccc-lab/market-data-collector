@@ -1,13 +1,13 @@
 {
   "symbol": "AVGO",
   "date": "2026-08-21",
-  "close": 367.9400939941406,
+  "close": 367.80499267578125,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 373.38,
-    "ma10": 393.22,
-    "ma20": 396.04,
+    "ma5": 373.35,
+    "ma10": 393.21,
+    "ma20": 396.03,
     "ma60": 394.56,
     "alignment": "bearish"
   },
@@ -16,21 +16,21 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -5.1737,
-    "dea": 2.8976,
-    "histogram": -16.1426,
+    "diff": -5.1844,
+    "dea": 2.8964,
+    "histogram": -16.1616,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 38.3,
+    "k": 38.2,
     "d": 46.1,
-    "j": 22.7,
+    "j": 22.6,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 438.38,
-    "middle": 396.04,
-    "lower": 353.69,
+    "upper": 438.4,
+    "middle": 396.03,
+    "lower": 353.67,
     "bandwidth": 21.4,
     "position": 0.17,
     "signal": "below_middle"
@@ -66,7 +66,7 @@
     "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 7616930225.73,
+    "avg_dollar_volume": 7623656349.0,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,8 +85,8 @@
     }
   },
   "vwap": {
-    "intraday": 398.2288,
-    "avwap_60d": 388.9538,
+    "intraday": 398.2221,
+    "avwap_60d": 388.9433,
     "anchor_idx": 28,
     "anchor_date": "2026-07-02"
   }

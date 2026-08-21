@@ -1,38 +1,38 @@
 {
   "symbol": "KO",
   "date": "2026-08-21",
-  "close": 90.6050033569336,
+  "close": 90.56500244140625,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 89.45,
+    "ma5": 89.44,
     "ma10": 88.24,
     "ma20": 87.7,
-    "ma60": 83.42,
+    "ma60": 83.41,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 77.0,
+    "value": 76.8,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 1.6252,
-    "dea": 1.3298,
-    "histogram": 0.5908,
+    "diff": 1.622,
+    "dea": 1.3295,
+    "histogram": 0.585,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 59.9,
-    "d": 53.3,
-    "j": 73.0,
+    "k": 59.7,
+    "d": 53.2,
+    "j": 72.5,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 90.81,
+    "upper": 90.8,
     "middle": 87.7,
     "lower": 84.6,
     "bandwidth": 7.1,
-    "position": 0.97,
+    "position": 0.96,
     "signal": "upper_band"
   },
   "volume": {
@@ -67,7 +67,7 @@
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 1362696934.63,
+    "avg_dollar_volume": 1363520942.61,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,8 +86,8 @@
     }
   },
   "vwap": {
-    "intraday": 82.9659,
-    "avwap_60d": 83.4548,
+    "intraday": 82.9671,
+    "avwap_60d": 83.4561,
     "anchor_idx": 9,
     "anchor_date": "2026-06-04"
   }

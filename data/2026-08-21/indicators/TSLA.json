@@ -1,42 +1,42 @@
 {
   "symbol": "TSLA",
   "date": "2026-08-21",
-  "close": 362.4700012207031,
+  "close": 360.2550048828125,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 346.98,
-    "ma10": 340.83,
-    "ma20": 328.12,
-    "ma60": 373.84,
+    "ma5": 346.53,
+    "ma10": 340.61,
+    "ma20": 328.01,
+    "ma60": 373.8,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 72.6,
+    "value": 71.9,
     "signal": "overbought"
   },
   "macd": {
-    "diff": -3.7406,
-    "dea": -10.6758,
-    "histogram": 13.8704,
+    "diff": -3.9173,
+    "dea": -10.6955,
+    "histogram": 13.5564,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 65.3,
-    "d": 55.1,
-    "j": 85.7,
+    "k": 63.5,
+    "d": 54.5,
+    "j": 81.4,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 359.92,
-    "middle": 328.12,
-    "lower": 296.33,
-    "bandwidth": 19.4,
-    "position": 1.04,
+    "upper": 359.34,
+    "middle": 328.01,
+    "lower": 296.68,
+    "bandwidth": 19.1,
+    "position": 1.01,
     "signal": "upper_band"
   },
   "volume": {
-    "ratio": 0.7,
+    "ratio": 0.8,
     "signal": "normal"
   },
   "fibonacci": {
@@ -65,7 +65,7 @@
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 10899307040.25,
+    "avg_dollar_volume": 10921709116.87,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,8 +84,8 @@
     }
   },
   "vwap": {
-    "intraday": 379.2174,
-    "avwap_60d": 328.4708,
+    "intraday": 379.199,
+    "avwap_60d": 328.5081,
     "anchor_idx": 46,
     "anchor_date": "2026-07-29"
   }

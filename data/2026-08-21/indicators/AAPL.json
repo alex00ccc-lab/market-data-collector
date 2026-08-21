@@ -1,38 +1,38 @@
 {
   "symbol": "AAPL",
   "date": "2026-08-21",
-  "close": 309.6099853515625,
+  "close": 309.989990234375,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 310.67,
-    "ma10": 308.0,
-    "ma20": 314.21,
-    "ma60": 309.26,
+    "ma5": 310.75,
+    "ma10": 308.03,
+    "ma20": 314.23,
+    "ma60": 309.27,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 57.5,
+    "value": 58.0,
     "signal": "bullish"
   },
   "macd": {
-    "diff": -1.8162,
-    "dea": -2.3112,
-    "histogram": 0.99,
+    "diff": -1.7859,
+    "dea": -2.3078,
+    "histogram": 1.0438,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 48.6,
-    "d": 49.5,
-    "j": 46.8,
+    "k": 49.3,
+    "d": 49.8,
+    "j": 48.3,
     "signal": "bearish"
   },
   "bollinger": {
     "upper": 337.94,
-    "middle": 314.21,
-    "lower": 290.49,
+    "middle": 314.23,
+    "lower": 290.52,
     "bandwidth": 15.1,
-    "position": 0.4,
+    "position": 0.41,
     "signal": "below_middle"
   },
   "volume": {
@@ -65,7 +65,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 16260000119.66,
+    "avg_dollar_volume": 16270941352.93,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,8 +84,8 @@
     }
   },
   "vwap": {
-    "intraday": 306.7903,
-    "avwap_60d": 308.8532,
+    "intraday": 306.7916,
+    "avwap_60d": 308.8545,
     "anchor_idx": 23,
     "anchor_date": "2026-06-25"
   }

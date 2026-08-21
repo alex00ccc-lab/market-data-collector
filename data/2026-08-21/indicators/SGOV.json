@@ -1,7 +1,7 @@
 {
   "symbol": "SGOV",
   "date": "2026-08-21",
-  "close": 100.6229019165039,
+  "close": 100.62249755859375,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,15 +16,15 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": 0.1006,
+    "diff": 0.1005,
     "dea": 0.1019,
-    "histogram": -0.0026,
+    "histogram": -0.0028,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 64.8,
+    "k": 64.7,
     "d": 54.9,
-    "j": 84.6,
+    "j": 84.4,
     "signal": "bullish"
   },
   "bollinger": {
@@ -58,7 +58,7 @@
     "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1974042192.72,
+    "avg_dollar_volume": 1975472120.57,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -77,8 +77,8 @@
     }
   },
   "vwap": {
-    "intraday": 100.1397,
-    "avwap_60d": 100.1644,
+    "intraday": 100.1398,
+    "avwap_60d": 100.1645,
     "anchor_idx": 4,
     "anchor_date": "2026-05-28"
   }

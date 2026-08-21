@@ -1,36 +1,36 @@
 {
   "symbol": "JPM",
   "date": "2026-08-21",
-  "close": 352.8900146484375,
+  "close": 352.82501220703125,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 357.18,
-    "ma10": 359.89,
-    "ma20": 357.15,
+    "ma5": 357.17,
+    "ma10": 359.88,
+    "ma20": 357.14,
     "ma60": 336.89,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 50.3,
+    "value": 50.2,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 4.357,
-    "dea": 6.6832,
-    "histogram": -4.6524,
+    "diff": 4.3518,
+    "dea": 6.6826,
+    "histogram": -4.6616,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 36.3,
+    "k": 36.2,
     "d": 45.4,
-    "j": 18.1,
+    "j": 17.7,
     "signal": "bearish"
   },
   "bollinger": {
     "upper": 367.29,
-    "middle": 357.15,
-    "lower": 347.01,
+    "middle": 357.14,
+    "lower": 347.0,
     "bandwidth": 5.7,
     "position": 0.29,
     "signal": "below_middle"
@@ -65,7 +65,7 @@
     "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 2116047426.36,
+    "avg_dollar_volume": 2117079892.55,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,8 +84,8 @@
     }
   },
   "vwap": {
-    "intraday": 331.8882,
-    "avwap_60d": 335.5568,
+    "intraday": 331.8905,
+    "avwap_60d": 335.5588,
     "anchor_idx": 6,
     "anchor_date": "2026-06-01"
   }

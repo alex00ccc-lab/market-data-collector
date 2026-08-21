@@ -1,37 +1,37 @@
 {
   "symbol": "NFLX",
   "date": "2026-08-21",
-  "close": 80.27999877929688,
+  "close": 80.25,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 78.89,
+    "ma5": 78.88,
     "ma10": 77.61,
     "ma20": 75.32,
     "ma60": 75.99,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 70.8,
+    "value": 70.7,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 1.4579,
-    "dea": 0.6196,
-    "histogram": 1.6766,
+    "diff": 1.4555,
+    "dea": 0.6193,
+    "histogram": 1.6724,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 62.8,
-    "d": 54.3,
-    "j": 79.9,
+    "k": 62.7,
+    "d": 54.2,
+    "j": 79.6,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 81.03,
+    "upper": 81.02,
     "middle": 75.32,
     "lower": 69.61,
-    "bandwidth": 15.2,
+    "bandwidth": 15.1,
     "position": 0.93,
     "signal": "upper_band"
   },
@@ -63,7 +63,7 @@
     "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 2460130291.25,
+    "avg_dollar_volume": 2463354644.92,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,8 +82,8 @@
     }
   },
   "vwap": {
-    "intraday": 75.8185,
-    "avwap_60d": 73.0313,
+    "intraday": 75.8197,
+    "avwap_60d": 73.0374,
     "anchor_idx": 39,
     "anchor_date": "2026-07-20"
   }

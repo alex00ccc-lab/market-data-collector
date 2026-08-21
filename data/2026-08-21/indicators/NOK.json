@@ -1,7 +1,7 @@
 {
   "symbol": "NOK",
   "date": "2026-08-21",
-  "close": 10.164999961853027,
+  "close": 10.175000190734863,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -12,19 +12,19 @@
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 60.9,
+    "value": 61.0,
     "signal": "bullish"
   },
   "macd": {
-    "diff": -0.2215,
+    "diff": -0.2207,
     "dea": -0.4283,
-    "histogram": 0.4136,
+    "histogram": 0.4152,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 49.0,
+    "k": 49.2,
     "d": 49.7,
-    "j": 47.6,
+    "j": 48.1,
     "signal": "bearish"
   },
   "bollinger": {
@@ -32,7 +32,7 @@
     "middle": 9.72,
     "lower": 8.42,
     "bandwidth": 26.6,
-    "position": 0.67,
+    "position": 0.68,
     "signal": "above_middle"
   },
   "volume": {
@@ -65,7 +65,7 @@
     "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 787026555.85,
+    "avg_dollar_volume": 787480944.64,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,8 +84,8 @@
     }
   },
   "vwap": {
-    "intraday": 12.5912,
-    "avwap_60d": 9.8702,
+    "intraday": 12.5909,
+    "avwap_60d": 9.8704,
     "anchor_idx": 46,
     "anchor_date": "2026-07-29"
   }
