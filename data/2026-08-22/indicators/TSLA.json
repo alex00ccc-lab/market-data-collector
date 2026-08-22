@@ -1,0 +1,92 @@
+{
+  "symbol": "TSLA",
+  "date": "2026-08-21",
+  "close": 362.8599853515625,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 347.06,
+    "ma10": 340.87,
+    "ma20": 328.14,
+    "ma60": 373.85,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 72.7,
+    "signal": "overbought"
+  },
+  "macd": {
+    "diff": -3.6602,
+    "dea": -10.6036,
+    "histogram": 13.8868,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 63.8,
+    "d": 54.6,
+    "j": 82.3,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 360.02,
+    "middle": 328.14,
+    "lower": 296.26,
+    "bandwidth": 19.4,
+    "position": 1.04,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 1.7,
+    "signal": "surge_up"
+  },
+  "fibonacci": {
+    "high": 443.96,
+    "low": 297.38,
+    "0.0%": 443.96,
+    "23.6%": 409.37,
+    "38.2%": 387.97,
+    "50.0%": 370.67,
+    "61.8%": 353.37,
+    "78.6%": 328.75,
+    "100.0%": 297.38
+  },
+  "trend_strength": "多头",
+  "supports": [
+    298.32,
+    375.12,
+    381.59
+  ],
+  "resistances": [
+    411.15,
+    425.3
+  ],
+  "risk_flags": [
+    "RSI超买",
+    "触及布林上轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 11503507867.04,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 5,
+    "neutral": 0,
+    "bearish": 0,
+    "overall": "bullish",
+    "five_q": {
+      "trend": "bullish",
+      "position": "bullish",
+      "structure": "bullish",
+      "volume": "bullish",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 378.3255,
+    "avwap_60d": 330.143,
+    "anchor_idx": 45,
+    "anchor_date": "2026-07-29"
+  }
+}

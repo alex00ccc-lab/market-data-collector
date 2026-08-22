@@ -1,0 +1,90 @@
+{
+  "symbol": "LRCX",
+  "date": "2026-08-21",
+  "close": 314.0,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 320.69,
+    "ma10": 321.68,
+    "ma20": 307.9,
+    "ma60": 335.09,
+    "alignment": "mixed"
+  },
+  "rsi": {
+    "value": 57.1,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": -0.7057,
+    "dea": -1.6807,
+    "histogram": 1.95,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 42.0,
+    "d": 47.3,
+    "j": 31.4,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 350.23,
+    "middle": 307.9,
+    "lower": 265.56,
+    "bandwidth": 27.5,
+    "position": 0.57,
+    "signal": "above_middle"
+  },
+  "volume": {
+    "ratio": 0.6,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 438.5,
+    "low": 250.5,
+    "0.0%": 438.5,
+    "23.6%": 394.13,
+    "38.2%": 366.68,
+    "50.0%": 344.5,
+    "61.8%": 322.32,
+    "78.6%": 290.73,
+    "100.0%": 250.5
+  },
+  "trend_strength": "震荡",
+  "supports": [
+    252.35,
+    303.07,
+    326.13
+  ],
+  "resistances": [
+    317.74,
+    343.47,
+    433.33
+  ],
+  "risk_flags": [],
+  "frame": {
+    "avg_dollar_volume": 3204477035.18,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 2,
+    "neutral": 3,
+    "bearish": 0,
+    "overall": "neutral",
+    "five_q": {
+      "trend": "neutral",
+      "position": "neutral",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 339.0065,
+    "avwap_60d": 308.85,
+    "anchor_idx": 45,
+    "anchor_date": "2026-07-29"
+  }
+}
