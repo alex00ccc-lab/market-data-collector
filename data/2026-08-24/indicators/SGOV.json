@@ -1,0 +1,84 @@
+{
+  "symbol": "SGOV",
+  "date": "2026-08-21",
+  "close": 100.62999725341797,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 100.59,
+    "ma10": 100.56,
+    "ma20": 100.48,
+    "ma60": 100.19,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 99.0,
+    "signal": "overbought"
+  },
+  "macd": {
+    "diff": 0.1011,
+    "dea": 0.1018,
+    "histogram": -0.0014,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 66.7,
+    "d": 55.6,
+    "j": 88.9,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 100.65,
+    "middle": 100.48,
+    "lower": 100.31,
+    "bandwidth": 0.3,
+    "position": 0.94,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 1.0,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 100.63,
+    "low": 99.75,
+    "0.0%": 100.63,
+    "23.6%": 100.42,
+    "38.2%": 100.29,
+    "50.0%": 100.19,
+    "61.8%": 100.09,
+    "78.6%": 99.94,
+    "100.0%": 99.75
+  },
+  "trend_strength": "震荡",
+  "supports": [],
+  "resistances": [],
+  "risk_flags": [
+    "RSI超买"
+  ],
+  "frame": {
+    "avg_dollar_volume": 2033751653.34,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 2,
+    "neutral": 3,
+    "bearish": 0,
+    "overall": "neutral",
+    "five_q": {
+      "trend": "bullish",
+      "position": "neutral",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "neutral"
+    }
+  },
+  "vwap": {
+    "intraday": 100.1503,
+    "avwap_60d": 100.1689,
+    "anchor_idx": 3,
+    "anchor_date": "2026-05-28"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "symbol": "AVGO",
+  "date": "2026-08-21",
+  "close": 368.45001220703125,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 373.48,
+    "ma10": 393.27,
+    "ma20": 396.07,
+    "ma60": 394.57,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 39.2,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -5.169,
+    "dea": 2.8528,
+    "histogram": -16.0436,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 38.6,
+    "d": 46.2,
+    "j": 23.3,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 438.34,
+    "middle": 396.07,
+    "lower": 353.79,
+    "bandwidth": 21.3,
+    "position": 0.17,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.7,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 494.22,
+    "low": 356.43,
+    "0.0%": 494.22,
+    "23.6%": 461.7,
+    "38.2%": 441.58,
+    "50.0%": 425.32,
+    "61.8%": 409.06,
+    "78.6%": 385.92,
+    "100.0%": 356.43
+  },
+  "trend_strength": "空头",
+  "supports": [
+    360.45,
+    370.32,
+    370.83
+  ],
+  "resistances": [
+    396.81,
+    401.11,
+    427.76
+  ],
+  "risk_flags": [
+    "跌破MA20"
+  ],
+  "frame": {
+    "avg_dollar_volume": 7829222077.21,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 397.8555,
+    "avwap_60d": 388.6497,
+    "anchor_idx": 27,
+    "anchor_date": "2026-07-02"
+  }
+}

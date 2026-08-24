@@ -1,0 +1,200 @@
+{
+  "run_at": "2026-08-24T09:18:45.957002+08:00",
+  "date": "2026-08-24",
+  "symbols_attempted": 24,
+  "symbols_succeeded": 17,
+  "symbols_stale": 0,
+  "symbols_skipped": 7,
+  "symbols_failed": [],
+  "errors": [],
+  "skipped": [
+    "513010 (A: market closed or not in fetch window)",
+    "588080 (A: market closed or not in fetch window)",
+    "588710 (A: market closed or not in fetch window)",
+    "9992.HK (HK: market closed or not in fetch window)",
+    "2631.HK (HK: market closed or not in fetch window)",
+    "1888.HK (HK: market closed or not in fetch window)",
+    "6981.T (JP: market closed or not in fetch window)"
+  ],
+  "per_symbol": {
+    "513010": {
+      "status": "skipped",
+      "reason": "A market closed on 2026-08-24",
+      "source": null,
+      "fetched_at": "2026-08-24T09:17:43.945159+08:00",
+      "quote_date": null
+    },
+    "588080": {
+      "status": "skipped",
+      "reason": "A market closed on 2026-08-24",
+      "source": null,
+      "fetched_at": "2026-08-24T09:17:43.945168+08:00",
+      "quote_date": null
+    },
+    "588710": {
+      "status": "skipped",
+      "reason": "A market closed on 2026-08-24",
+      "source": null,
+      "fetched_at": "2026-08-24T09:17:43.945173+08:00",
+      "quote_date": null
+    },
+    "9992.HK": {
+      "status": "skipped",
+      "reason": "HK market closed on 2026-08-24",
+      "source": null,
+      "fetched_at": "2026-08-24T09:17:43.945179+08:00",
+      "quote_date": null
+    },
+    "2631.HK": {
+      "status": "skipped",
+      "reason": "HK market closed on 2026-08-24",
+      "source": null,
+      "fetched_at": "2026-08-24T09:17:43.945192+08:00",
+      "quote_date": null
+    },
+    "1888.HK": {
+      "status": "skipped",
+      "reason": "HK market closed on 2026-08-24",
+      "source": null,
+      "fetched_at": "2026-08-24T09:17:43.945202+08:00",
+      "quote_date": null
+    },
+    "NOK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:17:45.242843+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/NOK.json"
+    },
+    "SGOV": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:17:47.064643+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/SGOV.json"
+    },
+    "TSLA": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:17:49.052149+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/TSLA.json"
+    },
+    "SIVE.ST": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:17:51.106943+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/SIVE.ST.json"
+    },
+    "LRCX": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:17:53.084078+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/LRCX.json"
+    },
+    "6981.T": {
+      "status": "skipped",
+      "reason": "JP market closed on 2026-08-24",
+      "source": null,
+      "fetched_at": "2026-08-24T09:17:53.084671+08:00",
+      "quote_date": null
+    },
+    "GOOGL": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:17:55.061933+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/GOOGL.json"
+    },
+    "KO": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:17:57.264747+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/KO.json"
+    },
+    "AAPL": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:17:59.124865+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/AAPL.json"
+    },
+    "MSFT": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:18:01.108965+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/MSFT.json"
+    },
+    "AMZN": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:18:03.050103+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/AMZN.json"
+    },
+    "META": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:18:05.065301+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/META.json"
+    },
+    "NFLX": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:18:07.053237+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/NFLX.json"
+    },
+    "AMD": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:18:09.062450+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/AMD.json"
+    },
+    "INTC": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:18:11.120577+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/INTC.json"
+    },
+    "AVGO": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:18:13.086596+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/AVGO.json"
+    },
+    "COST": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:18:15.095504+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/COST.json"
+    },
+    "JPM": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-24T09:18:17.225147+08:00",
+      "quote_date": "2026-08-21",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-08-24/quotes/JPM.json"
+    }
+  },
+  "source_health": {
+    "yfinance": {
+      "success_rate": "100%",
+      "ok": 30,
+      "failed": 0,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 1377
+    }
+  }
+}
