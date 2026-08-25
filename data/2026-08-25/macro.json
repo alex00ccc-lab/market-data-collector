@@ -43,15 +43,15 @@
   },
   "^KS11": {
     "name": "韩国KOSPI指数",
-    "price": 6912.95,
-    "date": "2026-08-21",
-    "change_pct": 0.88
+    "price": 6548.18,
+    "date": "2026-08-25",
+    "change_pct": -5.28
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 92.13,
+    "price": 91.98,
     "date": "2026-08-24",
-    "change_pct": -2.39
+    "change_pct": -2.55
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
@@ -73,8 +73,8 @@
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 66016.36,
-    "date": "2026-08-21",
-    "change_pct": -0.3
+    "price": 65059.62,
+    "date": "2026-08-25",
+    "change_pct": -1.45
   }
 }
