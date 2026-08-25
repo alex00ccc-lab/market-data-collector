@@ -1,0 +1,136 @@
+{
+  "run_at": "2026-08-25T08:02:07.239761+08:00",
+  "date": "2026-08-25",
+  "symbols_attempted": 16,
+  "symbols_succeeded": 16,
+  "symbols_stale": 0,
+  "symbols_skipped": 0,
+  "symbols_failed": [],
+  "errors": [],
+  "skipped": [],
+  "per_symbol": {
+    "NOK": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:16.658990+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\NOK.json"
+    },
+    "SGOV": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:19.267253+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\SGOV.json"
+    },
+    "TSLA": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:23.216166+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\TSLA.json"
+    },
+    "LRCX": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:27.242356+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\LRCX.json"
+    },
+    "GOOGL": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:31.215499+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\GOOGL.json"
+    },
+    "KO": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:35.317136+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\KO.json"
+    },
+    "AAPL": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:39.275137+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\AAPL.json"
+    },
+    "MSFT": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:43.250021+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\MSFT.json"
+    },
+    "AMZN": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:47.223677+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\AMZN.json"
+    },
+    "META": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:51.223035+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\META.json"
+    },
+    "NFLX": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:55.231855+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\NFLX.json"
+    },
+    "AMD": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:00:59.221234+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\AMD.json"
+    },
+    "INTC": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:01:03.260956+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\INTC.json"
+    },
+    "AVGO": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:01:07.265448+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\AVGO.json"
+    },
+    "COST": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:01:11.272282+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\COST.json"
+    },
+    "JPM": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-08-25T08:01:15.285444+08:00",
+      "quote_date": "2026-08-24",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-08-25\\quotes\\JPM.json"
+    }
+  },
+  "source_health": {
+    "yfinance": {
+      "success_rate": "100%",
+      "ok": 29,
+      "failed": 0,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 1285
+    }
+  }
+}
