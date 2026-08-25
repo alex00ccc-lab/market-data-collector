@@ -16,8 +16,8 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": -3.0503,
-    "dea": -4.247,
+    "diff": -3.0502,
+    "dea": -4.2469,
     "histogram": 2.3934,
     "signal": "golden_cross"
   },
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 48.4139,
+    "intraday": 48.5171,
     "avwap_60d": 35.6186,
-    "anchor_idx": 102,
+    "anchor_idx": 101,
     "anchor_date": "2026-07-30"
   }
 }

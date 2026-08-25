@@ -8,7 +8,7 @@
     "ma5": 152.68,
     "ma10": 152.63,
     "ma20": 156.11,
-    "ma60": 161.32,
+    "ma60": 161.33,
     "alignment": "bearish"
   },
   "rsi": {
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 165.8265,
+    "intraday": 165.5792,
     "avwap_60d": 149.5657,
-    "anchor_idx": 118,
+    "anchor_idx": 117,
     "anchor_date": "2026-08-21"
   }
 }

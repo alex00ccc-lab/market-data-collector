@@ -1,43 +1,43 @@
 {
   "symbol": "SIVE.ST",
-  "date": "2026-08-24",
-  "close": NaN,
+  "date": "2026-08-25",
+  "close": 34.08000183105469,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": NaN,
-    "ma10": NaN,
-    "ma20": NaN,
-    "ma60": NaN,
+    "ma5": 35.76,
+    "ma10": 38.56,
+    "ma20": 36.26,
+    "ma60": 54.11,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 48.9,
+    "value": 44.9,
     "signal": "bearish"
   },
   "macd": {
-    "diff": NaN,
-    "dea": NaN,
-    "histogram": NaN,
-    "signal": "divergence"
+    "diff": -2.3421,
+    "dea": -2.4054,
+    "histogram": 0.1266,
+    "signal": "golden_cross"
   },
   "kdj": {
-    "k": NaN,
-    "d": NaN,
-    "j": NaN,
+    "k": 36.9,
+    "d": 45.6,
+    "j": 19.5,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": NaN,
-    "middle": NaN,
-    "lower": NaN,
-    "bandwidth": 0,
-    "position": NaN,
+    "upper": 45.85,
+    "middle": 36.26,
+    "lower": 26.66,
+    "bandwidth": 52.9,
+    "position": 0.39,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.9,
-    "signal": "normal"
+    "ratio": 0.3,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 110.0,
@@ -61,24 +61,33 @@
     97.45,
     101.9
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "跌破MA20",
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": NaN,
+    "avg_dollar_volume": 260294239.0,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 0,
-    "neutral": 3,
+    "bullish": 1,
+    "neutral": 2,
     "bearish": 2,
     "overall": "neutral",
     "five_q": {
       "trend": "bearish",
-      "position": "neutral",
-      "structure": "neutral",
+      "position": "bullish",
+      "structure": "bearish",
       "volume": "neutral",
-      "momentum": "bearish"
+      "momentum": "neutral"
     }
+  },
+  "vwap": {
+    "intraday": 60.7861,
+    "avwap_60d": 36.4172,
+    "anchor_idx": 46,
+    "anchor_date": "2026-07-29"
   }
 }

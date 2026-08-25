@@ -22,9 +22,9 @@
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 38.1,
+    "k": 38.0,
     "d": 46.0,
-    "j": 22.2,
+    "j": 22.0,
     "signal": "bearish"
   },
   "bollinger": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 783990948.83,
+    "avg_dollar_volume": 784047174.58,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,8 +82,8 @@
     }
   },
   "vwap": {
-    "intraday": 12.4899,
-    "avwap_60d": 9.88,
+    "intraday": 12.4898,
+    "avwap_60d": 9.8801,
     "anchor_idx": 44,
     "anchor_date": "2026-07-29"
   }
