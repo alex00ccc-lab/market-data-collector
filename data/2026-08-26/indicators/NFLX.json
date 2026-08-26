@@ -1,0 +1,90 @@
+{
+  "symbol": "NFLX",
+  "date": "2026-08-25",
+  "close": 82.2300033569336,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 80.44,
+    "ma10": 78.66,
+    "ma20": 76.26,
+    "ma60": 75.81,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 71.2,
+    "signal": "overbought"
+  },
+  "macd": {
+    "diff": 1.7705,
+    "dea": 1.0196,
+    "histogram": 1.5018,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 65.6,
+    "d": 55.2,
+    "j": 86.4,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 82.19,
+    "middle": 76.26,
+    "lower": 70.32,
+    "bandwidth": 15.6,
+    "position": 1.0,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 1.1,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 87.23,
+    "low": 65.08,
+    "0.0%": 87.23,
+    "23.6%": 82.0,
+    "38.2%": 78.77,
+    "50.0%": 76.16,
+    "61.8%": 73.54,
+    "78.6%": 69.82,
+    "100.0%": 65.08
+  },
+  "trend_strength": "多头",
+  "supports": [
+    67.6,
+    70.9
+  ],
+  "resistances": [
+    77.65
+  ],
+  "risk_flags": [
+    "RSI超买",
+    "触及布林上轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 2418930890.63,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 3,
+    "neutral": 1,
+    "bearish": 1,
+    "overall": "mildly_bullish",
+    "five_q": {
+      "trend": "bullish",
+      "position": "bearish",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 75.6773,
+    "avwap_60d": 73.5401,
+    "anchor_idx": 37,
+    "anchor_date": "2026-07-20"
+  }
+}
