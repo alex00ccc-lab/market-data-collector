@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 1718797229.77,
+    "avg_dollar_volume": 1720574688.31,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,8 +82,8 @@
     }
   },
   "vwap": {
-    "intraday": 953.0338,
-    "avwap_60d": 942.4119,
+    "intraday": 953.0371,
+    "avwap_60d": 942.4249,
     "anchor_idx": 30,
     "anchor_date": "2026-07-09"
   }
