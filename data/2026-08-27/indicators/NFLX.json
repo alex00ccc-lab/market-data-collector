@@ -62,7 +62,7 @@
     "RSI超买"
   ],
   "frame": {
-    "avg_dollar_volume": 2350344222.19,
+    "avg_dollar_volume": 2351090599.43,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -81,8 +81,8 @@
     }
   },
   "vwap": {
-    "intraday": 75.6198,
-    "avwap_60d": 73.7276,
+    "intraday": 75.6202,
+    "avwap_60d": 73.7291,
     "anchor_idx": 36,
     "anchor_date": "2026-07-20"
   }
