@@ -1,19 +1,18 @@
 {
-  "last_run": "2026-08-26T10:26:48.206052+08:00",
+  "last_run": "2026-08-26T18:14:31.191071+08:00",
   "markets": [
-    "US"
+    "A",
+    "HK",
+    "JP"
   ],
   "success": false,
   "errors": [
-    "NOK: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
-    "SGOV: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
-    "TSLA: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
-    "LRCX: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
-    "GOOGL: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
-    "KO: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
-    "AAPL: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
-    "MSFT: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
-    "AMZN: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
-    "META: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)"
+    "513010: all sources failed (tried: tencent, mootdx, efinance, aktools, yfinance; tencent=failed, mootdx=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+    "588710: all sources failed (tried: tencent, mootdx, efinance, aktools, yfinance; tencent=failed, mootdx=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+    "9992.HK: all sources failed (tried: tencent, efinance, aktools, yfinance; tencent=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+    "2631.HK: all sources failed (tried: tencent, efinance, aktools, yfinance; tencent=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+    "1888.HK: all sources failed (tried: tencent, efinance, aktools, yfinance; tencent=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+    "6981.T: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)",
+    "git push failed"
   ]
 }

@@ -24,7 +24,7 @@
   "kdj": {
     "k": 65.6,
     "d": 55.2,
-    "j": 86.4,
+    "j": 86.3,
     "signal": "bullish"
   },
   "bollinger": {
@@ -63,7 +63,7 @@
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 2418930890.63,
+    "avg_dollar_volume": 2419030257.36,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,8 +82,8 @@
     }
   },
   "vwap": {
-    "intraday": 75.6773,
-    "avwap_60d": 73.5401,
+    "intraday": 75.6774,
+    "avwap_60d": 73.5403,
     "anchor_idx": 37,
     "anchor_date": "2026-07-20"
   }
