@@ -634,11 +634,13 @@ def compute_all(
     """
     result = IndicatorResult(symbol=symbol)
 
-    # Detect skeleton data (close=0 from fetch.py fallback)
-    if kline_data and len(kline_data) == 1 and kline_data[0].get("close", 0) <= 0:
-        result.date = kline_data[0]["date"]
-        result.skeleton = True
-        return result
+    # Detect skeleton data (close=0 from fetch.py fallback; NaN from yfinance weekend bar)
+    if kline_data and len(kline_data) == 1:
+        _c = kline_data[0].get("close", 0)
+        if _c is None or _c != _c or _c <= 0:
+            result.date = kline_data[0]["date"]
+            result.skeleton = True
+            return result
 
     if not kline_data or len(kline_data) < 20:
         result.date = kline_data[-1]["date"] if kline_data else ""

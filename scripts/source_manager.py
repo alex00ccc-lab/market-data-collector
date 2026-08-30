@@ -304,6 +304,16 @@ class SourceManager:
                 continue
 
             if kline and len(kline) > 0:
+                # NaN 校验：末根 bar 的 close 必须是有效正数。yfinance 周末（非交易时段）
+                # 返回周五 bar 的 OHLC=NaN（volume 真实），若直接接受会一路传播成 +nan%
+                # 并吞掉「缺周五」的事实。检测到无效 close → 记 failed 并回退到下一 adapter
+                # （如 twelvedata，独立源，周五真实收盘价齐全）。
+                _last = kline[-1].get("close") if isinstance(kline[-1], dict) else None
+                if _last is None or _last != _last or _last <= 0:
+                    self._record(name, symbol, "failed", len(kline))
+                    logger.warning("%s(%s): invalid close (NaN/≤0) on last bar — falling through",
+                                   name, symbol)
+                    continue
                 # Detect stale data (adapter sets "stale": True on each bar)
                 is_stale = any(e.get("stale") for e in kline if isinstance(e, dict))
                 status = "stale" if is_stale else "ok"

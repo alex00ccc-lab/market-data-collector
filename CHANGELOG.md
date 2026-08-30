@@ -5,6 +5,40 @@
 
 ---
 
+## v15.3 — 2026-08-30 — yfinance 周末 NaN-close bar 校验（回退独立源补周五数据）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.68（子模块指针） |
+
+### 背景
+
+yfinance 免费源在**非交易时段**（周六）返回的最后一根 bar（周五）OHLC=NaN、仅 volume 真实。
+`source_manager.fetch_with_fallback` 只判「非空即成功」，不校验 NaN，于是这根 NaN bar 被当成
+成功数据落盘并算指标，周涨跌一路传播成 `+nan%`，且吞掉「缺周五」的事实——独立源 twelvedata
+（周五真实收盘价齐全）的回退永不触发。DSA 周报曾因周涨跌显示 `+nan%` 暴露此问题。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/source_manager.py` | `fetch_with_fallback` 收数据后加「末根 close 是有效正数」校验，NaN/None/≤0 → 记 failed 并 `continue` 回退下一 adapter（twelvedata） |
+| `scripts/indicators.py` | `compute_all` 骨架检测加 NaN 识别（原 `close<=0` 拦不住 NaN） |
+
+### 验证
+
+- 语法：`py_compile` 通过
+- 逻辑：NaN/0/负值/None 均判为无效 close，正常正数放行
+- `compute_all` 单根 NaN-close bar → `skeleton=True`（编辑后代码路径实测）
+
+### 回滚方法
+
+```bash
+git revert <commit>   # 恢复「非空即成功」，yfinance 周末 NaN 重新流入（缺周五）
+```
+
+---
+
 ## v15.2 — 2026-08-21 — 上证指数改走 yfinance（efinance 被 CI 海外 IP 封禁）
 
 | 属性 | 值 |
