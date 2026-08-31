@@ -1,0 +1,190 @@
+{
+  "run_at": "2026-08-31T13:11:35.987203+08:00",
+  "date": "2026-08-31",
+  "symbols_attempted": 16,
+  "symbols_succeeded": 0,
+  "symbols_stale": 0,
+  "symbols_skipped": 0,
+  "symbols_failed": [
+    "NOK",
+    "SGOV",
+    "TSLA",
+    "LRCX",
+    "GOOGL",
+    "KO",
+    "AAPL",
+    "MSFT",
+    "AMZN",
+    "META",
+    "NFLX",
+    "AMD",
+    "INTC",
+    "AVGO",
+    "COST",
+    "JPM"
+  ],
+  "errors": [
+    "NOK: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "SGOV: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "TSLA: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "LRCX: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "GOOGL: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "KO: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "AAPL: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "MSFT: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "AMZN: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "META: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "NFLX: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "AMD: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "INTC: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "AVGO: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "COST: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "JPM: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)"
+  ],
+  "skipped": [],
+  "per_symbol": {
+    "NOK": {
+      "status": "missing",
+      "error": "NOK: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "SGOV": {
+      "status": "missing",
+      "error": "SGOV: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "TSLA": {
+      "status": "missing",
+      "error": "TSLA: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "LRCX": {
+      "status": "missing",
+      "error": "LRCX: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "GOOGL": {
+      "status": "missing",
+      "error": "GOOGL: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "KO": {
+      "status": "missing",
+      "error": "KO: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "AAPL": {
+      "status": "missing",
+      "error": "AAPL: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "MSFT": {
+      "status": "missing",
+      "error": "MSFT: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "AMZN": {
+      "status": "missing",
+      "error": "AMZN: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "META": {
+      "status": "missing",
+      "error": "META: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "NFLX": {
+      "status": "missing",
+      "error": "NFLX: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "AMD": {
+      "status": "missing",
+      "error": "AMD: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "INTC": {
+      "status": "missing",
+      "error": "INTC: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "AVGO": {
+      "status": "missing",
+      "error": "AVGO: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "COST": {
+      "status": "missing",
+      "error": "COST: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    },
+    "JPM": {
+      "status": "missing",
+      "error": "JPM: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+      "sources_tried": "yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage",
+      "quote_date": null
+    }
+  },
+  "source_health": {
+    "alpha_vantage": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 29,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "finnhub": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 29,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "twelvedata": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 29,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "yahoo_chart": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 29,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "yfinance": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 29,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    }
+  }
+}
