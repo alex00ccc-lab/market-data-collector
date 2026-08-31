@@ -1,8 +1,19 @@
 {
-  "last_run": "2026-08-28T12:56:31.633405+08:00",
+  "last_run": "2026-08-31T13:07:35.653233+08:00",
   "markets": [
     "US"
   ],
-  "success": true,
-  "errors": []
+  "success": false,
+  "errors": [
+    "NOK: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "SGOV: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "TSLA: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "LRCX: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "GOOGL: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "KO: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "AAPL: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "MSFT: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "AMZN: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)",
+    "META: all sources failed (tried: yfinance, yahoo_chart, finnhub, twelvedata, alpha_vantage; yfinance=failed, yahoo_chart=failed, finnhub=failed, twelvedata=failed, alpha_vantage=failed)"
+  ]
 }
