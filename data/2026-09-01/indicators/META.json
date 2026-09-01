@@ -1,43 +1,43 @@
 {
   "symbol": "META",
-  "date": "2026-08-31",
-  "close": 572.3400268554688,
+  "date": "2026-09-01",
+  "close": 567.155029296875,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 573.53,
-    "ma10": 561.21,
-    "ma20": 574.87,
-    "ma60": 590.12,
+    "ma5": 572.95,
+    "ma10": 563.56,
+    "ma20": 573.84,
+    "ma60": 589.69,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 40.3,
+    "value": 45.3,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -7.3019,
-    "dea": -10.9837,
-    "histogram": 7.3636,
+    "diff": -7.0355,
+    "dea": -10.4987,
+    "histogram": 6.9264,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 54.2,
-    "d": 51.4,
-    "j": 59.8,
+    "k": 50.5,
+    "d": 50.2,
+    "j": 51.2,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 609.9,
-    "middle": 574.87,
-    "lower": 539.85,
-    "bandwidth": 12.2,
-    "position": 0.46,
+    "upper": 608.48,
+    "middle": 573.84,
+    "lower": 539.19,
+    "bandwidth": 12.1,
+    "position": 0.4,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.8,
-    "signal": "normal"
+    "ratio": 0.1,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 686.08,
@@ -62,30 +62,31 @@
     681.31
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 8819905719.76,
+    "avg_dollar_volume": 8361198319.2,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 0,
-    "neutral": 4,
-    "bearish": 1,
+    "neutral": 3,
+    "bearish": 2,
     "overall": "neutral",
     "five_q": {
       "trend": "bearish",
       "position": "neutral",
-      "structure": "neutral",
+      "structure": "bearish",
       "volume": "neutral",
       "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 592.8266,
-    "avwap_60d": 569.424,
+    "intraday": 592.7675,
+    "avwap_60d": 569.3926,
     "anchor_idx": 41,
     "anchor_date": "2026-07-30"
   }

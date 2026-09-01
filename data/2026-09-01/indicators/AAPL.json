@@ -1,43 +1,43 @@
 {
   "symbol": "AAPL",
-  "date": "2026-08-31",
-  "close": 316.8500061035156,
+  "date": "2026-09-01",
+  "close": 321.9739074707031,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 314.9,
-    "ma10": 313.23,
-    "ma20": 310.48,
-    "ma60": 309.57,
+    "ma5": 317.31,
+    "ma10": 314.43,
+    "ma20": 311.12,
+    "ma60": 309.82,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 65.1,
-    "signal": "bullish"
+    "value": 73.5,
+    "signal": "overbought"
   },
   "macd": {
-    "diff": 0.3271,
-    "dea": -1.0108,
-    "histogram": 2.6758,
+    "diff": 0.9865,
+    "dea": -0.7124,
+    "histogram": 3.3978,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 54.7,
-    "d": 51.6,
-    "j": 60.9,
+    "k": 65.8,
+    "d": 55.3,
+    "j": 86.9,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 319.21,
-    "middle": 310.48,
-    "lower": 301.75,
-    "bandwidth": 5.6,
-    "position": 0.86,
-    "signal": "above_middle"
+    "upper": 321.15,
+    "middle": 311.12,
+    "lower": 301.09,
+    "bandwidth": 6.4,
+    "position": 1.04,
+    "signal": "upper_band"
   },
   "volume": {
-    "ratio": 1.2,
-    "signal": "normal"
+    "ratio": 0.2,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 344.27,
@@ -61,9 +61,13 @@
     316.83,
     339.79
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "RSI超买",
+    "缩量警示",
+    "触及布林上轨"
+  ],
   "frame": {
-    "avg_dollar_volume": 12835713500.74,
+    "avg_dollar_volume": 11914464790.76,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,8 +86,8 @@
     }
   },
   "vwap": {
-    "intraday": 307.0246,
-    "avwap_60d": 309.2908,
+    "intraday": 307.053,
+    "avwap_60d": 309.3221,
     "anchor_idx": 17,
     "anchor_date": "2026-06-25"
   }

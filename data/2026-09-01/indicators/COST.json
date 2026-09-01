@@ -1,53 +1,53 @@
 {
   "symbol": "COST",
-  "date": "2026-08-31",
-  "close": 943.8900146484375,
+  "date": "2026-09-01",
+  "close": 944.030029296875,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 953.22,
-    "ma10": 951.92,
-    "ma20": 951.48,
-    "ma60": 949.95,
+    "ma5": 944.83,
+    "ma10": 949.38,
+    "ma20": 950.86,
+    "ma60": 949.09,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 47.1,
+    "value": 48.1,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.2784,
-    "dea": 2.0132,
-    "histogram": -3.4696,
+    "diff": -0.6154,
+    "dea": 1.2359,
+    "histogram": -3.7026,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 44.7,
-    "d": 48.2,
-    "j": 37.7,
+    "k": 45.8,
+    "d": 48.6,
+    "j": 40.3,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 969.84,
-    "middle": 951.48,
-    "lower": 933.12,
+    "upper": 969.57,
+    "middle": 950.86,
+    "lower": 932.15,
     "bandwidth": 3.9,
-    "position": 0.29,
+    "position": 0.32,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 1.3,
-    "signal": "normal"
+    "ratio": 0.1,
+    "signal": "shrink"
   },
   "fibonacci": {
-    "high": 995.83,
+    "high": 993.8,
     "low": 905.77,
-    "0.0%": 995.83,
-    "23.6%": 974.57,
-    "38.2%": 961.43,
-    "50.0%": 950.8,
-    "61.8%": 940.17,
-    "78.6%": 925.04,
+    "0.0%": 993.8,
+    "23.6%": 973.02,
+    "38.2%": 960.17,
+    "50.0%": 949.78,
+    "61.8%": 939.4,
+    "78.6%": 924.61,
     "100.0%": 905.77
   },
   "trend_strength": "空头",
@@ -57,15 +57,16 @@
     941.99
   ],
   "resistances": [
-    944.07,
     961.85,
+    971.4,
     974.03
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1704868260.91,
+    "avg_dollar_volume": 1566287529.5,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,8 +85,8 @@
     }
   },
   "vwap": {
-    "intraday": 949.2438,
-    "avwap_60d": 942.6506,
+    "intraday": 949.2031,
+    "avwap_60d": 942.709,
     "anchor_idx": 26,
     "anchor_date": "2026-07-09"
   }

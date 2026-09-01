@@ -1,43 +1,43 @@
 {
   "symbol": "AVGO",
-  "date": "2026-08-31",
-  "close": 370.3399963378906,
+  "date": "2026-09-01",
+  "close": 363.4049987792969,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 364.6,
-    "ma10": 365.67,
-    "ma20": 389.96,
-    "ma60": 385.79,
+    "ma5": 365.93,
+    "ma10": 364.01,
+    "ma20": 387.23,
+    "ma60": 385.43,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 26.2,
+    "value": 24.5,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -8.7283,
-    "dea": -6.949,
-    "histogram": -3.5586,
+    "diff": -8.8657,
+    "dea": -7.7997,
+    "histogram": -2.132,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 58.8,
-    "d": 52.9,
-    "j": 70.6,
+    "k": 50.1,
+    "d": 50.0,
+    "j": 50.2,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 442.1,
-    "middle": 389.96,
-    "lower": 337.83,
+    "upper": 438.9,
+    "middle": 387.23,
+    "lower": 335.55,
     "bandwidth": 26.7,
-    "position": 0.31,
+    "position": 0.27,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 1.2,
-    "signal": "normal"
+    "ratio": 0.1,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 432.73,
@@ -63,10 +63,11 @@
   ],
   "risk_flags": [
     "RSI超卖",
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 7600673309.19,
+    "avg_dollar_volume": 7031148525.71,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,8 +86,8 @@
     }
   },
   "vwap": {
-    "intraday": 393.3243,
-    "avwap_60d": 365.8007,
+    "intraday": 393.2768,
+    "avwap_60d": 365.7393,
     "anchor_idx": 60,
     "anchor_date": "2026-08-26"
   }

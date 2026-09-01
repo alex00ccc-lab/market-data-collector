@@ -1,43 +1,43 @@
 {
   "symbol": "TSLA",
-  "date": "2026-08-31",
-  "close": 367.95001220703125,
+  "date": "2026-09-01",
+  "close": 358.32000732421875,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 353.52,
-    "ma10": 351.25,
-    "ma20": 341.11,
-    "ma60": 366.46,
+    "ma5": 355.13,
+    "ma10": 353.4,
+    "ma20": 342.66,
+    "ma60": 365.92,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 65.0,
+    "value": 62.7,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 1.5505,
-    "dea": -2.2529,
-    "histogram": 7.6068,
+    "diff": 2.126,
+    "dea": -1.2576,
+    "histogram": 6.7672,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 65.7,
-    "d": 55.2,
-    "j": 86.6,
+    "k": 54.9,
+    "d": 51.6,
+    "j": 61.4,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 366.8,
-    "middle": 341.11,
-    "lower": 315.42,
+    "upper": 368.58,
+    "middle": 342.66,
+    "lower": 316.74,
     "bandwidth": 15.1,
-    "position": 1.02,
-    "signal": "upper_band"
+    "position": 0.8,
+    "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.9,
-    "signal": "surge_up"
+    "ratio": 0.3,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 432.86,
@@ -62,30 +62,30 @@
     425.3
   ],
   "risk_flags": [
-    "触及布林上轨"
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 11795348715.67,
+    "avg_dollar_volume": 11428104390.3,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 4,
-    "neutral": 1,
+    "bullish": 3,
+    "neutral": 2,
     "bearish": 0,
-    "overall": "bullish",
+    "overall": "mildly_bullish",
     "five_q": {
       "trend": "bullish",
       "position": "neutral",
       "structure": "bullish",
-      "volume": "bullish",
+      "volume": "neutral",
       "momentum": "bullish"
     }
   },
   "vwap": {
-    "intraday": 371.783,
-    "avwap_60d": 336.5061,
+    "intraday": 371.7327,
+    "avwap_60d": 336.7607,
     "anchor_idx": 40,
     "anchor_date": "2026-07-29"
   }
