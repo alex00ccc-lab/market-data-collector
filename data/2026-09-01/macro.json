@@ -1,68 +1,80 @@
 {
   "^VIX": {
     "name": "VIX 恐慌指数",
-    "price": 15.18,
+    "price": 14.92,
     "date": "2026-08-31",
-    "change_pct": 5.2
+    "change_pct": 2.83
   },
   "^TNX": {
     "name": "10年期美债收益率",
     "price": 4.76,
     "date": "2026-08-31",
-    "change_pct": 0.85
+    "change_pct": 1.84
   },
   "^TYX": {
     "name": "30年期美债收益率",
-    "price": 5.26,
+    "price": 5.25,
     "date": "2026-08-31",
-    "change_pct": 1.06
+    "change_pct": 1.12
   },
   "^IRX": {
     "name": "13周国库券收益率",
-    "price": 3.74,
+    "price": 3.73,
     "date": "2026-08-31",
-    "change_pct": 0.27
+    "change_pct": 1.47
   },
   "^FVX": {
     "name": "5年期美债收益率",
-    "price": 4.5,
+    "price": 4.51,
     "date": "2026-08-31",
-    "change_pct": 0.51
+    "change_pct": 2.53
   },
   "^SOX": {
     "name": "费城半导体指数SOX",
-    "price": 11491.3,
+    "price": 11535.05,
     "date": "2026-08-31",
-    "change_pct": 0.19
+    "change_pct": -2.92
   },
   "^IXIC": {
     "name": "纳斯达克综合指数",
-    "price": 26295.78,
+    "price": 26370.89,
     "date": "2026-08-31",
-    "change_pct": -0.4
+    "change_pct": -0.64
+  },
+  "^KS11": {
+    "name": "韩国KOSPI指数",
+    "price": 6801.37,
+    "date": "2026-09-01",
+    "change_pct": -0.27
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 88.23,
+    "price": 88.88,
     "date": "2026-08-31",
-    "change_pct": -1.21
+    "change_pct": -0.48
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 99.43,
+    "price": 99.49,
     "date": "2026-08-31",
-    "change_pct": -0.27
+    "change_pct": 0.33
+  },
+  "000001.SS": {
+    "name": "上证指数",
+    "price": 3987.56,
+    "date": "2026-09-01",
+    "change_pct": 0.03
   },
   "^HSI": {
     "name": "恒生指数",
-    "price": 25584.79,
-    "date": "2026-08-28",
-    "change_pct": 0.07
+    "price": 25296.26,
+    "date": "2026-09-01",
+    "change_pct": -1.06
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 66405.56,
-    "date": "2026-08-28",
-    "change_pct": 0.41
+    "price": 66205.96,
+    "date": "2026-09-01",
+    "change_pct": -0.16
   }
 }

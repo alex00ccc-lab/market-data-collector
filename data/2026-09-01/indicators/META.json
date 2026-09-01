@@ -1,14 +1,14 @@
 {
   "symbol": "META",
   "date": "2026-08-31",
-  "close": 572.34003,
+  "close": 572.3400268554688,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 573.53,
     "ma10": 561.21,
     "ma20": 574.87,
-    "ma60": 590.17,
+    "ma60": 590.12,
     "alignment": "bearish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -7.5602,
-    "dea": -11.342,
-    "histogram": 7.5636,
+    "diff": -7.3019,
+    "dea": -10.9837,
+    "histogram": 7.3636,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -65,7 +65,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 8819209197.61,
+    "avg_dollar_volume": 8819905719.76,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 601.7175,
-    "avwap_60d": 569.4234,
-    "anchor_idx": 97,
+    "intraday": 592.8266,
+    "avwap_60d": 569.424,
+    "anchor_idx": 41,
     "anchor_date": "2026-07-30"
   }
 }

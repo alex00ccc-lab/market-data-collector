@@ -1,7 +1,7 @@
 {
   "symbol": "NFLX",
   "date": "2026-08-31",
-  "close": 81.050003,
+  "close": 81.05000305175781,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 1.9218,
-    "dea": 1.6627,
-    "histogram": 0.5182,
+    "diff": 1.93,
+    "dea": 1.6741,
+    "histogram": 0.5118,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -53,38 +53,35 @@
   "trend_strength": "多头",
   "supports": [
     67.6,
-    70.9,
-    85.45
+    70.9
   ],
   "resistances": [
-    77.65,
-    89.65,
-    93.61
+    77.65
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 2243550249.1,
+    "avg_dollar_volume": 2243731249.66,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 3,
-    "neutral": 2,
-    "bearish": 0,
+    "neutral": 1,
+    "bearish": 1,
     "overall": "mildly_bullish",
     "five_q": {
       "trend": "bullish",
-      "position": "neutral",
+      "position": "bearish",
       "structure": "bullish",
       "volume": "neutral",
       "momentum": "bullish"
     }
   },
   "vwap": {
-    "intraday": 83.4067,
-    "avwap_60d": 74.2938,
-    "anchor_idx": 89,
+    "intraday": 75.377,
+    "avwap_60d": 74.2941,
+    "anchor_idx": 33,
     "anchor_date": "2026-07-20"
   }
 }

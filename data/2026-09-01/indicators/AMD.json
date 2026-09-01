@@ -1,12 +1,12 @@
 {
   "symbol": "AMD",
   "date": "2026-08-31",
-  "close": 470.72,
+  "close": 470.7200012207031,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 474.62,
-    "ma10": 472.33,
+    "ma10": 472.34,
     "ma20": 481.34,
     "ma60": 503.77,
     "alignment": "bearish"
@@ -16,10 +16,10 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -7.7433,
-    "dea": -7.7261,
-    "histogram": -0.0344,
-    "signal": "death_cross"
+    "diff": -8.173,
+    "dea": -8.3219,
+    "histogram": 0.2978,
+    "signal": "golden_cross"
   },
   "kdj": {
     "k": 49.7,
@@ -50,7 +50,7 @@
     "78.6%": 458.42,
     "100.0%": 424.03
   },
-  "trend_strength": "空头",
+  "trend_strength": "震荡",
   "supports": [
     429.56,
     456.75,
@@ -65,28 +65,28 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 10592096823.48,
+    "avg_dollar_volume": 10592913919.81,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 1,
-    "bearish": 3,
-    "overall": "mildly_bearish",
+    "neutral": 2,
+    "bearish": 2,
+    "overall": "neutral",
     "five_q": {
       "trend": "bearish",
       "position": "bullish",
       "structure": "bearish",
       "volume": "neutral",
-      "momentum": "bearish"
+      "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 403.6951,
-    "avwap_60d": 482.3589,
-    "anchor_idx": 96,
+    "intraday": 506.7828,
+    "avwap_60d": 482.3581,
+    "anchor_idx": 40,
     "anchor_date": "2026-07-29"
   }
 }
