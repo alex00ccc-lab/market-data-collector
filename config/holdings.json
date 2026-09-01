@@ -8,13 +8,6 @@
       "currency": "CNY"
     },
     {
-      "symbol": "588080",
-      "market": "A",
-      "name": "科创50ETF易方达",
-      "sector": "",
-      "currency": "CNY"
-    },
-    {
       "symbol": "588710",
       "market": "A",
       "name": "科创半导体",
@@ -29,9 +22,9 @@
       "currency": "HKD"
     },
     {
-      "symbol": "2631.HK",
+      "symbol": "1378.HK",
       "market": "HK",
-      "name": "天岳先进",
+      "name": "中国宏桥",
       "sector": "",
       "currency": "HKD"
     },
@@ -83,6 +76,13 @@
       "name": "村田制作所",
       "sector": "",
       "currency": "JPY"
+    },
+    {
+      "symbol": "SCHD",
+      "market": "US",
+      "name": "嘉信美国股利ETF",
+      "sector": "",
+      "currency": "USD"
     }
   ]
 }

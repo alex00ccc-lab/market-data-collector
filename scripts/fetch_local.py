@@ -6,7 +6,7 @@ Usage:
     python market_data/scripts/fetch_local.py --all              # all markets
     python market_data/scripts/fetch_local.py --dry-run          # fetch only, no git push
 
-Runs: sync_holdings → fetch → indicators → git push
+Runs: sync_holdings → fetch → indicators → merge_prices → git push
 Logs to market_data/logs/fetch_local.log
 On failure: sends WeChat Work notification.
 """
@@ -230,6 +230,26 @@ def step_indicators() -> bool:
     return _run_ok(result)
 
 
+def step_merge_prices() -> bool:
+    """Merge fetched quotes into the main repo cache/prices (offline, no API).
+
+    Keeps the local accumulated price library fresh (holdings-briefing CLAUDE.md
+    §5.5) so the reminder engine / reports read current closes instead of the
+    last manual merge. Reads the watchlist synced in Step 1 and the quotes
+    fetched in Step 2 — no external API calls. Idempotent: only new dates added.
+    """
+    logger.info("=" * 60)
+    logger.info("Step 3.5/4: Merge into cache/prices")
+    result = _run(
+        [sys.executable,
+         str(PROJECT_ROOT / "src" / "report" / "data_collector.py"),
+         "--merge-local", "--all"],
+        cwd=PROJECT_ROOT,
+        timeout=300,
+    )
+    return _run_ok(result)
+
+
 def step_git_push() -> bool:
     """Commit and push data changes to market-data-collector repo."""
     logger.info("=" * 60)
@@ -348,6 +368,11 @@ def main():
     # Step 3: Indicators
     if not step_indicators():
         all_errors.append("indicator computation failed")
+        success = False
+
+    # Step 3.5: Merge fetched quotes into cache/prices (offline — keep local price lib fresh)
+    if not step_merge_prices():
+        all_errors.append("cache/prices merge failed")
         success = False
 
     # Step 4: Git push (skip if dry-run)

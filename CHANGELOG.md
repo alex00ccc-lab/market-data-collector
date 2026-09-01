@@ -5,6 +5,32 @@
 
 ---
 
+## v15.4 — 2026-09-01 — fetch_local 新增 cache/prices 合并步（本地累积库不再滞后）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.69（子模块指针） |
+
+### 背景
+
+本地 scheduled task（`fetch_local.py`）每天跑 `sync_holdings → fetch → indicators → git push`，但
+**从不把每日行情合并进主仓 `cache/prices/` 累积库**——该合并只在 CI 的 `daily_briefing_*.yml` 里跑，
+而 CI 的 cache 是云上临时环境，与本地 `D:\holdings-briefing\cache\prices\` 不互通。结果本地累积库
+停在最后一次手动 `data_collector.py --merge-local`，pre-push 烟测的「数据新鲜度门」据此判落后
+5 个交易日而阻断 push，主仓提醒引擎/周报也读到过期收盘价。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/fetch_local.py` | 新增 `step_merge_prices()`（Step 3.5，indicators 之后 / git push 之前），调主仓 `src/report/data_collector.py --merge-local --all`（离线、无 API、幂等，只追加新日期） |
+
+### 回滚
+
+`git checkout -- scripts/fetch_local.py` 即退（合并步删去，回到 fetch → indicators → push 三态）。
+
+---
+
 ## v15.3 — 2026-08-30 — yfinance 周末 NaN-close bar 校验（回退独立源补周五数据）
 
 | 属性 | 值 |
