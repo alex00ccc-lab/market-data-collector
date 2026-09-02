@@ -1,7 +1,7 @@
 {
   "symbol": "NFLX",
   "date": "2026-09-01",
-  "close": 80.81,
+  "close": 80.80999755859375,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 1.869,
-    "dea": 1.7456,
-    "histogram": 0.2468,
+    "diff": 1.8886,
+    "dea": 1.7728,
+    "histogram": 0.2316,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -53,38 +53,36 @@
   "trend_strength": "多头",
   "supports": [
     67.6,
-    70.9,
-    85.45
+    70.9
   ],
   "resistances": [
     77.65,
-    82.23,
-    89.65
+    82.23
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 2178417581.19,
+    "avg_dollar_volume": 2178417570.06,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 3,
-    "neutral": 2,
-    "bearish": 0,
+    "neutral": 1,
+    "bearish": 1,
     "overall": "mildly_bullish",
     "five_q": {
       "trend": "bullish",
-      "position": "neutral",
+      "position": "bearish",
       "structure": "bullish",
       "volume": "neutral",
       "momentum": "bullish"
     }
   },
   "vwap": {
-    "intraday": 83.3065,
+    "intraday": 75.2926,
     "avwap_60d": 74.431,
-    "anchor_idx": 88,
+    "anchor_idx": 32,
     "anchor_date": "2026-07-20"
   }
 }

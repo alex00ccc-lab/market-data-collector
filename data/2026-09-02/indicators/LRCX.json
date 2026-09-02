@@ -1,38 +1,38 @@
 {
   "symbol": "LRCX",
   "date": "2026-09-01",
-  "close": 290.20001,
+  "close": 290.20001220703125,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 305.01,
-    "ma10": 308.16,
-    "ma20": 314.56,
-    "ma60": 333.12,
+    "ma5": 307.56,
+    "ma10": 310.76,
+    "ma20": 315.35,
+    "ma60": 333.11,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 34.3,
+    "value": 41.8,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -4.668,
-    "dea": -1.9926,
-    "histogram": -5.3508,
+    "diff": -4.4825,
+    "dea": -2.1251,
+    "histogram": -4.7148,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 36.8,
-    "d": 45.6,
-    "j": 19.2,
+    "k": 36.2,
+    "d": 45.4,
+    "j": 17.8,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 340.01,
-    "middle": 314.56,
-    "lower": 289.11,
-    "bandwidth": 16.2,
-    "position": 0.02,
+    "upper": 340.16,
+    "middle": 315.35,
+    "lower": 290.55,
+    "bandwidth": 15.7,
+    "position": -0.01,
     "signal": "lower_band"
   },
   "volume": {
@@ -66,7 +66,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 2398421890.7,
+    "avg_dollar_volume": 2527753003.1,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 304.3456,
-    "avwap_60d": 308.2318,
-    "anchor_idx": 95,
+    "intraday": 338.8424,
+    "avwap_60d": 308.2739,
+    "anchor_idx": 39,
     "anchor_date": "2026-07-29"
   }
 }

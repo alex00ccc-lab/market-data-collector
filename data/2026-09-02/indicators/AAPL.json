@@ -1,14 +1,14 @@
 {
   "symbol": "AAPL",
   "date": "2026-09-01",
-  "close": 325.13,
+  "close": 325.1300048828125,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 317.94,
     "ma10": 314.74,
-    "ma20": 311.32,
-    "ma60": 310.07,
+    "ma20": 311.28,
+    "ma60": 309.88,
     "alignment": "bullish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": 1.2116,
-    "dea": -0.7096,
-    "histogram": 3.8424,
+    "diff": 1.2877,
+    "dea": -0.6158,
+    "histogram": 3.807,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -28,9 +28,9 @@
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 322.11,
-    "middle": 311.32,
-    "lower": 300.53,
+    "upper": 322.06,
+    "middle": 311.28,
+    "lower": 300.5,
     "bandwidth": 6.9,
     "position": 1.14,
     "signal": "upper_band"
@@ -40,33 +40,33 @@
     "signal": "normal"
   },
   "fibonacci": {
-    "high": 344.57,
-    "low": 273.75,
-    "0.0%": 344.57,
-    "23.6%": 327.86,
-    "38.2%": 317.52,
-    "50.0%": 309.16,
-    "61.8%": 300.8,
-    "78.6%": 288.91,
-    "100.0%": 273.75
+    "high": 344.27,
+    "low": 273.51,
+    "0.0%": 344.27,
+    "23.6%": 327.57,
+    "38.2%": 317.24,
+    "50.0%": 308.89,
+    "61.8%": 300.54,
+    "78.6%": 288.66,
+    "100.0%": 273.51
   },
   "trend_strength": "多头",
   "supports": [
     302.25,
-    303.42,
-    321.66
+    303.16,
+    321.38
   ],
   "resistances": [
-    313.33,
+    313.06,
     316.83,
-    340.08
+    339.79
   ],
   "risk_flags": [
     "RSI超买",
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 12647942052.62,
+    "avg_dollar_volume": 12646193706.99,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 293.7867,
-    "avwap_60d": 309.7493,
-    "anchor_idx": 72,
+    "intraday": 307.2541,
+    "avwap_60d": 309.5513,
+    "anchor_idx": 16,
     "anchor_date": "2026-06-25"
   }
 }

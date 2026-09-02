@@ -1,14 +1,14 @@
 {
   "symbol": "AVGO",
   "date": "2026-09-01",
-  "close": 369.67999,
+  "close": 369.67999267578125,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 367.19,
     "ma10": 364.64,
     "ma20": 387.54,
-    "ma60": 385.62,
+    "ma60": 385.53,
     "alignment": "bearish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "oversold"
   },
   "macd": {
-    "diff": -8.072,
-    "dea": -7.3384,
-    "histogram": -1.4672,
+    "diff": -8.2154,
+    "dea": -7.5366,
+    "histogram": -1.3576,
     "signal": "death_cross"
   },
   "kdj": {
@@ -66,7 +66,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 7332969353.16,
+    "avg_dollar_volume": 7332969349.44,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 385.141,
+    "intraday": 391.8682,
     "avwap_60d": 366.1721,
-    "anchor_idx": 115,
+    "anchor_idx": 59,
     "anchor_date": "2026-08-26"
   }
 }

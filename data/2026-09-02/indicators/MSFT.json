@@ -1,24 +1,24 @@
 {
   "symbol": "MSFT",
   "date": "2026-09-01",
-  "close": 501.019989,
+  "close": 501.0199890136719,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 504.65,
-    "ma10": 495.1,
-    "ma20": 494.74,
-    "ma60": 428.45,
+    "ma10": 495.01,
+    "ma20": 494.23,
+    "ma60": 427.79,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 55.9,
+    "value": 56.6,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 17.6591,
-    "dea": 18.8239,
-    "histogram": -2.3296,
+    "diff": 17.8161,
+    "dea": 18.8915,
+    "histogram": -2.1508,
     "signal": "death_cross"
   },
   "kdj": {
@@ -28,11 +28,11 @@
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 514.01,
-    "middle": 494.74,
-    "lower": 475.48,
-    "bandwidth": 7.8,
-    "position": 0.66,
+    "upper": 513.64,
+    "middle": 494.23,
+    "lower": 474.83,
+    "bandwidth": 7.9,
+    "position": 0.67,
     "signal": "above_middle"
   },
   "volume": {
@@ -41,29 +41,29 @@
   },
   "fibonacci": {
     "high": 517.78,
-    "low": 349.2,
+    "low": 348.54,
     "0.0%": 517.78,
-    "23.6%": 478.0,
-    "38.2%": 453.38,
-    "50.0%": 433.49,
-    "61.8%": 413.6,
-    "78.6%": 385.28,
-    "100.0%": 349.2
+    "23.6%": 477.84,
+    "38.2%": 453.13,
+    "50.0%": 433.16,
+    "61.8%": 413.19,
+    "78.6%": 384.76,
+    "100.0%": 348.54
   },
   "trend_strength": "震荡",
   "supports": [
-    352.83,
-    381.58,
-    480.35
+    352.17,
+    380.86,
+    479.45
   ],
   "resistances": [
-    390.49,
-    402.29,
-    506.06
+    389.76,
+    401.53,
+    505.11
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 12363599195.09,
+    "avg_dollar_volume": 12349921471.83,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 412.9539,
-    "avwap_60d": 427.2127,
-    "anchor_idx": 72,
+    "intraday": 418.7134,
+    "avwap_60d": 426.5171,
+    "anchor_idx": 16,
     "anchor_date": "2026-06-25"
   }
 }

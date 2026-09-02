@@ -1,7 +1,7 @@
 {
   "symbol": "TSLA",
   "date": "2026-09-01",
-  "close": 356.089996,
+  "close": 356.0899963378906,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 1.8987,
-    "dea": -1.3459,
-    "histogram": 6.4892,
+    "diff": 1.9838,
+    "dea": -1.2279,
+    "histogram": 6.4234,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 11901514941.76,
+    "avg_dollar_volume": 11901514912.85,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 381.5175,
+    "intraday": 370.7618,
     "avwap_60d": 337.3754,
-    "anchor_idx": 95,
+    "anchor_idx": 39,
     "anchor_date": "2026-07-29"
   }
 }
