@@ -5,6 +5,41 @@
 
 ---
 
+## v15.5 — 2026-09-02 — source 优先级重排：US 独立源前置，解除 Yahoo 周期封禁（6981.T 失败根因）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.70（子模块指针） |
+
+### 背景
+
+Yahoo（yfinance + yahoo_chart 同一 IP 池）自 2026-08-31 起被周期封禁（成功率 0%↔100% 循环，请求量触发），
+导致 6981.T（JP）抓取失败告警。根因：全局 `priority` 把 `yfinance` 排最前，US 每日 run 先对 ~30 个标的
+各打 yfinance+yahoo_chart（~60 次 Yahoo 请求全 "failed"）才轮到 twelvedata——而 twelvedata 已 100% 覆盖
+17 个 US 标的。JP/EU 无独立源（twelvedata/finnhub/alpha_vantage 免费档仅 US，stooq 已 Cloudflare 禁用），
+有效链只剩 Yahoo，被封即失败。
+
+免费 JP 独立源已逐一实测/查证，无干净可靠选择：stooq CSV 端点也被 Cloudflare 拦；J-Quants 免费档日足
+延迟 ~12 周（仅回测可用，当日数据需付费 Light 档）；Yahoo Japan Finance 需逆向端点 + 反爬/ToS 风险。
+故本轮不新增 JP 源，仅 reorder。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `config/sources.json` | 全局 `priority` 重排为 `["twelvedata","finnhub","alpha_vantage","yfinance","yahoo_chart","stooq"]`（原 yfinance 最前） |
+
+### 效果
+
+- US 改走 twelvedata 优先 → Yahoo 请求量 ~60/run → ~0 → 打破封禁触发条件；JP 仍单源 Yahoo 但 2 请求/run 不触发封禁。
+- JP/EU/A/HK 有效链不变（`get_priority` 按 `supports_market` 过滤；A/HK 走各自 override）。
+
+### 回滚
+
+`git checkout -- config/sources.json` 即退（恢复 yfinance 最前）。
+
+---
+
 ## v15.4 — 2026-09-01 — fetch_local 新增 cache/prices 合并步（本地累积库不再滞后）
 
 | 属性 | 值 |

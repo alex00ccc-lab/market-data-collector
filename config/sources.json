@@ -1,5 +1,5 @@
 {
-  "priority": ["yfinance", "yahoo_chart", "finnhub", "twelvedata", "alpha_vantage", "stooq"],
+  "priority": ["twelvedata", "finnhub", "alpha_vantage", "yfinance", "yahoo_chart", "stooq"],
   "market_overrides": {
     "A": ["tencent", "mootdx", "efinance", "aktools", "yfinance"],
     "HK": ["tencent", "efinance", "aktools", "yfinance"],
