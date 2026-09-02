@@ -36,7 +36,7 @@
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.7,
+    "ratio": 0.8,
     "signal": "normal"
   },
   "fibonacci": {
@@ -61,7 +61,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 2178417570.06,
+    "avg_dollar_volume": 2179602087.05,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -80,8 +80,8 @@
     }
   },
   "vwap": {
-    "intraday": 75.2926,
-    "avwap_60d": 74.431,
+    "intraday": 75.2932,
+    "avwap_60d": 74.4328,
     "anchor_idx": 32,
     "anchor_date": "2026-07-20"
   }
