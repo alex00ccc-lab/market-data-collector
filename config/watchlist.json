@@ -104,6 +104,46 @@
       "sector": "金融",
       "added": "2026-08-21",
       "notes": "DSA 自选股"
+    },
+    {
+      "symbol": "LITE",
+      "market": "US",
+      "name": "Lumentum",
+      "sector": "半导体",
+      "added": "2026-09-03",
+      "notes": "光通信/CPO 候选"
+    },
+    {
+      "symbol": "BE",
+      "market": "US",
+      "name": "Bloom Energy",
+      "sector": "工业",
+      "added": "2026-09-03",
+      "notes": "燃料电池/数据中心供电候选"
+    },
+    {
+      "symbol": "MRVL",
+      "market": "US",
+      "name": "Marvell 迈威尔",
+      "sector": "半导体",
+      "added": "2026-09-03",
+      "notes": "AI 定制芯片候选"
+    },
+    {
+      "symbol": "SPCX",
+      "market": "US",
+      "name": "SpaceX",
+      "sector": "商业航天",
+      "added": "2026-09-03",
+      "notes": "2026-06 IPO，高波动候选"
+    },
+    {
+      "symbol": "RKLB",
+      "market": "US",
+      "name": "Rocket Lab",
+      "sector": "商业航天",
+      "added": "2026-09-03",
+      "notes": "商业航天候选"
     }
   ]
 }
