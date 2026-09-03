@@ -1,0 +1,94 @@
+{
+  "symbol": "AVGO",
+  "date": "2026-09-02",
+  "close": 367.24,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 369.52,
+    "ma10": 365.12,
+    "ma20": 384.99,
+    "ma60": 385.13,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 24.1,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": -7.9399,
+    "dea": -7.9181,
+    "histogram": -0.0436,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 54.9,
+    "d": 51.6,
+    "j": 61.5,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 434.84,
+    "middle": 384.99,
+    "lower": 335.14,
+    "bandwidth": 25.9,
+    "position": 0.32,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 2.0,
+    "signal": "surge_down"
+  },
+  "fibonacci": {
+    "high": 432.73,
+    "low": 350.06,
+    "0.0%": 432.73,
+    "23.6%": 413.22,
+    "38.2%": 401.15,
+    "50.0%": 391.39,
+    "61.8%": 381.64,
+    "78.6%": 367.75,
+    "100.0%": 350.06
+  },
+  "trend_strength": "空头",
+  "supports": [
+    355.59,
+    370.32,
+    370.82
+  ],
+  "resistances": [
+    396.81,
+    401.11,
+    427.76
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20",
+    "放量下跌"
+  ],
+  "frame": {
+    "avg_dollar_volume": 7703805378.24,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 0,
+    "bearish": 4,
+    "overall": "bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "bearish",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 398.9315,
+    "avwap_60d": 366.5997,
+    "anchor_idx": 94,
+    "anchor_date": "2026-08-26"
+  }
+}
