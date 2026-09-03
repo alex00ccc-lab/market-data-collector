@@ -5,6 +5,33 @@
 
 ---
 
+## v15.6 — 2026-09-03 — watchlist 扩 17 只美股（新增 LITE/BE/MRVL/SPCX/RKLB）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing（子模块指针） |
+
+### 背景
+
+自选股分析（daily_stock_analysis）复用本仓库 `config/watchlist.json` 作为单一事实源。用户新增 5 只美股候选标的。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `config/watchlist.json` | symbols 12→17：新增 LITE(光通信/CPO)、BE(燃料电池/数据中心供电)、MRVL(AI 定制芯片)、SPCX(SpaceX 商业航天)、RKLB(Rocket Lab 商业航天) |
+
+### 效果
+
+- 下一轮 fetch-daily 自动抓取 5 只新标的的指标；fetch-weekly 自动抓取基本面（PE/PB/股息/市值）。
+- DSA 周报（周六）将覆盖 17 只自选股。
+
+### 回滚
+
+从 `config/watchlist.json` 删除 5 条 `added: 2026-09-03` 的记录即可（或 `git revert`）。
+
+---
+
 ## v15.5 — 2026-09-02 — source 优先级重排：US 独立源前置，解除 Yahoo 周期封禁（6981.T 失败根因）
 
 | 属性 | 值 |
