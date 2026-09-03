@@ -5,6 +5,39 @@
 
 ---
 
+## v15.7 — 2026-09-03 — 期权墙指标（max pain / call wall / put wall / ATM IV / IV-HV）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | daily_stock_analysis（DSA 周报②b 段消费） |
+
+### 背景
+
+DSA 自选股周报需要「期权墙」指标做机构持仓磁吸 + 隐含波动率判断。数据源选定 marketdata.app
+（免费档，期权链列过滤后 1 credit/链，17 只美股/周 ≈ 17 credits，零持续成本）。
+范围：max pain + call wall + put wall + ATM IV + IV-HV gap（ATM IV 与 20 日已实现波动率的差）。
+单次抓取选「总 OI 最高」的到期日计算 max pain/wall（链返回多到期日，需确定性选取）。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/options_wall.py` | 新增：读 holdings.json+watchlist.json 的 US 标的 → marketdata.app 期权链（列过滤 `strike,openInterest,side,expiration,dte,iv`，1 credit/链）→ 算 max pain / call wall / put wall / ATM IV / HV-20d / IV-HV → 写 `data/{date}/options/{SYM}.json`。底层价从 `quotes/{SYM}.json` 取收盘（链响应不含 underlyingPrice）；新标的无 quotes 则 ATM IV/HV/IV-HV 置 null 优雅降级 |
+| `scripts/key_loader.py` | ENV_MAP 增 `marketdata_app_token` → `MARKETDATA_APP_TOKEN` |
+| `config/keys.example.yaml` | 增 `marketdata_app_token` 字段（含注释：免费档 10000 credit/天试用，期权链列过滤 1 credit/链） |
+| `.github/workflows/fetch-weekly.yml` | env 增 `MARKETDATA_APP_TOKEN` secret；「Fetch fundamentals」后新增「Fetch options wall」步骤（`python scripts/options_wall.py --date $TODAY`） |
+
+### 效果
+
+- 每周六 08:00 BJT 随 fetch-weekly 产出 `data/{date}/options/{SYM}.json`（17 只美股）。
+- DSA 周报②b 段读该数据渲染「期权墙」；新标的/抓取失败返回 null 降级「待回填」。
+
+### 回滚
+
+`git revert` 本次提交；删除 `scripts/options_wall.py`、从 fetch-weekly.yml 移除「Fetch options wall」步骤、ENV_MAP/keys.example 移除 `marketdata_app_token` 即可（不影响其余管线）。
+
+---
+
 ## v15.6 — 2026-09-03 — watchlist 扩 17 只美股（新增 LITE/BE/MRVL/SPCX/RKLB）
 
 | 属性 | 值 |

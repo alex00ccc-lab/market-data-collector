@@ -18,6 +18,7 @@ ENV_MAP = {
     "polygon_api_key": "POLYGON_API_KEY",
     "tiingo_api_key": "TIINGO_API_KEY",
     "marketstack_api_key": "MARKETSTACK_API_KEY",
+    "marketdata_app_token": "MARKETDATA_APP_TOKEN",
 }
 
 _SCRIPT_DIR = Path(__file__).resolve().parent.parent  # market_data/

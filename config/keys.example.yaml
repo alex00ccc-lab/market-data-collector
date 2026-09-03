@@ -51,6 +51,11 @@ finnhub_api_key: ""
 # 免费额度: 800 次/天, 支持全球市场
 twelvedata_api_key: ""
 
+# MarketData.app — 美股个股期权链（期权墙指标：max pain / call wall / put wall / IV）
+# 注册: https://marketdata.app/register（免费，无信用卡）
+# 免费额度: 10000 credit/天（试用）/ 100 credit/天（正式）；期权链列过滤后 1 credit/链
+marketdata_app_token: ""
+
 # ── 付费源（低成本，更稳定）─────────────────────────────────
 # 当免费源额度不够时，可以注册以下付费 API 并填入 key
 

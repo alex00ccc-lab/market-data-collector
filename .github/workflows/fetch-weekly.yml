@@ -17,6 +17,7 @@ jobs:
       ALPHA_VANTAGE_API_KEY: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
       FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
       TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+      MARKETDATA_APP_TOKEN: ${{ secrets.MARKETDATA_APP_TOKEN }}
       CI: true
       GITHUB_ACTIONS: true
 
@@ -68,6 +69,12 @@ jobs:
               else:
                   print(f'  {sym}: FAILED')
           " 2>&1
+
+      - name: Fetch options wall
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          echo "Fetching options wall for $TODAY"
+          python scripts/options_wall.py --date "$TODAY" 2>&1
 
       - name: Commit and push
         run: |
