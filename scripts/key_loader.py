@@ -19,6 +19,7 @@ ENV_MAP = {
     "tiingo_api_key": "TIINGO_API_KEY",
     "marketstack_api_key": "MARKETSTACK_API_KEY",
     "marketdata_app_token": "MARKETDATA_APP_TOKEN",
+    "fred_api_key": "FRED_API_KEY",
 }
 
 _SCRIPT_DIR = Path(__file__).resolve().parent.parent  # market_data/

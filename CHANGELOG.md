@@ -5,6 +5,42 @@
 
 ---
 
+## v15.8 — 2026-09-04 — 宏观 regime（杠杆/流动性/预期三力 → 期权下单门数据层）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.71（期权 CC/CSP 下单门）+ daily_stock_analysis（周报③宏观段） |
+
+### 背景
+
+第一性原理：市场不是预测价格，而是资本在「杠杆约束 + 流动性约束 + 预期变化」下不断重定价。
+对期权卖方，赚的是「约束稳定」的钱，亏的是「约束突变」的钱。故先立「宏观 regime」数据层，回答
+「当前环境值不值得承担卖方期权尾部风险」——只出 regime + 指标灯，不做 GO/AVOID 执行决策
+（执行层留给 options_income.py，下一迭代再加 IV Rank/财报/0-10 评分不用改宏观层）。
+
+数据源：FRED 免费 API（5 序列）+ 静态事件日历（FOMC/CPI/PPI）。5 序列 = 5 req/天，零持续成本。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/macro_regime.py` | 新增：FRED 5 序列（T10Y2Y/HY-OAS/WALCL/SOFR/T10YIE）→ level+trend 合判分类（含 T10Y2Y dis-inversion 陷阱、WALCL 周频 WoW/4 周趋势、SOFR 相对近期中位数跳升检测）→ 合成 regime（稳/中性/险/事件临近）→ 写 `data/{date}/macro_regime.json`。支持 `--mock` 无 key 跑通框架；无 key 且非 mock 时跳过不写盘（lenient） |
+| `config/event_calendar.json` | 新增：2026 全年 FOMC 8 次（决策日）+ CPI/PPI 月度（BLS 2026 日程，12 月近似） |
+| `scripts/key_loader.py` | ENV_MAP 增 `fred_api_key` → `FRED_API_KEY` |
+| `config/keys.example.yaml` | 增 `fred_api_key` 字段（含注册链接/免费额度/5 序列说明） |
+| `.github/workflows/fetch-daily.yml` | env 增 `FRED_API_KEY` secret；「Compute indicators」后新增「Fetch macro regime」步骤 |
+
+### 效果
+
+- 每日随 fetch-daily 产出 `data/{date}/macro_regime.json`：`regime/regime_light` + 每指标 `{value,trend,light,watch}` + `events.next`（下一事件倒计时）+ 可选 `context`（VIX/10Y/油价）。
+- JSON 为纯数据层（无 go/avoid/sell/skip 字段）；holdings-briefing options_income.py 读它映射 CC/CSP 风险预算。
+
+### 回滚
+
+`git revert` 本次提交；删 `scripts/macro_regime.py`、`config/event_calendar.json`，从 fetch-daily.yml 移除「Fetch macro regime」步骤与 `FRED_API_KEY`，ENV_MAP/keys.example 移除 `fred_api_key`。
+
+---
+
 ## v15.7 — 2026-09-03 — 期权墙指标（max pain / call wall / put wall / ATM IV / IV-HV）
 
 | 属性 | 值 |

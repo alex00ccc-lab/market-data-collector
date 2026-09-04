@@ -56,6 +56,12 @@ twelvedata_api_key: ""
 # 免费额度: 10000 credit/天（试用）/ 100 credit/天（正式）；期权链列过滤后 1 credit/链
 marketdata_app_token: ""
 
+# FRED — 圣路易斯联储宏观序列（宏观 regime：杠杆/流动性/预期三力）
+# 注册: https://fred.stlouisfed.org/docs/api/api_key.html（免费，需邮箱）
+# 免费额度: 1000 次/天；宏观 regime 只抓 5 序列 = 5 req/天
+# 序列: T10Y2Y(10Y-2Y 利差) / BAMLH0A0HYM2(HY 信用利差) / WALCL(Fed 总资产) / SOFR(隔夜回购) / T10YIE(盈亏平衡通胀)
+fred_api_key: ""
+
 # ── 付费源（低成本，更稳定）─────────────────────────────────
 # 当免费源额度不够时，可以注册以下付费 API 并填入 key
 

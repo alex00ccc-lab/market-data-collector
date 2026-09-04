@@ -29,6 +29,7 @@ jobs:
       ALPHA_VANTAGE_API_KEY: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
       FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
       TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+      FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
       WECOM_WEBHOOK_URL: ${{ secrets.WECOM_WEBHOOK_URL }}
       CI: true
       GITHUB_ACTIONS: true
@@ -103,6 +104,12 @@ jobs:
         run: |
           TODAY=$(date +%Y-%m-%d)
           python scripts/indicators.py --date "$TODAY"
+
+      - name: Fetch macro regime
+        if: steps.fetch.outputs.exit_code == '0' || github.event_name == 'workflow_dispatch'
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          python scripts/macro_regime.py --date "$TODAY"
 
       - name: Commit and push data
         if: always() && (steps.fetch.outputs.exit_code == '0' || github.event_name == 'workflow_dispatch')
