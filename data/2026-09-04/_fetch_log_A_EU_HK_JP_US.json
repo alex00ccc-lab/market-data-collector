@@ -1,274 +1,263 @@
 {
-  "run_at": "2026-09-04T11:15:01.576034+08:00",
+  "run_at": "2026-09-04T21:13:05.756349+08:00",
   "date": "2026-09-04",
   "symbols_attempted": 29,
-  "symbols_succeeded": 21,
+  "symbols_succeeded": 29,
   "symbols_stale": 0,
-  "symbols_skipped": 6,
-  "symbols_failed": [
-    "SIVE.ST",
-    "COST"
-  ],
-  "errors": [
-    "SIVE.ST: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)",
-    "COST: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)"
-  ],
-  "skipped": [
-    "513010 (A: market closed or not in fetch window)",
-    "588710 (A: market closed or not in fetch window)",
-    "9992.HK (HK: market closed or not in fetch window)",
-    "1378.HK (HK: market closed or not in fetch window)",
-    "1888.HK (HK: market closed or not in fetch window)",
-    "6981.T (JP: market closed or not in fetch window)"
-  ],
+  "symbols_skipped": 0,
+  "symbols_failed": [],
+  "errors": [],
+  "skipped": [],
   "per_symbol": {
     "513010": {
-      "status": "skipped",
-      "reason": "A market closed on 2026-09-04",
-      "source": null,
-      "fetched_at": "2026-09-04T11:13:51.546840+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-09-04T21:12:06.490030+08:00",
+      "quote_date": "2026-09-04",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/513010.json"
     },
     "588710": {
-      "status": "skipped",
-      "reason": "A market closed on 2026-09-04",
-      "source": null,
-      "fetched_at": "2026-09-04T11:13:51.546854+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-09-04T21:12:07.296216+08:00",
+      "quote_date": "2026-09-04",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/588710.json"
     },
     "9992.HK": {
-      "status": "skipped",
-      "reason": "HK market closed on 2026-09-04",
-      "source": null,
-      "fetched_at": "2026-09-04T11:13:51.546864+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-09-04T21:12:08.079183+08:00",
+      "quote_date": "2026-09-04",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/9992.HK.json"
     },
     "1378.HK": {
-      "status": "skipped",
-      "reason": "HK market closed on 2026-09-04",
-      "source": null,
-      "fetched_at": "2026-09-04T11:13:51.546871+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-09-04T21:12:08.857190+08:00",
+      "quote_date": "2026-09-04",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/1378.HK.json"
     },
     "1888.HK": {
-      "status": "skipped",
-      "reason": "HK market closed on 2026-09-04",
-      "source": null,
-      "fetched_at": "2026-09-04T11:13:51.546877+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-09-04T21:12:09.629506+08:00",
+      "quote_date": "2026-09-04",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/1888.HK.json"
     },
     "NOK": {
       "status": "ok",
       "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:13:51.946733+08:00",
+      "fetched_at": "2026-09-04T21:12:10.287544+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/NOK.json"
     },
     "SGOV": {
       "status": "ok",
       "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:13:52.898431+08:00",
+      "fetched_at": "2026-09-04T21:12:11.286306+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/SGOV.json"
     },
     "TSLA": {
       "status": "ok",
       "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:13:53.952563+08:00",
+      "fetched_at": "2026-09-04T21:12:13.186775+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/TSLA.json"
     },
     "SIVE.ST": {
-      "status": "missing",
-      "error": "SIVE.ST: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)",
-      "sources_tried": "yfinance, yahoo_chart",
-      "quote_date": null
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-09-04T21:12:16.500136+08:00",
+      "quote_date": "2026-09-04",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/SIVE.ST.json"
     },
     "LRCX": {
       "status": "ok",
       "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:13:57.837930+08:00",
+      "fetched_at": "2026-09-04T21:12:16.903727+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/LRCX.json"
     },
     "6981.T": {
-      "status": "skipped",
-      "reason": "JP market closed on 2026-09-04",
-      "source": null,
-      "fetched_at": "2026-09-04T11:13:57.838719+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-09-04T21:12:17.586556+08:00",
+      "quote_date": "2026-09-04",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/6981.T.json"
     },
     "SCHD": {
       "status": "ok",
       "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:13:58.909326+08:00",
+      "fetched_at": "2026-09-04T21:12:17.907491+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/SCHD.json"
     },
     "GOOGL": {
       "status": "ok",
       "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:13:59.998968+08:00",
+      "fetched_at": "2026-09-04T21:12:19.320246+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/GOOGL.json"
     },
     "KO": {
       "status": "ok",
       "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:14:01.096855+08:00",
+      "fetched_at": "2026-09-04T21:12:20.079697+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/KO.json"
     },
     "AAPL": {
       "status": "ok",
       "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:14:02.616959+08:00",
+      "fetched_at": "2026-09-04T21:12:21.169764+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/AAPL.json"
     },
     "MSFT": {
       "status": "ok",
-      "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:14:03.432803+08:00",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-04T21:12:22.801875+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/MSFT.json"
     },
     "AMZN": {
       "status": "ok",
-      "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:14:04.907542+08:00",
+      "source": "yfinance",
+      "fetched_at": "2026-09-04T21:12:24.415209+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/AMZN.json"
     },
     "META": {
       "status": "ok",
-      "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:14:05.612328+08:00",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-04T21:12:24.914171+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/META.json"
     },
     "NFLX": {
       "status": "ok",
-      "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:14:07.030185+08:00",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-04T21:12:26.055556+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/NFLX.json"
     },
     "AMD": {
       "status": "ok",
-      "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:14:07.754477+08:00",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-04T21:12:27.158867+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/AMD.json"
     },
     "INTC": {
       "status": "ok",
-      "source": "twelvedata",
-      "fetched_at": "2026-09-04T11:14:08.796125+08:00",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-04T21:12:28.385126+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/INTC.json"
     },
     "AVGO": {
       "status": "ok",
-      "source": "alpha_vantage",
-      "fetched_at": "2026-09-04T11:14:10.547259+08:00",
+      "source": "yfinance",
+      "fetched_at": "2026-09-04T21:12:29.737286+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/AVGO.json"
     },
     "COST": {
-      "status": "missing",
-      "error": "COST: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)",
-      "sources_tried": "twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart",
-      "quote_date": null
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-04T21:12:30.488213+08:00",
+      "quote_date": "2026-09-03",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/COST.json"
     },
     "JPM": {
       "status": "ok",
       "source": "alpha_vantage",
-      "fetched_at": "2026-09-04T11:14:13.138405+08:00",
+      "fetched_at": "2026-09-04T21:12:31.522858+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/JPM.json"
     },
     "LITE": {
       "status": "ok",
       "source": "alpha_vantage",
-      "fetched_at": "2026-09-04T11:14:14.258209+08:00",
+      "fetched_at": "2026-09-04T21:12:32.683497+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/LITE.json"
     },
     "BE": {
       "status": "ok",
       "source": "alpha_vantage",
-      "fetched_at": "2026-09-04T11:14:15.324605+08:00",
+      "fetched_at": "2026-09-04T21:12:33.746953+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/BE.json"
     },
     "MRVL": {
       "status": "ok",
       "source": "alpha_vantage",
-      "fetched_at": "2026-09-04T11:14:16.454540+08:00",
+      "fetched_at": "2026-09-04T21:12:35.089812+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/MRVL.json"
     },
     "SPCX": {
       "status": "ok",
       "source": "alpha_vantage",
-      "fetched_at": "2026-09-04T11:14:17.514456+08:00",
+      "fetched_at": "2026-09-04T21:12:36.132498+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/SPCX.json"
     },
     "RKLB": {
       "status": "ok",
       "source": "alpha_vantage",
-      "fetched_at": "2026-09-04T11:14:18.713865+08:00",
+      "fetched_at": "2026-09-04T21:12:37.271548+08:00",
       "quote_date": "2026-09-03",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-04/quotes/RKLB.json"
     }
   },
   "source_health": {
     "alpha_vantage": {
-      "success_rate": "33%",
-      "ok": 7,
-      "failed": 14,
+      "success_rate": "44%",
+      "ok": 12,
+      "failed": 15,
       "geo_blocked": 0,
       "unavailable": 0,
       "stale": 0,
-      "bars_fetched": 658
+      "bars_fetched": 1158
     },
     "finnhub": {
       "success_rate": "0%",
       "ok": 0,
-      "failed": 21,
+      "failed": 27,
       "geo_blocked": 0,
       "unavailable": 0,
       "stale": 0,
       "bars_fetched": 0
+    },
+    "tencent": {
+      "success_rate": "100%",
+      "ok": 5,
+      "failed": 0,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 601
     },
     "twelvedata": {
-      "success_rate": "40%",
-      "ok": 14,
-      "failed": 21,
+      "success_rate": "23%",
+      "ok": 8,
+      "failed": 27,
       "geo_blocked": 0,
       "unavailable": 0,
       "stale": 0,
-      "bars_fetched": 1680
-    },
-    "yahoo_chart": {
-      "success_rate": "0%",
-      "ok": 0,
-      "failed": 2,
-      "geo_blocked": 0,
-      "unavailable": 0,
-      "stale": 0,
-      "bars_fetched": 0
+      "bars_fetched": 960
     },
     "yfinance": {
-      "success_rate": "87%",
-      "ok": 13,
-      "failed": 2,
+      "success_rate": "100%",
+      "ok": 17,
+      "failed": 0,
       "geo_blocked": 0,
       "unavailable": 0,
       "stale": 0,
-      "bars_fetched": 434
+      "bars_fetched": 567
     }
   }
 }

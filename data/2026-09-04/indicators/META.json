@@ -1,7 +1,7 @@
 {
   "symbol": "META",
   "date": "2026-09-03",
-  "close": 610.67999,
+  "close": 610.68,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": -1.0557,
-    "dea": -8.2534,
-    "histogram": 14.3954,
+    "diff": -1.1256,
+    "dea": -8.3504,
+    "histogram": 14.4496,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -65,7 +65,7 @@
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 9057034186.06,
+    "avg_dollar_volume": 9058402108.63,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 600.9075,
-    "avwap_60d": 572.1429,
-    "anchor_idx": 94,
+    "intraday": 604.0215,
+    "avwap_60d": 572.147,
+    "anchor_idx": 74,
     "anchor_date": "2026-07-30"
   }
 }

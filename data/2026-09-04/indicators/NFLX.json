@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 2.003,
-    "dea": 1.8732,
-    "histogram": 0.2596,
+    "diff": 1.9975,
+    "dea": 1.8656,
+    "histogram": 0.2638,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 2156176948.25,
+    "avg_dollar_volume": 2156324538.54,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 83.1433,
-    "avwap_60d": 74.7514,
-    "anchor_idx": 86,
+    "intraday": 80.9383,
+    "avwap_60d": 74.751,
+    "anchor_idx": 66,
     "anchor_date": "2026-07-20"
   }
 }

@@ -1,14 +1,14 @@
 {
   "symbol": "AVGO",
   "date": "2026-09-03",
-  "close": 357.16,
+  "close": 357.1600036621094,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 366.64,
     "ma10": 364.43,
     "ma20": 381.82,
-    "ma60": 384.55,
+    "ma60": 384.48,
     "alignment": "bearish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "oversold"
   },
   "macd": {
-    "diff": -8.5281,
-    "dea": -8.3517,
-    "histogram": -0.3528,
+    "diff": -8.2542,
+    "dea": -7.9726,
+    "histogram": -0.5632,
     "signal": "death_cross"
   },
   "kdj": {
@@ -36,7 +36,7 @@
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 2.6,
+    "ratio": 2.5,
     "signal": "surge_down"
   },
   "fibonacci": {
@@ -54,7 +54,7 @@
   "supports": [
     355.59,
     370.32,
-    370.82
+    370.83
   ],
   "resistances": [
     371.54,
@@ -67,7 +67,7 @@
     "放量下跌"
   ],
   "frame": {
-    "avg_dollar_volume": 8487166327.63,
+    "avg_dollar_volume": 8485295282.32,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 398.0128,
-    "avwap_60d": 362.4398,
-    "anchor_idx": 93,
+    "intraday": 385.1029,
+    "avwap_60d": 362.4448,
+    "anchor_idx": 57,
     "anchor_date": "2026-08-26"
   }
 }

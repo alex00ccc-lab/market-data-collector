@@ -1,33 +1,33 @@
 {
   "^VIX": {
     "name": "VIX 恐慌指数",
-    "price": 14.32,
-    "date": "2026-09-03",
-    "change_pct": -5.79
+    "price": 14.17,
+    "date": "2026-09-04",
+    "change_pct": -1.05
   },
   "^TNX": {
     "name": "10年期美债收益率",
-    "price": 4.76,
-    "date": "2026-09-03",
-    "change_pct": -0.71
+    "price": 4.79,
+    "date": "2026-09-04",
+    "change_pct": 0.55
   },
   "^TYX": {
     "name": "30年期美债收益率",
-    "price": 5.24,
-    "date": "2026-09-03",
-    "change_pct": -0.46
+    "price": 5.25,
+    "date": "2026-09-04",
+    "change_pct": 0.19
   },
   "^IRX": {
     "name": "13周国库券收益率",
-    "price": 3.74,
-    "date": "2026-09-03",
-    "change_pct": -0.85
+    "price": 3.77,
+    "date": "2026-09-04",
+    "change_pct": 0.75
   },
   "^FVX": {
     "name": "5年期美债收益率",
-    "price": 4.51,
-    "date": "2026-09-03",
-    "change_pct": -0.94
+    "price": 4.56,
+    "date": "2026-09-04",
+    "change_pct": 1.06
   },
   "^SOX": {
     "name": "费城半导体指数SOX",
@@ -43,38 +43,38 @@
   },
   "^KS11": {
     "name": "韩国KOSPI指数",
-    "price": 6673.21,
+    "price": 6687.21,
     "date": "2026-09-04",
-    "change_pct": 1.68
+    "change_pct": 1.64
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 95.68,
-    "date": "2026-09-03",
-    "change_pct": 0.05
+    "price": 94.36,
+    "date": "2026-09-04",
+    "change_pct": -1.21
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 99.0,
-    "date": "2026-09-03",
-    "change_pct": -0.57
+    "price": 99.22,
+    "date": "2026-09-04",
+    "change_pct": 0.22
   },
   "000001.SS": {
     "name": "上证指数",
-    "price": 3961.91,
+    "price": 3930.12,
     "date": "2026-09-04",
-    "change_pct": 0.52
+    "change_pct": -0.3
   },
   "^HSI": {
     "name": "恒生指数",
-    "price": 25765.76,
+    "price": 25650.87,
     "date": "2026-09-04",
-    "change_pct": 1.8
+    "change_pct": 1.74
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 64769.74,
+    "price": 65020.94,
     "date": "2026-09-04",
-    "change_pct": 0.69
+    "change_pct": 1.26
   }
 }
