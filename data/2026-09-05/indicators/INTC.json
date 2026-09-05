@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -2.4398,
-    "dea": -3.3189,
-    "histogram": 1.7582,
+    "diff": -2.4456,
+    "dea": -3.3269,
+    "histogram": 1.7626,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 9277202687.07,
+    "avg_dollar_volume": 9276149786.32,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 104.5399,
-    "avwap_60d": 94.4039,
-    "anchor_idx": 72,
+    "intraday": 96.7489,
+    "avwap_60d": 94.4041,
+    "anchor_idx": 92,
     "anchor_date": "2026-07-29"
   }
 }
