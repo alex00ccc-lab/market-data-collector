@@ -1,0 +1,17 @@
+{
+  "symbol": "SGOV",
+  "date": "2026-09-05",
+  "underlying_price": 100.47,
+  "max_pain": 100,
+  "call_wall": 101,
+  "call_wall_oi": 1158,
+  "put_wall": 100,
+  "put_wall_oi": 511,
+  "atm_iv": 0.029,
+  "hv_20d": 0.0106,
+  "iv_hv_gap": 0.0184,
+  "expiration": "2026-09-19",
+  "dte": 15,
+  "source": "marketdata.app",
+  "timestamp": "2026-09-05T11:33:25.953508+08:00"
+}

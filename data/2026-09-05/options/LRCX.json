@@ -1,0 +1,17 @@
+{
+  "symbol": "LRCX",
+  "date": "2026-09-05",
+  "underlying_price": 307.65,
+  "max_pain": 280,
+  "call_wall": 400,
+  "call_wall_oi": 5036,
+  "put_wall": 185,
+  "put_wall_oi": 7831,
+  "atm_iv": 0.5248,
+  "hv_20d": 0.5106,
+  "iv_hv_gap": 0.0142,
+  "expiration": "2026-09-19",
+  "dte": 15,
+  "source": "marketdata.app",
+  "timestamp": "2026-09-05T11:33:26.929451+08:00"
+}
