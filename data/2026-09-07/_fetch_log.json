@@ -1,23 +1,17 @@
 {
-  "run_at": "2026-09-07T11:15:14.581088+08:00",
+  "run_at": "2026-09-07T22:50:57.241584+08:00",
   "date": "2026-09-07",
   "symbols_attempted": 29,
-  "symbols_succeeded": 1,
+  "symbols_succeeded": 7,
   "symbols_stale": 0,
-  "symbols_skipped": 28,
+  "symbols_skipped": 22,
   "symbols_failed": [],
   "errors": [],
   "skipped": [
-    "513010 (A: market closed or not in fetch window)",
-    "588710 (A: market closed or not in fetch window)",
-    "9992.HK (HK: market closed or not in fetch window)",
-    "1378.HK (HK: market closed or not in fetch window)",
-    "1888.HK (HK: market closed or not in fetch window)",
     "NOK (US: market closed or not in fetch window)",
     "SGOV (US: market closed or not in fetch window)",
     "TSLA (US: market closed or not in fetch window)",
     "LRCX (US: market closed or not in fetch window)",
-    "6981.T (JP: market closed or not in fetch window)",
     "SCHD (US: market closed or not in fetch window)",
     "GOOGL (US: market closed or not in fetch window)",
     "KO (US: market closed or not in fetch window)",
@@ -39,218 +33,227 @@
   ],
   "per_symbol": {
     "513010": {
-      "status": "skipped",
-      "reason": "A market closed on 2026-09-07",
-      "source": null,
-      "fetched_at": "2026-09-07T11:15:10.920774+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-09-07T22:50:48.868613+08:00",
+      "quote_date": "2026-09-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-07/quotes/513010.json"
     },
     "588710": {
-      "status": "skipped",
-      "reason": "A market closed on 2026-09-07",
-      "source": null,
-      "fetched_at": "2026-09-07T11:15:10.920786+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-09-07T22:50:49.496751+08:00",
+      "quote_date": "2026-09-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-07/quotes/588710.json"
     },
     "9992.HK": {
-      "status": "skipped",
-      "reason": "HK market closed on 2026-09-07",
-      "source": null,
-      "fetched_at": "2026-09-07T11:15:10.920795+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-09-07T22:50:50.134282+08:00",
+      "quote_date": "2026-09-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-07/quotes/9992.HK.json"
     },
     "1378.HK": {
-      "status": "skipped",
-      "reason": "HK market closed on 2026-09-07",
-      "source": null,
-      "fetched_at": "2026-09-07T11:15:10.920807+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-09-07T22:50:50.765356+08:00",
+      "quote_date": "2026-09-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-07/quotes/1378.HK.json"
     },
     "1888.HK": {
-      "status": "skipped",
-      "reason": "HK market closed on 2026-09-07",
-      "source": null,
-      "fetched_at": "2026-09-07T11:15:10.920815+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-09-07T22:50:51.501790+08:00",
+      "quote_date": "2026-09-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-07/quotes/1888.HK.json"
     },
     "NOK": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:10.920821+08:00",
+      "fetched_at": "2026-09-07T22:50:51.502398+08:00",
       "quote_date": null
     },
     "SGOV": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:10.920826+08:00",
+      "fetched_at": "2026-09-07T22:50:51.502414+08:00",
       "quote_date": null
     },
     "TSLA": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:10.920846+08:00",
+      "fetched_at": "2026-09-07T22:50:51.502425+08:00",
       "quote_date": null
     },
     "SIVE.ST": {
       "status": "ok",
       "source": "yfinance",
-      "fetched_at": "2026-09-07T11:15:11.676330+08:00",
-      "quote_date": "2026-09-04",
+      "fetched_at": "2026-09-07T22:50:52.224222+08:00",
+      "quote_date": "2026-09-07",
       "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-07/quotes/SIVE.ST.json"
     },
     "LRCX": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676908+08:00",
+      "fetched_at": "2026-09-07T22:50:52.224768+08:00",
       "quote_date": null
     },
     "6981.T": {
-      "status": "skipped",
-      "reason": "JP market closed on 2026-09-07",
-      "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676926+08:00",
-      "quote_date": null
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-09-07T22:50:54.113585+08:00",
+      "quote_date": "2026-09-07",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-09-07/quotes/6981.T.json"
     },
     "SCHD": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676934+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114011+08:00",
       "quote_date": null
     },
     "GOOGL": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676942+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114023+08:00",
       "quote_date": null
     },
     "KO": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676950+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114030+08:00",
       "quote_date": null
     },
     "AAPL": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676956+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114037+08:00",
       "quote_date": null
     },
     "MSFT": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676963+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114045+08:00",
       "quote_date": null
     },
     "AMZN": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676970+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114051+08:00",
       "quote_date": null
     },
     "META": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676977+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114055+08:00",
       "quote_date": null
     },
     "NFLX": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676981+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114058+08:00",
       "quote_date": null
     },
     "AMD": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676985+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114062+08:00",
       "quote_date": null
     },
     "INTC": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676988+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114065+08:00",
       "quote_date": null
     },
     "AVGO": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676991+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114068+08:00",
       "quote_date": null
     },
     "COST": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676995+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114072+08:00",
       "quote_date": null
     },
     "JPM": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.676998+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114075+08:00",
       "quote_date": null
     },
     "LITE": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.677001+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114078+08:00",
       "quote_date": null
     },
     "BE": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.677004+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114081+08:00",
       "quote_date": null
     },
     "MRVL": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.677007+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114085+08:00",
       "quote_date": null
     },
     "SPCX": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.677010+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114087+08:00",
       "quote_date": null
     },
     "RKLB": {
       "status": "skipped",
       "reason": "US market closed on 2026-09-07",
       "source": null,
-      "fetched_at": "2026-09-07T11:15:11.677013+08:00",
+      "fetched_at": "2026-09-07T22:50:54.114090+08:00",
       "quote_date": null
     }
   },
   "source_health": {
-    "yfinance": {
+    "tencent": {
       "success_rate": "100%",
-      "ok": 1,
+      "ok": 5,
       "failed": 0,
       "geo_blocked": 0,
       "unavailable": 0,
       "stale": 0,
-      "bars_fetched": 66
+      "bars_fetched": 601
+    },
+    "yfinance": {
+      "success_rate": "100%",
+      "ok": 2,
+      "failed": 0,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 129
     }
   }
 }
