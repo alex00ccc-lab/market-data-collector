@@ -1,7 +1,7 @@
 {
   "symbol": "AMZN",
   "date": "2026-09-04",
-  "close": 258.51,
+  "close": 258.51001,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.3264,
-    "dea": 1.4644,
-    "histogram": -2.276,
+    "diff": 0.3443,
+    "dea": 1.4893,
+    "histogram": -2.29,
     "signal": "death_cross"
   },
   "kdj": {
@@ -65,7 +65,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 8581978561.95,
+    "avg_dollar_volume": 8581308310.45,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 253.7549,
-    "avwap_60d": 263.1963,
-    "anchor_idx": 72,
+    "intraday": 247.6527,
+    "avwap_60d": 263.1965,
+    "anchor_idx": 92,
     "anchor_date": "2026-07-29"
   }
 }

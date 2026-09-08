@@ -1,0 +1,17 @@
+{
+  "symbol": "SPCX",
+  "date": "2026-09-05",
+  "underlying_price": 147.95,
+  "max_pain": 145,
+  "call_wall": 150,
+  "call_wall_oi": 41844,
+  "put_wall": 150,
+  "put_wall_oi": 46201,
+  "atm_iv": 0.5092,
+  "hv_20d": 0.5526,
+  "iv_hv_gap": -0.0434,
+  "expiration": "2026-09-19",
+  "dte": 15,
+  "source": "marketdata.app",
+  "timestamp": "2026-09-05T11:33:36.777717+08:00"
+}
