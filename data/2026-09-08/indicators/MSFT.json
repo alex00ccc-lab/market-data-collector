@@ -1,7 +1,7 @@
 {
   "symbol": "MSFT",
   "date": "2026-09-04",
-  "close": 499.7,
+  "close": 499.70001,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 15.2416,
-    "dea": 17.4432,
-    "histogram": -4.4032,
+    "diff": 15.2681,
+    "dea": 17.4799,
+    "histogram": -4.4236,
     "signal": "death_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 11414502808.06,
+    "avg_dollar_volume": 11413822235.99,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 421.2971,
-    "avwap_60d": 429.6826,
-    "anchor_idx": 49,
+    "intraday": 414.451,
+    "avwap_60d": 429.6904,
+    "anchor_idx": 69,
     "anchor_date": "2026-06-25"
   }
 }
