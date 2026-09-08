@@ -5,6 +5,42 @@
 
 ---
 
+## v15.10 — 2026-09-09 — 宏观 Event/Positioning State 数据层（Phase 2 三 state 架构）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.75（消费层 options_income.py 接三 state gate） |
+
+### 背景
+
+Phase 2 扩展：现有慢速 `macro_regime.py` 只有「杠杆/流动性/预期」三力，无法回答
+「CPI 出炉后债市如何重新解释 Fed reaction function」这类快事件，也没有 ex-ante 持仓拥挤度。
+本条目新增两个**平级**数据层（谁都不嵌套谁）：
+
+- `event_state`（快）：CPI 质量 → 2Y/10Y 确认 → HY OAS 信用确认 → 8 状态 A-H + risk_signals。
+- `positioning`（慢）：CFTC TFF SOFR 期货持仓拥挤度（周频），只记原始事实 + 机械分位。
+
+三份 JSON 都只存事实 + risk_signals，**不含任何 CC/CSP 预算字段**（策略层负责）。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/market_reaction.py` | 新增：CPI→Rates→Credit 事件状态机，产 `data/{date}/event_state.json`（state/confirmation/cpi/rates/hy_oas/risk_signals + identity_check） |
+| `scripts/positioning.py` | 新增：CFTC TFF SOFR 期货持仓（数据集 gpe5-46if，免费免 key），产 `cache/positioning.json`（positioning_state ∈ crowded_short/neutral/crowded_long） |
+
+### 验证
+
+- `market_reaction.py --mock` → state A（clean disinflation）；真实 FRED → identity `DGS10−T10YIE≈DFII10` ✅
+- `positioning.py` 真实 CFTC → `leveraged_funds_net ≈ −2.6M`（净空重仓，percentile 0.03 → crowded_short）
+- median/trimmed 为 Cleveland Fed 年化率（非 MoM），与 core_mom 不同单位，已分字段隔离
+
+### 回滚
+
+`git rm scripts/market_reaction.py scripts/positioning.py` 即回（`macro_regime.py` 未动，无污染）。
+
+---
+
 ## v15.9 — 2026-09-08 — JP 免费源复测：stooq 仍被 Cloudflare 拦，Alpha Vantage 实测无 JP（维持接受缺口）
 
 | 属性 | 值 |

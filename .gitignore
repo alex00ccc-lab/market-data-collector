@@ -19,6 +19,7 @@ config/keys.yaml
 
 # Cache (transient)
 *.pyc
+cache/
 
 # Runtime data (generated daily)
 data/
