@@ -7,8 +7,8 @@
   "ma": {
     "ma5": 154.7,
     "ma10": 155.18,
-    "ma20": 153.91,
-    "ma60": 157.76,
+    "ma20": 153.9,
+    "ma60": 157.77,
     "alignment": "mixed"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": -0.6045,
-    "dea": -0.9975,
-    "histogram": 0.786,
+    "diff": -0.604,
+    "dea": -0.9969,
+    "histogram": 0.7858,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -29,7 +29,7 @@
   },
   "bollinger": {
     "upper": 158.38,
-    "middle": 153.91,
+    "middle": 153.9,
     "lower": 149.43,
     "bandwidth": 5.8,
     "position": 0.7,
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 163.3997,
+    "intraday": 163.2932,
     "avwap_60d": 152.1471,
-    "anchor_idx": 108,
+    "anchor_idx": 107,
     "anchor_date": "2026-08-21"
   }
 }

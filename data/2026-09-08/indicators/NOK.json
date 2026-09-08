@@ -7,7 +7,7 @@
   "ma": {
     "ma5": 9.94,
     "ma10": 10.12,
-    "ma20": 10.15,
+    "ma20": 10.16,
     "ma60": 11.12,
     "alignment": "bearish"
   },
@@ -29,7 +29,7 @@
   },
   "bollinger": {
     "upper": 10.96,
-    "middle": 10.15,
+    "middle": 10.16,
     "lower": 9.35,
     "bandwidth": 15.8,
     "position": 0.42,
