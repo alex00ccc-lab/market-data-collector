@@ -5,6 +5,40 @@
 
 ---
 
+## v15.9 — 2026-09-08 — JP 免费源复测：stooq 仍被 Cloudflare 拦，Alpha Vantage 实测无 JP（维持接受缺口）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing v14.74（未 bump 指针，本条目为纯文档记录） |
+
+### 背景
+
+2026-09-08 本地 fetch（A/HK/JP）中 6981.T 报「all sources failed (tried: yfinance, yahoo_chart)」。
+JP 有效源链只剩 Yahoo 同 IP 池两源，周期封禁时双双失败（v15.5 已定位）。本次对两个此前
+**未做过结论性 JP 实测**的免费源做一次性复测，确认是否还有免费独立 JP 源可用。
+
+### 实测结论（脚本 `scripts/test_jp_sources.py`）
+
+| 源 | 实测 | 结论 |
+|----|------|------|
+| stooq | `GET stooq.com/q/d/l/?s=6981.jp&i=d` → 返回 HTML/Cloudflare 挑战 | 仍被拦（2026-08-06 禁用后未解除） |
+| Alpha Vantage | `TIME_SERIES_DAILY` 试 `6981.T`/`TSE:6981`/`6981.TOK`/`6981.JP` → 全部 `Error Message: Invalid API call` | 免费档无 JP 覆盖（证实此前「US-only」配置假设，非陈旧而是根本无此符号） |
+
+**结论：无免费同日 JP 独立源。** 维持接受缺口（村田处减仓优先级，Yahoo 单源 + v15.5 已把 US
+请求量降到 0、解除封禁触发条件）。唯一干净同日独立源仍是 J-Quants Light（¥1,650/月），用户未选择订阅。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/test_jp_sources.py` | 新增：一次性免费源实测脚本（stooq CSV + Alpha Vantage 多符号格式探测，只读 key、可复跑） |
+
+### 回滚
+
+删除 `scripts/test_jp_sources.py` 即回（无其他代码/配置改动）。
+
+---
+
 ## v15.8 — 2026-09-04 — 宏观 regime（杠杆/流动性/预期三力 → 期权下单门数据层）
 
 | 属性 | 值 |
