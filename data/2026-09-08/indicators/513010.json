@@ -83,9 +83,9 @@
     }
   },
   "vwap": {
-    "intraday": 0.6294,
+    "intraday": 0.6287,
     "avwap_60d": 0.6102,
-    "anchor_idx": 68,
+    "anchor_idx": 67,
     "anchor_date": "2026-06-26"
   }
 }

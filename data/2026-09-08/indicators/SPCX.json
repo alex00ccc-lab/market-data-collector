@@ -8,7 +8,7 @@
     "ma5": 144.86,
     "ma10": 141.93,
     "ma20": 140.95,
-    "ma60": 0,
+    "ma60": 141.57,
     "alignment": "bullish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 2.7443,
-    "dea": 1.442,
-    "histogram": 2.6046,
+    "diff": 2.8668,
+    "dea": 1.6113,
+    "histogram": 2.511,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -39,7 +39,17 @@
     "ratio": 0.7,
     "signal": "normal"
   },
-  "fibonacci": {},
+  "fibonacci": {
+    "high": 225.64,
+    "low": 104.83,
+    "0.0%": 225.64,
+    "23.6%": 197.13,
+    "38.2%": 179.49,
+    "50.0%": 165.23,
+    "61.8%": 150.98,
+    "78.6%": 130.68,
+    "100.0%": 104.83
+  },
   "trend_strength": "多头",
   "supports": [
     108.27,
@@ -52,7 +62,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 12426699926.62,
+    "avg_dollar_volume": 12425245540.17,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -71,9 +81,9 @@
     }
   },
   "vwap": {
-    "intraday": 148.1146,
-    "avwap_60d": 133.6134,
-    "anchor_idx": 36,
+    "intraday": 147.0904,
+    "avwap_60d": 133.6123,
+    "anchor_idx": 37,
     "anchor_date": "2026-08-05"
   }
 }
