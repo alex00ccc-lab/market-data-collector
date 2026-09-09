@@ -1,0 +1,119 @@
+{
+  "run_at": "2026-09-09T16:45:08.125598+08:00",
+  "date": "2026-09-09",
+  "symbols_attempted": 6,
+  "symbols_succeeded": 0,
+  "symbols_stale": 0,
+  "symbols_skipped": 0,
+  "symbols_failed": [
+    "513010",
+    "588710",
+    "9992.HK",
+    "1378.HK",
+    "1888.HK",
+    "6981.T"
+  ],
+  "errors": [
+    "513010: all sources failed (tried: tencent, mootdx, efinance, aktools, yfinance; tencent=failed, mootdx=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+    "588710: all sources failed (tried: tencent, mootdx, efinance, aktools, yfinance; tencent=failed, mootdx=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+    "9992.HK: all sources failed (tried: tencent, efinance, aktools, yfinance; tencent=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+    "1378.HK: all sources failed (tried: tencent, efinance, aktools, yfinance; tencent=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+    "1888.HK: all sources failed (tried: tencent, efinance, aktools, yfinance; tencent=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+    "6981.T: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)"
+  ],
+  "skipped": [],
+  "per_symbol": {
+    "513010": {
+      "status": "missing",
+      "error": "513010: all sources failed (tried: tencent, mootdx, efinance, aktools, yfinance; tencent=failed, mootdx=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+      "sources_tried": "tencent, mootdx, efinance, aktools, yfinance",
+      "quote_date": null
+    },
+    "588710": {
+      "status": "missing",
+      "error": "588710: all sources failed (tried: tencent, mootdx, efinance, aktools, yfinance; tencent=failed, mootdx=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+      "sources_tried": "tencent, mootdx, efinance, aktools, yfinance",
+      "quote_date": null
+    },
+    "9992.HK": {
+      "status": "missing",
+      "error": "9992.HK: all sources failed (tried: tencent, efinance, aktools, yfinance; tencent=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+      "sources_tried": "tencent, efinance, aktools, yfinance",
+      "quote_date": null
+    },
+    "1378.HK": {
+      "status": "missing",
+      "error": "1378.HK: all sources failed (tried: tencent, efinance, aktools, yfinance; tencent=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+      "sources_tried": "tencent, efinance, aktools, yfinance",
+      "quote_date": null
+    },
+    "1888.HK": {
+      "status": "missing",
+      "error": "1888.HK: all sources failed (tried: tencent, efinance, aktools, yfinance; tencent=failed, efinance=failed, aktools=unavailable, yfinance=failed)",
+      "sources_tried": "tencent, efinance, aktools, yfinance",
+      "quote_date": null
+    },
+    "6981.T": {
+      "status": "missing",
+      "error": "6981.T: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)",
+      "sources_tried": "yfinance, yahoo_chart",
+      "quote_date": null
+    }
+  },
+  "source_health": {
+    "aktools": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 0,
+      "geo_blocked": 0,
+      "unavailable": 5,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "efinance": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 5,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "mootdx": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 2,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "tencent": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 5,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "yahoo_chart": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 1,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "yfinance": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 6,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "date": "2026-09-09",
+  "event_type": "CPI",
+  "event_date": "2026-08-12",
+  "elapsed_trading_days": 16,
+  "state": "A",
+  "confirmation": {
+    "l2_rates": {
+      "value": "confirmed",
+      "as_of": "2026-09-09"
+    },
+    "l3_credit": {
+      "value": "confirmed",
+      "as_of": "2026-09-09"
+    }
+  },
+  "cpi": {
+    "headline_mom": 0.0737,
+    "headline_delta_1m": 0.4962,
+    "core_mom": 0.2154,
+    "core_delta_1m": 0.2321,
+    "shelter_mom": 0.1386,
+    "shelter_delta_1m": 0.0211,
+    "median_annualized": 3.1147,
+    "median_delta_1m": 1.0051,
+    "trimmed_annualized": 2.7063,
+    "trimmed_delta_1m": 2.5786,
+    "quality_flag": "borderline"
+  },
+  "rates": {
+    "dgs2": {
+      "change_1d": -0.05,
+      "event_change_5d": -0.01
+    },
+    "dgs10": {
+      "change_1d": -0.05,
+      "event_change_5d": -0.03
+    },
+    "dfii10": {
+      "change_1d": -0.03,
+      "event_change_5d": -0.07
+    },
+    "t10yie": {
+      "change_1d": -0.02,
+      "event_change_5d": 0.04
+    },
+    "divergence_5d": -0.02
+  },
+  "hy_oas": {
+    "level": 2.68,
+    "change_5d": 0.05
+  },
+  "risk_signals": {
+    "downside_convexity": "mid",
+    "long_end_veto": false,
+    "credit_stress": "normal"
+  },
+  "identity_check": {
+    "dgs10_minus_t10yie_equals_dfii10": true
+  },
+  "source": "fred",
+  "timestamp": "2026-09-09T01:02:28.085278+08:00"
+}
