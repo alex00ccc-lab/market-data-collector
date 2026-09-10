@@ -66,7 +66,11 @@
     "触及布林下轨"
   ],
   "frame": {
+<<<<<<< HEAD
     "avg_dollar_volume": 1706125853.76,
+=======
+    "avg_dollar_volume": 1706764345.03,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,7 +89,11 @@
     }
   },
   "vwap": {
+<<<<<<< HEAD
     "intraday": 968.0656,
+=======
+    "intraday": 968.0619,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "avwap_60d": 910.47,
     "anchor_idx": 99,
     "anchor_date": "2026-09-08"

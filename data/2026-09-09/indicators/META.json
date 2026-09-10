@@ -36,7 +36,11 @@
     "signal": "upper_band"
   },
   "volume": {
+<<<<<<< HEAD
     "ratio": 1.1,
+=======
+    "ratio": 1.2,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "signal": "normal"
   },
   "fibonacci": {
@@ -65,7 +69,11 @@
     "RSI超买"
   ],
   "frame": {
+<<<<<<< HEAD
     "avg_dollar_volume": 9332586780.62,
+=======
+    "avg_dollar_volume": 9352530708.68,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,8 +92,13 @@
     }
   },
   "vwap": {
+<<<<<<< HEAD
     "intraday": 603.12,
     "avwap_60d": 575.1377,
+=======
+    "intraday": 603.1248,
+    "avwap_60d": 575.1923,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "anchor_idx": 72,
     "anchor_date": "2026-07-30"
   }

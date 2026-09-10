@@ -6,7 +6,11 @@
   "skeleton": false,
   "ma": {
     "ma5": 94.19,
+<<<<<<< HEAD
     "ma10": 91.78,
+=======
+    "ma10": 91.77,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "ma20": 94.3,
     "ma60": 104.95,
     "alignment": "mixed"
@@ -36,7 +40,11 @@
     "signal": "upper_band"
   },
   "volume": {
+<<<<<<< HEAD
     "ratio": 1.8,
+=======
+    "ratio": 1.9,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "signal": "surge_up"
   },
   "fibonacci": {
@@ -63,7 +71,11 @@
   ],
   "risk_flags": [],
   "frame": {
+<<<<<<< HEAD
     "avg_dollar_volume": 9507493098.13,
+=======
+    "avg_dollar_volume": 9516675050.0,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,8 +94,13 @@
     }
   },
   "vwap": {
+<<<<<<< HEAD
     "intraday": 104.8268,
     "avwap_60d": 94.8361,
+=======
+    "intraday": 104.8266,
+    "avwap_60d": 94.8413,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "anchor_idx": 71,
     "anchor_date": "2026-07-29"
   }

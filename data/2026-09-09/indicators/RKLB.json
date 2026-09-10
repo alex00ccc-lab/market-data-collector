@@ -66,7 +66,11 @@
     "跌破MA20"
   ],
   "frame": {
+<<<<<<< HEAD
     "avg_dollar_volume": 1187334418.09,
+=======
+    "avg_dollar_volume": 1188686268.1,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,8 +89,13 @@
     }
   },
   "vwap": {
+<<<<<<< HEAD
     "intraday": 94.7512,
     "avwap_60d": 72.0212,
+=======
+    "intraday": 94.7463,
+    "avwap_60d": 72.0163,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "anchor_idx": 71,
     "anchor_date": "2026-07-29"
   }

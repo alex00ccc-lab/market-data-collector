@@ -63,7 +63,11 @@
   ],
   "risk_flags": [],
   "frame": {
+<<<<<<< HEAD
     "avg_dollar_volume": 8598336072.46,
+=======
+    "avg_dollar_volume": 8603603076.4,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,8 +86,13 @@
     }
   },
   "vwap": {
+<<<<<<< HEAD
     "intraday": 454.2811,
     "avwap_60d": 481.0798,
+=======
+    "intraday": 454.2842,
+    "avwap_60d": 481.0864,
+>>>>>>> 932fbb7040a4deff3f342e20893979ce908b8a74
     "anchor_idx": 71,
     "anchor_date": "2026-07-29"
   }
