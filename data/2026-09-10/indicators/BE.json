@@ -16,9 +16,9 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": 8.2903,
-    "dea": -0.813,
-    "histogram": 18.2066,
+    "diff": 8.2643,
+    "dea": -0.8491,
+    "histogram": 18.2268,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -66,7 +66,7 @@
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 2996589842.85,
+    "avg_dollar_volume": 2997063739.3,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 234.5196,
-    "avwap_60d": 218.9379,
-    "anchor_idx": 90,
+    "intraday": 246.6073,
+    "avwap_60d": 218.942,
+    "anchor_idx": 70,
     "anchor_date": "2026-07-29"
   }
 }

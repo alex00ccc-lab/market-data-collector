@@ -16,9 +16,9 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": -0.1913,
-    "dea": -2.6866,
-    "histogram": 4.9906,
+    "diff": -0.1892,
+    "dea": -2.6837,
+    "histogram": 4.989,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -65,7 +65,7 @@
     "RSI超买"
   ],
   "frame": {
-    "avg_dollar_volume": 9228374627.07,
+    "avg_dollar_volume": 9229829528.64,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 97.4697,
-    "avwap_60d": 95.1692,
-    "anchor_idx": 90,
+    "intraday": 105.1594,
+    "avwap_60d": 95.1699,
+    "anchor_idx": 70,
     "anchor_date": "2026-07-29"
   }
 }

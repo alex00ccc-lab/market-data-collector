@@ -8,7 +8,7 @@
     "ma5": 147.88,
     "ma10": 144.73,
     "ma20": 142.4,
-    "ma60": 141.65,
+    "ma60": 141.49,
     "alignment": "bullish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 3.5857,
-    "dea": 2.2566,
-    "histogram": 2.6582,
+    "diff": 3.4806,
+    "dea": 2.1112,
+    "histogram": 2.7388,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -64,7 +64,7 @@
     "放量下跌"
   ],
   "frame": {
-    "avg_dollar_volume": 12067188009.54,
+    "avg_dollar_volume": 12070474195.0,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -83,9 +83,9 @@
     }
   },
   "vwap": {
-    "intraday": 147.1722,
-    "avwap_60d": 134.8563,
-    "anchor_idx": 37,
+    "intraday": 148.1639,
+    "avwap_60d": 134.8586,
+    "anchor_idx": 36,
     "anchor_date": "2026-08-05"
   }
 }
