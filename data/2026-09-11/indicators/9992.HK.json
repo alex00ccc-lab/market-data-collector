@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.7141,
-    "dea": -0.7585,
-    "histogram": 0.0888,
+    "diff": -0.7129,
+    "dea": -0.7568,
+    "histogram": 0.0878,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 162.6772,
+    "intraday": 162.3073,
     "avwap_60d": 152.3032,
-    "anchor_idx": 105,
+    "anchor_idx": 104,
     "anchor_date": "2026-08-21"
   }
 }
