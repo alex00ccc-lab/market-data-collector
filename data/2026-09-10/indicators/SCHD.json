@@ -22,9 +22,15 @@
     "signal": "death_cross"
   },
   "kdj": {
+<<<<<<< HEAD
     "k": 34.1,
     "d": 44.7,
     "j": 12.8,
+=======
+    "k": 33.9,
+    "d": 44.6,
+    "j": 12.5,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "signal": "bearish"
   },
   "bollinger": {
@@ -67,7 +73,11 @@
     "触及布林下轨"
   ],
   "frame": {
+<<<<<<< HEAD
     "avg_dollar_volume": 801278846.37,
+=======
+    "avg_dollar_volume": 801369633.15,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,7 +96,11 @@
     }
   },
   "vwap": {
+<<<<<<< HEAD
     "intraday": 32.4829,
+=======
+    "intraday": 32.483,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "avwap_60d": 33.772,
     "anchor_idx": 70,
     "anchor_date": "2026-06-30"

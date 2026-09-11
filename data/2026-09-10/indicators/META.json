@@ -36,7 +36,11 @@
     "signal": "upper_band"
   },
   "volume": {
+<<<<<<< HEAD
     "ratio": 2.0,
+=======
+    "ratio": 2.1,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "signal": "surge_up"
   },
   "fibonacci": {
@@ -66,7 +70,11 @@
     "触及布林上轨"
   ],
   "frame": {
+<<<<<<< HEAD
     "avg_dollar_volume": 10113449397.68,
+=======
+    "avg_dollar_volume": 10132099696.34,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,8 +93,13 @@
     }
   },
   "vwap": {
+<<<<<<< HEAD
     "intraday": 603.6793,
     "avwap_60d": 580.2507,
+=======
+    "intraday": 603.6942,
+    "avwap_60d": 580.3268,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "anchor_idx": 71,
     "anchor_date": "2026-07-30"
   }

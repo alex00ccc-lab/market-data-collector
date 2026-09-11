@@ -1,7 +1,11 @@
 {
   "symbol": "AMZN",
   "date": "2026-09-09",
+<<<<<<< HEAD
   "close": 252.4,
+=======
+  "close": 252.39999389648438,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +20,15 @@
     "signal": "bearish"
   },
   "macd": {
+<<<<<<< HEAD
     "diff": -0.4343,
     "dea": 0.8476,
     "histogram": -2.5638,
+=======
+    "diff": -0.1848,
+    "dea": 1.1937,
+    "histogram": -2.757,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "signal": "death_cross"
   },
   "kdj": {
@@ -36,7 +46,11 @@
     "signal": "lower_band"
   },
   "volume": {
+<<<<<<< HEAD
     "ratio": 1.1,
+=======
+    "ratio": 1.2,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "signal": "normal"
   },
   "fibonacci": {
@@ -53,8 +67,12 @@
   "trend_strength": "空头",
   "supports": [
     226.65,
+<<<<<<< HEAD
     227.01,
     259.34
+=======
+    227.01
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
   ],
   "resistances": [
     254.96,
@@ -66,28 +84,47 @@
     "触及布林下轨"
   ],
   "frame": {
+<<<<<<< HEAD
     "avg_dollar_volume": 8433951366.24,
+=======
+    "avg_dollar_volume": 8445261966.81,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 0,
+<<<<<<< HEAD
     "neutral": 2,
     "bearish": 3,
     "overall": "mildly_bearish",
     "five_q": {
       "trend": "bearish",
       "position": "neutral",
+=======
+    "neutral": 1,
+    "bearish": 4,
+    "overall": "bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bearish",
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
       "structure": "bearish",
       "volume": "neutral",
       "momentum": "bearish"
     }
   },
   "vwap": {
+<<<<<<< HEAD
     "intraday": 253.864,
     "avwap_60d": 262.7717,
     "anchor_idx": 70,
+=======
+    "intraday": 249.2725,
+    "avwap_60d": 262.7644,
+    "anchor_idx": 33,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "anchor_date": "2026-07-29"
   }
 }

@@ -65,7 +65,11 @@
     "触及布林上轨"
   ],
   "frame": {
+<<<<<<< HEAD
     "avg_dollar_volume": 8749049517.12,
+=======
+    "avg_dollar_volume": 8752645567.66,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,8 +88,13 @@
     }
   },
   "vwap": {
+<<<<<<< HEAD
     "intraday": 458.4991,
     "avwap_60d": 482.3021,
+=======
+    "intraday": 458.5017,
+    "avwap_60d": 482.3094,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "anchor_idx": 70,
     "anchor_date": "2026-07-29"
   }

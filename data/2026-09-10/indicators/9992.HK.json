@@ -16,9 +16,15 @@
     "signal": "bullish"
   },
   "macd": {
+<<<<<<< HEAD
     "diff": -0.6226,
     "dea": -0.7923,
     "histogram": 0.3394,
+=======
+    "diff": -0.6216,
+    "dea": -0.7909,
+    "histogram": 0.3386,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "signal": "golden_cross"
   },
   "kdj": {
@@ -84,9 +90,15 @@
     }
   },
   "vwap": {
+<<<<<<< HEAD
     "intraday": 162.9906,
     "avwap_60d": 152.2957,
     "anchor_idx": 106,
+=======
+    "intraday": 162.6985,
+    "avwap_60d": 152.2957,
+    "anchor_idx": 105,
+>>>>>>> e42644f16e005eacb3f6943b9bb87e0f1d407c83
     "anchor_date": "2026-08-21"
   }
 }
