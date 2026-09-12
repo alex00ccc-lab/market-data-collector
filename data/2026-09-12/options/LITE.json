@@ -1,0 +1,17 @@
+{
+  "symbol": "LITE",
+  "date": "2026-09-12",
+  "underlying_price": 927.03,
+  "max_pain": 850,
+  "call_wall": 850,
+  "call_wall_oi": 1171,
+  "put_wall": 700,
+  "put_wall_oi": 2018,
+  "atm_iv": 0.7216,
+  "hv_20d": 0.8603,
+  "iv_hv_gap": -0.1386,
+  "expiration": "2026-09-19",
+  "dte": 8,
+  "source": "marketdata.app",
+  "timestamp": "2026-09-12T11:44:15.853648+08:00"
+}

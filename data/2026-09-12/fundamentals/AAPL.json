@@ -1,0 +1,11 @@
+{
+  "symbol": "AAPL",
+  "pe_ratio": 37.9055,
+  "pb_ratio": 38.486,
+  "dividend_yield": 0.0051,
+  "market_cap": "$4.9T",
+  "sector": "",
+  "industry": "Technology",
+  "source": "finnhub",
+  "timestamp": "2026-09-12T11:43:31.119416+08:00"
+}

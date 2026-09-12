@@ -1,0 +1,17 @@
+{
+  "symbol": "KO",
+  "date": "2026-09-12",
+  "underlying_price": 88.29,
+  "max_pain": 82.5,
+  "call_wall": 95,
+  "call_wall_oi": 27873,
+  "put_wall": 77.5,
+  "put_wall_oi": 6244,
+  "atm_iv": 0.1871,
+  "hv_20d": 0.1572,
+  "iv_hv_gap": 0.0299,
+  "expiration": "2026-09-19",
+  "dte": 8,
+  "source": "marketdata.app",
+  "timestamp": "2026-09-12T11:44:07.523042+08:00"
+}
