@@ -6,7 +6,7 @@
   "skeleton": false,
   "ma": {
     "ma5": 494.67,
-    "ma10": 500.21,
+    "ma10": 500.22,
     "ma20": 494.43,
     "ma60": 440.0,
     "alignment": "mixed"
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 10.1553,
-    "dea": 14.5879,
-    "histogram": -8.8652,
+    "diff": 10.1787,
+    "dea": 14.6204,
+    "histogram": -8.8834,
     "signal": "death_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 10277508089.85,
+    "avg_dollar_volume": 10289802429.45,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 422.7153,
-    "avwap_60d": 431.7304,
-    "anchor_idx": 45,
+    "intraday": 416.3328,
+    "avwap_60d": 431.7559,
+    "anchor_idx": 65,
     "anchor_date": "2026-06-25"
   }
 }

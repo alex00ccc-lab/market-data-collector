@@ -1,7 +1,7 @@
 {
   "symbol": "MRVL",
   "date": "2026-09-11",
-  "close": 236.10001,
+  "close": 236.1,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": 2.1588,
-    "dea": 0.971,
-    "histogram": 2.3756,
+    "diff": 2.1493,
+    "dea": 0.9579,
+    "histogram": 2.3828,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 5523479413.42,
+    "avg_dollar_volume": 5525554496.24,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 222.1783,
-    "avwap_60d": 219.5735,
-    "anchor_idx": 88,
+    "intraday": 239.0539,
+    "avwap_60d": 219.577,
+    "anchor_idx": 68,
     "anchor_date": "2026-07-29"
   }
 }

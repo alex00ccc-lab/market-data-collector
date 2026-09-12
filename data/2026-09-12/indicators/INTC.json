@@ -1,7 +1,7 @@
 {
   "symbol": "INTC",
   "date": "2026-09-11",
-  "close": 102.94,
+  "close": 102.94000244140625,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 0.681,
-    "dea": -1.8138,
-    "histogram": 4.9896,
+    "diff": 0.274,
+    "dea": -2.3784,
+    "histogram": 5.3048,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -53,8 +53,7 @@
   "trend_strength": "多头",
   "supports": [
     81.88,
-    87.26,
-    99.17
+    87.26
   ],
   "resistances": [
     104.56,
@@ -63,7 +62,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 8723180461.62,
+    "avg_dollar_volume": 8732039566.92,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +81,9 @@
     }
   },
   "vwap": {
-    "intraday": 105.7642,
-    "avwap_60d": 95.5481,
-    "anchor_idx": 68,
+    "intraday": 106.0877,
+    "avwap_60d": 95.5522,
+    "anchor_idx": 31,
     "anchor_date": "2026-07-29"
   }
 }
