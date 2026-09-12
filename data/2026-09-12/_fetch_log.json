@@ -1,0 +1,214 @@
+{
+  "run_at": "2026-09-12T09:42:28.933700+08:00",
+  "date": "2026-09-12",
+  "symbols_attempted": 22,
+  "symbols_succeeded": 22,
+  "symbols_stale": 0,
+  "symbols_skipped": 0,
+  "symbols_failed": [],
+  "errors": [],
+  "skipped": [],
+  "per_symbol": {
+    "NOK": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:39:28.673866+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\NOK.json"
+    },
+    "SGOV": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:39:29.373220+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\SGOV.json"
+    },
+    "TSLA": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:39:30.598026+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\TSLA.json"
+    },
+    "LRCX": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:39:31.724791+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\LRCX.json"
+    },
+    "SCHD": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:39:32.953921+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\SCHD.json"
+    },
+    "GOOGL": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:39:33.770907+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\GOOGL.json"
+    },
+    "KO": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:39:34.977690+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\KO.json"
+    },
+    "AAPL": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:39:35.955601+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\AAPL.json"
+    },
+    "MSFT": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-12T09:39:39.131091+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\MSFT.json"
+    },
+    "AMZN": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-12T09:39:41.530212+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\AMZN.json"
+    },
+    "META": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-12T09:39:44.346103+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\META.json"
+    },
+    "NFLX": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-12T09:39:46.906961+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\NFLX.json"
+    },
+    "AMD": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-12T09:39:49.248356+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\AMD.json"
+    },
+    "INTC": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-12T09:39:52.191462+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\INTC.json"
+    },
+    "AVGO": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-12T09:39:54.571815+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\AVGO.json"
+    },
+    "COST": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-12T09:39:56.927492+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\COST.json"
+    },
+    "JPM": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-12T09:39:59.346266+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\JPM.json"
+    },
+    "LITE": {
+      "status": "ok",
+      "source": "alpha_vantage",
+      "fetched_at": "2026-09-12T09:40:01.732397+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\LITE.json"
+    },
+    "BE": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:40:02.426609+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\BE.json"
+    },
+    "MRVL": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:40:03.543930+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\MRVL.json"
+    },
+    "SPCX": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:40:04.695879+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\SPCX.json"
+    },
+    "RKLB": {
+      "status": "ok",
+      "source": "twelvedata",
+      "fetched_at": "2026-09-12T09:40:05.844096+08:00",
+      "quote_date": "2026-09-11",
+      "path": "D:\\holdings-briefing\\market_data\\data\\2026-09-12\\quotes\\RKLB.json"
+    }
+  },
+  "source_health": {
+    "alpha_vantage": {
+      "success_rate": "43%",
+      "ok": 10,
+      "failed": 13,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 1000
+    },
+    "finnhub": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 23,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "twelvedata": {
+      "success_rate": "34%",
+      "ok": 12,
+      "failed": 23,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 1384
+    },
+    "yahoo_chart": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 13,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "yfinance": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 13,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    }
+  }
+}
