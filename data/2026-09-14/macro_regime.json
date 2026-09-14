@@ -13,9 +13,9 @@
           "watch": "利差健康；若跌破 -0.20 → 🔴"
         },
         "BAMLH0A0HYM2": {
-          "value": 2.7,
+          "value": 2.65,
           "light": "🟢",
-          "trend": "stable",
+          "trend": "tightening",
           "watch": "若升破 5.50 → 🔴，停新增 CSP"
         }
       },
@@ -59,10 +59,10 @@
     }
   },
   "context": {
-    "VIX": 15.84,
+    "VIX": 17.16,
     "TNX_10y": 4.97,
-    "Brent": 108.0
+    "Brent": 107.91
   },
   "source": "fred",
-  "timestamp": "2026-09-14T11:43:37.727949+08:00"
+  "timestamp": "2026-09-14T23:43:32.637628+08:00"
 }

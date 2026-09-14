@@ -1,43 +1,43 @@
 {
   "symbol": "AAPL",
-  "date": "2026-09-11",
-  "close": 332.26999,
+  "date": "2026-09-14",
+  "close": 334.545,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 322.07,
-    "ma10": 322.52,
-    "ma20": 316.63,
-    "ma60": 313.36,
-    "alignment": "mixed"
+    "ma5": 324.99,
+    "ma10": 324.01,
+    "ma20": 318.06,
+    "ma60": 314.0,
+    "alignment": "bullish"
   },
   "rsi": {
-    "value": 70.6,
+    "value": 71.3,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 3.2293,
-    "dea": 2.0315,
-    "histogram": 2.3956,
+    "diff": 4.0531,
+    "dea": 2.4484,
+    "histogram": 3.2094,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 61.7,
-    "d": 53.9,
-    "j": 77.2,
+    "k": 64.5,
+    "d": 54.8,
+    "j": 83.9,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 331.47,
-    "middle": 316.63,
-    "lower": 301.78,
-    "bandwidth": 9.4,
-    "position": 1.03,
+    "upper": 333.98,
+    "middle": 318.06,
+    "lower": 302.13,
+    "bandwidth": 10.0,
+    "position": 1.02,
     "signal": "upper_band"
   },
   "volume": {
-    "ratio": 1.0,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 344.57,
@@ -50,7 +50,7 @@
     "78.6%": 288.91,
     "100.0%": 273.75
   },
-  "trend_strength": "震荡",
+  "trend_strength": "多头",
   "supports": [
     302.25,
     303.42,
@@ -63,21 +63,22 @@
   ],
   "risk_flags": [
     "RSI超买",
+    "缩量警示",
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 13497458189.11,
+    "avg_dollar_volume": 13078833678.75,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 2,
-    "neutral": 2,
+    "bullish": 3,
+    "neutral": 1,
     "bearish": 1,
-    "overall": "neutral",
+    "overall": "mildly_bullish",
     "five_q": {
-      "trend": "neutral",
+      "trend": "bullish",
       "position": "bearish",
       "structure": "bullish",
       "volume": "neutral",
@@ -85,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 297.4961,
-    "avwap_60d": 311.2093,
-    "anchor_idx": 65,
+    "intraday": 297.8059,
+    "avwap_60d": 311.2153,
+    "anchor_idx": 64,
     "anchor_date": "2026-06-25"
   }
 }

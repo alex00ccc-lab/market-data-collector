@@ -1,43 +1,43 @@
 {
   "symbol": "LRCX",
-  "date": "2026-09-11",
-  "close": 298.22,
+  "date": "2026-09-14",
+  "close": 278.48,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 308.03,
-    "ma10": 301.47,
-    "ma20": 310.34,
-    "ma60": 327.46,
+    "ma5": 302.19,
+    "ma10": 299.13,
+    "ma20": 307.65,
+    "ma60": 325.86,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 42.2,
+    "value": 36.4,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -3.9497,
-    "dea": -4.4972,
-    "histogram": 1.095,
-    "signal": "golden_cross"
+    "diff": -5.7928,
+    "dea": -4.7896,
+    "histogram": -2.0064,
+    "signal": "death_cross"
   },
   "kdj": {
-    "k": 48.6,
-    "d": 49.5,
-    "j": 46.6,
+    "k": 36.7,
+    "d": 45.6,
+    "j": 19.0,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 337.99,
-    "middle": 310.34,
-    "lower": 282.69,
-    "bandwidth": 17.8,
-    "position": 0.28,
-    "signal": "below_middle"
+    "upper": 336.66,
+    "middle": 307.65,
+    "lower": 278.63,
+    "bandwidth": 18.9,
+    "position": -0.0,
+    "signal": "lower_band"
   },
   "volume": {
-    "ratio": 1.2,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 438.5,
@@ -50,7 +50,7 @@
     "78.6%": 290.73,
     "100.0%": 250.5
   },
-  "trend_strength": "震荡",
+  "trend_strength": "空头",
   "supports": [
     252.35,
     288.32,
@@ -62,31 +62,33 @@
     343.84
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示",
+    "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 2362628280.93,
+    "avg_dollar_volume": 2241868810.35,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 2,
-    "bearish": 2,
-    "overall": "neutral",
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
     "five_q": {
       "trend": "bearish",
       "position": "bullish",
       "structure": "bearish",
       "volume": "neutral",
-      "momentum": "neutral"
+      "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 310.0117,
-    "avwap_60d": 307.1649,
-    "anchor_idx": 88,
+    "intraday": 310.6034,
+    "avwap_60d": 307.1453,
+    "anchor_idx": 87,
     "anchor_date": "2026-07-29"
   }
 }

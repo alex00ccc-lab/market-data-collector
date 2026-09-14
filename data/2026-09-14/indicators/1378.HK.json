@@ -16,8 +16,8 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.1033,
-    "dea": -0.0377,
+    "diff": -0.1034,
+    "dea": -0.0378,
     "histogram": -0.1312,
     "signal": "death_cross"
   },
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 27.5342,
+    "intraday": 27.411,
     "avwap_60d": 22.803,
-    "anchor_idx": 68,
+    "anchor_idx": 67,
     "anchor_date": "2026-07-02"
   }
 }

@@ -1,43 +1,43 @@
 {
   "symbol": "TSLA",
-  "date": "2026-09-11",
-  "close": 365.44,
+  "date": "2026-09-14",
+  "close": 363.45,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 363.81,
-    "ma10": 362.52,
-    "ma20": 355.13,
-    "ma60": 361.61,
+    "ma5": 365.68,
+    "ma10": 363.99,
+    "ma20": 356.19,
+    "ma60": 361.06,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 51.0,
+    "value": 56.2,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 5.0538,
-    "dea": 3.6441,
-    "histogram": 2.8194,
+    "diff": 4.9171,
+    "dea": 4.0237,
+    "histogram": 1.7868,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 49.9,
-    "d": 50.0,
-    "j": 49.7,
+    "k": 46.6,
+    "d": 48.9,
+    "j": 42.0,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 376.31,
-    "middle": 355.13,
-    "lower": 333.95,
-    "bandwidth": 11.9,
-    "position": 0.74,
+    "upper": 376.81,
+    "middle": 356.19,
+    "lower": 335.57,
+    "bandwidth": 11.6,
+    "position": 0.68,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.6,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 432.86,
@@ -61,9 +61,11 @@
     376.37,
     425.3
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 14113162788.87,
+    "avg_dollar_volume": 13342425851.52,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 380.0744,
-    "avwap_60d": 344.4556,
-    "anchor_idx": 88,
+    "intraday": 380.0789,
+    "avwap_60d": 344.4614,
+    "anchor_idx": 87,
     "anchor_date": "2026-07-29"
   }
 }
