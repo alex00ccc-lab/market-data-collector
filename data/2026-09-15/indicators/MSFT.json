@@ -1,43 +1,43 @@
 {
   "symbol": "MSFT",
-  "date": "2026-09-14",
-  "close": 505.41,
+  "date": "2026-09-15",
+  "close": 498.94,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 495.82,
-    "ma10": 499.4,
-    "ma20": 494.93,
-    "ma60": 442.11,
+    "ma5": 496.81,
+    "ma10": 498.57,
+    "ma20": 495.86,
+    "ma60": 444.1,
     "alignment": "mixed"
   },
   "rsi": {
-    "value": 60.2,
+    "value": 54.0,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 10.1541,
-    "dea": 13.6624,
-    "histogram": -7.0166,
+    "diff": 9.5383,
+    "dea": 12.7867,
+    "histogram": -6.4968,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 55.2,
-    "d": 51.7,
-    "j": 62.0,
-    "signal": "bullish"
+    "k": 47.9,
+    "d": 49.3,
+    "j": 45.1,
+    "signal": "bearish"
   },
   "bollinger": {
-    "upper": 514.55,
-    "middle": 494.93,
-    "lower": 475.32,
-    "bandwidth": 7.9,
-    "position": 0.77,
+    "upper": 514.35,
+    "middle": 495.86,
+    "lower": 477.38,
+    "bandwidth": 7.5,
+    "position": 0.58,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.4,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 517.78,
@@ -61,9 +61,11 @@
     506.06,
     513.53
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 10477550919.22,
+    "avg_dollar_volume": 9767636779.56,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 423.2538,
-    "avwap_60d": 432.6165,
-    "anchor_idx": 44,
+    "intraday": 417.4592,
+    "avwap_60d": 432.628,
+    "anchor_idx": 63,
     "anchor_date": "2026-06-25"
   }
 }

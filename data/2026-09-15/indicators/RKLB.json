@@ -1,53 +1,53 @@
 {
   "symbol": "RKLB",
-  "date": "2026-09-14",
-  "close": 62.55,
+  "date": "2026-09-15",
+  "close": 63.0,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 63.28,
-    "ma10": 63.4,
-    "ma20": 67.5,
-    "ma60": 75.52,
+    "ma5": 62.71,
+    "ma10": 63.31,
+    "ma20": 66.54,
+    "ma60": 74.78,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 33.2,
+    "value": 37.9,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -3.5085,
-    "dea": -3.6739,
-    "histogram": 0.3308,
+    "diff": -3.5155,
+    "dea": -3.8313,
+    "histogram": 0.6316,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 42.8,
-    "d": 47.6,
-    "j": 33.2,
+    "k": 44.9,
+    "d": 48.3,
+    "j": 38.0,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 79.03,
-    "middle": 67.5,
-    "lower": 55.96,
-    "bandwidth": 34.2,
-    "position": 0.29,
+    "upper": 76.07,
+    "middle": 66.54,
+    "lower": 57.01,
+    "bandwidth": 28.6,
+    "position": 0.31,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.7,
-    "signal": "normal"
+    "ratio": 0.3,
+    "signal": "shrink"
   },
   "fibonacci": {
-    "high": 109.55,
+    "high": 107.6,
     "low": 58.2,
-    "0.0%": 109.55,
-    "23.6%": 97.43,
-    "38.2%": 89.93,
-    "50.0%": 83.88,
-    "61.8%": 77.82,
-    "78.6%": 69.19,
+    "0.0%": 107.6,
+    "23.6%": 95.94,
+    "38.2%": 88.73,
+    "50.0%": 82.9,
+    "61.8%": 77.07,
+    "78.6%": 68.77,
     "100.0%": 58.2
   },
   "trend_strength": "震荡",
@@ -57,15 +57,16 @@
     80.69
   ],
   "resistances": [
-    69.99,
+    65.87,
     82.08,
     82.83
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1110354629.92,
+    "avg_dollar_volume": 1054240816.01,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 94.242,
-    "avwap_60d": 70.9175,
-    "anchor_idx": 67,
+    "intraday": 80.513,
+    "avwap_60d": 70.8489,
+    "anchor_idx": 30,
     "anchor_date": "2026-07-29"
   }
 }
