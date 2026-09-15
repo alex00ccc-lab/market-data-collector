@@ -36,8 +36,8 @@
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 1.5,
-    "signal": "normal"
+    "ratio": 1.6,
+    "signal": "surge_down"
   },
   "fibonacci": {
     "high": 438.5,
@@ -63,30 +63,31 @@
   ],
   "risk_flags": [
     "跌破MA20",
+    "放量下跌",
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 2418749589.81,
+    "avg_dollar_volume": 2426155712.41,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 1,
-    "bearish": 3,
-    "overall": "mildly_bearish",
+    "neutral": 0,
+    "bearish": 4,
+    "overall": "bearish",
     "five_q": {
       "trend": "bearish",
       "position": "bullish",
       "structure": "bearish",
-      "volume": "neutral",
+      "volume": "bearish",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 310.237,
-    "avwap_60d": 305.7718,
+    "intraday": 310.2218,
+    "avwap_60d": 305.7169,
     "anchor_idx": 87,
     "anchor_date": "2026-07-29"
   }
