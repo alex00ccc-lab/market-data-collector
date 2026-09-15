@@ -1,0 +1,93 @@
+{
+  "symbol": "AVGO",
+  "date": "2026-09-14",
+  "close": 344.72,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 360.1,
+    "ma10": 362.28,
+    "ma20": 365.08,
+    "ma60": 382.14,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 40.5,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -8.6401,
+    "dea": -8.1484,
+    "histogram": -0.9834,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 36.0,
+    "d": 45.3,
+    "j": 17.2,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 384.41,
+    "middle": 365.08,
+    "lower": 345.75,
+    "bandwidth": 10.6,
+    "position": -0.03,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 1.2,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 432.73,
+    "low": 342.33,
+    "0.0%": 432.73,
+    "23.6%": 411.4,
+    "38.2%": 398.2,
+    "50.0%": 387.53,
+    "61.8%": 376.86,
+    "78.6%": 361.68,
+    "100.0%": 342.33
+  },
+  "trend_strength": "空头",
+  "supports": [
+    355.59,
+    357.16,
+    370.32
+  ],
+  "resistances": [
+    371.54,
+    396.81,
+    427.76
+  ],
+  "risk_flags": [
+    "跌破MA20",
+    "触及布林下轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 9408903688.99,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 395.5911,
+    "avwap_60d": 346.2933,
+    "anchor_idx": 99,
+    "anchor_date": "2026-09-14"
+  }
+}
