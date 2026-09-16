@@ -1,43 +1,43 @@
 {
   "symbol": "RKLB",
-  "date": "2026-09-15",
-  "close": 63.55,
+  "date": "2026-09-16",
+  "close": 63.65599822998047,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 62.82,
-    "ma10": 63.37,
-    "ma20": 66.57,
-    "ma60": 74.79,
+    "ma5": 62.93,
+    "ma10": 63.48,
+    "ma20": 65.79,
+    "ma60": 74.18,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 39.9,
+    "value": 42.1,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -3.3549,
-    "dea": -3.6643,
-    "histogram": 0.6188,
+    "diff": -3.2675,
+    "dea": -3.7209,
+    "histogram": 0.9068,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 47.4,
-    "d": 49.1,
-    "j": 44.0,
+    "k": 47.9,
+    "d": 49.3,
+    "j": 45.1,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 76.06,
-    "middle": 66.57,
-    "lower": 57.08,
-    "bandwidth": 28.5,
-    "position": 0.34,
+    "upper": 73.39,
+    "middle": 65.79,
+    "lower": 58.2,
+    "bandwidth": 23.1,
+    "position": 0.36,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 1.0,
-    "signal": "normal"
+    "ratio": 0.2,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 107.6,
@@ -62,10 +62,11 @@
     82.83
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1100826828.69,
+    "avg_dollar_volume": 1049930141.77,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 90.261,
-    "avwap_60d": 70.6784,
-    "anchor_idx": 86,
+    "intraday": 79.6745,
+    "avwap_60d": 70.6411,
+    "anchor_idx": 29,
     "anchor_date": "2026-07-29"
   }
 }

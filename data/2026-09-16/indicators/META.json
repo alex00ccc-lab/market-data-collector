@@ -1,43 +1,43 @@
 {
   "symbol": "META",
-  "date": "2026-09-15",
-  "close": 670.24,
+  "date": "2026-09-16",
+  "close": 678.84,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 656.39,
-    "ma10": 629.43,
-    "ma20": 595.32,
-    "ma60": 598.28,
+    "ma5": 661.42,
+    "ma10": 639.46,
+    "ma20": 602.08,
+    "ma60": 600.19,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 84.1,
+    "value": 84.4,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 19.7861,
-    "dea": 7.969,
-    "histogram": 23.6342,
+    "diff": 22.3297,
+    "dea": 10.9442,
+    "histogram": 22.771,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 63.8,
-    "d": 54.6,
-    "j": 82.3,
+    "k": 64.0,
+    "d": 54.7,
+    "j": 82.8,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 677.54,
-    "middle": 595.32,
-    "lower": 513.09,
-    "bandwidth": 27.6,
-    "position": 0.96,
+    "upper": 688.33,
+    "middle": 602.08,
+    "lower": 515.82,
+    "bandwidth": 28.7,
+    "position": 0.94,
     "signal": "upper_band"
   },
   "volume": {
-    "ratio": 0.9,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 686.08,
@@ -63,10 +63,10 @@
   ],
   "risk_flags": [
     "RSI超买",
-    "触及布林上轨"
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 11122243251.84,
+    "avg_dollar_volume": 10388690540.23,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 604.1182,
-    "avwap_60d": 590.3301,
-    "anchor_idx": 67,
+    "intraday": 603.6629,
+    "avwap_60d": 590.3436,
+    "anchor_idx": 86,
     "anchor_date": "2026-07-30"
   }
 }

@@ -8,7 +8,7 @@
     "ma5": 152.68,
     "ma10": 153.88,
     "ma20": 154.21,
-    "ma60": 156.35,
+    "ma60": 156.36,
     "alignment": "bearish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.926,
-    "dea": -0.7365,
-    "histogram": -0.379,
+    "diff": -0.9249,
+    "dea": -0.735,
+    "histogram": -0.3798,
     "signal": "death_cross"
   },
   "kdj": {
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 161.8254,
+    "intraday": 161.5185,
     "avwap_60d": 152.349,
-    "anchor_idx": 102,
+    "anchor_idx": 101,
     "anchor_date": "2026-08-21"
   }
 }

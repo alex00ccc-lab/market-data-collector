@@ -1,43 +1,43 @@
 {
   "symbol": "SCHD",
-  "date": "2026-09-15",
-  "close": 34.33,
+  "date": "2026-09-16",
+  "close": 34.225,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 34.17,
-    "ma10": 34.5,
-    "ma20": 34.73,
-    "ma60": 33.57,
+    "ma5": 34.2,
+    "ma10": 34.44,
+    "ma20": 34.71,
+    "ma60": 33.61,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 31.9,
+    "value": 31.3,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.0713,
-    "dea": 0.2405,
-    "histogram": -0.3384,
+    "diff": 0.0478,
+    "dea": 0.1995,
+    "histogram": -0.3034,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 43.7,
-    "d": 47.9,
-    "j": 35.2,
+    "k": 40.9,
+    "d": 47.0,
+    "j": 28.7,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 35.48,
-    "middle": 34.73,
-    "lower": 33.97,
-    "bandwidth": 4.3,
-    "position": 0.24,
+    "upper": 35.49,
+    "middle": 34.71,
+    "lower": 33.93,
+    "bandwidth": 4.5,
+    "position": 0.19,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.7,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 35.31,
@@ -62,10 +62,11 @@
     35.21
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 796726896.5,
+    "avg_dollar_volume": 756655757.08,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 32.6245,
-    "avwap_60d": 33.8017,
-    "anchor_idx": 66,
+    "intraday": 32.6469,
+    "avwap_60d": 33.8018,
+    "anchor_idx": 65,
     "anchor_date": "2026-06-30"
   }
 }

@@ -1,0 +1,91 @@
+{
+  "symbol": "SIVE.ST",
+  "date": "2026-09-16",
+  "close": 29.219999313354492,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 28.67,
+    "ma10": 27.95,
+    "ma20": 30.24,
+    "ma60": 38.6,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 40.3,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -2.9527,
+    "dea": -3.7675,
+    "histogram": 1.6296,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 56.0,
+    "d": 52.0,
+    "j": 64.0,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 38.75,
+    "middle": 30.24,
+    "lower": 21.74,
+    "bandwidth": 56.2,
+    "position": 0.44,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.5,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 91.0,
+    "low": 22.1,
+    "0.0%": 91.0,
+    "23.6%": 74.74,
+    "38.2%": 64.68,
+    "50.0%": 56.55,
+    "61.8%": 48.42,
+    "78.6%": 36.84,
+    "100.0%": 22.1
+  },
+  "trend_strength": "震荡",
+  "supports": [
+    22.1,
+    26.9,
+    39.36
+  ],
+  "resistances": [
+    31.1,
+    43.84
+  ],
+  "risk_flags": [
+    "跌破MA20"
+  ],
+  "frame": {
+    "avg_dollar_volume": 203841512.52,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 2,
+    "bearish": 2,
+    "overall": "neutral",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "neutral"
+    }
+  },
+  "vwap": {
+    "intraday": 43.3976,
+    "avwap_60d": 27.0295,
+    "anchor_idx": 55,
+    "anchor_date": "2026-09-02"
+  }
+}

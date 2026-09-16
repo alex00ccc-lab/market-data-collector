@@ -1,14 +1,14 @@
 {
   "symbol": "COST",
-  "date": "2026-09-15",
-  "close": 901.34998,
+  "date": "2026-09-16",
+  "close": 897.495,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 906.0,
-    "ma10": 914.98,
-    "ma20": 933.05,
-    "ma60": 940.52,
+    "ma5": 904.98,
+    "ma10": 910.73,
+    "ma20": 929.85,
+    "ma60": 939.62,
     "alignment": "bearish"
   },
   "rsi": {
@@ -16,39 +16,39 @@
     "signal": "oversold"
   },
   "macd": {
-    "diff": -11.9493,
-    "dea": -8.4595,
-    "histogram": -6.9796,
+    "diff": -12.7226,
+    "dea": -9.5681,
+    "histogram": -6.309,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 35.7,
-    "d": 45.2,
-    "j": 16.7,
+    "k": 33.5,
+    "d": 44.5,
+    "j": 11.4,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 976.44,
-    "middle": 933.05,
-    "lower": 889.65,
-    "bandwidth": 9.3,
+    "upper": 973.84,
+    "middle": 929.85,
+    "lower": 885.86,
+    "bandwidth": 9.5,
     "position": 0.13,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 1.1,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 987.55,
-    "low": 898.43,
+    "low": 897.36,
     "0.0%": 987.55,
-    "23.6%": 966.52,
-    "38.2%": 953.51,
-    "50.0%": 942.99,
-    "61.8%": 932.47,
-    "78.6%": 917.5,
-    "100.0%": 898.43
+    "23.6%": 966.27,
+    "38.2%": 953.1,
+    "50.0%": 942.45,
+    "61.8%": 931.81,
+    "78.6%": 916.66,
+    "100.0%": 897.36
   },
   "trend_strength": "空头",
   "supports": [
@@ -63,10 +63,11 @@
   ],
   "risk_flags": [
     "RSI超卖",
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1831257070.84,
+    "avg_dollar_volume": 1742922996.68,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 968.9232,
-    "avwap_60d": 906.1733,
+    "intraday": 968.8971,
+    "avwap_60d": 899.0017,
     "anchor_idx": 119,
-    "anchor_date": "2026-09-15"
+    "anchor_date": "2026-09-16"
   }
 }
