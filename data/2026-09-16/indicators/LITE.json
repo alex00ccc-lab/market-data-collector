@@ -1,7 +1,7 @@
 {
   "symbol": "LITE",
   "date": "2026-09-15",
-  "close": 838.96,
+  "close": 838.96002,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": 12.5357,
-    "dea": 21.6607,
-    "histogram": -18.25,
+    "diff": 12.5902,
+    "dea": 21.7362,
+    "histogram": -18.292,
     "signal": "death_cross"
   },
   "kdj": {
@@ -65,7 +65,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 3649521399.95,
+    "avg_dollar_volume": 3647016174.47,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 870.4139,
-    "avwap_60d": 863.7142,
-    "anchor_idx": 66,
+    "intraday": 859.8257,
+    "avwap_60d": 863.7049,
+    "anchor_idx": 86,
     "anchor_date": "2026-07-29"
   }
 }
