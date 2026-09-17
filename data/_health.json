@@ -1,12 +1,8 @@
 {
-  "last_run": "2026-09-16T16:30:07.179016+08:00",
+  "last_run": "2026-09-17T09:58:33.663894+08:00",
   "markets": [
-    "A",
-    "HK",
-    "JP"
+    "US"
   ],
-  "success": false,
-  "errors": [
-    "6981.T: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)"
-  ]
+  "success": true,
+  "errors": []
 }
