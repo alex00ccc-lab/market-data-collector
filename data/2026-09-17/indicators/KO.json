@@ -1,54 +1,54 @@
 {
   "symbol": "KO",
-  "date": "2026-09-16",
-  "close": 87.87,
+  "date": "2026-09-17",
+  "close": 87.885,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 88.41,
-    "ma10": 88.31,
-    "ma20": 89.21,
-    "ma60": 86.04,
+    "ma5": 88.42,
+    "ma10": 88.27,
+    "ma20": 89.08,
+    "ma60": 86.17,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 38.0,
+    "value": 42.8,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.3019,
-    "dea": 0.5168,
-    "histogram": -0.4298,
+    "diff": 0.2315,
+    "dea": 0.4445,
+    "histogram": -0.426,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 38.5,
+    "k": 38.7,
     "d": 46.2,
-    "j": 23.2,
+    "j": 23.6,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 91.8,
-    "middle": 89.21,
-    "lower": 86.61,
+    "upper": 91.68,
+    "middle": 89.08,
+    "lower": 86.49,
     "bandwidth": 5.8,
-    "position": 0.24,
+    "position": 0.27,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 1.4,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 92.49,
-    "low": 79.83,
+    "low": 79.97,
     "0.0%": 92.49,
-    "23.6%": 89.5,
-    "38.2%": 87.65,
-    "50.0%": 86.16,
-    "61.8%": 84.67,
-    "78.6%": 82.54,
-    "100.0%": 79.83
+    "23.6%": 89.54,
+    "38.2%": 87.71,
+    "50.0%": 86.23,
+    "61.8%": 84.75,
+    "78.6%": 82.65,
+    "100.0%": 79.97
   },
   "trend_strength": "空头",
   "supports": [
@@ -62,10 +62,11 @@
     91.99
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1337293958.71,
+    "avg_dollar_volume": 1265572428.74,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 82.3746,
-    "avwap_60d": 85.8318,
-    "anchor_idx": 60,
-    "anchor_date": "2026-06-23"
+    "intraday": 82.4178,
+    "avwap_60d": 86.0326,
+    "anchor_idx": 61,
+    "anchor_date": "2026-06-25"
   }
 }

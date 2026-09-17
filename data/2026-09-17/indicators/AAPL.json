@@ -1,43 +1,43 @@
 {
   "symbol": "AAPL",
-  "date": "2026-09-16",
-  "close": 332.41,
+  "date": "2026-09-17",
+  "close": 332.7,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 331.13,
-    "ma10": 326.04,
-    "ma20": 320.39,
-    "ma60": 315.12,
+    "ma5": 332.36,
+    "ma10": 326.81,
+    "ma20": 321.18,
+    "ma60": 315.76,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 67.5,
+    "value": 67.0,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 4.6329,
-    "dea": 3.083,
-    "histogram": 3.0998,
+    "diff": 4.859,
+    "dea": 3.3257,
+    "histogram": 3.0666,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 61.8,
-    "d": 53.9,
-    "j": 77.6,
+    "k": 62.2,
+    "d": 54.1,
+    "j": 78.5,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 336.36,
-    "middle": 320.39,
-    "lower": 304.42,
-    "bandwidth": 10.0,
-    "position": 0.88,
+    "upper": 337.93,
+    "middle": 321.18,
+    "lower": 304.44,
+    "bandwidth": 10.4,
+    "position": 0.84,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.7,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 344.57,
@@ -61,9 +61,11 @@
     316.83,
     340.08
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 13432216407.79,
+    "avg_dollar_volume": 12635167991.22,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 298.9616,
-    "avwap_60d": 311.9394,
-    "anchor_idx": 62,
+    "intraday": 299.2778,
+    "avwap_60d": 311.9406,
+    "anchor_idx": 61,
     "anchor_date": "2026-06-25"
   }
 }
