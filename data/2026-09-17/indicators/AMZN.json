@@ -1,7 +1,7 @@
 {
   "symbol": "AMZN",
   "date": "2026-09-16",
-  "close": 245.96001,
+  "close": 245.96,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -2.2377,
-    "dea": -0.6758,
-    "histogram": -3.1238,
+    "diff": -2.2575,
+    "dea": -0.7033,
+    "histogram": -3.1084,
     "signal": "death_cross"
   },
   "kdj": {
@@ -66,7 +66,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 8217386103.06,
+    "avg_dollar_volume": 8219477658.99,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 249.8935,
-    "avwap_60d": 261.488,
-    "anchor_idx": 85,
+    "intraday": 253.8487,
+    "avwap_60d": 261.4862,
+    "anchor_idx": 65,
     "anchor_date": "2026-07-29"
   }
 }

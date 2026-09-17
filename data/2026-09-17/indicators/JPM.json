@@ -36,7 +36,7 @@
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 1.0,
+    "ratio": 1.1,
     "signal": "normal"
   },
   "fibonacci": {
@@ -66,7 +66,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 2250664721.36,
+    "avg_dollar_volume": 2256716407.29,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,8 +85,8 @@
     }
   },
   "vwap": {
-    "intraday": 330.5616,
-    "avwap_60d": 348.2511,
+    "intraday": 330.5698,
+    "avwap_60d": 348.2523,
     "anchor_idx": 45,
     "anchor_date": "2026-06-30"
   }

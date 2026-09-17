@@ -1,7 +1,7 @@
 {
   "symbol": "COST",
   "date": "2026-09-16",
-  "close": 893.73999,
+  "close": 893.74,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "oversold"
   },
   "macd": {
-    "diff": -13.0221,
-    "dea": -9.6014,
-    "histogram": -6.8414,
+    "diff": -13.038,
+    "dea": -9.6234,
+    "histogram": -6.8292,
     "signal": "death_cross"
   },
   "kdj": {
@@ -46,7 +46,7 @@
     "23.6%": 965.16,
     "38.2%": 951.31,
     "50.0%": 940.11,
-    "61.8%": 928.91,
+    "61.8%": 928.92,
     "78.6%": 912.97,
     "100.0%": 892.67
   },
@@ -66,7 +66,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 1836267090.94,
+    "avg_dollar_volume": 1837854900.87,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 968.3018,
+    "intraday": 963.2624,
     "avwap_60d": 896.1367,
-    "anchor_idx": 119,
+    "anchor_idx": 99,
     "anchor_date": "2026-09-16"
   }
 }
