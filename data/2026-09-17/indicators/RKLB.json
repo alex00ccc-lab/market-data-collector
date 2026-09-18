@@ -1,43 +1,43 @@
 {
   "symbol": "RKLB",
-  "date": "2026-09-16",
-  "close": 63.7,
+  "date": "2026-09-17",
+  "close": 66.53,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 62.94,
-    "ma10": 63.48,
-    "ma20": 65.8,
-    "ma60": 74.18,
-    "alignment": "bearish"
+    "ma5": 63.86,
+    "ma10": 63.83,
+    "ma20": 65.33,
+    "ma60": 73.7,
+    "alignment": "mixed"
   },
   "rsi": {
-    "value": 42.3,
+    "value": 47.2,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -3.1495,
-    "dea": -3.5614,
-    "histogram": 0.8238,
+    "diff": -2.7594,
+    "dea": -3.4612,
+    "histogram": 1.4036,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 48.1,
-    "d": 49.4,
-    "j": 45.6,
-    "signal": "bearish"
+    "k": 61.2,
+    "d": 53.7,
+    "j": 76.2,
+    "signal": "bullish"
   },
   "bollinger": {
-    "upper": 73.39,
-    "middle": 65.8,
-    "lower": 58.2,
-    "bandwidth": 23.1,
-    "position": 0.36,
-    "signal": "below_middle"
+    "upper": 71.39,
+    "middle": 65.33,
+    "lower": 59.27,
+    "bandwidth": 18.6,
+    "position": 0.6,
+    "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.9,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 107.6,
@@ -53,8 +53,8 @@
   "trend_strength": "震荡",
   "supports": [
     58.6,
-    62.54,
-    80.69
+    61.96,
+    62.54
   ],
   "resistances": [
     65.87,
@@ -62,31 +62,31 @@
     82.83
   ],
   "risk_flags": [
-    "跌破MA20"
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1096493002.65,
+    "avg_dollar_volume": 1034201682.82,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 2,
-    "bearish": 2,
+    "neutral": 3,
+    "bearish": 1,
     "overall": "neutral",
     "five_q": {
-      "trend": "bearish",
-      "position": "bullish",
-      "structure": "bearish",
+      "trend": "neutral",
+      "position": "bearish",
+      "structure": "bullish",
       "volume": "neutral",
       "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 93.8602,
-    "avwap_60d": 70.4704,
-    "anchor_idx": 65,
+    "intraday": 90.4954,
+    "avwap_60d": 70.4711,
+    "anchor_idx": 84,
     "anchor_date": "2026-07-29"
   }
 }

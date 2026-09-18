@@ -1,12 +1,19 @@
 {
-  "last_run": "2026-09-17T20:22:19.080113+08:00",
+  "last_run": "2026-09-18T09:25:49.010113+08:00",
   "markets": [
-    "A",
-    "HK",
-    "JP"
+    "US"
   ],
   "success": false,
   "errors": [
-    "6981.T: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)"
+    "NOK: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)",
+    "SGOV: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)",
+    "TSLA: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)",
+    "LRCX: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)",
+    "SCHD: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)",
+    "GOOGL: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)",
+    "KO: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)",
+    "AAPL: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)",
+    "MSFT: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)",
+    "AMZN: all sources failed (tried: twelvedata, finnhub, alpha_vantage, yfinance, yahoo_chart; twelvedata=failed, finnhub=failed, alpha_vantage=failed, yfinance=failed, yahoo_chart=failed)"
   ]
 }
