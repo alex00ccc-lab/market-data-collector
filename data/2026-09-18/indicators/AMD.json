@@ -1,0 +1,92 @@
+{
+  "symbol": "AMD",
+  "date": "2026-09-17",
+  "close": 545.09,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 514.27,
+    "ma10": 503.55,
+    "ma20": 486.23,
+    "ma60": 501.96,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 67.1,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": 8.9254,
+    "dea": 1.3867,
+    "histogram": 15.0774,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 64.4,
+    "d": 54.8,
+    "j": 83.6,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 535.26,
+    "middle": 486.23,
+    "lower": 437.21,
+    "bandwidth": 20.2,
+    "position": 1.1,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 1.4,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 584.73,
+    "low": 424.03,
+    "0.0%": 584.73,
+    "23.6%": 546.81,
+    "38.2%": 523.34,
+    "50.0%": 504.38,
+    "61.8%": 485.42,
+    "78.6%": 458.42,
+    "100.0%": 424.03
+  },
+  "trend_strength": "多头",
+  "supports": [
+    456.16,
+    456.75,
+    469.56
+  ],
+  "resistances": [
+    480.93,
+    514.39,
+    521.1
+  ],
+  "risk_flags": [
+    "触及布林上轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 8947784580.9,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 3,
+    "neutral": 1,
+    "bearish": 1,
+    "overall": "mildly_bullish",
+    "five_q": {
+      "trend": "bullish",
+      "position": "bearish",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 475.6147,
+    "avwap_60d": 487.3248,
+    "anchor_idx": 64,
+    "anchor_date": "2026-07-29"
+  }
+}
