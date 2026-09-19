@@ -20,6 +20,7 @@ import argparse
 import json
 import logging
 import msvcrt
+import os
 import subprocess
 import sys
 import traceback
@@ -35,6 +36,15 @@ LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
 TZ_BEIJING = timezone(timedelta(hours=8))
 NOW = datetime.now(TZ_BEIJING)
+
+# ── P0-B deterministic auth (Option B: GCM + hard timeout backstop) ─────
+# Keep GCM (PAT stays in Windows Credential Manager, never in a file). Close git's
+# terminal-prompt channel via GIT_TERMINAL_PROMPT=0. GCM's own GUI channel has no
+# reliable "never prompt" knob in 2.7.3 (credential.interactive=false also breaks
+# stored-credential retrieval), so the hard timeout in _run() + kill-tree is the
+# fast-fail backstop: on a missing/expired PAT the push fails bounded, not hang.
+# POC evidence: plans/p0-data-exfiltration-prevention.md §4 P0-B.
+os.environ.setdefault("GIT_TERMINAL_PROMPT", "0")
 
 # ── Logging ──────────────────────────────────────────────────────────────
 logger = logging.getLogger("fetch_local")
@@ -71,12 +81,43 @@ def _acquire_lock() -> bool:
         return False
 
 
+def _kill_tree(pid: int):
+    """Kill a process and its descendants (GCM child holds the pipe open)."""
+    try:
+        subprocess.run(["taskkill", "/F", "/T", "/PID", str(pid)],
+                       capture_output=True, timeout=10)
+    except Exception:
+        pass
+
+
 def _run(cmd: list[str], cwd: Path = None, timeout: int = 300) -> subprocess.CompletedProcess:
-    """Run a command, log output, return result."""
+    """Run a command with a hard timeout + process-tree kill on expiry.
+
+    Popen+communicate(timeout) so a timed-out command (e.g. git push whose GCM
+    child hangs on a GUI prompt) is killed along with its descendants and reported
+    as a failure (returncode 124) instead of crashing the pipeline. Callers check
+    via _run_ok(), which treats non-zero returncode as failure.
+    """
     cwd = cwd or ROOT
     logger.info("Running: %s (cwd=%s)", " ".join(cmd), cwd)
-    return subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, cwd=str(cwd),
-                          encoding="utf-8", errors="replace")
+    try:
+        proc = subprocess.Popen(
+            cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+            cwd=str(cwd), encoding="utf-8", errors="replace",
+        )
+    except Exception as exc:
+        logger.error("Failed to spawn %s: %s", " ".join(cmd), exc)
+        return subprocess.CompletedProcess(cmd, 1, "", f"spawn failed: {exc}")
+
+    try:
+        stdout, stderr = proc.communicate(timeout=timeout)
+        return subprocess.CompletedProcess(cmd, proc.returncode, stdout, stderr)
+    except subprocess.TimeoutExpired:
+        _kill_tree(proc.pid)
+        proc.kill()
+        stdout, stderr = proc.communicate()
+        logger.error("Command timed out after %ds (killed process tree): %s", timeout, " ".join(cmd))
+        return subprocess.CompletedProcess(cmd, 124, stdout, f"timed out after {timeout}s")
 
 
 def _run_ok(result: subprocess.CompletedProcess) -> bool:
