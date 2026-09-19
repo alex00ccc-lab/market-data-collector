@@ -1,12 +1,15 @@
 """Local market data fetch — one-shot pipeline for Windows scheduled task.
 
 Usage:
-    python market_data/scripts/fetch_local.py                    # auto-detect markets by time
-    python market_data/scripts/fetch_local.py --markets US,JP    # specific markets
-    python market_data/scripts/fetch_local.py --all              # all markets
+    python market_data/scripts/fetch_local.py                    # auto-detect (A/HK)
+    python market_data/scripts/fetch_local.py --markets A,HK     # explicit markets
     python market_data/scripts/fetch_local.py --dry-run          # fetch only, no git push
 
-Runs: sync_holdings → fetch → indicators → merge_prices → git push
+Ownership (P0-D, fail-closed allowlist): local is A/HK only. US/JP/EU are CI's job
+(fetch-daily.yml); since v14.41 CI also fetches A/HK (tencent source reachable from
+GitHub Actions US runner), so local is a backup path. Any non-A/HK market → reject (exit 1).
+
+Runs: sync_holdings → fetch → indicators → merge_prices → [security gate] → git push
 Logs to market_data/logs/fetch_local.log
 On failure: sends WeChat Work notification.
 """
@@ -115,16 +118,19 @@ def _git_status_clean(cwd: Path = None) -> bool:
 
 # ── Market detection ─────────────────────────────────────────────────────
 
+# P0-D ownership gate: local fetches A/HK only (fail-closed allowlist).
+# US/JP/EU — and A/HK as of v14.41 — are CI's job (fetch-daily.yml --markets US,JP,EU,A,HK).
+ALLOWED_LOCAL_MARKETS = {"A", "HK"}
+
+
 def auto_markets() -> list[str]:
-    """Determine which markets to fetch based on current Beijing time.
+    """Default markets for manual runs without --markets.
 
-    US/JP/EU quote data is fetched by GitHub Actions (fetch-daily.yml).
-    Local is responsible for A + HK (efinance needs CN IP).
-
-    Note: scheduled tasks pass --markets explicitly; this function is the
-    fallback for manual runs without --markets.
+    Local = A + HK only (backup path). All markets (US/JP/EU/A/HK) are
+    fetched by GitHub Actions CI (fetch-daily.yml) since v14.41. The
+    ALLOWED_LOCAL_MARKETS gate in main() rejects any non-A/HK market.
     """
-    return ["A", "HK"]  # A + HK only (US/JP/EU handled by CI)
+    return ["A", "HK"]
 
 
 def markets_from_holdings() -> set[str]:
@@ -250,14 +256,18 @@ def step_merge_prices() -> bool:
     return _run_ok(result)
 
 
-def step_git_push() -> bool:
-    """Commit and push data changes to market-data-collector repo."""
+def step_git_push() -> str:
+    """Commit and push data changes to market-data-collector repo.
+
+    Returns a status string: "ok" | "no_changes" | "stage_failed" |
+    "commit_failed" | "gate_blocked:<detail>" | "push_failed".
+    """
     logger.info("=" * 60)
     logger.info("Step 4/4: Git commit + push")
 
     if _git_status_clean(ROOT):
         logger.info("No data changes — skipping git push")
-        return True
+        return "no_changes"
 
     today_str = NOW.strftime("%Y-%m-%d")
     # Read fetch log for summary
@@ -277,21 +287,34 @@ def step_git_push() -> bool:
     # Stage (force-add because data/ is gitignored — CI uses -f as well)
     result = _run(["git", "add", "-f", "data/"], cwd=ROOT)
     if not _run_ok(result):
-        return False
+        return "stage_failed"
 
     # Commit (allow empty in case only fallback skeletons changed)
     result = _run(["git", "commit", "-m", msg, "--allow-empty"], cwd=ROOT)
     if not _run_ok(result):
-        return False
+        return "commit_failed"
+
+    # P0-A privacy/secret gate (fail-closed) — scan staged + unpublished range BEFORE push.
+    try:
+        sys.path.insert(0, str(PROJECT_ROOT / "src"))
+        from push_security_gate import run_gate
+        gate = run_gate(repo=ROOT, allow=["data/**/*.json"])
+    except Exception as exc:
+        logger.error("Security gate FAILED to run (fail-closed → block push): %s", exc)
+        return f"gate_blocked: gate error ({exc})"
+    if not gate.passed:
+        for v in gate.violations[:10]:
+            logger.error("Gate violation: %s", v)
+        return "gate_blocked: " + " | ".join(gate.violations[:3])
 
     # Push to market-data-collector master
     result = _run(["git", "push", "origin", "master"], cwd=ROOT, timeout=60)
     if not _run_ok(result):
         logger.error("Git push failed — check network / SSH key")
-        return False
+        return "push_failed"
 
     logger.info("Pushed to origin/master: %s", msg)
-    return True
+    return "ok"
 
 
 # ── Main ─────────────────────────────────────────────────────────────────
@@ -299,9 +322,7 @@ def step_git_push() -> bool:
 def main():
     parser = argparse.ArgumentParser(description="Local market data fetch pipeline")
     parser.add_argument("--markets", type=str, default=None,
-                        help="Comma-separated markets (US,JP,A,HK). Default: auto-detect by time.")
-    parser.add_argument("--all", action="store_true",
-                        help="Fetch all markets regardless of time")
+                        help="Comma-separated markets (A,HK only). Default: auto-detect (A/HK).")
     parser.add_argument("--force", action="store_true",
                         help="Force fetch even outside trading hours / on non-trading days")
     parser.add_argument("--dry-run", action="store_true",
@@ -313,12 +334,19 @@ def main():
         logger.info("Exiting — another fetch_local.py instance is already running")
         return 0
 
-    if args.all:
-        markets = ["US", "JP", "A", "HK"]
-    elif args.markets:
-        markets = [m.strip() for m in args.markets.split(",")]
+    if args.markets:
+        markets = [m.strip() for m in args.markets.split(",") if m.strip()]
     else:
         markets = auto_markets()
+
+    # P0-D ownership gate (fail-closed): reject any non-A/HK market.
+    illegal = [m for m in markets if m not in ALLOWED_LOCAL_MARKETS]
+    if illegal:
+        logger.error(
+            "Rejected markets %s — local fetches A/HK only (US/JP/EU are CI's job). Exiting.",
+            illegal,
+        )
+        return 1
 
     # ── Calendar check ──
     from utils import TradingCalendar
@@ -377,8 +405,9 @@ def main():
 
     # Step 4: Git push (skip if dry-run)
     if not args.dry_run:
-        if not step_git_push():
-            all_errors.append("git push failed")
+        push_status = step_git_push()
+        if push_status not in ("ok", "no_changes"):
+            all_errors.append(push_status)
             success = False
     else:
         logger.info("--dry-run: skipping git push")
