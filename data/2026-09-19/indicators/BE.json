@@ -65,7 +65,7 @@
     "放量下跌"
   ],
   "frame": {
-    "avg_dollar_volume": 4064929745.78,
+    "avg_dollar_volume": 4071216849.28,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,8 +84,8 @@
     }
   },
   "vwap": {
-    "intraday": 250.013,
-    "avwap_60d": 231.5334,
+    "intraday": 250.0203,
+    "avwap_60d": 231.5648,
     "anchor_idx": 63,
     "anchor_date": "2026-07-29"
   }

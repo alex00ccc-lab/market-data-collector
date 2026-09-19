@@ -1,33 +1,33 @@
 {
   "^VIX": {
     "name": "VIX 恐慌指数",
-    "price": 15.44,
-    "date": "2026-09-17",
-    "change_pct": -12.82
+    "price": 15.41,
+    "date": "2026-09-18",
+    "change_pct": -0.19
   },
   "^TNX": {
     "name": "10年期美债收益率",
-    "price": 4.95,
-    "date": "2026-09-17",
-    "change_pct": -1.18
+    "price": 4.98,
+    "date": "2026-09-18",
+    "change_pct": 0.71
   },
   "^TYX": {
     "name": "30年期美债收益率",
-    "price": 5.3,
-    "date": "2026-09-17",
-    "change_pct": -0.99
+    "price": 5.31,
+    "date": "2026-09-18",
+    "change_pct": 0.32
   },
   "^IRX": {
     "name": "13周国库券收益率",
     "price": 3.97,
-    "date": "2026-09-17",
-    "change_pct": -0.13
+    "date": "2026-09-18",
+    "change_pct": 0.08
   },
   "^FVX": {
     "name": "5年期美债收益率",
-    "price": 4.8,
-    "date": "2026-09-17",
-    "change_pct": -1.19
+    "price": 4.84,
+    "date": "2026-09-18",
+    "change_pct": 0.87
   },
   "^SOX": {
     "name": "费城半导体指数SOX",
@@ -43,38 +43,38 @@
   },
   "^KS11": {
     "name": "韩国KOSPI指数",
-    "price": 6872.82,
+    "price": 6894.23,
     "date": "2026-09-18",
-    "change_pct": 2.34
+    "change_pct": 2.66
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 103.96,
-    "date": "2026-09-17",
-    "change_pct": -1.77
+    "price": 99.49,
+    "date": "2026-09-18",
+    "change_pct": -5.08
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 100.26,
-    "date": "2026-09-17",
-    "change_pct": -0.05
+    "price": 100.47,
+    "date": "2026-09-18",
+    "change_pct": 0.25
   },
   "000001.SS": {
     "name": "上证指数",
-    "price": 3915.63,
+    "price": 3911.87,
     "date": "2026-09-18",
-    "change_pct": 1.03
+    "change_pct": 0.94
   },
   "^HSI": {
     "name": "恒生指数",
-    "price": 24771.87,
+    "price": 24750.78,
     "date": "2026-09-18",
-    "change_pct": 0.68
+    "change_pct": 0.6
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 64662.11,
+    "price": 65018.95,
     "date": "2026-09-18",
-    "change_pct": 0.82
+    "change_pct": 1.38
   }
 }

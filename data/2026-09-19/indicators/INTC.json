@@ -6,7 +6,7 @@
   "skeleton": false,
   "ma": {
     "ma5": 102.56,
-    "ma10": 102.26,
+    "ma10": 102.25,
     "ma20": 95.87,
     "ma60": 101.5,
     "alignment": "bullish"
@@ -16,9 +16,9 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": 2.1954,
-    "dea": 0.573,
-    "histogram": 3.2448,
+    "diff": 2.1756,
+    "dea": 0.5456,
+    "histogram": 3.26,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -66,7 +66,7 @@
     "放量下跌"
   ],
   "frame": {
-    "avg_dollar_volume": 9540042117.66,
+    "avg_dollar_volume": 9541765881.16,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 100.0632,
-    "avwap_60d": 96.9048,
-    "anchor_idx": 83,
+    "intraday": 107.5957,
+    "avwap_60d": 96.9056,
+    "anchor_idx": 63,
     "anchor_date": "2026-07-29"
   }
 }

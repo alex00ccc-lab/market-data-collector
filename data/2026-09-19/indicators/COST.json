@@ -16,9 +16,9 @@
     "signal": "oversold"
   },
   "macd": {
-    "diff": -13.9631,
-    "dea": -11.5589,
-    "histogram": -4.8084,
+    "diff": -13.9925,
+    "dea": -11.5997,
+    "histogram": -4.7856,
     "signal": "death_cross"
   },
   "kdj": {
@@ -45,7 +45,7 @@
     "0.0%": 987.55,
     "23.6%": 964.07,
     "38.2%": 949.54,
-    "50.0%": 937.79,
+    "50.0%": 937.8,
     "61.8%": 926.05,
     "78.6%": 909.34,
     "100.0%": 888.04
@@ -66,7 +66,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 1931414248.65,
+    "avg_dollar_volume": 1933361175.4,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 966.2827,
-    "avwap_60d": 894.5248,
-    "anchor_idx": 117,
+    "intraday": 960.5963,
+    "avwap_60d": 894.5253,
+    "anchor_idx": 97,
     "anchor_date": "2026-09-16"
   }
 }

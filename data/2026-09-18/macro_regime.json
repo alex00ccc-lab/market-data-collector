@@ -1,8 +1,8 @@
 {
   "date": "2026-09-18",
-  "regime": "NEUTRAL",
-  "regime_label": "中性",
-  "regime_light": "🟡",
+  "regime": "RISK_OFF",
+  "regime_label": "险",
+  "regime_light": "🔴",
   "forces": {
     "leverage": {
       "metrics": {
@@ -30,13 +30,13 @@
           "watch": "缩表是否加速（4 周趋势；连续 0 周下降）"
         },
         "SOFR": {
-          "value": 3.62,
-          "light": "🟢",
-          "trend": "stable",
-          "watch": "若跳升 > 近期中位数+20bp → 🔴（回购压力）；当前偏离 -2bp"
+          "value": 3.85,
+          "light": "🔴",
+          "trend": "spiking",
+          "watch": "若跳升 > 近期中位数+20bp → 🔴（回购压力）；当前偏离 +21bp"
         }
       },
-      "light": "🟡"
+      "light": "🔴"
     },
     "expectations": {
       "metrics": {
@@ -59,10 +59,10 @@
     }
   },
   "context": {
-    "VIX": 15.44,
-    "TNX_10y": 4.95,
-    "Brent": 103.96
+    "VIX": 15.41,
+    "TNX_10y": 4.98,
+    "Brent": 99.49
   },
   "source": "fred",
-  "timestamp": "2026-09-18T11:32:22.420404+08:00"
+  "timestamp": "2026-09-18T21:27:27.262174+08:00"
 }

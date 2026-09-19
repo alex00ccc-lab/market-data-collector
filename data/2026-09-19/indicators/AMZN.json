@@ -1,7 +1,7 @@
 {
   "symbol": "AMZN",
   "date": "2026-09-18",
-  "close": 253.71,
+  "close": 253.7100067138672,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -2.1112,
-    "dea": -1.2817,
-    "histogram": -1.659,
+    "diff": -2.0136,
+    "dea": -1.1467,
+    "histogram": -1.7338,
     "signal": "death_cross"
   },
   "kdj": {
@@ -52,9 +52,7 @@
   },
   "trend_strength": "空头",
   "supports": [
-    226.65,
-    227.01,
-    259.34
+    226.65
   ],
   "resistances": [
     254.96,
@@ -65,28 +63,28 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 8415705278.83,
+    "avg_dollar_volume": 8418934610.48,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 1,
-    "bearish": 3,
-    "overall": "mildly_bearish",
+    "neutral": 0,
+    "bearish": 4,
+    "overall": "bearish",
     "five_q": {
       "trend": "bearish",
-      "position": "neutral",
+      "position": "bearish",
       "structure": "bearish",
       "volume": "bullish",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 253.6521,
-    "avwap_60d": 261.0046,
-    "anchor_idx": 63,
+    "intraday": 250.3297,
+    "avwap_60d": 261.0033,
+    "anchor_idx": 26,
     "anchor_date": "2026-07-29"
   }
 }

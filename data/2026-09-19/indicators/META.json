@@ -16,9 +16,9 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": 24.0343,
-    "dea": 16.1272,
-    "histogram": 15.8142,
+    "diff": 24.038,
+    "dea": 16.1322,
+    "histogram": 15.8116,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -36,8 +36,8 @@
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.5,
-    "signal": "normal"
+    "ratio": 1.6,
+    "signal": "surge_down"
   },
   "fibonacci": {
     "high": 690.15,
@@ -62,31 +62,32 @@
     681.31
   ],
   "risk_flags": [
-    "RSI超买"
+    "RSI超买",
+    "放量下跌"
   ],
   "frame": {
-    "avg_dollar_volume": 11578705396.86,
+    "avg_dollar_volume": 11585418116.9,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 3,
-    "neutral": 1,
-    "bearish": 1,
+    "neutral": 0,
+    "bearish": 2,
     "overall": "mildly_bullish",
     "five_q": {
       "trend": "bullish",
       "position": "bearish",
       "structure": "bullish",
-      "volume": "neutral",
+      "volume": "bearish",
       "momentum": "bullish"
     }
   },
   "vwap": {
-    "intraday": 607.489,
-    "avwap_60d": 598.0775,
-    "anchor_idx": 84,
+    "intraday": 605.1212,
+    "avwap_60d": 598.1,
+    "anchor_idx": 64,
     "anchor_date": "2026-07-30"
   }
 }

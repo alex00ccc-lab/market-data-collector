@@ -1,0 +1,11 @@
+{
+  "symbol": "JPM",
+  "pe_ratio": 14.2704,
+  "pb_ratio": 2.3228,
+  "dividend_yield": 0.0274,
+  "market_cap": "$929B",
+  "sector": "",
+  "industry": "Banking",
+  "source": "finnhub",
+  "timestamp": "2026-09-19T11:45:11.161286+08:00"
+}

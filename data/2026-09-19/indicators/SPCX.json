@@ -36,7 +36,7 @@
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 4.0,
+    "ratio": 4.1,
     "signal": "surge_down"
   },
   "fibonacci": {
@@ -65,7 +65,7 @@
     "放量下跌"
   ],
   "frame": {
-    "avg_dollar_volume": 13048361931.48,
+    "avg_dollar_volume": 13063721090.96,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,8 +84,8 @@
     }
   },
   "vwap": {
-    "intraday": 148.4762,
-    "avwap_60d": 138.788,
+    "intraday": 148.4774,
+    "avwap_60d": 138.7961,
     "anchor_idx": 36,
     "anchor_date": "2026-08-05"
   }

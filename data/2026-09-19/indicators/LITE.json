@@ -1,7 +1,7 @@
 {
   "symbol": "LITE",
   "date": "2026-09-18",
-  "close": 930.90997,
+  "close": 930.91,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 14.2156,
-    "dea": 20.0074,
-    "histogram": -11.5836,
+    "diff": 14.1605,
+    "dea": 19.9309,
+    "histogram": -11.5408,
     "signal": "death_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 3962440816.3,
+    "avg_dollar_volume": 3966091389.67,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 864.8616,
-    "avwap_60d": 869.5523,
-    "anchor_idx": 83,
+    "intraday": 872.5198,
+    "avwap_60d": 869.5656,
+    "anchor_idx": 63,
     "anchor_date": "2026-07-29"
   }
 }
