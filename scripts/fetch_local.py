@@ -23,6 +23,7 @@ import msvcrt
 import os
 import subprocess
 import sys
+import time
 import traceback
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -128,6 +129,118 @@ def _run_ok(result: subprocess.CompletedProcess) -> bool:
                      result.stderr[-500:] if result.stderr else "(empty)")
         return False
     return True
+
+
+# ── P0-C failure classification + retry/backoff ──────────────────────────
+RETRY_ATTEMPTS = 4
+RETRY_BACKOFF_SECONDS = (30, 60, 120)
+
+_NFF_MARKERS = ("non-fast-forward",)
+_AUTH_MARKERS = (
+    "could not read username", "authentication failed", "403 forbidden",
+    "error: 403", "permission denied", "access denied",
+    "unable to get password from user", "terminal prompts disabled",
+)
+_MERGE_MARKERS = ("automatic merge failed", "conflict", "unmerged paths")
+_NETWORK_MARKERS = (
+    "failed to connect", "could not resolve host", "connection reset",
+    "connection timed out", "connection refused", "port 443",
+    "early eof", "rpc failed", "network is unreachable", "unable to access",
+)
+
+
+def classify_git_failure(returncode: int, stdout: str, stderr: str) -> str:
+    """Classify a git failure into one of six categories.
+
+    Returns "timeout" | "non_fast_forward" | "auth" | "merge_conflict" |
+    "network" | "unknown". Only "network" is retryable; everything else is
+    fail-closed (fast-fail, no retry).
+    """
+    if returncode == 124:
+        return "timeout"
+    text = ((stdout or "") + "\n" + (stderr or "")).lower()
+    if any(m in text for m in _NFF_MARKERS):
+        return "non_fast_forward"
+    if any(m in text for m in _AUTH_MARKERS):
+        return "auth"
+    if any(m in text for m in _MERGE_MARKERS):
+        return "merge_conflict"
+    if any(m in text for m in _NETWORK_MARKERS):
+        return "network"
+    return "unknown"
+
+
+def _git_retry(cmd: list[str], cwd: Path = None, timeout: int = 300,
+               sleep_fn=time.sleep) -> subprocess.CompletedProcess:
+    """Run a git command, retrying transient network failures with backoff.
+
+    Only "network" failures are retried (waits RETRY_BACKOFF_SECONDS).
+    auth/timeout/non_fast_forward/merge_conflict/unknown return immediately.
+    sleep_fn is injectable so tests can assert the backoff schedule without
+    actually sleeping.
+    """
+    for attempt in range(RETRY_ATTEMPTS):
+        result = _run(cmd, cwd=cwd, timeout=timeout)
+        if result.returncode == 0:
+            return result
+        cls = classify_git_failure(result.returncode, result.stdout, result.stderr)
+        if cls == "network" and attempt < RETRY_ATTEMPTS - 1:
+            wait = RETRY_BACKOFF_SECONDS[attempt]
+            logger.warning("Transient network failure (%s) — retry %d/%d in %ds: %s",
+                           cls, attempt + 1, RETRY_ATTEMPTS - 1, wait, " ".join(cmd))
+            sleep_fn(wait)
+            continue
+        return result
+    # Unreachable (loop always returns), kept for type-checker completeness.
+    return subprocess.CompletedProcess(cmd, 1, "", "retry loop exhausted")
+
+
+def _handle_non_fast_forward(sleep_fn=time.sleep) -> str:
+    """Handle a non-fast-forward push rejection: STOP + fetch + ownership check.
+
+    Never auto pull --rebase / -X theirs / --allow-unrelated-histories. Reconciles
+    only when local and CI touched disjoint files (mechanical safe recovery path —
+    NOT an ownership policy, which is P0-D). Returns "ok" | "push_failed" |
+    "ownership_conflict:<files>" | "reconcile_failed:<detail>".
+    """
+    # 1. Refresh origin/master (retry network).
+    fetch = _git_retry(["git", "fetch", "origin"], cwd=ROOT, timeout=60, sleep_fn=sleep_fn)
+    if not _run_ok(fetch):
+        cls = classify_git_failure(fetch.returncode, fetch.stdout, fetch.stderr)
+        return f"reconcile_failed: fetch failed ({cls})"
+
+    # 2. Merge-base. Missing → unrelated histories → STOP (never --allow-unrelated-histories).
+    mb = _run(["git", "merge-base", "HEAD", "origin/master"], cwd=ROOT, timeout=30)
+    if not _run_ok(mb):
+        return "reconcile_failed: no merge-base (unrelated histories)"
+    merge_base = mb.stdout.strip()
+
+    # 3. Divergent file sets (local vs remote since the common ancestor).
+    local = _run(["git", "diff", "--name-only", merge_base, "HEAD"], cwd=ROOT, timeout=30)
+    remote = _run(["git", "diff", "--name-only", merge_base, "origin/master"], cwd=ROOT, timeout=30)
+    if not (_run_ok(local) and _run_ok(remote)):
+        return "reconcile_failed: could not compute divergent file sets"
+    local_only = set(local.stdout.splitlines())
+    remote_only = set(remote.stdout.splitlines())
+
+    # 4. Overlap → ownership conflict → manual (P0-6 authority question).
+    overlap = local_only & remote_only
+    if overlap:
+        files = ", ".join(sorted(overlap)[:10])
+        logger.error("Ownership conflict: local and CI both wrote %d files (e.g. %s)", len(overlap), files)
+        return f"ownership_conflict: {files}"
+
+    # 5. Disjoint → eligible for explicit merge (merge itself still verified).
+    merge = _run(["git", "merge", "origin/master", "--no-edit"], cwd=ROOT, timeout=120)
+    if not _run_ok(merge):
+        return "reconcile_failed: merge failed"
+
+    # 6. Retry push.
+    push = _git_retry(["git", "push", "origin", "master"], cwd=ROOT, timeout=60, sleep_fn=sleep_fn)
+    if not _run_ok(push):
+        cls = classify_git_failure(push.returncode, push.stdout, push.stderr)
+        return f"push_failed: after reconcile ({cls})"
+    return "ok"
 
 
 def _send_failure_notification(errors: list[str]):
@@ -301,7 +414,8 @@ def step_git_push() -> str:
     """Commit and push data changes to market-data-collector repo.
 
     Returns a status string: "ok" | "no_changes" | "stage_failed" |
-    "commit_failed" | "gate_blocked:<detail>" | "push_failed".
+    "commit_failed" | "gate_blocked:<detail>" | "push_failed" |
+    "ownership_conflict:<files>" | "reconcile_failed:<detail>".
     """
     logger.info("=" * 60)
     logger.info("Step 4/4: Git commit + push")
@@ -348,14 +462,30 @@ def step_git_push() -> str:
             logger.error("Gate violation: %s", v)
         return "gate_blocked: " + " | ".join(gate.violations[:3])
 
-    # Push to market-data-collector master
-    result = _run(["git", "push", "origin", "master"], cwd=ROOT, timeout=60)
+    # Push to market-data-collector master (P0-C: retry network; NFF → ownership reconcile)
+    result = _git_retry(["git", "push", "origin", "master"], cwd=ROOT, timeout=60)
     if not _run_ok(result):
-        logger.error("Git push failed — check network / SSH key")
+        cls = classify_git_failure(result.returncode, result.stdout, result.stderr)
+        if cls == "non_fast_forward":
+            logger.warning("Push rejected (non-fast-forward) — running ownership reconcile")
+            return _handle_non_fast_forward()
+        logger.error("Git push failed (%s) — check network / credential", cls)
         return "push_failed"
 
     logger.info("Pushed to origin/master: %s", msg)
     return "ok"
+
+
+def _write_health(markets: list[str], success: bool, errors: list[str]):
+    """Write _health.json with the current pipeline status."""
+    health_path = DATA_DIR / "_health.json"
+    health = {
+        "last_run": NOW.isoformat(),
+        "markets": markets,
+        "success": success,
+        "errors": errors[:10],
+    }
+    health_path.write_text(json.dumps(health, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 # ── Main ─────────────────────────────────────────────────────────────────
@@ -413,15 +543,23 @@ def main():
     all_errors: list[str] = []
     success = True
 
-    # Step 0: Git pull — sync latest CI data before adding local A-share data
+    # Step 0: Git pull — sync latest CI data before adding local A-share data.
+    # P0-C: pull failure is FATAL (fail-closed) — if we can't confirm we're on the
+    # latest remote, we must not produce new local commits (that's the 2026-09-18
+    # chain: pull fail → fetch stale → commit → push non-fast-forward).
     if not args.dry_run:
         logger.info("=" * 60)
         logger.info("Step 0/4: Git pull (sync CI data)")
-        result = _run(["git", "pull", "origin", "master"], cwd=ROOT, timeout=60)
+        result = _git_retry(["git", "pull", "origin", "master"], cwd=ROOT, timeout=60)
         if _run_ok(result):
             logger.info("CI data synced")
         else:
-            logger.warning("Git pull failed — continuing with local data only")
+            cls = classify_git_failure(result.returncode, result.stdout, result.stderr)
+            logger.error("Git pull FAILED (%s) — aborting (won't fetch without CI sync)", cls)
+            all_errors.append(f"git pull failed ({cls})")
+            _send_failure_notification(all_errors)
+            _write_health(markets, False, all_errors)
+            return 1
 
     # Step 1: Sync holdings
     if not step_sync_holdings():
@@ -467,14 +605,7 @@ def main():
             logger.info("No real errors — all failures were market-closed skips, suppressing notification")
 
     # Write health JSON
-    health_path = DATA_DIR / "_health.json"
-    health = {
-        "last_run": NOW.isoformat(),
-        "markets": markets,
-        "success": success,
-        "errors": all_errors[:10],
-    }
-    health_path.write_text(json.dumps(health, ensure_ascii=False, indent=2), encoding="utf-8")
+    _write_health(markets, success, all_errors)
 
     return 0 if success else 1
 
