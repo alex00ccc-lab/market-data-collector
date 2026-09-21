@@ -33,6 +33,30 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Inject holdings.json (fail-closed)
+        shell: bash
+        env:
+          HOLDINGS_JSON: ${{ secrets.HOLDINGS_JSON }}
+        run: |
+          if [ -z "$HOLDINGS_JSON" ]; then
+            echo "::error::HOLDINGS_JSON secret missing or empty - abort"
+            exit 1
+          fi
+          python - <<'PY'
+          import os, json, sys
+          s = os.environ['HOLDINGS_JSON']
+          try:
+              data = json.loads(s)
+          except Exception:
+              print('::error::HOLDINGS_JSON is not valid JSON - abort')
+              sys.exit(1)
+          if not isinstance(data, dict) or not isinstance(data.get('symbols'), list):
+              print('::error::HOLDINGS_JSON schema invalid (expect {"symbols": [...]}) - abort')
+              sys.exit(1)
+          open('config/holdings.json', 'w', encoding='utf-8').write(s)
+          print('holdings.json injected from secret (fail-closed OK)')
+          PY
+
       - name: Fetch fundamentals
         run: |
           TODAY=$(date +%Y-%m-%d)

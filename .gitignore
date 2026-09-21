@@ -17,6 +17,9 @@ Thumbs.db
 *.pem
 config/keys.yaml
 
+# Private holdings list (injected from GitHub Secret HOLDINGS_JSON at CI runtime)
+config/holdings.json
+
 # Cache (transient)
 *.pyc
 cache/
