@@ -5,6 +5,46 @@
 
 ---
 
+## v15.11 — 2026-09-21 — holdings.json 公开暴露修复（secret 注入 fail-closed + untrack）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing（security-privacy-audit-2026-09-18 待办 #1，task-mdc-holdings-exposure） |
+| **Plan** | `plans/mdc-holdings-exposure-optimization.md`（方案 A） |
+
+### 背景
+
+market-data-collector 已转回 PUBLIC（保 DSA 无认证 raw URL 读 `watchlist.json` 不断供），`config/holdings.json`（真实持仓 ticker + 中文名）随仓库公开，泄露「这些 ticker 是真金白银持有」的持仓语义标签（ticker 本身已随 `data/quotes` 公开、无可消除；唯一可消的是该语义标签）。方案 A：holdings.json 移出 public 仓库，CI 运行时从 GitHub Secret `HOLDINGS_JSON` fail-closed 注入。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `.github/workflows/fetch-daily.yml` | 新增 "Inject holdings.json (fail-closed)" 步：secret 缺失/非法 JSON/错 schema 均 `exit 1`，不静默降级 |
+| `.github/workflows/fetch-weekly.yml` | 同上 |
+| `.gitignore` | 加 `config/holdings.json` |
+| `config/holdings.json` | `git rm --cached` 移出跟踪（工作区保留，本地 `fetch_local.py` / `sync_holdings_to_marketdata.py` 照读） |
+
+### 验证
+
+- E2E `run 35598098819` success：`total_holdings==15`、31/32 OK 1 skipped 0 errors、日志无 secret 泄露（`HOLDINGS_JSON: ***` 仅 masked，持仓 JSON/中文名 0 出现）。
+
+### 运营约束（Option A 引入，非阻断）
+
+持仓变化需手动重设 secret，否则 CI 抓旧持仓：
+
+```
+gh secret set HOLDINGS_JSON --repo alex00ccc-lab/market-data-collector < config/holdings.json
+```
+
+已知滞后缺口：`holdings.xlsx` 更新不自动触发 `sync_holdings_to_marketdata.py`（父项目 backlog `todo-025` 待补漂移自检）。
+
+### 回滚
+
+`git reset HEAD config/holdings.json` + 删 `.gitignore` 对应行恢复跟踪；`gh secret delete HOLDINGS_JSON`；`git checkout` 两个 workflow。
+
+---
+
 ## v15.10 — 2026-09-09 — 宏观 Event/Positioning State 数据层（Phase 2 三 state 架构）
 
 | 属性 | 值 |
