@@ -1,43 +1,43 @@
 {
   "symbol": "SIVE.ST",
   "date": "2026-09-21",
-  "close": 33.81999969482422,
+  "close": 34.20000076293945,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 30.07,
-    "ma10": 29.88,
-    "ma20": 29.37,
-    "ma60": 35.96,
+    "ma5": 30.15,
+    "ma10": 29.92,
+    "ma20": 29.39,
+    "ma60": 35.97,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 69.1,
+    "value": 69.6,
     "signal": "bullish"
   },
   "macd": {
-    "diff": -1.5747,
-    "dea": -2.6659,
-    "histogram": 2.1824,
+    "diff": -1.5444,
+    "dea": -2.6625,
+    "histogram": 2.2362,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 62.9,
-    "d": 54.3,
-    "j": 80.0,
+    "k": 64.4,
+    "d": 54.8,
+    "j": 83.7,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 36.58,
-    "middle": 29.37,
-    "lower": 22.15,
-    "bandwidth": 49.1,
-    "position": 0.81,
+    "upper": 36.64,
+    "middle": 29.39,
+    "lower": 22.13,
+    "bandwidth": 49.4,
+    "position": 0.83,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.4,
-    "signal": "shrink"
+    "ratio": 0.8,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 73.15,
@@ -60,11 +60,9 @@
     31.1,
     43.84
   ],
-  "risk_flags": [
-    "缩量警示"
-  ],
+  "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 212858433.85,
+    "avg_dollar_volume": 216485194.84,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -83,8 +81,8 @@
     }
   },
   "vwap": {
-    "intraday": 40.5001,
-    "avwap_60d": 27.9789,
+    "intraday": 40.4744,
+    "avwap_60d": 28.1008,
     "anchor_idx": 52,
     "anchor_date": "2026-09-02"
   }

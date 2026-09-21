@@ -1,24 +1,24 @@
 {
   "symbol": "SGOV",
-  "date": "2026-09-18",
-  "close": 100.59,
+  "date": "2026-09-21",
+  "close": 100.595,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 100.55,
-    "ma10": 100.52,
+    "ma5": 100.57,
+    "ma10": 100.53,
     "ma20": 100.55,
     "ma60": 100.55,
     "alignment": "mixed"
   },
   "rsi": {
-    "value": 39.1,
+    "value": 39.8,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.0037,
-    "dea": -0.0164,
-    "histogram": 0.0254,
+    "diff": 0.0009,
+    "dea": -0.0139,
+    "histogram": 0.0296,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -31,13 +31,13 @@
     "upper": 100.73,
     "middle": 100.55,
     "lower": 100.38,
-    "bandwidth": 0.4,
-    "position": 0.6,
+    "bandwidth": 0.3,
+    "position": 0.62,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.9,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 100.72,
@@ -60,9 +60,11 @@
     100.69,
     100.71
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 2207740376.65,
+    "avg_dollar_volume": 2113199982.99,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -81,9 +83,9 @@
     }
   },
   "vwap": {
-    "intraday": 100.5349,
+    "intraday": 100.5339,
     "avwap_60d": 100.5382,
-    "anchor_idx": 64,
+    "anchor_idx": 63,
     "anchor_date": "2026-07-01"
   }
 }
