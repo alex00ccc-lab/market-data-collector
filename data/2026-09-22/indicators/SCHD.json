@@ -1,43 +1,43 @@
 {
   "symbol": "SCHD",
-  "date": "2026-09-21",
-  "close": 33.72,
+  "date": "2026-09-22",
+  "close": 33.69,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 33.89,
-    "ma10": 34.04,
-    "ma20": 34.5,
-    "ma60": 33.69,
+    "ma5": 33.76,
+    "ma10": 33.97,
+    "ma20": 34.43,
+    "ma60": 33.72,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 27.4,
+    "value": 28.0,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -0.1013,
-    "dea": 0.0541,
-    "histogram": -0.3108,
+    "diff": -0.1282,
+    "dea": 0.0142,
+    "histogram": -0.2848,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 39.2,
-    "d": 46.4,
-    "j": 24.9,
+    "k": 38.2,
+    "d": 46.1,
+    "j": 22.5,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 35.52,
-    "middle": 34.5,
-    "lower": 33.49,
+    "upper": 35.44,
+    "middle": 34.43,
+    "lower": 33.41,
     "bandwidth": 5.9,
-    "position": 0.11,
+    "position": 0.14,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 1.2,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 35.31,
@@ -63,10 +63,11 @@
   ],
   "risk_flags": [
     "RSI超卖",
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 796116234.9,
+    "avg_dollar_volume": 753837778.18,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 32.7483,
+    "intraday": 32.7733,
     "avwap_60d": 33.8022,
-    "anchor_idx": 62,
+    "anchor_idx": 61,
     "anchor_date": "2026-06-30"
   }
 }

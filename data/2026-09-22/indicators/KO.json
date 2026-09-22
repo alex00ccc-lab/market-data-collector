@@ -1,54 +1,54 @@
 {
   "symbol": "KO",
-  "date": "2026-09-21",
-  "close": 87.12,
+  "date": "2026-09-22",
+  "close": 87.54,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 88.0,
-    "ma10": 88.14,
-    "ma20": 88.78,
-    "ma60": 86.41,
+    "ma5": 87.77,
+    "ma10": 88.06,
+    "ma20": 88.56,
+    "ma60": 86.49,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 40.4,
+    "value": 47.1,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.0961,
-    "dea": 0.3256,
-    "histogram": -0.459,
+    "diff": 0.0364,
+    "dea": 0.2736,
+    "histogram": -0.4744,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 33.3,
-    "d": 44.4,
-    "j": 11.1,
+    "k": 37.7,
+    "d": 45.9,
+    "j": 21.2,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 91.23,
-    "middle": 88.78,
-    "lower": 86.33,
-    "bandwidth": 5.5,
-    "position": 0.16,
+    "upper": 90.57,
+    "middle": 88.56,
+    "lower": 86.55,
+    "bandwidth": 4.5,
+    "position": 0.25,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 1.0,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 92.49,
-    "low": 80.7,
+    "low": 80.83,
     "0.0%": 92.49,
-    "23.6%": 89.71,
-    "38.2%": 87.99,
-    "50.0%": 86.59,
-    "61.8%": 85.2,
-    "78.6%": 83.22,
-    "100.0%": 80.7
+    "23.6%": 89.74,
+    "38.2%": 88.04,
+    "50.0%": 86.66,
+    "61.8%": 85.28,
+    "78.6%": 83.33,
+    "100.0%": 80.83
   },
   "trend_strength": "空头",
   "supports": [
@@ -62,10 +62,11 @@
     91.99
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1401937423.26,
+    "avg_dollar_volume": 1334307023.94,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 82.7131,
+    "intraday": 82.7751,
     "avwap_60d": 87.995,
-    "anchor_idx": 78,
+    "anchor_idx": 77,
     "anchor_date": "2026-07-23"
   }
 }

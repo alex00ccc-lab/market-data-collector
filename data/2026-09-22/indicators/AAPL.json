@@ -1,54 +1,54 @@
 {
   "symbol": "AAPL",
-  "date": "2026-09-21",
-  "close": 338.98001,
+  "date": "2026-09-22",
+  "close": 340.8,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 335.17,
-    "ma10": 329.93,
-    "ma20": 324.12,
-    "ma60": 317.62,
+    "ma5": 337.06,
+    "ma10": 332.39,
+    "ma20": 325.64,
+    "ma60": 318.57,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 70.7,
-    "signal": "overbought"
+    "value": 66.7,
+    "signal": "bullish"
   },
   "macd": {
-    "diff": 5.9322,
-    "dea": 4.1029,
-    "histogram": 3.6586,
+    "diff": 6.3334,
+    "dea": 4.6065,
+    "histogram": 3.4538,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 65.9,
-    "d": 55.3,
-    "j": 87.2,
+    "k": 61.5,
+    "d": 53.8,
+    "j": 76.8,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 342.28,
-    "middle": 324.12,
-    "lower": 305.96,
-    "bandwidth": 11.2,
+    "upper": 344.03,
+    "middle": 325.64,
+    "lower": 307.25,
+    "bandwidth": 11.3,
     "position": 0.91,
     "signal": "upper_band"
   },
   "volume": {
-    "ratio": 0.8,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
-    "high": 344.57,
-    "low": 274.21,
-    "0.0%": 344.57,
-    "23.6%": 327.97,
-    "38.2%": 317.69,
-    "50.0%": 309.39,
-    "61.8%": 301.09,
-    "78.6%": 289.27,
-    "100.0%": 274.21
+    "high": 345.28,
+    "low": 279.85,
+    "0.0%": 345.28,
+    "23.6%": 329.84,
+    "38.2%": 320.29,
+    "50.0%": 312.57,
+    "61.8%": 304.84,
+    "78.6%": 293.85,
+    "100.0%": 279.85
   },
   "trend_strength": "多头",
   "supports": [
@@ -62,10 +62,10 @@
     340.08
   ],
   "risk_flags": [
-    "RSI超买"
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 13936646058.26,
+    "avg_dollar_volume": 13401556876.98,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 300.9446,
-    "avwap_60d": 317.2499,
-    "anchor_idx": 61,
+    "intraday": 301.3465,
+    "avwap_60d": 317.2514,
+    "anchor_idx": 60,
     "anchor_date": "2026-06-29"
   }
 }

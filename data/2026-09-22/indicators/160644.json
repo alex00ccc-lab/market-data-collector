@@ -1,73 +1,72 @@
 {
-  "symbol": "GOOGL",
+  "symbol": "160644",
   "date": "2026-09-22",
-  "close": 361.17,
+  "close": 1.943,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 351.18,
-    "ma10": 345.2,
-    "ma20": 342.95,
-    "ma60": 348.02,
+    "ma5": 1.88,
+    "ma10": 1.85,
+    "ma20": 1.82,
+    "ma60": 1.77,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 70.8,
+    "value": 72.8,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 1.8808,
-    "dea": -1.3549,
-    "histogram": 6.4714,
+    "diff": 0.0369,
+    "dea": 0.0254,
+    "histogram": 0.023,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 64.0,
-    "d": 54.7,
-    "j": 82.6,
+    "k": 60.5,
+    "d": 53.5,
+    "j": 74.6,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 357.44,
-    "middle": 342.95,
-    "lower": 328.46,
-    "bandwidth": 8.4,
-    "position": 1.13,
+    "upper": 1.93,
+    "middle": 1.82,
+    "lower": 1.71,
+    "bandwidth": 11.8,
+    "position": 1.08,
     "signal": "upper_band"
   },
   "volume": {
-    "ratio": 0.0,
-    "signal": "shrink"
+    "ratio": 1.2,
+    "signal": "normal"
   },
   "fibonacci": {
-    "high": 384.48,
-    "low": 314.9,
-    "0.0%": 384.48,
-    "23.6%": 368.06,
-    "38.2%": 357.9,
-    "50.0%": 349.69,
-    "61.8%": 341.48,
-    "78.6%": 329.79,
-    "100.0%": 314.9
+    "high": 2.1,
+    "low": 1.47,
+    "0.0%": 2.1,
+    "23.6%": 1.95,
+    "38.2%": 1.86,
+    "50.0%": 1.79,
+    "61.8%": 1.71,
+    "78.6%": 1.6,
+    "100.0%": 1.47
   },
   "trend_strength": "多头",
   "supports": [
-    317.69,
-    330.65,
-    343.54
+    1.47,
+    1.7,
+    1.8
   ],
   "resistances": [
-    348.06,
-    370.92,
-    377.65
+    1.82,
+    1.86,
+    1.87
   ],
   "risk_flags": [
     "RSI超买",
-    "缩量警示",
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 8416834780.3,
+    "avg_dollar_volume": 929294.04,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 354.1461,
-    "avwap_60d": 344.0751,
-    "anchor_idx": 77,
-    "anchor_date": "2026-07-23"
+    "intraday": 2.1231,
+    "avwap_60d": 1.7375,
+    "anchor_idx": 81,
+    "anchor_date": "2026-07-30"
   }
 }

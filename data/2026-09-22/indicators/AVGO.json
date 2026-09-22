@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -8.2034,
-    "dea": -8.9203,
-    "histogram": 1.4338,
+    "diff": -8.2131,
+    "dea": -8.9339,
+    "histogram": 1.4416,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -46,7 +46,7 @@
     "23.6%": 409.86,
     "38.2%": 395.71,
     "50.0%": 384.27,
-    "61.8%": 372.83,
+    "61.8%": 372.84,
     "78.6%": 356.55,
     "100.0%": 335.81
   },
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 9757070992.79,
+    "avg_dollar_volume": 9758696950.15,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 389.2706,
-    "avwap_60d": 350.6449,
-    "anchor_idx": 115,
+    "intraday": 392.1825,
+    "avwap_60d": 350.6513,
+    "anchor_idx": 95,
     "anchor_date": "2026-09-15"
   }
 }
