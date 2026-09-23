@@ -1,0 +1,93 @@
+{
+  "symbol": "160644",
+  "date": "2026-09-23",
+  "close": 1.996,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 1.91,
+    "ma10": 1.87,
+    "ma20": 1.83,
+    "ma60": 1.77,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 75.4,
+    "signal": "overbought"
+  },
+  "macd": {
+    "diff": 0.0456,
+    "dea": 0.0277,
+    "histogram": 0.0358,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 65.3,
+    "d": 55.1,
+    "j": 85.7,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 1.96,
+    "middle": 1.83,
+    "lower": 1.71,
+    "bandwidth": 13.6,
+    "position": 1.16,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 1.6,
+    "signal": "surge_up"
+  },
+  "fibonacci": {
+    "high": 2.02,
+    "low": 1.47,
+    "0.0%": 2.02,
+    "23.6%": 1.89,
+    "38.2%": 1.81,
+    "50.0%": 1.74,
+    "61.8%": 1.68,
+    "78.6%": 1.58,
+    "100.0%": 1.47
+  },
+  "trend_strength": "多头",
+  "supports": [
+    1.47,
+    1.7,
+    1.8
+  ],
+  "resistances": [
+    1.82,
+    1.86,
+    1.87
+  ],
+  "risk_flags": [
+    "RSI超买",
+    "触及布林上轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 951934.39,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 4,
+    "neutral": 0,
+    "bearish": 1,
+    "overall": "bullish",
+    "five_q": {
+      "trend": "bullish",
+      "position": "bearish",
+      "structure": "bullish",
+      "volume": "bullish",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 2.1229,
+    "avwap_60d": 1.7439,
+    "anchor_idx": 80,
+    "anchor_date": "2026-07-30"
+  }
+}

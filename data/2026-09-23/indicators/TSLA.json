@@ -1,43 +1,43 @@
 {
   "symbol": "TSLA",
-  "date": "2026-09-22",
-  "close": 378.89999,
+  "date": "2026-09-23",
+  "close": 385.79,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 368.55,
-    "ma10": 365.51,
-    "ma20": 361.72,
-    "ma60": 359.02,
+    "ma5": 374.09,
+    "ma10": 367.31,
+    "ma20": 363.5,
+    "ma60": 358.58,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 61.6,
+    "value": 63.8,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 5.5717,
-    "dea": 4.431,
-    "histogram": 2.2814,
+    "diff": 6.7665,
+    "dea": 4.6338,
+    "histogram": 4.2654,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 64.7,
-    "d": 54.9,
-    "j": 84.4,
+    "k": 65.8,
+    "d": 55.3,
+    "j": 86.8,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 379.69,
-    "middle": 361.72,
-    "lower": 343.75,
-    "bandwidth": 9.9,
-    "position": 0.98,
+    "upper": 383.5,
+    "middle": 363.5,
+    "lower": 343.5,
+    "bandwidth": 11.0,
+    "position": 1.06,
     "signal": "upper_band"
   },
   "volume": {
-    "ratio": 0.7,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 432.86,
@@ -62,10 +62,11 @@
     425.3
   ],
   "risk_flags": [
+    "缩量警示",
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 14066230991.26,
+    "avg_dollar_volume": 13546868931.89,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 379.99,
-    "avwap_60d": 348.268,
-    "anchor_idx": 81,
+    "intraday": 379.9952,
+    "avwap_60d": 348.2716,
+    "anchor_idx": 80,
     "anchor_date": "2026-07-29"
   }
 }

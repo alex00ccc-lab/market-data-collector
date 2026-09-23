@@ -1,43 +1,43 @@
 {
   "symbol": "KO",
-  "date": "2026-09-22",
-  "close": 88.61,
+  "date": "2026-09-23",
+  "close": 88.28,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 87.98,
-    "ma10": 88.16,
-    "ma20": 88.61,
-    "ma60": 86.51,
+    "ma5": 88.06,
+    "ma10": 88.24,
+    "ma20": 88.44,
+    "ma60": 86.6,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 53.4,
+    "value": 50.2,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 0.1218,
-    "dea": 0.2831,
-    "histogram": -0.3226,
+    "diff": 0.1142,
+    "dea": 0.2505,
+    "histogram": -0.2726,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 48.7,
-    "d": 49.6,
-    "j": 46.9,
+    "k": 45.3,
+    "d": 48.4,
+    "j": 39.0,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 90.57,
-    "middle": 88.61,
-    "lower": 86.65,
-    "bandwidth": 4.4,
-    "position": 0.5,
+    "upper": 89.82,
+    "middle": 88.44,
+    "lower": 87.06,
+    "bandwidth": 3.1,
+    "position": 0.44,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.9,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 92.49,
@@ -61,30 +61,33 @@
     89.35,
     91.99
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "跌破MA20",
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 1410297608.86,
+    "avg_dollar_volume": 1356290558.76,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 0,
-    "neutral": 4,
-    "bearish": 1,
+    "neutral": 3,
+    "bearish": 2,
     "overall": "neutral",
     "five_q": {
       "trend": "bearish",
       "position": "neutral",
-      "structure": "neutral",
+      "structure": "bearish",
       "volume": "neutral",
       "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 82.8242,
-    "avwap_60d": 88.0039,
-    "anchor_idx": 77,
+    "intraday": 82.8814,
+    "avwap_60d": 88.004,
+    "anchor_idx": 76,
     "anchor_date": "2026-07-23"
   }
 }
