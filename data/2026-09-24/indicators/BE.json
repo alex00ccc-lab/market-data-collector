@@ -1,7 +1,7 @@
 {
   "symbol": "BE",
   "date": "2026-09-23",
-  "close": 275.19000244140625,
+  "close": 275.19,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 13.198,
-    "dea": 11.9443,
-    "histogram": 2.5074,
+    "diff": 13.8441,
+    "dea": 12.84,
+    "histogram": 2.0082,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -65,7 +65,7 @@
     "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 4116553980.97,
+    "avg_dollar_volume": 4116887576.05,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 238.1069,
-    "avwap_60d": 233.8178,
-    "anchor_idx": 24,
+    "intraday": 250.1076,
+    "avwap_60d": 233.8194,
+    "anchor_idx": 60,
     "anchor_date": "2026-07-29"
   }
 }

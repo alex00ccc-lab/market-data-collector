@@ -1,71 +1,70 @@
 {
-  "symbol": "AAPL",
+  "symbol": "SIVE.ST",
   "date": "2026-09-24",
-  "close": 336.995,
+  "close": 32.540000915527344,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 337.77,
-    "ma10": 335.5,
-    "ma20": 328.13,
-    "ma60": 320.26,
+    "ma5": 33.26,
+    "ma10": 30.95,
+    "ma20": 29.11,
+    "ma60": 34.77,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 59.7,
+    "value": 62.2,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 6.1053,
-    "dea": 5.3446,
-    "histogram": 1.5214,
+    "diff": -0.534,
+    "dea": -1.7632,
+    "histogram": 2.4584,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 50.3,
-    "d": 50.1,
-    "j": 50.7,
+    "k": 54.4,
+    "d": 51.5,
+    "j": 60.2,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 344.85,
-    "middle": 328.13,
-    "lower": 311.4,
-    "bandwidth": 10.2,
-    "position": 0.77,
+    "upper": 35.6,
+    "middle": 29.11,
+    "lower": 22.62,
+    "bandwidth": 44.6,
+    "position": 0.76,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.0,
+    "ratio": 0.4,
     "signal": "shrink"
   },
   "fibonacci": {
-    "high": 345.34,
-    "low": 289.2,
-    "0.0%": 345.34,
-    "23.6%": 332.09,
-    "38.2%": 323.89,
-    "50.0%": 317.27,
-    "61.8%": 310.65,
-    "78.6%": 301.21,
-    "100.0%": 289.2
+    "high": 58.45,
+    "low": 22.1,
+    "0.0%": 58.45,
+    "23.6%": 49.87,
+    "38.2%": 44.56,
+    "50.0%": 40.28,
+    "61.8%": 35.99,
+    "78.6%": 29.88,
+    "100.0%": 22.1
   },
   "trend_strength": "多头",
   "supports": [
-    302.25,
-    303.42,
-    315.34
+    22.1,
+    26.9,
+    27.0
   ],
   "resistances": [
-    313.33,
-    316.83,
-    340.08
+    31.1,
+    43.84
   ],
   "risk_flags": [
     "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 13691402075.41,
+    "avg_dollar_volume": 218749178.24,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +83,9 @@
     }
   },
   "vwap": {
-    "intraday": 302.3584,
-    "avwap_60d": 319.3335,
-    "anchor_idx": 60,
-    "anchor_date": "2026-07-01"
+    "intraday": 39.2103,
+    "avwap_60d": 28.8309,
+    "anchor_idx": 50,
+    "anchor_date": "2026-09-02"
   }
 }
