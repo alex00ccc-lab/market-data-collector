@@ -1,43 +1,43 @@
 {
   "symbol": "GOOGL",
-  "date": "2026-09-24",
-  "close": 342.35999,
+  "date": "2026-09-25",
+  "close": 342.68,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 347.17,
-    "ma10": 345.89,
-    "ma20": 342.01,
-    "ma60": 347.34,
-    "alignment": "bullish"
+    "ma5": 345.8,
+    "ma10": 346.31,
+    "ma20": 342.11,
+    "ma60": 347.03,
+    "alignment": "mixed"
   },
   "rsi": {
-    "value": 49.9,
-    "signal": "bearish"
+    "value": 53.1,
+    "signal": "bullish"
   },
   "macd": {
-    "diff": 0.1342,
-    "dea": -0.5573,
-    "histogram": 1.383,
+    "diff": -0.0114,
+    "dea": -0.286,
+    "histogram": 0.5492,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 40.8,
-    "d": 46.9,
-    "j": 28.6,
+    "k": 41.2,
+    "d": 47.1,
+    "j": 29.5,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 354.48,
-    "middle": 342.01,
-    "lower": 329.54,
+    "upper": 354.57,
+    "middle": 342.11,
+    "lower": 329.66,
     "bandwidth": 7.3,
-    "position": 0.51,
+    "position": 0.52,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.7,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 384.48,
@@ -61,9 +61,11 @@
     370.92,
     377.65
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 9238279710.23,
+    "avg_dollar_volume": 8842929312.03,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -74,17 +76,17 @@
     "bearish": 0,
     "overall": "neutral",
     "five_q": {
-      "trend": "bullish",
+      "trend": "neutral",
       "position": "neutral",
       "structure": "neutral",
       "volume": "neutral",
-      "momentum": "neutral"
+      "momentum": "bullish"
     }
   },
   "vwap": {
-    "intraday": 354.9235,
-    "avwap_60d": 344.2051,
-    "anchor_idx": 75,
+    "intraday": 355.1944,
+    "avwap_60d": 344.205,
+    "anchor_idx": 74,
     "anchor_date": "2026-07-23"
   }
 }
