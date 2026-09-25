@@ -1,0 +1,92 @@
+{
+  "symbol": "MSFT",
+  "date": "2026-09-24",
+  "close": 497.93,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 498.38,
+    "ma10": 497.81,
+    "ma20": 499.48,
+    "ma60": 459.17,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 41.9,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": 5.7319,
+    "dea": 7.4659,
+    "histogram": -3.468,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 49.0,
+    "d": 49.7,
+    "j": 47.7,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 511.65,
+    "middle": 499.48,
+    "lower": 487.32,
+    "bandwidth": 4.9,
+    "position": 0.44,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.7,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 517.78,
+    "low": 373.35,
+    "0.0%": 517.78,
+    "23.6%": 483.69,
+    "38.2%": 462.61,
+    "50.0%": 445.56,
+    "61.8%": 428.52,
+    "78.6%": 404.26,
+    "100.0%": 373.35
+  },
+  "trend_strength": "空头",
+  "supports": [
+    381.58,
+    480.35,
+    490.3
+  ],
+  "resistances": [
+    505.41,
+    506.06,
+    513.53
+  ],
+  "risk_flags": [
+    "跌破MA20"
+  ],
+  "frame": {
+    "avg_dollar_volume": 10676918137.89,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 0,
+    "neutral": 2,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "neutral",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 427.4847,
+    "avwap_60d": 475.7903,
+    "anchor_idx": 55,
+    "anchor_date": "2026-07-23"
+  }
+}
