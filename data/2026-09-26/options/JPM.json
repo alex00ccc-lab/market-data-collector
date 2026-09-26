@@ -1,0 +1,17 @@
+{
+  "symbol": "JPM",
+  "date": "2026-09-26",
+  "underlying_price": 338.56,
+  "max_pain": 345,
+  "call_wall": 375,
+  "call_wall_oi": 5752,
+  "put_wall": 315,
+  "put_wall_oi": 4127,
+  "atm_iv": 0.2911,
+  "hv_20d": 0.1803,
+  "iv_hv_gap": 0.1108,
+  "expiration": "2026-10-17",
+  "dte": 22,
+  "source": "marketdata.app",
+  "timestamp": "2026-09-26T12:07:10.940279+08:00"
+}
