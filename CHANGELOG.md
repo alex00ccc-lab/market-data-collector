@@ -5,6 +5,33 @@
 
 ---
 
+## v15.12 — 2026-09-27 — 期权墙过期日过滤（dte < 0 排除）
+
+| 属性 | 值 |
+|------|-----|
+| **父项目** | holdings-briefing（task-watchlist-holdings-unified-fix A-P0） |
+| **Plan** | `plans/options-wall-expiry-filter-design-2026-09-27.md`（父仓库） |
+
+### 背景
+
+`options_wall.py::_pick_expiration` 只按「总 OI 最高」选到期日，无已到期过滤。数据日期落在月度到期日之后时，刚到期合约仍带最大 stale OI → 墙（max pain / call wall / put wall）算在已过期合约上。改为跳过 `dte < 0`（marketdata.app 权威「距到期天数」，负 = 已到期），保留 `dte >= 0`（含 0DTE 同日）与 `dte` 缺失（不误杀）；全到期 → `None`（上层 lenient 跳过）。
+
+### 改动文件
+
+| 文件 | 改动 |
+|------|------|
+| `scripts/options_wall.py` | `_pick_expiration` 增加 `dte < 0` 过滤（3 行）；OI 排序 / expiration 选择策略 / 渲染均不变，无时区改动 |
+
+### 验证
+
+- 父仓库 `tests/test_options_wall.py` RT1–RT4 全过（importlib 按路径加载本模块）；父仓库 pytest **444 passed**（440 + 4）。
+
+### 回滚
+
+删除 `_pick_expiration` 内 `dte < 0` 过滤三行即回滚；父项目经 importlib 加载、无契约变化。
+
+---
+
 ## v15.11 — 2026-09-21 — holdings.json 公开暴露修复（secret 注入 fail-closed + untrack）
 
 | 属性 | 值 |

@@ -151,9 +151,12 @@ def _fetch_chain(symbol: str, token: str) -> Optional[dict]:
 
 
 def _pick_expiration(j: dict) -> Optional[int]:
-    """选总 OI 最高的到期日（最流动，墙信号最有意义）。"""
+    """选总 OI 最高的到期日（最流动，墙信号最有意义）；跳过已到期（dte < 0）。"""
     groups: dict[int, list[int]] = {}
     for i, exp in enumerate(j["expiration"]):
+        dte = j["dte"][i]
+        if isinstance(dte, (int, float)) and dte < 0:
+            continue  # 已到期：排除（A-P0 过期日过滤）
         groups.setdefault(exp, []).append(i)
     best_exp, best_oi = None, -1
     for exp, idxs in groups.items():
