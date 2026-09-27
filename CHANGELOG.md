@@ -24,7 +24,7 @@
 
 ### 验证
 
-- 父仓库 `tests/test_options_wall.py` RT1–RT4 全过（importlib 按路径加载本模块）；父仓库 pytest **444 passed**（440 + 4）。
+- 父仓库 `tests/test_options_wall.py` RT1–RT5 全过（importlib 按路径加载本模块）；父仓库 pytest **445 passed**（440 + 5）。
 
 ### 回滚
 
