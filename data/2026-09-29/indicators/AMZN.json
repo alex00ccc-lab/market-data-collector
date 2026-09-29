@@ -1,43 +1,43 @@
 {
   "symbol": "AMZN",
-  "date": "2026-09-28",
-  "close": 246.15,
+  "date": "2026-09-29",
+  "close": 245.89,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 249.89,
-    "ma10": 250.72,
-    "ma20": 253.29,
-    "ma60": 254.68,
+    "ma5": 248.07,
+    "ma10": 250.47,
+    "ma20": 252.6,
+    "ma60": 254.71,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 38.3,
+    "value": 42.3,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -2.3745,
-    "dea": -1.9672,
-    "histogram": -0.8146,
+    "diff": -2.624,
+    "dea": -1.9814,
+    "histogram": -1.2852,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 37.4,
-    "d": 45.8,
-    "j": 20.6,
+    "k": 36.0,
+    "d": 45.3,
+    "j": 17.2,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 261.56,
-    "middle": 253.29,
-    "lower": 245.02,
-    "bandwidth": 6.5,
-    "position": 0.07,
-    "signal": "lower_band"
+    "upper": 260.9,
+    "middle": 252.6,
+    "lower": 244.29,
+    "bandwidth": 6.6,
+    "position": 0.1,
+    "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.8,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 287.2,
@@ -62,10 +62,11 @@
     284.02
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 8739223446.52,
+    "avg_dollar_volume": 8136024716.35,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 252.523,
-    "avwap_60d": 259.7615,
-    "anchor_idx": 57,
+    "intraday": 252.9331,
+    "avwap_60d": 259.7644,
+    "anchor_idx": 76,
     "anchor_date": "2026-07-29"
   }
 }
