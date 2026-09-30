@@ -1,7 +1,7 @@
 {
   "symbol": "SPCX",
   "date": "2026-09-29",
-  "close": 149.24001,
+  "close": 149.24,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 2.2273,
-    "dea": 3.3131,
-    "histogram": -2.1716,
+    "diff": 2.1915,
+    "dea": 3.2634,
+    "histogram": -2.1438,
     "signal": "death_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 13770343707.43,
+    "avg_dollar_volume": 13771735839.84,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 147.7374,
-    "avwap_60d": 140.136,
-    "anchor_idx": 37,
+    "intraday": 148.5549,
+    "avwap_60d": 140.1363,
+    "anchor_idx": 36,
     "anchor_date": "2026-08-05"
   }
 }

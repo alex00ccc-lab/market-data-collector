@@ -1,43 +1,43 @@
 {
   "symbol": "NOK",
-  "date": "2026-09-29",
-  "close": 10.36,
+  "date": "2026-09-30",
+  "close": 10.21,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 10.39,
-    "ma10": 10.51,
-    "ma20": 10.37,
-    "ma60": 10.29,
+    "ma5": 10.3,
+    "ma10": 10.52,
+    "ma20": 10.38,
+    "ma60": 10.26,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 45.5,
+    "value": 45.4,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.031,
-    "dea": 0.0603,
-    "histogram": -0.0586,
+    "diff": 0.0121,
+    "dea": 0.0618,
+    "histogram": -0.0994,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 45.6,
-    "d": 48.5,
-    "j": 39.7,
+    "k": 41.0,
+    "d": 47.0,
+    "j": 29.0,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 11.2,
-    "middle": 10.37,
-    "lower": 9.53,
-    "bandwidth": 16.1,
-    "position": 0.5,
+    "upper": 11.19,
+    "middle": 10.38,
+    "lower": 9.57,
+    "bandwidth": 15.7,
+    "position": 0.4,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.8,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 13.13,
@@ -62,31 +62,32 @@
     11.13
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 902909553.55,
+    "avg_dollar_volume": 873179930.12,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 0,
-    "neutral": 2,
+    "bullish": 1,
+    "neutral": 1,
     "bearish": 3,
     "overall": "mildly_bearish",
     "five_q": {
       "trend": "bearish",
-      "position": "bearish",
-      "structure": "neutral",
+      "position": "bullish",
+      "structure": "bearish",
       "volume": "neutral",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 12.062,
-    "avwap_60d": 10.1768,
-    "anchor_idx": 76,
+    "intraday": 12.0815,
+    "avwap_60d": 10.1769,
+    "anchor_idx": 75,
     "anchor_date": "2026-07-29"
   }
 }

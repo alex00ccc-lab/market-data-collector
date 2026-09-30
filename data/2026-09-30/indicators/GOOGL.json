@@ -1,43 +1,43 @@
 {
   "symbol": "GOOGL",
-  "date": "2026-09-29",
-  "close": 340.92001,
+  "date": "2026-09-30",
+  "close": 351.52,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 341.56,
-    "ma10": 345.36,
-    "ma20": 342.06,
-    "ma60": 346.34,
-    "alignment": "bearish"
+    "ma5": 344.29,
+    "ma10": 346.23,
+    "ma20": 342.89,
+    "ma60": 346.08,
+    "alignment": "mixed"
   },
   "rsi": {
-    "value": 58.1,
+    "value": 63.1,
     "signal": "bullish"
   },
   "macd": {
-    "diff": -0.291,
-    "dea": 0.0741,
-    "histogram": -0.7302,
-    "signal": "death_cross"
+    "diff": 0.3635,
+    "dea": 0.223,
+    "histogram": 0.281,
+    "signal": "golden_cross"
   },
   "kdj": {
-    "k": 39.1,
-    "d": 46.4,
-    "j": 24.6,
-    "signal": "bearish"
+    "k": 51.7,
+    "d": 50.6,
+    "j": 53.9,
+    "signal": "bullish"
   },
   "bollinger": {
-    "upper": 354.33,
-    "middle": 342.06,
-    "lower": 329.79,
-    "bandwidth": 7.2,
-    "position": 0.45,
-    "signal": "below_middle"
+    "upper": 355.37,
+    "middle": 342.89,
+    "lower": 330.41,
+    "bandwidth": 7.3,
+    "position": 0.85,
+    "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.8,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 384.48,
@@ -52,8 +52,8 @@
   },
   "trend_strength": "震荡",
   "supports": [
-    317.69,
     330.65,
+    337.83,
     343.54
   ],
   "resistances": [
@@ -62,31 +62,31 @@
     377.65
   ],
   "risk_flags": [
-    "跌破MA20"
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 8898296893.36,
+    "avg_dollar_volume": 8514930005.78,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 0,
-    "neutral": 4,
-    "bearish": 1,
+    "bullish": 2,
+    "neutral": 3,
+    "bearish": 0,
     "overall": "neutral",
     "five_q": {
-      "trend": "bearish",
+      "trend": "neutral",
       "position": "neutral",
-      "structure": "neutral",
+      "structure": "bullish",
       "volume": "neutral",
-      "momentum": "neutral"
+      "momentum": "bullish"
     }
   },
   "vwap": {
-    "intraday": 355.6632,
-    "avwap_60d": 344.1106,
-    "anchor_idx": 72,
+    "intraday": 355.9292,
+    "avwap_60d": 344.1124,
+    "anchor_idx": 71,
     "anchor_date": "2026-07-23"
   }
 }
