@@ -1,8 +1,8 @@
 {
   "date": "2026-10-02",
-  "regime": "RISK_OFF",
-  "regime_label": "险",
-  "regime_light": "🔴",
+  "regime": "NEUTRAL",
+  "regime_label": "中性",
+  "regime_light": "🟡",
   "forces": {
     "leverage": {
       "metrics": {
@@ -13,7 +13,7 @@
           "watch": "利差健康；若跌破 -0.20 → 🔴"
         },
         "BAMLH0A0HYM2": {
-          "value": 3.12,
+          "value": 3.24,
           "light": "🟢",
           "trend": "widening",
           "watch": "若升破 5.50 → 🔴，停新增 CSP"
@@ -30,13 +30,13 @@
           "watch": "缩表是否加速（4 周趋势；连续 1 周下降）"
         },
         "SOFR": {
-          "value": 3.9,
-          "light": "🔴",
-          "trend": "spiking",
-          "watch": "若跳升 > 近期中位数+20bp → 🔴（回购压力）；当前偏离 +24bp"
+          "value": 3.87,
+          "light": "🟢",
+          "trend": "stable",
+          "watch": "若跳升 > 近期中位数+20bp → 🔴（回购压力）；当前偏离 +2bp"
         }
       },
-      "light": "🔴"
+      "light": "🟡"
     },
     "expectations": {
       "metrics": {
@@ -59,10 +59,10 @@
     }
   },
   "context": {
-    "VIX": 16.39,
-    "TNX_10y": 5.24,
-    "Brent": 102.08
+    "VIX": 15.77,
+    "TNX_10y": 5.25,
+    "Brent": 100.81
   },
   "source": "fred",
-  "timestamp": "2026-10-02T12:24:51.901080+08:00"
+  "timestamp": "2026-10-02T23:26:57.868848+08:00"
 }

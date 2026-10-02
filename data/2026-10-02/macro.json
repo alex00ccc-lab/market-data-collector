@@ -1,63 +1,57 @@
 {
   "^VIX": {
     "name": "VIX 恐慌指数",
-    "price": 16.39,
-    "date": "2026-10-01",
-    "change_pct": 0.31
+    "price": 15.77,
+    "date": "2026-10-02",
+    "change_pct": -3.78
   },
   "^TNX": {
     "name": "10年期美债收益率",
-    "price": 5.24,
-    "date": "2026-10-01",
-    "change_pct": -1.06
+    "price": 5.25,
+    "date": "2026-10-02",
+    "change_pct": 0.32
   },
   "^TYX": {
     "name": "30年期美债收益率",
-    "price": 5.6,
-    "date": "2026-10-01",
-    "change_pct": -0.62
+    "price": 5.61,
+    "date": "2026-10-02",
+    "change_pct": 0.16
   },
   "^IRX": {
     "name": "13周国库券收益率",
     "price": 3.98,
-    "date": "2026-10-01",
-    "change_pct": -1.19
+    "date": "2026-10-02",
+    "change_pct": -0.0
   },
   "^FVX": {
     "name": "5年期美债收益率",
-    "price": 5.01,
-    "date": "2026-10-01",
-    "change_pct": -1.65
+    "price": 5.03,
+    "date": "2026-10-02",
+    "change_pct": 0.58
   },
   "^SOX": {
     "name": "费城半导体指数SOX",
-    "price": 12829.0,
-    "date": "2026-10-01",
-    "change_pct": 1.59
+    "price": 13153.83,
+    "date": "2026-10-02",
+    "change_pct": 2.53
   },
   "^IXIC": {
     "name": "纳斯达克综合指数",
-    "price": 26871.6,
-    "date": "2026-10-01",
-    "change_pct": 0.04
-  },
-  "^KS11": {
-    "name": "韩国KOSPI指数",
-    "price": 6983.98,
+    "price": 27126.11,
     "date": "2026-10-02",
-    "change_pct": 0.18
+    "change_pct": 0.95
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 102.08,
+    "price": 100.81,
     "date": "2026-10-02",
-    "change_pct": -0.22
+    "change_pct": -1.47
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 101.94,
+    "price": 101.86,
     "date": "2026-10-02",
-    "change_pct": -0.16
+    "change_pct": -0.24
   },
   "000001.SS": {
     "name": "上证指数",
@@ -67,14 +61,14 @@
   },
   "^HSI": {
     "name": "恒生指数",
-    "price": 23964.38,
+    "price": 23972.29,
     "date": "2026-10-02",
-    "change_pct": -2.64
+    "change_pct": -2.6
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 68346.66,
-    "date": "2026-10-02",
-    "change_pct": -0.88
+    "price": 68956.72,
+    "date": "2026-10-01",
+    "change_pct": 3.3
   }
 }

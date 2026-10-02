@@ -1,7 +1,7 @@
 {
   "symbol": "RKLB",
   "date": "2026-10-01",
-  "close": 70.45999908447266,
+  "close": 70.46,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 0.5606,
-    "dea": -0.0958,
-    "histogram": 1.3128,
+    "diff": 0.4028,
+    "dea": -0.3149,
+    "histogram": 1.4354,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -36,7 +36,7 @@
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.1,
+    "ratio": 1.2,
     "signal": "normal"
   },
   "fibonacci": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 1408358686.84,
+    "avg_dollar_volume": 1408733099.57,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 72.1565,
-    "avwap_60d": 70.4139,
-    "anchor_idx": 18,
+    "intraday": 92.2502,
+    "avwap_60d": 70.414,
+    "anchor_idx": 54,
     "anchor_date": "2026-07-29"
   }
 }

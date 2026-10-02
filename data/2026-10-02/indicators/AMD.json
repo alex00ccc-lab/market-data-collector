@@ -1,7 +1,7 @@
 {
   "symbol": "AMD",
   "date": "2026-10-01",
-  "close": 615.72998046875,
+  "close": 615.73,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": 34.3406,
-    "dea": 31.3634,
-    "histogram": 5.9544,
+    "diff": 34.835,
+    "dea": 32.0488,
+    "histogram": 5.5724,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -45,7 +45,7 @@
     "0.0%": 639.0,
     "23.6%": 588.27,
     "38.2%": 556.88,
-    "50.0%": 531.51,
+    "50.0%": 531.52,
     "61.8%": 506.15,
     "78.6%": 470.03,
     "100.0%": 424.03
@@ -65,7 +65,7 @@
     "RSI超买"
   ],
   "frame": {
-    "avg_dollar_volume": 12594651687.17,
+    "avg_dollar_volume": 12596190867.69,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 516.8638,
-    "avwap_60d": 514.4184,
-    "anchor_idx": 18,
+    "intraday": 506.6444,
+    "avwap_60d": 514.423,
+    "anchor_idx": 54,
     "anchor_date": "2026-07-29"
   }
 }

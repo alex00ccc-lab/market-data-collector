@@ -1,24 +1,24 @@
 {
   "symbol": "AVGO",
   "date": "2026-10-01",
-  "close": 343.6400146484375,
+  "close": 343.64,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 350.46,
-    "ma10": 354.18,
-    "ma20": 353.85,
-    "ma60": 375.64,
+    "ma10": 354.25,
+    "ma20": 354.2,
+    "ma60": 376.23,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 39.6,
+    "value": 39.2,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -5.6797,
-    "dea": -5.9871,
-    "histogram": 0.6148,
+    "diff": -6.216,
+    "dea": -6.6237,
+    "histogram": 0.8154,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -28,11 +28,11 @@
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 370.33,
-    "middle": 353.85,
-    "lower": 337.37,
+    "upper": 370.72,
+    "middle": 354.2,
+    "lower": 337.69,
     "bandwidth": 9.3,
-    "position": 0.19,
+    "position": 0.18,
     "signal": "below_middle"
   },
   "volume": {
@@ -40,32 +40,32 @@
     "signal": "normal"
   },
   "fibonacci": {
-    "high": 431.94,
-    "low": 335.2,
-    "0.0%": 431.94,
-    "23.6%": 409.11,
-    "38.2%": 394.99,
-    "50.0%": 383.57,
-    "61.8%": 372.16,
-    "78.6%": 355.9,
-    "100.0%": 335.2
+    "high": 432.73,
+    "low": 335.81,
+    "0.0%": 432.73,
+    "23.6%": 409.86,
+    "38.2%": 395.71,
+    "50.0%": 384.27,
+    "61.8%": 372.84,
+    "78.6%": 356.55,
+    "100.0%": 335.81
   },
   "trend_strength": "震荡",
   "supports": [
-    338.65,
-    354.94,
-    356.51
+    339.27,
+    355.59,
+    357.16
   ],
   "resistances": [
     364.54,
-    370.86,
-    426.98
+    371.54,
+    427.76
   ],
   "risk_flags": [
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 9498353179.02,
+    "avg_dollar_volume": 9510929520.59,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 372.5795,
-    "avwap_60d": 352.077,
-    "anchor_idx": 51,
+    "intraday": 388.0336,
+    "avwap_60d": 352.3143,
+    "anchor_idx": 87,
     "anchor_date": "2026-09-15"
   }
 }

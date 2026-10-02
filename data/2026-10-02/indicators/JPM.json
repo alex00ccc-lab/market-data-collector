@@ -1,7 +1,7 @@
 {
   "symbol": "JPM",
   "date": "2026-10-01",
-  "close": 333.17999267578125,
+  "close": 333.18,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "oversold"
   },
   "macd": {
-    "diff": -5.3617,
-    "dea": -3.41,
-    "histogram": -3.9034,
+    "diff": -5.3603,
+    "dea": -3.408,
+    "histogram": -3.9046,
     "signal": "death_cross"
   },
   "kdj": {
@@ -52,10 +52,12 @@
   },
   "trend_strength": "空头",
   "supports": [
+    327.33,
     344.71,
     351.55
   ],
   "resistances": [
+    335.12,
     362.06,
     365.18
   ],
@@ -64,28 +66,28 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 2886044266.99,
+    "avg_dollar_volume": 2887135526.29,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 1,
-    "neutral": 1,
+    "bullish": 0,
+    "neutral": 2,
     "bearish": 3,
     "overall": "mildly_bearish",
     "five_q": {
       "trend": "bearish",
-      "position": "bullish",
+      "position": "neutral",
       "structure": "bearish",
       "volume": "neutral",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 347.5998,
-    "avwap_60d": 331.8211,
-    "anchor_idx": 62,
+    "intraday": 333.9329,
+    "avwap_60d": 331.8212,
+    "anchor_idx": 98,
     "anchor_date": "2026-09-30"
   }
 }

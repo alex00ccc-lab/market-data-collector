@@ -1,7 +1,7 @@
 {
   "symbol": "META",
   "date": "2026-10-01",
-  "close": 725.92999,
+  "close": 725.93,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 36.0254,
-    "dea": 37.6508,
-    "histogram": -3.2508,
+    "diff": 36.0319,
+    "dea": 37.6595,
+    "histogram": -3.2552,
     "signal": "death_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 16761964326.92,
+    "avg_dollar_volume": 16762814095.65,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 624.3499,
-    "avwap_60d": 637.1486,
-    "anchor_idx": 75,
+    "intraday": 621.5668,
+    "avwap_60d": 637.1508,
+    "anchor_idx": 55,
     "anchor_date": "2026-07-30"
   }
 }
