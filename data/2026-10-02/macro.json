@@ -1,57 +1,63 @@
 {
   "^VIX": {
     "name": "VIX 恐慌指数",
-    "price": 17.25,
+    "price": 16.39,
     "date": "2026-10-01",
-    "change_pct": 5.57
+    "change_pct": 0.31
   },
   "^TNX": {
     "name": "10年期美债收益率",
-    "price": 5.25,
+    "price": 5.24,
     "date": "2026-10-01",
-    "change_pct": -0.79
+    "change_pct": -1.06
   },
   "^TYX": {
     "name": "30年期美债收益率",
-    "price": 5.62,
+    "price": 5.6,
     "date": "2026-10-01",
-    "change_pct": -0.39
+    "change_pct": -0.62
   },
   "^IRX": {
     "name": "13周国库券收益率",
-    "price": 3.99,
+    "price": 3.98,
     "date": "2026-10-01",
-    "change_pct": -1.07
+    "change_pct": -1.19
   },
   "^FVX": {
     "name": "5年期美债收益率",
-    "price": 5.02,
+    "price": 5.01,
     "date": "2026-10-01",
-    "change_pct": -1.4
+    "change_pct": -1.65
   },
   "^SOX": {
     "name": "费城半导体指数SOX",
-    "price": 12716.97,
+    "price": 12829.0,
     "date": "2026-10-01",
-    "change_pct": 0.7
+    "change_pct": 1.59
   },
   "^IXIC": {
     "name": "纳斯达克综合指数",
-    "price": 26807.19,
+    "price": 26871.6,
     "date": "2026-10-01",
-    "change_pct": -0.2
+    "change_pct": 0.04
+  },
+  "^KS11": {
+    "name": "韩国KOSPI指数",
+    "price": 6983.98,
+    "date": "2026-10-02",
+    "change_pct": 0.18
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 101.74,
-    "date": "2026-10-01",
-    "change_pct": -1.73
+    "price": 102.08,
+    "date": "2026-10-02",
+    "change_pct": -0.22
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 102.1,
-    "date": "2026-10-01",
-    "change_pct": 0.64
+    "price": 101.94,
+    "date": "2026-10-02",
+    "change_pct": -0.16
   },
   "000001.SS": {
     "name": "上证指数",
@@ -61,14 +67,14 @@
   },
   "^HSI": {
     "name": "恒生指数",
-    "price": 24613.27,
-    "date": "2026-09-30",
-    "change_pct": 0.37
+    "price": 23964.38,
+    "date": "2026-10-02",
+    "change_pct": -2.64
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 66753.72,
-    "date": "2026-09-30",
-    "change_pct": 1.94
+    "price": 68346.66,
+    "date": "2026-10-02",
+    "change_pct": -0.88
   }
 }
