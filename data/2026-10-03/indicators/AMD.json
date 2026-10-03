@@ -1,0 +1,92 @@
+{
+  "symbol": "AMD",
+  "date": "2026-10-02",
+  "close": 633.91,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 615.37,
+    "ma10": 619.06,
+    "ma20": 566.49,
+    "ma60": 516.38,
+    "alignment": "mixed"
+  },
+  "rsi": {
+    "value": 84.3,
+    "signal": "overbought"
+  },
+  "macd": {
+    "diff": 35.5236,
+    "dea": 33.7772,
+    "histogram": 3.4928,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 58.9,
+    "d": 53.0,
+    "j": 70.7,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 677.18,
+    "middle": 566.49,
+    "lower": 455.8,
+    "bandwidth": 39.1,
+    "position": 0.8,
+    "signal": "above_middle"
+  },
+  "volume": {
+    "ratio": 1.1,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 645.46,
+    "low": 424.03,
+    "0.0%": 645.46,
+    "23.6%": 593.2,
+    "38.2%": 560.87,
+    "50.0%": 534.75,
+    "61.8%": 508.62,
+    "78.6%": 471.42,
+    "100.0%": 424.03
+  },
+  "trend_strength": "震荡",
+  "supports": [
+    456.16,
+    456.75,
+    469.56
+  ],
+  "resistances": [
+    480.93,
+    514.39,
+    521.1
+  ],
+  "risk_flags": [
+    "RSI超买"
+  ],
+  "frame": {
+    "avg_dollar_volume": 12886720486.42,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 2,
+    "neutral": 2,
+    "bearish": 1,
+    "overall": "neutral",
+    "five_q": {
+      "trend": "neutral",
+      "position": "bearish",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 508.4229,
+    "avwap_60d": 516.7136,
+    "anchor_idx": 53,
+    "anchor_date": "2026-07-29"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "symbol": "LRCX",
+  "date": "2026-10-02",
+  "close": 347.45001,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 330.88,
+    "ma10": 319.73,
+    "ma20": 305.42,
+    "ma60": 309.44,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 90.4,
+    "signal": "overbought"
+  },
+  "macd": {
+    "diff": 7.7475,
+    "dea": 0.3621,
+    "histogram": 14.7708,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 63.7,
+    "d": 54.6,
+    "j": 81.9,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 349.33,
+    "middle": 305.42,
+    "lower": 261.51,
+    "bandwidth": 28.8,
+    "position": 0.98,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 0.9,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 357.25,
+    "low": 250.5,
+    "0.0%": 357.25,
+    "23.6%": 332.06,
+    "38.2%": 316.47,
+    "50.0%": 303.88,
+    "61.8%": 291.28,
+    "78.6%": 273.34,
+    "100.0%": 250.5
+  },
+  "trend_strength": "多头",
+  "supports": [
+    269.23,
+    288.32,
+    307.17
+  ],
+  "resistances": [
+    318.58,
+    320.42,
+    343.84
+  ],
+  "risk_flags": [
+    "RSI超买",
+    "触及布林上轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 2893403715.86,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 3,
+    "neutral": 1,
+    "bearish": 1,
+    "overall": "mildly_bullish",
+    "five_q": {
+      "trend": "bullish",
+      "position": "bearish",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 317.6946,
+    "avwap_60d": 304.6746,
+    "anchor_idx": 73,
+    "anchor_date": "2026-07-29"
+  }
+}
