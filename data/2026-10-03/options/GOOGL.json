@@ -1,0 +1,17 @@
+{
+  "symbol": "GOOGL",
+  "date": "2026-10-03",
+  "underlying_price": 341.8,
+  "max_pain": 345,
+  "call_wall": 375,
+  "call_wall_oi": 69231,
+  "put_wall": 320,
+  "put_wall_oi": 11128,
+  "atm_iv": 0.2931,
+  "hv_20d": 0.2575,
+  "iv_hv_gap": 0.0355,
+  "expiration": "2026-10-17",
+  "dte": 15,
+  "source": "marketdata.app",
+  "timestamp": "2026-10-03T12:24:12.496126+08:00"
+}

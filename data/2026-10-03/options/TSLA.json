@@ -1,0 +1,17 @@
+{
+  "symbol": "TSLA",
+  "date": "2026-10-03",
+  "underlying_price": 371.1,
+  "max_pain": 370,
+  "call_wall": 400,
+  "call_wall_oi": 21018,
+  "put_wall": 380,
+  "put_wall_oi": 11682,
+  "atm_iv": 0.4089,
+  "hv_20d": 0.3921,
+  "iv_hv_gap": 0.0168,
+  "expiration": "2026-10-17",
+  "dte": 15,
+  "source": "marketdata.app",
+  "timestamp": "2026-10-03T12:24:10.602446+08:00"
+}

@@ -1,0 +1,11 @@
+{
+  "symbol": "TSLA",
+  "pe_ratio": 384.5672,
+  "pb_ratio": 18.1867,
+  "dividend_yield": null,
+  "market_cap": "$1.5T",
+  "sector": "",
+  "industry": "Automobiles",
+  "source": "finnhub",
+  "timestamp": "2026-10-03T12:23:24.709460+08:00"
+}

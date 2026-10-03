@@ -1,0 +1,17 @@
+{
+  "symbol": "AVGO",
+  "date": "2026-10-03",
+  "underlying_price": 343.64,
+  "max_pain": 365,
+  "call_wall": 440,
+  "call_wall_oi": 33871,
+  "put_wall": 320,
+  "put_wall_oi": 9989,
+  "atm_iv": 0.3489,
+  "hv_20d": 0.3205,
+  "iv_hv_gap": 0.0284,
+  "expiration": "2026-10-17",
+  "dte": 15,
+  "source": "marketdata.app",
+  "timestamp": "2026-10-03T12:24:12.090054+08:00"
+}
