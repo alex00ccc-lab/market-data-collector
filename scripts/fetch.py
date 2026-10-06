@@ -492,10 +492,14 @@ def fetch_all(today: Optional[date] = None, force: bool = False,
 
         # Skip if market closed and not forcing
         if not force and not cal.should_fetch(market, today):
+            if not cal.is_trading_day(market, today):
+                reason = f"{market} market closed (holiday/weekend) on {date_str}"
+            else:
+                reason = f"{market} in pre_close window (close not yet available) on {date_str}"
             skipped.append(f"{sym} ({market}: market closed or not in fetch window)")
             per_symbol[sym] = {
                 "status": "skipped",
-                "reason": f"{market} market closed on {date_str}",
+                "reason": reason,
                 "source": None,
                 "fetched_at": datetime.now(TZ_BEIJING).isoformat(),
                 "quote_date": None,
