@@ -186,6 +186,10 @@ class TradingCalendar:
                     yesterday = d - timedelta(days=1)
                     if self.is_trading_day(market, yesterday):
                         return True
+                if market in ("A", "HK", "JP"):
+                    last = self.last_trading_day(market, d - timedelta(days=1))
+                    if last is not None:
+                        return True
                 return False
             return True  # post_close or off_hours
 
