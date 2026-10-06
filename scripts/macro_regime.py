@@ -300,7 +300,7 @@ def _load_macro_context(date: str) -> Optional[dict]:
 
 # ── regime 合成 ────────────────────────────────────────────────────────────
 def _worst(*lights: str) -> str:
-    return max(lights, key=lambda l: _SEV.get(l, 0))
+    return max(lights, key=lambda l: _SEV.get(l, 0)) if lights else "🟢"
 
 
 def _synthesize(lev: str, liq: str, exp: str, event_light: Optional[str]) -> tuple[str, str]:
