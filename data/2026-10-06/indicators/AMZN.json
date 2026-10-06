@@ -1,43 +1,43 @@
 {
   "symbol": "AMZN",
-  "date": "2026-10-05",
-  "close": 251.4,
+  "date": "2026-10-06",
+  "close": 255.88999938964844,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 249.39,
-    "ma10": 249.64,
-    "ma20": 251.29,
-    "ma60": 255.03,
+    "ma5": 251.24,
+    "ma10": 249.73,
+    "ma20": 251.23,
+    "ma60": 255.17,
     "alignment": "mixed"
   },
   "rsi": {
-    "value": 54.2,
+    "value": 63.3,
     "signal": "bullish"
   },
   "macd": {
-    "diff": -1.9654,
-    "dea": -2.2006,
-    "histogram": 0.4704,
+    "diff": -1.1913,
+    "dea": -1.8896,
+    "histogram": 1.3966,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 56.0,
-    "d": 52.0,
-    "j": 64.1,
+    "k": 65.7,
+    "d": 55.2,
+    "j": 86.7,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 258.34,
-    "middle": 251.29,
-    "lower": 244.24,
-    "bandwidth": 5.6,
-    "position": 0.51,
+    "upper": 258.12,
+    "middle": 251.23,
+    "lower": 244.34,
+    "bandwidth": 5.5,
+    "position": 0.84,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.1,
-    "signal": "normal"
+    "ratio": 0.4,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 287.2,
@@ -61,30 +61,32 @@
     266.43,
     284.02
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 8949712394.26,
+    "avg_dollar_volume": 8748867693.78,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 1,
-    "neutral": 4,
-    "bearish": 0,
+    "bullish": 2,
+    "neutral": 2,
+    "bearish": 1,
     "overall": "neutral",
     "five_q": {
       "trend": "neutral",
-      "position": "neutral",
-      "structure": "neutral",
+      "position": "bearish",
+      "structure": "bullish",
       "volume": "neutral",
       "momentum": "bullish"
     }
   },
   "vwap": {
-    "intraday": 251.6032,
-    "avwap_60d": 258.8118,
-    "anchor_idx": 52,
+    "intraday": 255.031,
+    "avwap_60d": 258.7804,
+    "anchor_idx": 17,
     "anchor_date": "2026-07-29"
   }
 }

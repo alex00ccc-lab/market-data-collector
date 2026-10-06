@@ -1,38 +1,38 @@
 {
   "symbol": "SIVE.ST",
-  "date": "2026-10-05",
-  "close": 34.5,
+  "date": "2026-10-06",
+  "close": 35.34000015258789,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 32.5,
-    "ma10": 32.81,
-    "ma20": 31.37,
-    "ma60": 33.3,
-    "alignment": "mixed"
+    "ma5": 33.2,
+    "ma10": 32.77,
+    "ma20": 31.62,
+    "ma60": 33.18,
+    "alignment": "bullish"
   },
   "rsi": {
-    "value": 72.0,
+    "value": 70.7,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 0.2616,
-    "dea": -0.0519,
-    "histogram": 0.627,
+    "diff": 0.486,
+    "dea": 0.0363,
+    "histogram": 0.8994,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 57.5,
-    "d": 52.5,
-    "j": 67.5,
+    "k": 60.3,
+    "d": 53.4,
+    "j": 74.0,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 35.8,
-    "middle": 31.37,
-    "lower": 26.93,
-    "bandwidth": 28.3,
-    "position": 0.85,
+    "upper": 36.34,
+    "middle": 31.62,
+    "lower": 26.9,
+    "bandwidth": 29.9,
+    "position": 0.89,
     "signal": "above_middle"
   },
   "volume": {
@@ -50,7 +50,7 @@
     "78.6%": 27.46,
     "100.0%": 22.1
   },
-  "trend_strength": "震荡",
+  "trend_strength": "多头",
   "supports": [
     22.1,
     26.9,
@@ -65,18 +65,18 @@
     "RSI超买"
   ],
   "frame": {
-    "avg_dollar_volume": 167615282.4,
+    "avg_dollar_volume": 165752483.24,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 2,
-    "neutral": 2,
+    "bullish": 3,
+    "neutral": 1,
     "bearish": 1,
-    "overall": "neutral",
+    "overall": "mildly_bullish",
     "five_q": {
-      "trend": "neutral",
+      "trend": "bullish",
       "position": "bearish",
       "structure": "bullish",
       "volume": "neutral",
@@ -84,8 +84,8 @@
     }
   },
   "vwap": {
-    "intraday": 34.5212,
-    "avwap_60d": 29.666,
+    "intraday": 34.5259,
+    "avwap_60d": 29.7945,
     "anchor_idx": 42,
     "anchor_date": "2026-09-02"
   }

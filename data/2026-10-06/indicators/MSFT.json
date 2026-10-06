@@ -1,14 +1,14 @@
 {
   "symbol": "MSFT",
   "date": "2026-10-05",
-  "close": 525.1799926757812,
+  "close": 525.18,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 515.47,
     "ma10": 509.93,
     "ma20": 502.95,
-    "ma60": 473.77,
+    "ma60": 474.16,
     "alignment": "bullish"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 9.4952,
-    "dea": 8.2874,
-    "histogram": 2.4156,
+    "diff": 8.6079,
+    "dea": 7.0597,
+    "histogram": 3.0964,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -41,31 +41,31 @@
   },
   "fibonacci": {
     "high": 532.35,
-    "low": 376.68,
+    "low": 377.39,
     "0.0%": 532.35,
-    "23.6%": 495.61,
-    "38.2%": 472.88,
-    "50.0%": 454.52,
-    "61.8%": 436.15,
-    "78.6%": 409.99,
-    "100.0%": 376.68
+    "23.6%": 495.78,
+    "38.2%": 473.16,
+    "50.0%": 454.87,
+    "61.8%": 436.58,
+    "78.6%": 410.55,
+    "100.0%": 377.39
   },
   "trend_strength": "多头",
   "supports": [
-    380.86,
-    479.45,
+    381.58,
+    480.35,
     490.3
   ],
   "resistances": [
-    505.11,
     505.41,
+    506.06,
     513.53
   ],
   "risk_flags": [
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 10927956025.45,
+    "avg_dollar_volume": 10928917696.39,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 460.87,
-    "avwap_60d": 479.9138,
-    "anchor_idx": 13,
+    "intraday": 432.7726,
+    "avwap_60d": 480.3627,
+    "anchor_idx": 48,
     "anchor_date": "2026-07-23"
   }
 }
