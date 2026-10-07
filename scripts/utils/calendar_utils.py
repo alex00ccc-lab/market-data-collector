@@ -227,6 +227,26 @@ class TradingCalendar:
         else:
             return False, "off_hours"
 
+    def last_completed_trading_day(self, market: str, now: Optional[datetime] = None) -> date:
+        """Most recent trading day whose close should already be available (BJT).
+
+        US/EU sessions close overnight Beijing time (~05:00 next BJT day), so
+        before that boundary the prior session is still running and its close is
+        not yet fetchable; A/HK/JP close during BJT daytime. Reuses
+        in_fetch_window()'s pre_close label — for US/EU close_hour=5 this is
+        exactly equivalent to the former ``now.hour >= 5`` (pre_close ⟺ hour < 5),
+        so the boundary lives in a single place (the calendar's close_hour table).
+        """
+        if now is None:
+            now = datetime.now(TZ_BEIJING)
+        d = now.date()
+        _, label = self.in_fetch_window(market, now)
+        if market in ("US", "EU"):
+            ref = d - timedelta(days=1) if label != "pre_close" else d - timedelta(days=2)
+        else:
+            ref = d if label != "pre_close" else d - timedelta(days=1)
+        return self.last_trading_day(market, ref)
+
 
 # ============================================================================
 # Utility: Retry decorator
