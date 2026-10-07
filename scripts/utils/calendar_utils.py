@@ -178,18 +178,14 @@ class TradingCalendar:
             now = datetime.now(TZ_BEIJING)
             in_window, label = self.in_fetch_window(market, now)
             if label == "pre_close":
-                # Market hasn't closed yet today.
-                # For US: allow if yesterday was a trading day
-                # (fetching the previous session's close, e.g. Tue 08:05
-                # fetching Mon's close which happened ~Tue 05:00 BJT)
-                if market in ("US", "EU"):
-                    yesterday = d - timedelta(days=1)
-                    if self.is_trading_day(market, yesterday):
-                        return True
-                if market in ("A", "HK", "JP"):
-                    last = self.last_trading_day(market, d - timedelta(days=1))
-                    if last is not None:
-                        return True
+                # Market hasn't closed yet today. Allow fetching the previous
+                # session's close: walk back to the most recent trading day.
+                # This handles weekends and multi-day holidays uniformly across
+                # all markets (e.g. Mon 03:00 BJT → Fri close; Tue after a Mon
+                # holiday → Fri close).
+                last = self.last_trading_day(market, d - timedelta(days=1))
+                if last is not None:
+                    return True
                 return False
             return True  # post_close or off_hours
 
@@ -206,7 +202,7 @@ class TradingCalendar:
         if before is None:
             before = datetime.now(TZ_BEIJING).date()
         d = before
-        for _ in range(10):  # Safety limit
+        for _ in range(15):  # Safety limit
             if self.is_trading_day(market, d):
                 return d
             d -= timedelta(days=1)
