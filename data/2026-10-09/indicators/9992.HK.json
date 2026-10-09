@@ -1,43 +1,43 @@
 {
   "symbol": "9992.HK",
   "date": "2026-10-09",
-  "close": 150.7,
+  "close": 152.3,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 151.04,
-    "ma10": 151.69,
-    "ma20": 152.49,
-    "ma60": 155.56,
+    "ma5": 151.36,
+    "ma10": 151.85,
+    "ma20": 152.57,
+    "ma60": 155.59,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 37.8,
+    "value": 41.5,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.9764,
-    "dea": -0.8779,
-    "histogram": -0.197,
-    "signal": "death_cross"
+    "diff": -0.8488,
+    "dea": -0.8638,
+    "histogram": 0.03,
+    "signal": "golden_cross"
   },
   "kdj": {
-    "k": 47.7,
-    "d": 49.2,
-    "j": 44.7,
-    "signal": "bearish"
+    "k": 55.0,
+    "d": 51.7,
+    "j": 61.6,
+    "signal": "bullish"
   },
   "bollinger": {
-    "upper": 155.68,
-    "middle": 152.49,
-    "lower": 149.3,
-    "bandwidth": 4.2,
-    "position": 0.22,
+    "upper": 155.66,
+    "middle": 152.57,
+    "lower": 149.48,
+    "bandwidth": 4.0,
+    "position": 0.46,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.4,
-    "signal": "shrink"
+    "ratio": 1.1,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 172.4,
@@ -50,7 +50,7 @@
     "78.6%": 147.01,
     "100.0%": 140.1
   },
-  "trend_strength": "空头",
+  "trend_strength": "震荡",
   "supports": [
     149.0,
     149.2,
@@ -61,32 +61,31 @@
     155.1
   ],
   "risk_flags": [
-    "跌破MA20",
-    "缩量警示"
+    "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 617055828.85,
+    "avg_dollar_volume": 637470815.14,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 0,
-    "neutral": 2,
-    "bearish": 3,
-    "overall": "mildly_bearish",
+    "neutral": 4,
+    "bearish": 1,
+    "overall": "neutral",
     "five_q": {
       "trend": "bearish",
       "position": "neutral",
-      "structure": "bearish",
+      "structure": "neutral",
       "volume": "neutral",
-      "momentum": "bearish"
+      "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 161.0289,
-    "avwap_60d": 152.4161,
-    "anchor_idx": 86,
+    "intraday": 161.0217,
+    "avwap_60d": 152.4143,
+    "anchor_idx": 85,
     "anchor_date": "2026-08-21"
   }
 }

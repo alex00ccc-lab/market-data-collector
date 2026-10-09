@@ -1,43 +1,43 @@
 {
   "symbol": "GOOGL",
-  "date": "2026-10-08",
-  "close": 348.29001,
+  "date": "2026-10-09",
+  "close": 353.43,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 347.29,
-    "ma10": 344.63,
-    "ma20": 345.26,
-    "ma60": 344.52,
+    "ma5": 349.27,
+    "ma10": 345.59,
+    "ma20": 346.01,
+    "ma60": 344.51,
     "alignment": "mixed"
   },
   "rsi": {
-    "value": 48.9,
+    "value": 48.6,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.8349,
-    "dea": -0.0457,
-    "histogram": 1.7612,
+    "diff": 1.3975,
+    "dea": 0.114,
+    "histogram": 2.567,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 53.3,
-    "d": 51.1,
-    "j": 57.7,
+    "k": 61.4,
+    "d": 53.8,
+    "j": 76.5,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 354.3,
-    "middle": 345.26,
-    "lower": 336.22,
-    "bandwidth": 5.2,
-    "position": 0.67,
-    "signal": "above_middle"
+    "upper": 355.16,
+    "middle": 346.01,
+    "lower": 336.86,
+    "bandwidth": 5.3,
+    "position": 0.91,
+    "signal": "upper_band"
   },
   "volume": {
-    "ratio": 1.0,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 384.48,
@@ -61,30 +61,32 @@
     354.97,
     377.65
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 9211036264.56,
+    "avg_dollar_volume": 8796640237.53,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 4,
-    "bearish": 0,
+    "neutral": 3,
+    "bearish": 1,
     "overall": "neutral",
     "five_q": {
       "trend": "neutral",
-      "position": "neutral",
+      "position": "bearish",
       "structure": "bullish",
       "volume": "neutral",
       "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 356.3811,
-    "avwap_60d": 344.3278,
-    "anchor_idx": 65,
+    "intraday": 356.4762,
+    "avwap_60d": 344.329,
+    "anchor_idx": 64,
     "anchor_date": "2026-07-23"
   }
 }

@@ -1,43 +1,43 @@
 {
   "symbol": "JEPQ",
-  "date": "2026-10-08",
-  "close": 60.93,
+  "date": "2026-10-09",
+  "close": 61.06,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 61.14,
-    "ma10": 61.13,
-    "ma20": 60.66,
-    "ma60": 59.75,
+    "ma10": 61.11,
+    "ma20": 60.72,
+    "ma60": 59.78,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 62.9,
+    "value": 51.2,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 0.3647,
-    "dea": 0.4058,
-    "histogram": -0.0822,
+    "diff": 0.3444,
+    "dea": 0.3987,
+    "histogram": -0.1086,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 49.1,
-    "d": 49.7,
-    "j": 47.8,
-    "signal": "bearish"
+    "k": 53.6,
+    "d": 51.2,
+    "j": 58.3,
+    "signal": "bullish"
   },
   "bollinger": {
-    "upper": 62.16,
-    "middle": 60.66,
-    "lower": 59.15,
-    "bandwidth": 5.0,
-    "position": 0.59,
+    "upper": 62.18,
+    "middle": 60.72,
+    "lower": 59.26,
+    "bandwidth": 4.8,
+    "position": 0.62,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.8,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 61.44,
@@ -61,9 +61,11 @@
     60.51,
     60.56
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 358381146.27,
+    "avg_dollar_volume": 346801297.53,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 59.7134,
-    "avwap_60d": 59.8473,
-    "anchor_idx": 69,
+    "intraday": 59.7199,
+    "avwap_60d": 59.8474,
+    "anchor_idx": 68,
     "anchor_date": "2026-07-29"
   }
 }

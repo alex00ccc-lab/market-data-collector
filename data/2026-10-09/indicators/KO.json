@@ -16,15 +16,15 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.4228,
-    "dea": -0.3541,
-    "histogram": -0.1374,
+    "diff": -0.4244,
+    "dea": -0.3562,
+    "histogram": -0.1364,
     "signal": "death_cross"
   },
   "kdj": {
     "k": 63.6,
     "d": 54.5,
-    "j": 81.7,
+    "j": 81.8,
     "signal": "bullish"
   },
   "bollinger": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 1405761340.69,
+    "avg_dollar_volume": 1406117155.0,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 83.7201,
-    "avwap_60d": 87.7504,
-    "anchor_idx": 65,
+    "intraday": 84.6434,
+    "avwap_60d": 87.7497,
+    "anchor_idx": 45,
     "anchor_date": "2026-07-23"
   }
 }
