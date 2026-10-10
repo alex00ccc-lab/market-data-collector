@@ -1,0 +1,17 @@
+{
+  "symbol": "NFLX",
+  "date": "2026-10-10",
+  "underlying_price": 71.57,
+  "max_pain": 72.5,
+  "call_wall": 75,
+  "call_wall_oi": 33137,
+  "put_wall": 70,
+  "put_wall_oi": 19814,
+  "atm_iv": 0.3085,
+  "hv_20d": 0.3531,
+  "iv_hv_gap": -0.0446,
+  "expiration": "2026-10-17",
+  "dte": 8,
+  "source": "marketdata.app",
+  "timestamp": "2026-10-10T12:57:09.911750+08:00"
+}
