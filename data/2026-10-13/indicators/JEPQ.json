@@ -1,0 +1,90 @@
+{
+  "symbol": "JEPQ",
+  "date": "2026-10-12",
+  "close": 60.93,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 61.09,
+    "ma10": 61.1,
+    "ma20": 60.8,
+    "ma60": 59.82,
+    "alignment": "mixed"
+  },
+  "rsi": {
+    "value": 44.2,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": 0.3161,
+    "dea": 0.3868,
+    "histogram": -0.1414,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 49.1,
+    "d": 49.7,
+    "j": 47.8,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 62.12,
+    "middle": 60.8,
+    "lower": 59.48,
+    "bandwidth": 4.3,
+    "position": 0.55,
+    "signal": "above_middle"
+  },
+  "volume": {
+    "ratio": 0.6,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 61.44,
+    "low": 56.08,
+    "0.0%": 61.44,
+    "23.6%": 60.18,
+    "38.2%": 59.39,
+    "50.0%": 58.76,
+    "61.8%": 58.13,
+    "78.6%": 57.23,
+    "100.0%": 56.08
+  },
+  "trend_strength": "震荡",
+  "supports": [
+    59.0,
+    59.08,
+    60.81
+  ],
+  "resistances": [
+    60.31,
+    60.51,
+    60.56
+  ],
+  "risk_flags": [],
+  "frame": {
+    "avg_dollar_volume": 352475841.77,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 0,
+    "neutral": 4,
+    "bearish": 1,
+    "overall": "neutral",
+    "five_q": {
+      "trend": "neutral",
+      "position": "neutral",
+      "structure": "neutral",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 59.7388,
+    "avwap_60d": 59.8743,
+    "anchor_idx": 67,
+    "anchor_date": "2026-07-29"
+  }
+}
