@@ -1,43 +1,43 @@
 {
   "symbol": "1378.HK",
   "date": "2026-10-14",
-  "close": 21.38,
+  "close": 20.9,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 21.2,
-    "ma10": 21.2,
-    "ma20": 21.29,
-    "ma60": 22.66,
-    "alignment": "mixed"
+    "ma5": 21.1,
+    "ma10": 21.16,
+    "ma20": 21.26,
+    "ma60": 22.65,
+    "alignment": "bearish"
   },
   "rsi": {
-    "value": 51.6,
-    "signal": "bullish"
+    "value": 43.2,
+    "signal": "bearish"
   },
   "macd": {
-    "diff": -0.361,
-    "dea": -0.4791,
-    "histogram": 0.2362,
+    "diff": -0.3993,
+    "dea": -0.4833,
+    "histogram": 0.168,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 60.4,
-    "d": 53.5,
-    "j": 74.2,
-    "signal": "bullish"
+    "k": 38.7,
+    "d": 46.2,
+    "j": 23.7,
+    "signal": "bearish"
   },
   "bollinger": {
     "upper": 22.04,
-    "middle": 21.29,
-    "lower": 20.53,
-    "bandwidth": 7.1,
-    "position": 0.56,
-    "signal": "above_middle"
+    "middle": 21.26,
+    "lower": 20.49,
+    "bandwidth": 7.3,
+    "position": 0.27,
+    "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.4,
-    "signal": "shrink"
+    "ratio": 1.2,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 25.16,
@@ -62,31 +62,31 @@
     24.46
   ],
   "risk_flags": [
-    "缩量警示"
+    "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 410346036.93,
+    "avg_dollar_volume": 427694247.83,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 2,
+    "bullish": 0,
     "neutral": 3,
-    "bearish": 0,
+    "bearish": 2,
     "overall": "neutral",
     "five_q": {
-      "trend": "neutral",
+      "trend": "bearish",
       "position": "neutral",
-      "structure": "bullish",
+      "structure": "bearish",
       "volume": "neutral",
-      "momentum": "bullish"
+      "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 25.3913,
-    "avwap_60d": 21.0948,
-    "anchor_idx": 108,
+    "intraday": 25.3116,
+    "avwap_60d": 21.0847,
+    "anchor_idx": 107,
     "anchor_date": "2026-09-25"
   }
 }

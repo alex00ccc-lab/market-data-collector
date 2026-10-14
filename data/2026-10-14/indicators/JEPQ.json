@@ -1,43 +1,43 @@
 {
   "symbol": "JEPQ",
-  "date": "2026-10-13",
-  "close": 60.92,
+  "date": "2026-10-14",
+  "close": 60.56,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 61.03,
-    "ma10": 61.07,
-    "ma20": 60.89,
-    "ma60": 59.86,
-    "alignment": "mixed"
+    "ma5": 60.89,
+    "ma10": 61.0,
+    "ma20": 60.97,
+    "ma60": 59.88,
+    "alignment": "bearish"
   },
   "rsi": {
-    "value": 45.5,
+    "value": 38.3,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.2876,
-    "dea": 0.3699,
-    "histogram": -0.1646,
+    "diff": 0.2333,
+    "dea": 0.3501,
+    "histogram": -0.2336,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 51.3,
-    "d": 50.4,
-    "j": 53.1,
-    "signal": "bullish"
+    "k": 34.6,
+    "d": 44.9,
+    "j": 14.1,
+    "signal": "bearish"
   },
   "bollinger": {
-    "upper": 61.95,
-    "middle": 60.89,
-    "lower": 59.84,
-    "bandwidth": 3.5,
-    "position": 0.51,
-    "signal": "above_middle"
+    "upper": 61.65,
+    "middle": 60.97,
+    "lower": 60.29,
+    "bandwidth": 2.2,
+    "position": 0.2,
+    "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.8,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 61.44,
@@ -50,7 +50,7 @@
     "78.6%": 57.23,
     "100.0%": 56.08
   },
-  "trend_strength": "震荡",
+  "trend_strength": "空头",
   "supports": [
     59.0,
     59.08,
@@ -58,33 +58,36 @@
   ],
   "resistances": [
     60.31,
-    60.51,
-    60.56
+    60.56,
+    61.27
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "跌破MA20",
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 352655261.21,
+    "avg_dollar_volume": 337135986.43,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 0,
-    "neutral": 4,
-    "bearish": 1,
-    "overall": "neutral",
+    "neutral": 2,
+    "bearish": 3,
+    "overall": "mildly_bearish",
     "five_q": {
-      "trend": "neutral",
+      "trend": "bearish",
       "position": "neutral",
-      "structure": "neutral",
+      "structure": "bearish",
       "volume": "neutral",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 59.7512,
-    "avwap_60d": 59.8863,
-    "anchor_idx": 66,
+    "intraday": 59.7589,
+    "avwap_60d": 59.8864,
+    "anchor_idx": 65,
     "anchor_date": "2026-07-29"
   }
 }

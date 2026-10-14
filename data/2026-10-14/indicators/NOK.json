@@ -1,43 +1,43 @@
 {
   "symbol": "NOK",
-  "date": "2026-10-13",
-  "close": 9.86,
+  "date": "2026-10-14",
+  "close": 9.75,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 10.18,
-    "ma10": 10.32,
-    "ma20": 10.41,
-    "ma60": 10.1,
+    "ma5": 10.0,
+    "ma10": 10.28,
+    "ma20": 10.39,
+    "ma60": 10.09,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 40.7,
+    "value": 41.6,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.061,
-    "dea": 0.0118,
-    "histogram": -0.1456,
+    "diff": -0.098,
+    "dea": 0.0003,
+    "histogram": -0.1966,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 40.5,
-    "d": 46.8,
-    "j": 27.9,
+    "k": 38.0,
+    "d": 46.0,
+    "j": 21.9,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 11.03,
-    "middle": 10.41,
-    "lower": 9.79,
-    "bandwidth": 11.9,
-    "position": 0.05,
+    "upper": 11.07,
+    "middle": 10.39,
+    "lower": 9.72,
+    "bandwidth": 13.0,
+    "position": 0.02,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 1.1,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 11.17,
@@ -62,10 +62,12 @@
     11.13
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示",
+    "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 843844133.3,
+    "avg_dollar_volume": 778016108.86,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 12.1034,
-    "avwap_60d": 10.199,
-    "anchor_idx": 66,
+    "intraday": 12.1289,
+    "avwap_60d": 10.1989,
+    "anchor_idx": 65,
     "anchor_date": "2026-07-29"
   }
 }

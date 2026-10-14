@@ -1,43 +1,43 @@
 {
   "symbol": "SGOV",
-  "date": "2026-10-13",
-  "close": 100.52,
+  "date": "2026-10-14",
+  "close": 100.535,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 100.5,
-    "ma10": 100.49,
+    "ma5": 100.51,
+    "ma10": 100.48,
     "ma20": 100.55,
     "ma60": 100.56,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 38.6,
+    "value": 40.7,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.0183,
-    "dea": -0.013,
-    "histogram": -0.0106,
-    "signal": "death_cross"
+    "diff": -0.0155,
+    "dea": -0.0161,
+    "histogram": 0.0012,
+    "signal": "golden_cross"
   },
   "kdj": {
-    "k": 64.1,
-    "d": 54.7,
-    "j": 82.9,
+    "k": 66.7,
+    "d": 55.6,
+    "j": 88.9,
     "signal": "bullish"
   },
   "bollinger": {
     "upper": 100.72,
     "middle": 100.55,
-    "lower": 100.39,
+    "lower": 100.38,
     "bandwidth": 0.3,
-    "position": 0.4,
+    "position": 0.44,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.9,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 100.72,
@@ -50,7 +50,7 @@
     "78.6%": 100.47,
     "100.0%": 100.4
   },
-  "trend_strength": "空头",
+  "trend_strength": "震荡",
   "supports": [
     100.41,
     100.42
@@ -60,31 +60,32 @@
     100.69
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 2202409819.2,
+    "avg_dollar_volume": 2108851089.21,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 0,
-    "neutral": 2,
-    "bearish": 3,
-    "overall": "mildly_bearish",
+    "neutral": 3,
+    "bearish": 2,
+    "overall": "neutral",
     "five_q": {
       "trend": "bearish",
       "position": "neutral",
       "structure": "bearish",
       "volume": "neutral",
-      "momentum": "bearish"
+      "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 100.5398,
+    "intraday": 100.5394,
     "avwap_60d": 100.5204,
-    "anchor_idx": 90,
+    "anchor_idx": 89,
     "anchor_date": "2026-09-01"
   }
 }

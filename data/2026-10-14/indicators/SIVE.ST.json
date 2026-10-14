@@ -1,42 +1,42 @@
 {
   "symbol": "SIVE.ST",
-  "date": "2026-10-13",
-  "close": 26.81999969482422,
+  "date": "2026-10-14",
+  "close": 26.15999984741211,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 31.51,
-    "ma10": 32.01,
-    "ma20": 31.82,
-    "ma60": 32.85,
+    "ma5": 28.45,
+    "ma10": 31.1,
+    "ma20": 31.76,
+    "ma60": 32.44,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 24.6,
+    "value": 28.4,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -0.2258,
-    "dea": 0.2751,
-    "histogram": -1.0018,
+    "diff": -0.8277,
+    "dea": 0.1365,
+    "histogram": -1.9284,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 35.6,
-    "d": 45.2,
-    "j": 16.3,
+    "k": 34.0,
+    "d": 44.7,
+    "j": 12.8,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 36.7,
-    "middle": 31.82,
-    "lower": 26.94,
-    "bandwidth": 30.7,
-    "position": -0.01,
+    "upper": 36.87,
+    "middle": 31.76,
+    "lower": 26.64,
+    "bandwidth": 32.2,
+    "position": -0.05,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 1.2,
+    "ratio": 0.6,
     "signal": "normal"
   },
   "fibonacci": {
@@ -58,8 +58,8 @@
   ],
   "resistances": [
     31.1,
-    35.78,
-    43.84
+    35.34,
+    35.78
   ],
   "risk_flags": [
     "RSI超卖",
@@ -67,7 +67,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 159267478.03,
+    "avg_dollar_volume": 157263178.23,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 32.9843,
-    "avwap_60d": 29.9413,
-    "anchor_idx": 37,
+    "intraday": 32.7702,
+    "avwap_60d": 29.8643,
+    "anchor_idx": 36,
     "anchor_date": "2026-09-02"
   }
 }

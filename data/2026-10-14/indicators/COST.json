@@ -1,43 +1,43 @@
 {
   "symbol": "COST",
-  "date": "2026-10-13",
-  "close": 954.63,
+  "date": "2026-10-14",
+  "close": 967.06,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 950.23,
-    "ma10": 935.63,
-    "ma20": 920.43,
-    "ma60": 934.16,
+    "ma5": 955.19,
+    "ma10": 941.3,
+    "ma20": 924.1,
+    "ma60": 934.79,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 73.4,
+    "value": 81.9,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 7.6285,
-    "dea": 0.9825,
-    "histogram": 13.292,
+    "diff": 9.4579,
+    "dea": 2.602,
+    "histogram": 13.7118,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 60.6,
-    "d": 53.5,
-    "j": 74.7,
+    "k": 66.3,
+    "d": 55.4,
+    "j": 88.0,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 962.43,
-    "middle": 920.43,
-    "lower": 878.43,
-    "bandwidth": 9.1,
-    "position": 0.91,
+    "upper": 968.84,
+    "middle": 924.1,
+    "lower": 879.35,
+    "bandwidth": 9.7,
+    "position": 0.98,
     "signal": "upper_band"
   },
   "volume": {
-    "ratio": 0.8,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 987.55,
@@ -45,7 +45,7 @@
     "0.0%": 987.55,
     "23.6%": 962.9,
     "38.2%": 947.65,
-    "50.0%": 935.33,
+    "50.0%": 935.32,
     "61.8%": 923.0,
     "78.6%": 905.45,
     "100.0%": 883.1
@@ -62,10 +62,12 @@
     971.4
   ],
   "risk_flags": [
-    "RSI超买"
+    "RSI超买",
+    "缩量警示",
+    "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 2114517178.06,
+    "avg_dollar_volume": 2019801597.02,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 944.2053,
-    "avwap_60d": 915.4884,
-    "anchor_idx": 80,
+    "intraday": 955.4747,
+    "avwap_60d": 915.5111,
+    "anchor_idx": 99,
     "anchor_date": "2026-09-16"
   }
 }
