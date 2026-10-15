@@ -16,9 +16,9 @@
     "signal": "oversold"
   },
   "macd": {
-    "diff": -1.1209,
-    "dea": 0.4314,
-    "histogram": -3.1046,
+    "diff": -1.1543,
+    "dea": 0.3851,
+    "histogram": -3.0788,
     "signal": "death_cross"
   },
   "kdj": {
@@ -36,7 +36,7 @@
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 1.3,
+    "ratio": 1.4,
     "signal": "normal"
   },
   "fibonacci": {
@@ -67,7 +67,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 1504712759.78,
+    "avg_dollar_volume": 1509224162.99,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 90.1546,
-    "avwap_60d": 70.2744,
-    "anchor_idx": 65,
+    "intraday": 86.3877,
+    "avwap_60d": 70.2604,
+    "anchor_idx": 45,
     "anchor_date": "2026-07-29"
   }
 }

@@ -1,42 +1,42 @@
 {
   "symbol": "6981.T",
   "date": "2026-10-15",
-  "close": 6784.0,
+  "close": 6749.0,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 7620.8,
-    "ma10": 8134.1,
-    "ma20": 7912.76,
-    "ma60": 7588.31,
+    "ma5": 7613.8,
+    "ma10": 8130.6,
+    "ma20": 7911.01,
+    "ma60": 7587.73,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 36.4,
+    "value": 36.0,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 28.321,
-    "dea": 236.7776,
-    "histogram": -416.9132,
+    "diff": 25.529,
+    "dea": 236.4674,
+    "histogram": -421.8768,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 33.7,
+    "k": 33.9,
     "d": 44.6,
-    "j": 11.9,
+    "j": 12.5,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 8992.76,
-    "middle": 7912.76,
-    "lower": 6832.76,
-    "bandwidth": 27.3,
-    "position": -0.02,
+    "upper": 8998.4,
+    "middle": 7911.01,
+    "lower": 6823.61,
+    "bandwidth": 27.5,
+    "position": -0.03,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 0.6,
+    "ratio": 1.3,
     "signal": "normal"
   },
   "fibonacci": {
@@ -66,7 +66,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 166802994014.07,
+    "avg_dollar_volume": 171630556134.07,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,8 +85,8 @@
     }
   },
   "vwap": {
-    "intraday": 7603.0558,
-    "avwap_60d": 7496.4216,
+    "intraday": 7595.799,
+    "avwap_60d": 7488.8574,
     "anchor_idx": 9,
     "anchor_date": "2026-07-29"
   }

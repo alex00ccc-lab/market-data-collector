@@ -1,7 +1,7 @@
 {
   "symbol": "300408",
   "date": "2026-10-15",
-  "close": 96.32,
+  "close": 96.31,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,27 +16,27 @@
     "signal": "oversold"
   },
   "macd": {
-    "diff": -4.6386,
-    "dea": -0.8064,
-    "histogram": -7.6644,
+    "diff": -4.6394,
+    "dea": -0.8065,
+    "histogram": -7.6658,
     "signal": "death_cross"
   },
   "kdj": {
     "k": 36.8,
     "d": 45.6,
-    "j": 19.2,
+    "j": 19.1,
     "signal": "bearish"
   },
   "bollinger": {
     "upper": 140.31,
     "middle": 118.93,
-    "lower": 97.55,
+    "lower": 97.54,
     "bandwidth": 36.0,
     "position": -0.03,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 0.6,
+    "ratio": 1.1,
     "signal": "normal"
   },
   "fibonacci": {
@@ -67,7 +67,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 51233013.27,
+    "avg_dollar_volume": 52090425.15,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,8 +86,8 @@
     }
   },
   "vwap": {
-    "intraday": 121.2923,
-    "avwap_60d": 116.2132,
+    "intraday": 121.2305,
+    "avwap_60d": 116.1067,
     "anchor_idx": 63,
     "anchor_date": "2026-07-20"
   }

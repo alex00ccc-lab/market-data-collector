@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": 8.1752,
-    "dea": 11.94,
-    "histogram": -7.5296,
+    "diff": 8.1583,
+    "dea": 11.9169,
+    "histogram": -7.5172,
     "signal": "death_cross"
   },
   "kdj": {
@@ -65,7 +65,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 5338723164.51,
+    "avg_dollar_volume": 5341983132.78,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 243.6582,
-    "avwap_60d": 234.8701,
-    "anchor_idx": 65,
+    "intraday": 254.3514,
+    "avwap_60d": 234.8737,
+    "anchor_idx": 45,
     "anchor_date": "2026-07-29"
   }
 }

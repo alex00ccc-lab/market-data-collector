@@ -1,7 +1,7 @@
 {
   "symbol": "513010",
   "date": "2026-10-15",
-  "close": 0.525,
+  "close": 0.524,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -12,19 +12,19 @@
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 33.6,
+    "value": 33.3,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.015,
+    "diff": -0.0151,
     "dea": -0.0131,
-    "histogram": -0.0038,
+    "histogram": -0.004,
     "signal": "death_cross"
   },
   "kdj": {
     "k": 34.1,
     "d": 44.7,
-    "j": 13.0,
+    "j": 12.9,
     "signal": "bearish"
   },
   "bollinger": {
@@ -32,11 +32,11 @@
     "middle": 0.55,
     "lower": 0.53,
     "bandwidth": 10.3,
-    "position": -0.02,
+    "position": -0.04,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 0.7,
+    "ratio": 1.1,
     "signal": "normal"
   },
   "fibonacci": {
@@ -65,7 +65,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 6564043.85,
+    "avg_dollar_volume": 6698478.3,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 0.6166,
-    "avwap_60d": 0.527,
-    "anchor_idx": 120,
+    "intraday": 0.6159,
+    "avwap_60d": 0.526,
+    "anchor_idx": 119,
     "anchor_date": "2026-10-15"
   }
 }

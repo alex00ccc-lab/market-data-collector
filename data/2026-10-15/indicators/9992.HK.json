@@ -1,43 +1,43 @@
 {
   "symbol": "9992.HK",
   "date": "2026-10-15",
-  "close": 146.9,
+  "close": 145.5,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 149.6,
-    "ma10": 150.17,
-    "ma20": 151.82,
-    "ma60": 154.68,
+    "ma5": 149.32,
+    "ma10": 150.03,
+    "ma20": 151.75,
+    "ma60": 154.66,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 38.9,
+    "value": 36.3,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -1.3971,
-    "dea": -1.0603,
-    "histogram": -0.6736,
+    "diff": -1.5083,
+    "dea": -1.0721,
+    "histogram": -0.8724,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 33.7,
-    "d": 44.6,
-    "j": 12.1,
+    "k": 36.0,
+    "d": 45.3,
+    "j": 17.3,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 156.19,
-    "middle": 151.82,
-    "lower": 147.45,
-    "bandwidth": 5.8,
-    "position": -0.06,
+    "upper": 156.46,
+    "middle": 151.75,
+    "lower": 147.04,
+    "bandwidth": 6.2,
+    "position": -0.16,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 0.7,
-    "signal": "normal"
+    "ratio": 1.8,
+    "signal": "surge_down"
   },
   "fibonacci": {
     "high": 172.4,
@@ -62,31 +62,32 @@
   ],
   "risk_flags": [
     "跌破MA20",
+    "放量下跌",
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 660680584.03,
+    "avg_dollar_volume": 707677924.58,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 1,
-    "bearish": 3,
-    "overall": "mildly_bearish",
+    "neutral": 0,
+    "bearish": 4,
+    "overall": "bearish",
     "five_q": {
       "trend": "bearish",
       "position": "bullish",
       "structure": "bearish",
-      "volume": "neutral",
+      "volume": "bearish",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 160.8663,
-    "avwap_60d": 147.4,
-    "anchor_idx": 120,
+    "intraday": 160.8503,
+    "avwap_60d": 146.2333,
+    "anchor_idx": 119,
     "anchor_date": "2026-10-15"
   }
 }

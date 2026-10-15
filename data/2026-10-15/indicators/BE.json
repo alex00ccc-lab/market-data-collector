@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": 3.1916,
-    "dea": 10.1617,
-    "histogram": -13.9402,
+    "diff": 3.1938,
+    "dea": 10.1648,
+    "histogram": -13.942,
     "signal": "death_cross"
   },
   "kdj": {
@@ -66,7 +66,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 4585200654.14,
+    "avg_dollar_volume": 4587683801.45,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 253.635,
+    "intraday": 250.7164,
     "avwap_60d": 244.2518,
-    "anchor_idx": 65,
+    "anchor_idx": 45,
     "anchor_date": "2026-07-29"
   }
 }
