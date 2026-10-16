@@ -1,43 +1,43 @@
 {
   "symbol": "AVGO",
-  "date": "2026-10-15",
-  "close": 344.33,
+  "date": "2026-10-16",
+  "close": 338.94,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 352.83,
-    "ma10": 359.43,
-    "ma20": 356.84,
-    "ma60": 371.55,
+    "ma5": 348.31,
+    "ma10": 357.81,
+    "ma20": 355.9,
+    "ma60": 370.65,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 45.5,
+    "value": 44.4,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -2.9643,
-    "dea": -1.7629,
-    "histogram": -2.4028,
+    "diff": -4.0246,
+    "dea": -1.6816,
+    "histogram": -4.686,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 40.3,
-    "d": 46.8,
-    "j": 27.5,
+    "k": 36.5,
+    "d": 45.5,
+    "j": 18.4,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 374.19,
-    "middle": 356.84,
-    "lower": 339.48,
-    "bandwidth": 9.7,
-    "position": 0.14,
-    "signal": "below_middle"
+    "upper": 374.92,
+    "middle": 355.9,
+    "lower": 336.89,
+    "bandwidth": 10.7,
+    "position": 0.05,
+    "signal": "lower_band"
   },
   "volume": {
-    "ratio": 1.4,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 432.73,
@@ -62,10 +62,11 @@
     376.51
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 8225307621.53,
+    "avg_dollar_volume": 7437885833.41,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 383.2692,
-    "avwap_60d": 355.0126,
-    "anchor_idx": 77,
-    "anchor_date": "2026-09-15"
+    "intraday": 387.5043,
+    "avwap_60d": 338.2917,
+    "anchor_idx": 119,
+    "anchor_date": "2026-10-16"
   }
 }

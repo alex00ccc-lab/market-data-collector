@@ -1,43 +1,43 @@
 {
   "symbol": "INTC",
-  "date": "2026-10-15",
-  "close": 95.37,
+  "date": "2026-10-16",
+  "close": 93.69,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 100.47,
-    "ma10": 107.06,
-    "ma20": 113.5,
-    "ma60": 101.59,
+    "ma5": 98.27,
+    "ma10": 104.49,
+    "ma20": 112.75,
+    "ma60": 101.48,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 15.8,
+    "value": 18.2,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -1.4535,
-    "dea": 2.2347,
-    "histogram": -7.3764,
+    "diff": -2.3351,
+    "dea": 1.3436,
+    "histogram": -7.3574,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 39.7,
-    "d": 46.6,
-    "j": 25.9,
+    "k": 37.7,
+    "d": 45.9,
+    "j": 21.2,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 131.69,
-    "middle": 113.5,
-    "lower": 95.31,
-    "bandwidth": 32.0,
-    "position": 0.0,
+    "upper": 132.81,
+    "middle": 112.75,
+    "lower": 92.7,
+    "bandwidth": 35.6,
+    "position": 0.02,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 1.6,
-    "signal": "surge_down"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 127.44,
@@ -64,32 +64,32 @@
   "risk_flags": [
     "RSI超卖",
     "跌破MA20",
-    "放量下跌",
+    "缩量警示",
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 12197135864.97,
+    "avg_dollar_volume": 11245469268.75,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 0,
-    "bearish": 4,
-    "overall": "bearish",
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
     "five_q": {
       "trend": "bearish",
       "position": "bullish",
       "structure": "bearish",
-      "volume": "bearish",
+      "volume": "neutral",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 108.2926,
-    "avwap_60d": 102.6504,
-    "anchor_idx": 44,
+    "intraday": 108.4766,
+    "avwap_60d": 102.651,
+    "anchor_idx": 63,
     "anchor_date": "2026-07-29"
   }
 }

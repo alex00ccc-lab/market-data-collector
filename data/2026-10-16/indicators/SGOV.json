@@ -1,24 +1,24 @@
 {
   "symbol": "SGOV",
-  "date": "2026-10-15",
-  "close": 100.55,
+  "date": "2026-10-16",
+  "close": 100.58,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 100.53,
-    "ma10": 100.49,
+    "ma5": 100.54,
+    "ma10": 100.51,
     "ma20": 100.55,
     "ma60": 100.56,
-    "alignment": "bearish"
+    "alignment": "mixed"
   },
   "rsi": {
-    "value": 37.2,
+    "value": 40.0,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.0116,
-    "dea": -0.0174,
-    "histogram": 0.0116,
+    "diff": -0.0064,
+    "dea": -0.017,
+    "histogram": 0.0212,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -32,12 +32,12 @@
     "middle": 100.55,
     "lower": 100.38,
     "bandwidth": 0.3,
-    "position": 0.49,
-    "signal": "below_middle"
+    "position": 0.58,
+    "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.3,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 100.72,
@@ -59,30 +59,32 @@
     100.68,
     100.69
   ],
-  "risk_flags": [],
+  "risk_flags": [
+    "缩量警示"
+  ],
   "frame": {
-    "avg_dollar_volume": 2260325315.85,
+    "avg_dollar_volume": 2169067801.61,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 0,
+    "bullish": 1,
     "neutral": 4,
-    "bearish": 1,
+    "bearish": 0,
     "overall": "neutral",
     "five_q": {
-      "trend": "bearish",
+      "trend": "neutral",
       "position": "neutral",
-      "structure": "neutral",
+      "structure": "bullish",
       "volume": "neutral",
       "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 100.5388,
+    "intraday": 100.5382,
     "avwap_60d": 100.5219,
-    "anchor_idx": 88,
+    "anchor_idx": 87,
     "anchor_date": "2026-09-01"
   }
 }

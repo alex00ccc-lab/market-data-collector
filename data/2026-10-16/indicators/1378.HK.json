@@ -1,43 +1,43 @@
 {
   "symbol": "1378.HK",
   "date": "2026-10-16",
-  "close": 19.24,
+  "close": 19.64,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 20.43,
-    "ma10": 20.76,
-    "ma20": 21.01,
-    "ma60": 22.51,
+    "ma5": 20.51,
+    "ma10": 20.8,
+    "ma20": 21.03,
+    "ma60": 22.52,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 31.5,
+    "value": 36.0,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.6021,
-    "dea": -0.4838,
-    "histogram": -0.2366,
+    "diff": -0.5701,
+    "dea": -0.4803,
+    "histogram": -0.1796,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 43.9,
-    "d": 48.0,
-    "j": 35.8,
+    "k": 47.9,
+    "d": 49.3,
+    "j": 45.1,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 22.27,
-    "middle": 21.01,
-    "lower": 19.75,
-    "bandwidth": 12.0,
-    "position": -0.2,
+    "upper": 22.18,
+    "middle": 21.03,
+    "lower": 19.87,
+    "bandwidth": 11.0,
+    "position": -0.1,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 1.7,
-    "signal": "surge_down"
+    "ratio": 2.7,
+    "signal": "surge_up"
   },
   "fibonacci": {
     "high": 25.16,
@@ -63,32 +63,31 @@
   ],
   "risk_flags": [
     "跌破MA20",
-    "放量下跌",
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 495682248.37,
+    "avg_dollar_volume": 530592322.06,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 1,
+    "bullish": 2,
     "neutral": 0,
-    "bearish": 4,
-    "overall": "bearish",
+    "bearish": 3,
+    "overall": "mildly_bearish",
     "five_q": {
       "trend": "bearish",
       "position": "bullish",
       "structure": "bearish",
-      "volume": "bearish",
+      "volume": "bullish",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 25.1025,
-    "avwap_60d": 18.9767,
-    "anchor_idx": 120,
-    "anchor_date": "2026-10-16"
+    "intraday": 24.9957,
+    "avwap_60d": 19.4246,
+    "anchor_idx": 118,
+    "anchor_date": "2026-10-15"
   }
 }
