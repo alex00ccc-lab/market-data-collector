@@ -1,0 +1,95 @@
+{
+  "symbol": "RKLB",
+  "date": "2026-10-15",
+  "close": 55.25,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 62.51,
+    "ma10": 67.49,
+    "ma20": 69.06,
+    "ma60": 69.32,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 20.1,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": -2.0421,
+    "dea": 0.0838,
+    "histogram": -4.2518,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 39.8,
+    "d": 46.6,
+    "j": 26.2,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 79.02,
+    "middle": 69.06,
+    "lower": 59.1,
+    "bandwidth": 28.8,
+    "position": -0.19,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 2.6,
+    "signal": "surge_down"
+  },
+  "fibonacci": {
+    "high": 86.83,
+    "low": 49.69,
+    "0.0%": 86.83,
+    "23.6%": 78.07,
+    "38.2%": 72.64,
+    "50.0%": 68.26,
+    "61.8%": 63.88,
+    "78.6%": 57.64,
+    "100.0%": 49.69
+  },
+  "trend_strength": "空头",
+  "supports": [
+    61.96,
+    62.54,
+    69.68
+  ],
+  "resistances": [
+    65.87,
+    73.95,
+    75.06
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20",
+    "放量下跌",
+    "触及布林下轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 1568927736.99,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 0,
+    "bearish": 4,
+    "overall": "bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "bearish",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 84.9448,
+    "avwap_60d": 53.447,
+    "anchor_idx": 99,
+    "anchor_date": "2026-10-15"
+  }
+}
