@@ -1,0 +1,94 @@
+{
+  "symbol": "AMD",
+  "date": "2026-10-16",
+  "close": 528.75,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 572.31,
+    "ma10": 601.74,
+    "ma20": 610.4,
+    "ma60": 528.23,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 29.1,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": 7.8309,
+    "dea": 25.6732,
+    "histogram": -35.6846,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 33.8,
+    "d": 44.6,
+    "j": 12.2,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 666.56,
+    "middle": 610.4,
+    "lower": 554.24,
+    "bandwidth": 18.4,
+    "position": -0.23,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 1.1,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 658.52,
+    "low": 424.03,
+    "0.0%": 658.52,
+    "23.6%": 603.18,
+    "38.2%": 568.94,
+    "50.0%": 541.28,
+    "61.8%": 513.61,
+    "78.6%": 474.21,
+    "100.0%": 424.03
+  },
+  "trend_strength": "空头",
+  "supports": [
+    456.16,
+    456.75,
+    607.57
+  ],
+  "resistances": [
+    480.93,
+    521.1,
+    649.42
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20",
+    "触及布林下轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 12958032367.0,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 0,
+    "neutral": 2,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "neutral",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 495.0319,
+    "avwap_60d": 529.6932,
+    "anchor_idx": 63,
+    "anchor_date": "2026-07-29"
+  }
+}
