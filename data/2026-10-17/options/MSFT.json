@@ -1,0 +1,17 @@
+{
+  "symbol": "MSFT",
+  "date": "2026-10-17",
+  "underlying_price": 539.44,
+  "max_pain": 500,
+  "call_wall": 550,
+  "call_wall_oi": 73972,
+  "put_wall": 450,
+  "put_wall_oi": 13606,
+  "atm_iv": 0.2507,
+  "hv_20d": 0.21,
+  "iv_hv_gap": 0.0407,
+  "expiration": "2026-10-17",
+  "dte": 1,
+  "source": "marketdata.app",
+  "timestamp": "2026-10-17T11:31:48.026605+08:00"
+}

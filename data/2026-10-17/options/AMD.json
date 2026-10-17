@@ -1,0 +1,17 @@
+{
+  "symbol": "AMD",
+  "date": "2026-10-17",
+  "underlying_price": 547.47,
+  "max_pain": 550,
+  "call_wall": 490,
+  "call_wall_oi": 8624,
+  "put_wall": 400,
+  "put_wall_oi": 9199,
+  "atm_iv": 0.7097,
+  "hv_20d": 0.5192,
+  "iv_hv_gap": 0.1905,
+  "expiration": "2026-10-17",
+  "dte": 1,
+  "source": "marketdata.app",
+  "timestamp": "2026-10-17T11:31:50.664373+08:00"
+}

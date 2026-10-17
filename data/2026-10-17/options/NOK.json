@@ -1,0 +1,17 @@
+{
+  "symbol": "NOK",
+  "date": "2026-10-17",
+  "underlying_price": 9.58,
+  "max_pain": 10.5,
+  "call_wall": 12,
+  "call_wall_oi": 55512,
+  "put_wall": 11,
+  "put_wall_oi": 41098,
+  "atm_iv": 0.7567,
+  "hv_20d": 0.4967,
+  "iv_hv_gap": 0.26,
+  "expiration": "2026-10-17",
+  "dte": 1,
+  "source": "marketdata.app",
+  "timestamp": "2026-10-17T11:31:41.869371+08:00"
+}
