@@ -1,43 +1,43 @@
 {
   "symbol": "SPCX",
-  "date": "2026-10-19",
-  "close": 147.96,
+  "date": "2026-10-20",
+  "close": 146.0,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 150.26,
-    "ma10": 157.74,
-    "ma20": 155.04,
-    "ma60": 143.02,
+    "ma5": 148.15,
+    "ma10": 155.15,
+    "ma20": 154.61,
+    "ma60": 143.56,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 49.0,
+    "value": 46.1,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.9582,
-    "dea": 3.9557,
-    "histogram": -5.995,
+    "diff": 0.2605,
+    "dea": 3.3656,
+    "histogram": -6.2102,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 41.3,
-    "d": 47.1,
-    "j": 29.6,
+    "k": 39.9,
+    "d": 46.6,
+    "j": 26.5,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 171.67,
-    "middle": 155.04,
-    "lower": 138.42,
-    "bandwidth": 21.4,
-    "position": 0.29,
+    "upper": 171.69,
+    "middle": 154.61,
+    "lower": 137.52,
+    "bandwidth": 22.1,
+    "position": 0.25,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.9,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 176.42,
@@ -62,10 +62,11 @@
     171.92
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 12744985605.61,
+    "avg_dollar_volume": 12288961374.81,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 149.7986,
+    "intraday": 149.1062,
     "avwap_60d": 144.3167,
-    "anchor_idx": 36,
+    "anchor_idx": 37,
     "anchor_date": "2026-08-05"
   }
 }

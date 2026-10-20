@@ -1,43 +1,43 @@
 {
   "symbol": "MRVL",
-  "date": "2026-10-19",
-  "close": 237.09,
+  "date": "2026-10-20",
+  "close": 236.66,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 244.03,
-    "ma10": 260.77,
-    "ma20": 262.14,
-    "ma60": 233.68,
+    "ma5": 237.62,
+    "ma10": 255.73,
+    "ma20": 260.86,
+    "ma60": 234.48,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 37.1,
+    "value": 36.3,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.7916,
-    "dea": 8.8273,
-    "histogram": -16.0714,
+    "diff": -0.5519,
+    "dea": 7.2995,
+    "histogram": -15.7028,
     "signal": "death_cross"
   },
   "kdj": {
     "k": 39.2,
     "d": 46.4,
-    "j": 24.7,
+    "j": 24.9,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 291.75,
-    "middle": 262.14,
-    "lower": 232.53,
-    "bandwidth": 22.6,
-    "position": 0.08,
-    "signal": "lower_band"
+    "upper": 292.47,
+    "middle": 260.86,
+    "lower": 229.24,
+    "bandwidth": 24.2,
+    "position": 0.12,
+    "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.8,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 301.27,
@@ -62,10 +62,11 @@
     287.01
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 5271367340.9,
+    "avg_dollar_volume": 5010061961.3,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 255.7469,
-    "avwap_60d": 234.9085,
-    "anchor_idx": 42,
+    "intraday": 246.1252,
+    "avwap_60d": 234.9083,
+    "anchor_idx": 61,
     "anchor_date": "2026-07-29"
   }
 }

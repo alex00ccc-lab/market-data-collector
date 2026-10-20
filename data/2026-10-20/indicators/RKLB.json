@@ -1,54 +1,54 @@
 {
   "symbol": "RKLB",
-  "date": "2026-10-19",
-  "close": 51.36,
+  "date": "2026-10-20",
+  "close": 51.005,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 56.17,
-    "ma10": 63.02,
-    "ma20": 67.45,
-    "ma60": 68.79,
+    "ma5": 53.53,
+    "ma10": 60.61,
+    "ma20": 66.4,
+    "ma60": 68.52,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 21.3,
+    "value": 21.1,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -3.7885,
-    "dea": -0.8905,
-    "histogram": -5.796,
+    "diff": -4.3287,
+    "dea": -1.4743,
+    "histogram": -5.7088,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 35.7,
-    "d": 45.2,
-    "j": 16.6,
+    "k": 35.9,
+    "d": 45.3,
+    "j": 17.2,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 82.06,
-    "middle": 67.45,
-    "lower": 52.83,
-    "bandwidth": 43.3,
-    "position": -0.05,
+    "upper": 82.5,
+    "middle": 66.4,
+    "lower": 50.3,
+    "bandwidth": 48.5,
+    "position": 0.02,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 0.7,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 86.83,
-    "low": 49.69,
+    "low": 49.25,
     "0.0%": 86.83,
-    "23.6%": 78.07,
-    "38.2%": 72.64,
-    "50.0%": 68.26,
-    "61.8%": 63.88,
-    "78.6%": 57.64,
-    "100.0%": 49.69
+    "23.6%": 77.96,
+    "38.2%": 72.47,
+    "50.0%": 68.04,
+    "61.8%": 63.61,
+    "78.6%": 57.29,
+    "100.0%": 49.25
   },
   "trend_strength": "空头",
   "supports": [
@@ -64,10 +64,11 @@
   "risk_flags": [
     "RSI超卖",
     "跌破MA20",
+    "缩量警示",
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 1478644002.75,
+    "avg_dollar_volume": 1399567868.81,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +87,9 @@
     }
   },
   "vwap": {
-    "intraday": 82.6636,
-    "avwap_60d": 51.9676,
-    "anchor_idx": 98,
+    "intraday": 89.2079,
+    "avwap_60d": 51.9612,
+    "anchor_idx": 117,
     "anchor_date": "2026-10-16"
   }
 }

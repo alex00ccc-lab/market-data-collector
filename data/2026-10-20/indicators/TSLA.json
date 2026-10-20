@@ -1,43 +1,43 @@
 {
   "symbol": "TSLA",
-  "date": "2026-10-19",
-  "close": 368.059998,
+  "date": "2026-10-20",
+  "close": 372.23,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 365.52,
-    "ma10": 372.18,
-    "ma20": 369.97,
-    "ma60": 352.78,
-    "alignment": "bearish"
+    "ma5": 364.92,
+    "ma10": 371.34,
+    "ma20": 369.64,
+    "ma60": 353.83,
+    "alignment": "mixed"
   },
   "rsi": {
-    "value": 59.1,
+    "value": 60.1,
     "signal": "bullish"
   },
   "macd": {
-    "diff": 1.2725,
-    "dea": 3.7272,
-    "histogram": -4.9094,
+    "diff": 1.4779,
+    "dea": 3.408,
+    "histogram": -3.8602,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 49.2,
-    "d": 49.7,
-    "j": 48.2,
-    "signal": "bearish"
+    "k": 52.8,
+    "d": 50.9,
+    "j": 56.5,
+    "signal": "bullish"
   },
   "bollinger": {
-    "upper": 390.05,
-    "middle": 369.97,
-    "lower": 349.89,
-    "bandwidth": 10.9,
-    "position": 0.45,
-    "signal": "below_middle"
+    "upper": 389.33,
+    "middle": 369.64,
+    "lower": 349.94,
+    "bandwidth": 10.7,
+    "position": 0.57,
+    "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.2,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 388.56,
@@ -62,31 +62,31 @@
     382.7
   ],
   "risk_flags": [
-    "跌破MA20"
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 12756119942.76,
+    "avg_dollar_volume": 12224322318.87,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 0,
+    "bullish": 1,
     "neutral": 3,
-    "bearish": 2,
+    "bearish": 1,
     "overall": "neutral",
     "five_q": {
-      "trend": "bearish",
+      "trend": "neutral",
       "position": "bearish",
-      "structure": "neutral",
+      "structure": "bullish",
       "volume": "neutral",
       "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 380.7253,
-    "avwap_60d": 354.7171,
-    "anchor_idx": 62,
+    "intraday": 380.794,
+    "avwap_60d": 354.7183,
+    "anchor_idx": 61,
     "anchor_date": "2026-07-29"
   }
 }
