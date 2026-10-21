@@ -1,0 +1,90 @@
+{
+  "symbol": "AMZN",
+  "date": "2026-10-20",
+  "close": 262.63,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 256.78,
+    "ma10": 257.84,
+    "ma20": 253.81,
+    "ma60": 257.5,
+    "alignment": "mixed"
+  },
+  "rsi": {
+    "value": 62.6,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": 1.296,
+    "dea": 0.6034,
+    "histogram": 1.3852,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 61.3,
+    "d": 53.8,
+    "j": 76.3,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 264.51,
+    "middle": 253.81,
+    "lower": 243.11,
+    "bandwidth": 8.4,
+    "position": 0.91,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 0.9,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 287.2,
+    "low": 226.16,
+    "0.0%": 287.2,
+    "23.6%": 272.79,
+    "38.2%": 263.88,
+    "50.0%": 256.68,
+    "61.8%": 249.48,
+    "78.6%": 239.22,
+    "100.0%": 226.16
+  },
+  "trend_strength": "震荡",
+  "supports": [
+    226.65,
+    245.96,
+    246.15
+  ],
+  "resistances": [
+    258.45,
+    262.43,
+    266.43
+  ],
+  "risk_flags": [],
+  "frame": {
+    "avg_dollar_volume": 9167972400.67,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 2,
+    "neutral": 2,
+    "bearish": 1,
+    "overall": "neutral",
+    "five_q": {
+      "trend": "neutral",
+      "position": "bearish",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 250.7961,
+    "avwap_60d": 258.5779,
+    "anchor_idx": 41,
+    "anchor_date": "2026-07-29"
+  }
+}

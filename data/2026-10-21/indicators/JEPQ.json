@@ -1,0 +1,93 @@
+{
+  "symbol": "JEPQ",
+  "date": "2026-10-20",
+  "close": 59.44,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 59.59,
+    "ma10": 60.31,
+    "ma20": 60.72,
+    "ma60": 59.94,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 29.6,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": -0.1701,
+    "dea": 0.1459,
+    "histogram": -0.632,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 43.7,
+    "d": 47.9,
+    "j": 35.4,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 62.13,
+    "middle": 60.72,
+    "lower": 59.31,
+    "bandwidth": 4.6,
+    "position": 0.05,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 0.8,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 61.44,
+    "low": 56.08,
+    "0.0%": 61.44,
+    "23.6%": 60.18,
+    "38.2%": 59.39,
+    "50.0%": 58.76,
+    "61.8%": 58.13,
+    "78.6%": 57.23,
+    "100.0%": 56.08
+  },
+  "trend_strength": "空头",
+  "supports": [
+    59.0,
+    59.08,
+    60.81
+  ],
+  "resistances": [
+    60.31,
+    60.56,
+    61.27
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20"
+  ],
+  "frame": {
+    "avg_dollar_volume": 371403727.23,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 0,
+    "neutral": 2,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "neutral",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 59.7813,
+    "avwap_60d": 59.8597,
+    "anchor_idx": 61,
+    "anchor_date": "2026-07-29"
+  }
+}
