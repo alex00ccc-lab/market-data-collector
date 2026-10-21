@@ -1,43 +1,43 @@
 {
   "symbol": "SCHD",
-  "date": "2026-10-20",
-  "close": 34.69,
+  "date": "2026-10-21",
+  "close": 34.61,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 34.22,
-    "ma10": 33.66,
-    "ma20": 33.27,
-    "ma60": 33.97,
+    "ma5": 34.4,
+    "ma10": 33.85,
+    "ma20": 33.34,
+    "ma60": 33.98,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 86.0,
+    "value": 83.1,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 0.1307,
-    "dea": -0.1552,
-    "histogram": 0.5718,
+    "diff": 0.1877,
+    "dea": -0.0927,
+    "histogram": 0.5608,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 66.5,
-    "d": 55.5,
-    "j": 88.5,
+    "k": 64.9,
+    "d": 55.0,
+    "j": 84.9,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 34.49,
-    "middle": 33.27,
-    "lower": 32.05,
-    "bandwidth": 7.3,
-    "position": 1.08,
+    "upper": 34.69,
+    "middle": 33.34,
+    "lower": 31.99,
+    "bandwidth": 8.1,
+    "position": 0.97,
     "signal": "upper_band"
   },
   "volume": {
-    "ratio": 0.8,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 35.31,
@@ -63,10 +63,11 @@
   ],
   "risk_flags": [
     "RSI超买",
+    "缩量警示",
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 757865909.73,
+    "avg_dollar_volume": 719628546.79,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 33.1671,
-    "avwap_60d": 33.3458,
-    "anchor_idx": 105,
+    "intraday": 33.1781,
+    "avwap_60d": 33.3465,
+    "anchor_idx": 104,
     "anchor_date": "2026-09-30"
   }
 }

@@ -1,7 +1,7 @@
 {
   "symbol": "GOOGL",
   "date": "2026-10-20",
-  "close": 340.28,
+  "close": 340.275,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.1045,
-    "dea": 1.2291,
-    "histogram": -2.2492,
+    "diff": 0.1146,
+    "dea": 1.2437,
+    "histogram": -2.2582,
     "signal": "death_cross"
   },
   "kdj": {
@@ -65,7 +65,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 8282373677.82,
+    "avg_dollar_volume": 8284099267.09,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 356.7121,
-    "avwap_60d": 345.5505,
-    "anchor_idx": 90,
+    "intraday": 350.2768,
+    "avwap_60d": 345.5497,
+    "anchor_idx": 70,
     "anchor_date": "2026-09-09"
   }
 }

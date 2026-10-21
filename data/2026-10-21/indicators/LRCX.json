@@ -1,43 +1,43 @@
 {
   "symbol": "LRCX",
-  "date": "2026-10-20",
-  "close": 263.45001,
+  "date": "2026-10-21",
+  "close": 265.205,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 272.79,
-    "ma10": 294.36,
-    "ma20": 310.37,
-    "ma60": 305.48,
+    "ma5": 268.45,
+    "ma10": 287.93,
+    "ma20": 308.26,
+    "ma60": 305.41,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 22.8,
+    "value": 15.9,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -9.7327,
-    "dea": -0.143,
-    "histogram": -19.1794,
+    "diff": -11.1247,
+    "dea": -2.276,
+    "histogram": -17.6974,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 34.8,
-    "d": 44.9,
-    "j": 14.5,
+    "k": 35.8,
+    "d": 45.3,
+    "j": 16.9,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 360.8,
-    "middle": 310.37,
-    "lower": 259.93,
-    "bandwidth": 32.5,
-    "position": 0.03,
-    "signal": "lower_band"
+    "upper": 362.41,
+    "middle": 308.26,
+    "lower": 254.12,
+    "bandwidth": 35.1,
+    "position": 0.1,
+    "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.7,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 352.56,
@@ -64,10 +64,10 @@
   "risk_flags": [
     "RSI超卖",
     "跌破MA20",
-    "触及布林下轨"
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 2581387902.73,
+    "avg_dollar_volume": 2434052959.52,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 321.2103,
-    "avwap_60d": 303.3004,
-    "anchor_idx": 61,
+    "intraday": 321.7706,
+    "avwap_60d": 303.2961,
+    "anchor_idx": 60,
     "anchor_date": "2026-07-29"
   }
 }
