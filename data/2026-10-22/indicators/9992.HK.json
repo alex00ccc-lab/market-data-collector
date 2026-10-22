@@ -1,54 +1,54 @@
 {
   "symbol": "9992.HK",
   "date": "2026-10-22",
-  "close": 126.6,
+  "close": 128.5,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 136.1,
-    "ma10": 143.41,
-    "ma20": 147.62,
-    "ma60": 152.73,
+    "ma5": 136.48,
+    "ma10": 143.6,
+    "ma20": 147.72,
+    "ma60": 152.76,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 11.5,
+    "value": 12.2,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -5.1714,
-    "dea": -2.1836,
-    "histogram": -5.9756,
+    "diff": -5.0197,
+    "dea": -2.1667,
+    "histogram": -5.706,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 33.3,
-    "d": 44.4,
-    "j": 11.1,
+    "k": 36.4,
+    "d": 45.5,
+    "j": 18.4,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 162.98,
-    "middle": 147.62,
-    "lower": 132.26,
-    "bandwidth": 20.8,
-    "position": -0.18,
+    "upper": 162.57,
+    "middle": 147.72,
+    "lower": 132.86,
+    "bandwidth": 20.1,
+    "position": -0.15,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 0.5,
+    "ratio": 1.1,
     "signal": "normal"
   },
   "fibonacci": {
     "high": 172.4,
-    "low": 126.6,
+    "low": 125.8,
     "0.0%": 172.4,
-    "23.6%": 161.59,
-    "38.2%": 154.9,
-    "50.0%": 149.5,
-    "61.8%": 144.1,
-    "78.6%": 136.4,
-    "100.0%": 126.6
+    "23.6%": 161.4,
+    "38.2%": 154.6,
+    "50.0%": 149.1,
+    "61.8%": 143.6,
+    "78.6%": 135.77,
+    "100.0%": 125.8
   },
   "trend_strength": "空头",
   "supports": [
@@ -66,7 +66,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 955130016.82,
+    "avg_dollar_volume": 1003549054.04,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 160.0325,
-    "avwap_60d": 128.2333,
-    "anchor_idx": 120,
+    "intraday": 159.9171,
+    "avwap_60d": 128.6,
+    "anchor_idx": 119,
     "anchor_date": "2026-10-22"
   }
 }
