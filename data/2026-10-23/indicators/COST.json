@@ -1,7 +1,7 @@
 {
   "symbol": "COST",
   "date": "2026-10-22",
-  "close": 1018.21002,
+  "close": 1018.21,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": 21.7768,
-    "dea": 14.2886,
-    "histogram": 14.9764,
+    "diff": 21.7893,
+    "dea": 14.3059,
+    "histogram": 14.9668,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -66,7 +66,7 @@
     "触及布林上轨"
   ],
   "frame": {
-    "avg_dollar_volume": 2145880835.3,
+    "avg_dollar_volume": 2147501985.82,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 955.8821,
-    "avwap_60d": 935.9642,
-    "anchor_idx": 93,
+    "intraday": 943.0386,
+    "avwap_60d": 935.9605,
+    "anchor_idx": 73,
     "anchor_date": "2026-09-16"
   }
 }

@@ -1,7 +1,7 @@
 {
   "symbol": "META",
   "date": "2026-10-22",
-  "close": 648.84998,
+  "close": 648.85,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": 3.3976,
-    "dea": 17.6506,
-    "histogram": -28.506,
+    "diff": 3.4185,
+    "dea": 17.6795,
+    "histogram": -28.522,
     "signal": "death_cross"
   },
   "kdj": {
@@ -67,7 +67,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 14241592351.28,
+    "avg_dollar_volume": 14244445387.53,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 633.1387,
-    "avwap_60d": 655.9137,
-    "anchor_idx": 60,
+    "intraday": 636.248,
+    "avwap_60d": 655.9135,
+    "anchor_idx": 40,
     "anchor_date": "2026-07-30"
   }
 }

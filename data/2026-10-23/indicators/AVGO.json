@@ -1,7 +1,7 @@
 {
   "symbol": "AVGO",
   "date": "2026-10-22",
-  "close": 323.23999,
+  "close": 323.24,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bearish"
   },
   "macd": {
-    "diff": -7.9877,
-    "dea": -4.3261,
-    "histogram": -7.3232,
+    "diff": -7.9929,
+    "dea": -4.3333,
+    "histogram": -7.3192,
     "signal": "death_cross"
   },
   "kdj": {
@@ -45,7 +45,7 @@
     "0.0%": 432.73,
     "23.6%": 406.37,
     "38.2%": 390.06,
-    "50.0%": 376.87,
+    "50.0%": 376.88,
     "61.8%": 363.69,
     "78.6%": 344.93,
     "100.0%": 321.02
@@ -66,7 +66,7 @@
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 7588889301.59,
+    "avg_dollar_volume": 7593996322.29,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 384.9693,
+    "intraday": 378.3147,
     "avwap_60d": 325.0267,
-    "anchor_idx": 119,
+    "anchor_idx": 99,
     "anchor_date": "2026-10-22"
   }
 }

@@ -1,43 +1,43 @@
 {
   "symbol": "SPCX",
-  "date": "2026-10-22",
-  "close": 144.75,
+  "date": "2026-10-23",
+  "close": 148.24,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 149.17,
-    "ma10": 152.91,
-    "ma20": 155.08,
-    "ma60": 144.84,
+    "ma5": 149.61,
+    "ma10": 151.48,
+    "ma20": 155.06,
+    "ma60": 145.45,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 40.2,
+    "value": 32.2,
     "signal": "bearish"
   },
   "macd": {
-    "diff": 0.0604,
-    "dea": 2.2627,
-    "histogram": -4.4046,
+    "diff": -0.2815,
+    "dea": 1.6516,
+    "histogram": -3.8662,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 38.5,
-    "d": 46.2,
-    "j": 23.2,
+    "k": 43.2,
+    "d": 47.7,
+    "j": 34.2,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 172.2,
-    "middle": 155.08,
-    "lower": 137.97,
+    "upper": 172.21,
+    "middle": 155.06,
+    "lower": 137.91,
     "bandwidth": 22.1,
-    "position": 0.2,
+    "position": 0.3,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 1.6,
-    "signal": "surge_down"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 176.42,
@@ -63,31 +63,31 @@
   ],
   "risk_flags": [
     "跌破MA20",
-    "放量下跌"
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 15349819496.98,
+    "avg_dollar_volume": 14943938545.32,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 0,
-    "bearish": 4,
-    "overall": "bearish",
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
     "five_q": {
       "trend": "bearish",
       "position": "bullish",
       "structure": "bearish",
-      "volume": "bearish",
+      "volume": "neutral",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 149.9578,
-    "avwap_60d": 145.0961,
-    "anchor_idx": 36,
+    "intraday": 149.3053,
+    "avwap_60d": 145.0957,
+    "anchor_idx": 37,
     "anchor_date": "2026-08-05"
   }
 }

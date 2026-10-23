@@ -16,15 +16,15 @@
     "signal": "oversold"
   },
   "macd": {
-    "diff": -4.9803,
-    "dea": -2.157,
-    "histogram": -5.6466,
+    "diff": -4.9782,
+    "dea": -2.1541,
+    "histogram": -5.6482,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 34.8,
-    "d": 44.9,
-    "j": 14.6,
+    "k": 34.9,
+    "d": 45.0,
+    "j": 14.7,
     "signal": "bearish"
   },
   "bollinger": {
@@ -41,14 +41,14 @@
   },
   "fibonacci": {
     "high": 127.44,
-    "low": 84.65,
+    "low": 84.64,
     "0.0%": 127.44,
     "23.6%": 117.34,
     "38.2%": 111.09,
-    "50.0%": 106.05,
-    "61.8%": 101.0,
-    "78.6%": 93.81,
-    "100.0%": 84.65
+    "50.0%": 106.04,
+    "61.8%": 100.99,
+    "78.6%": 93.8,
+    "100.0%": 84.64
   },
   "trend_strength": "空头",
   "supports": [
@@ -66,7 +66,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 10451221845.62,
+    "avg_dollar_volume": 10454183026.91,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 108.6503,
-    "avwap_60d": 86.4433,
-    "anchor_idx": 119,
+    "intraday": 106.9341,
+    "avwap_60d": 86.44,
+    "anchor_idx": 99,
     "anchor_date": "2026-10-22"
   }
 }

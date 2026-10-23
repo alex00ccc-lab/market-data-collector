@@ -1,43 +1,43 @@
 {
   "symbol": "NOK",
-  "date": "2026-10-22",
-  "close": 7.88,
+  "date": "2026-10-23",
+  "close": 8.205,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 8.87,
-    "ma10": 9.35,
-    "ma20": 9.87,
-    "ma60": 10.05,
+    "ma5": 8.69,
+    "ma10": 9.13,
+    "ma20": 9.76,
+    "ma60": 10.04,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 25.3,
-    "signal": "oversold"
+    "value": 31.6,
+    "signal": "bearish"
   },
   "macd": {
-    "diff": -0.4361,
-    "dea": -0.2156,
-    "histogram": -0.441,
+    "diff": -0.4941,
+    "dea": -0.2679,
+    "histogram": -0.4524,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 34.7,
-    "d": 44.9,
-    "j": 14.2,
+    "k": 40.0,
+    "d": 46.7,
+    "j": 26.8,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 11.29,
-    "middle": 9.87,
-    "lower": 8.44,
-    "bandwidth": 28.9,
-    "position": -0.2,
+    "upper": 11.34,
+    "middle": 9.76,
+    "lower": 8.18,
+    "bandwidth": 32.3,
+    "position": 0.01,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 2.9,
-    "signal": "surge_down"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 11.17,
@@ -62,34 +62,33 @@
     11.13
   ],
   "risk_flags": [
-    "RSI超卖",
     "跌破MA20",
-    "放量下跌",
+    "缩量警示",
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 721927656.7,
+    "avg_dollar_volume": 698630560.89,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 0,
-    "bearish": 4,
-    "overall": "bearish",
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
     "five_q": {
       "trend": "bearish",
       "position": "bullish",
       "structure": "bearish",
-      "volume": "bearish",
+      "volume": "neutral",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 11.966,
-    "avwap_60d": 8.0933,
-    "anchor_idx": 119,
+    "intraday": 11.9518,
+    "avwap_60d": 8.0938,
+    "anchor_idx": 118,
     "anchor_date": "2026-10-22"
   }
 }

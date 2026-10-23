@@ -1,43 +1,43 @@
 {
   "symbol": "RKLB",
-  "date": "2026-10-22",
-  "close": 51.22,
+  "date": "2026-10-23",
+  "close": 50.825,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 51.6,
-    "ma10": 57.06,
-    "ma20": 64.44,
-    "ma60": 68.23,
+    "ma10": 55.32,
+    "ma20": 63.29,
+    "ma60": 68.0,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 16.0,
+    "value": 16.2,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -4.7962,
-    "dea": -2.6649,
-    "histogram": -4.2626,
+    "diff": -4.9868,
+    "dea": -3.2212,
+    "histogram": -3.5312,
     "signal": "death_cross"
   },
   "kdj": {
     "k": 36.8,
     "d": 45.6,
-    "j": 19.3,
+    "j": 19.1,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 82.04,
-    "middle": 64.44,
-    "lower": 46.85,
-    "bandwidth": 54.6,
-    "position": 0.12,
+    "upper": 81.27,
+    "middle": 63.29,
+    "lower": 45.31,
+    "bandwidth": 56.8,
+    "position": 0.15,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.7,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 86.83,
@@ -63,10 +63,11 @@
   ],
   "risk_flags": [
     "RSI超卖",
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1372202420.7,
+    "avg_dollar_volume": 1302427658.89,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 79.6473,
-    "avwap_60d": 51.9144,
-    "anchor_idx": 95,
-    "anchor_date": "2026-10-16"
+    "intraday": 88.6781,
+    "avwap_60d": 50.4917,
+    "anchor_idx": 119,
+    "anchor_date": "2026-10-23"
   }
 }
