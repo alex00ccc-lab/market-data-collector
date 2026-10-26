@@ -1,43 +1,43 @@
 {
   "symbol": "9903.HK",
   "date": "2026-10-26",
-  "close": 72.5,
+  "close": 73.3,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 76.35,
-    "ma10": 80.58,
-    "ma20": 92.21,
-    "ma60": 258.87,
+    "ma5": 76.51,
+    "ma10": 80.66,
+    "ma20": 92.25,
+    "ma60": 258.89,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 21.5,
+    "value": 21.8,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -39.8079,
-    "dea": -48.1371,
-    "histogram": 16.6584,
+    "diff": -39.742,
+    "dea": -48.1271,
+    "histogram": 16.7702,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 37.9,
-    "d": 46.0,
-    "j": 21.8,
+    "k": 39.0,
+    "d": 46.3,
+    "j": 24.4,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 120.79,
-    "middle": 92.21,
-    "lower": 63.64,
-    "bandwidth": 62.0,
-    "position": 0.16,
+    "upper": 120.72,
+    "middle": 92.25,
+    "lower": 63.78,
+    "bandwidth": 61.7,
+    "position": 0.17,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.4,
-    "signal": "shrink"
+    "ratio": 0.7,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 502.0,
@@ -63,11 +63,10 @@
   ],
   "risk_flags": [
     "RSI超卖",
-    "跌破MA20",
-    "缩量警示"
+    "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 475064750.04,
+    "avg_dollar_volume": 484249630.14,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 316.2334,
-    "avwap_60d": 72.1667,
-    "anchor_idx": 120,
-    "anchor_date": "2026-10-26"
+    "intraday": 313.1811,
+    "avwap_60d": 74.0458,
+    "anchor_idx": 117,
+    "anchor_date": "2026-10-22"
   }
 }

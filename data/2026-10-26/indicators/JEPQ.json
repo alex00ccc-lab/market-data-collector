@@ -1,43 +1,43 @@
 {
   "symbol": "JEPQ",
-  "date": "2026-10-23",
-  "close": 58.43,
+  "date": "2026-10-26",
+  "close": 59.09,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 59.15,
-    "ma10": 59.66,
-    "ma20": 60.39,
-    "ma60": 60.03,
+    "ma5": 59.07,
+    "ma10": 59.47,
+    "ma20": 60.28,
+    "ma60": 60.05,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 25.7,
-    "signal": "oversold"
+    "value": 32.8,
+    "signal": "bearish"
   },
   "macd": {
-    "diff": -0.3895,
-    "dea": -0.0641,
-    "histogram": -0.6508,
+    "diff": -0.4047,
+    "dea": -0.141,
+    "histogram": -0.5274,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 36.6,
-    "d": 45.5,
-    "j": 18.8,
+    "k": 45.1,
+    "d": 48.4,
+    "j": 38.6,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 62.3,
-    "middle": 60.39,
-    "lower": 58.47,
-    "bandwidth": 6.3,
-    "position": -0.01,
-    "signal": "lower_band"
+    "upper": 62.25,
+    "middle": 60.28,
+    "lower": 58.32,
+    "bandwidth": 6.5,
+    "position": 0.2,
+    "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.6,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 61.44,
@@ -62,33 +62,32 @@
     61.27
   ],
   "risk_flags": [
-    "RSI超卖",
     "跌破MA20",
-    "触及布林下轨"
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 409853746.1,
+    "avg_dollar_volume": 388126090.64,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
-    "bullish": 1,
-    "neutral": 1,
+    "bullish": 0,
+    "neutral": 2,
     "bearish": 3,
     "overall": "mildly_bearish",
     "five_q": {
       "trend": "bearish",
-      "position": "bullish",
+      "position": "neutral",
       "structure": "bearish",
       "volume": "neutral",
       "momentum": "bearish"
     }
   },
   "vwap": {
-    "intraday": 59.768,
-    "avwap_60d": 59.9103,
+    "intraday": 59.7747,
+    "avwap_60d": 59.9486,
     "anchor_idx": 60,
-    "anchor_date": "2026-07-31"
+    "anchor_date": "2026-08-03"
   }
 }

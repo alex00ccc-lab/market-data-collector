@@ -36,7 +36,7 @@
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 0.7,
+    "ratio": 1.0,
     "signal": "normal"
   },
   "fibonacci": {
@@ -65,7 +65,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 7135178.7,
+    "avg_dollar_volume": 7251289.22,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +84,9 @@
     }
   },
   "vwap": {
-    "intraday": 0.608,
+    "intraday": 0.6074,
     "avwap_60d": 0.4972,
-    "anchor_idx": 118,
+    "anchor_idx": 117,
     "anchor_date": "2026-10-22"
   }
 }
