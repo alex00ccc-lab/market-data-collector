@@ -1,43 +1,43 @@
 {
   "symbol": "META",
-  "date": "2026-10-26",
-  "close": 630.56,
+  "date": "2026-10-27",
+  "close": 626.015,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 662.76,
-    "ma10": 696.53,
-    "ma20": 713.4,
-    "ma60": 652.3,
+    "ma5": 649.11,
+    "ma10": 682.88,
+    "ma20": 707.76,
+    "ma60": 652.9,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 23.3,
+    "value": 24.9,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -7.074,
-    "dea": 11.0678,
-    "histogram": -36.2836,
+    "diff": -11.4312,
+    "dea": 7.0194,
+    "histogram": -36.9012,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 34.0,
-    "d": 44.7,
-    "j": 12.7,
+    "k": 34.6,
+    "d": 44.9,
+    "j": 14.0,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 782.55,
-    "middle": 713.4,
-    "lower": 644.24,
-    "bandwidth": 19.4,
-    "position": -0.1,
+    "upper": 785.56,
+    "middle": 707.76,
+    "lower": 629.95,
+    "bandwidth": 22.0,
+    "position": -0.03,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 1.3,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 779.82,
@@ -45,7 +45,7 @@
     "0.0%": 779.82,
     "23.6%": 722.58,
     "38.2%": 687.17,
-    "50.0%": 658.54,
+    "50.0%": 658.55,
     "61.8%": 629.92,
     "78.6%": 589.18,
     "100.0%": 537.27
@@ -64,10 +64,11 @@
   "risk_flags": [
     "RSI超卖",
     "跌破MA20",
+    "缩量警示",
     "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 13723879692.89,
+    "avg_dollar_volume": 12872902275.87,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +87,9 @@
     }
   },
   "vwap": {
-    "intraday": 636.8419,
-    "avwap_60d": 673.4427,
-    "anchor_idx": 51,
+    "intraday": 633.7996,
+    "avwap_60d": 673.4115,
+    "anchor_idx": 70,
     "anchor_date": "2026-08-18"
   }
 }

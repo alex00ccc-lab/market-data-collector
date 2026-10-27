@@ -1,43 +1,43 @@
 {
   "symbol": "KO",
-  "date": "2026-10-26",
-  "close": 92.7,
+  "date": "2026-10-27",
+  "close": 92.42,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 93.38,
-    "ma10": 92.81,
-    "ma20": 89.85,
-    "ma60": 88.82,
+    "ma5": 93.17,
+    "ma10": 93.04,
+    "ma20": 90.12,
+    "ma60": 88.92,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 71.6,
+    "value": 72.0,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 1.5831,
-    "dea": 1.2511,
-    "histogram": 0.664,
+    "diff": 1.4963,
+    "dea": 1.3649,
+    "histogram": 0.2628,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 48.2,
-    "d": 49.4,
-    "j": 45.8,
+    "k": 44.2,
+    "d": 48.1,
+    "j": 36.4,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 96.31,
-    "middle": 89.85,
-    "lower": 83.38,
-    "bandwidth": 14.4,
-    "position": 0.72,
+    "upper": 96.52,
+    "middle": 90.12,
+    "lower": 83.72,
+    "bandwidth": 14.2,
+    "position": 0.68,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 1.2,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 95.37,
@@ -62,10 +62,11 @@
     91.99
   ],
   "risk_flags": [
-    "RSI超买"
+    "RSI超买",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 1515260839.77,
+    "avg_dollar_volume": 1457632895.87,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 86.0077,
-    "avwap_60d": 90.5507,
-    "anchor_idx": 83,
+    "intraday": 85.1713,
+    "avwap_60d": 90.5541,
+    "anchor_idx": 102,
     "anchor_date": "2026-10-02"
   }
 }

@@ -1,54 +1,54 @@
 {
   "symbol": "JEPQ",
-  "date": "2026-10-26",
-  "close": 59.02,
+  "date": "2026-10-27",
+  "close": 59.57,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 59.05,
-    "ma10": 59.47,
-    "ma20": 60.28,
-    "ma60": 60.04,
+    "ma5": 59.08,
+    "ma10": 59.33,
+    "ma20": 60.2,
+    "ma60": 60.06,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 32.0,
+    "value": 37.4,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.4103,
-    "dea": -0.1416,
-    "histogram": -0.5374,
+    "diff": -0.378,
+    "dea": -0.2054,
+    "histogram": -0.3452,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 44.2,
-    "d": 48.1,
-    "j": 36.5,
-    "signal": "bearish"
+    "k": 56.5,
+    "d": 52.2,
+    "j": 65.2,
+    "signal": "bullish"
   },
   "bollinger": {
-    "upper": 62.25,
-    "middle": 60.28,
-    "lower": 58.31,
+    "upper": 62.15,
+    "middle": 60.2,
+    "lower": 58.25,
     "bandwidth": 6.5,
-    "position": 0.18,
+    "position": 0.34,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.6,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 61.44,
-    "low": 57.36,
+    "low": 58.16,
     "0.0%": 61.44,
-    "23.6%": 60.48,
-    "38.2%": 59.88,
-    "50.0%": 59.4,
-    "61.8%": 58.92,
-    "78.6%": 58.23,
-    "100.0%": 57.36
+    "23.6%": 60.66,
+    "38.2%": 60.19,
+    "50.0%": 59.8,
+    "61.8%": 59.41,
+    "78.6%": 58.86,
+    "100.0%": 58.16
   },
   "trend_strength": "空头",
   "supports": [
@@ -62,10 +62,11 @@
     61.27
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 401700042.25,
+    "avg_dollar_volume": 380140740.99,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 59.7696,
-    "avwap_60d": 59.9355,
-    "anchor_idx": 60,
-    "anchor_date": "2026-08-03"
+    "intraday": 59.7748,
+    "avwap_60d": 58.6406,
+    "anchor_idx": 116,
+    "anchor_date": "2026-10-22"
   }
 }
