@@ -1,43 +1,43 @@
 {
   "symbol": "AMD",
-  "date": "2026-10-27",
-  "close": 560.26,
+  "date": "2026-10-28",
+  "close": 566.76,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 533.8,
-    "ma10": 540.36,
-    "ma20": 581.03,
-    "ma60": 534.81,
+    "ma5": 536.6,
+    "ma10": 539.95,
+    "ma20": 578.78,
+    "ma60": 535.61,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 34.0,
+    "value": 39.2,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -9.3884,
-    "dea": -1.6154,
-    "histogram": -15.546,
+    "diff": -7.5044,
+    "dea": -4.059,
+    "histogram": -6.8908,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 62.4,
-    "d": 54.1,
-    "j": 79.0,
+    "k": 63.4,
+    "d": 54.5,
+    "j": 81.3,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 670.29,
-    "middle": 581.03,
-    "lower": 491.77,
-    "bandwidth": 30.7,
-    "position": 0.38,
+    "upper": 667.09,
+    "middle": 578.78,
+    "lower": 490.47,
+    "bandwidth": 30.5,
+    "position": 0.43,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 1.1,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 658.52,
@@ -62,10 +62,11 @@
     649.42
   ],
   "risk_flags": [
-    "跌破MA20"
+    "跌破MA20",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 11253924741.28,
+    "avg_dollar_volume": 10745370965.37,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 524.8578,
-    "avwap_60d": 565.6482,
-    "anchor_idx": 62,
+    "intraday": 513.3245,
+    "avwap_60d": 565.6497,
+    "anchor_idx": 81,
     "anchor_date": "2026-09-03"
   }
 }

@@ -1,7 +1,7 @@
 {
   "symbol": "AAPL",
   "date": "2026-10-27",
-  "close": 347.10001,
+  "close": 347.1,
   "currency": "",
   "skeleton": false,
   "ma": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 4.1915,
-    "dea": 4.0899,
-    "histogram": 0.2032,
+    "diff": 4.2056,
+    "dea": 4.1097,
+    "histogram": 0.1918,
     "signal": "golden_cross"
   },
   "kdj": {
@@ -63,7 +63,7 @@
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 13302568754.08,
+    "avg_dollar_volume": 13303160434.83,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 314.1992,
-    "avwap_60d": 328.8697,
-    "anchor_idx": 66,
+    "intraday": 316.2383,
+    "avwap_60d": 328.8698,
+    "anchor_idx": 46,
     "anchor_date": "2026-08-12"
   }
 }

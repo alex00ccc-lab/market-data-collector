@@ -1,12 +1,12 @@
 {
   "symbol": "SGOV",
-  "date": "2026-10-27",
-  "close": 100.68,
+  "date": "2026-10-28",
+  "close": 100.69,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 100.65,
-    "ma10": 100.61,
+    "ma5": 100.66,
+    "ma10": 100.63,
     "ma20": 100.55,
     "ma60": 100.56,
     "alignment": "bullish"
@@ -16,15 +16,15 @@
     "signal": "overbought"
   },
   "macd": {
-    "diff": 0.0291,
-    "dea": 0.0091,
-    "histogram": 0.04,
+    "diff": 0.0333,
+    "dea": 0.0141,
+    "histogram": 0.0384,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 64.4,
-    "d": 54.8,
-    "j": 83.7,
+    "k": 65.3,
+    "d": 55.1,
+    "j": 85.8,
     "signal": "bullish"
   },
   "bollinger": {
@@ -32,12 +32,12 @@
     "middle": 100.55,
     "lower": 100.38,
     "bandwidth": 0.3,
-    "position": 0.88,
+    "position": 0.9,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.7,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
     "high": 100.7,
@@ -60,10 +60,11 @@
     100.69
   ],
   "risk_flags": [
-    "RSI超买"
+    "RSI超买",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 2246678298.25,
+    "avg_dollar_volume": 2089599043.59,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +83,9 @@
     }
   },
   "vwap": {
-    "intraday": 100.5455,
+    "intraday": 100.5462,
     "avwap_60d": 100.5411,
-    "anchor_idx": 80,
+    "anchor_idx": 79,
     "anchor_date": "2026-09-01"
   }
 }

@@ -1,80 +1,74 @@
 {
   "^VIX": {
     "name": "VIX 恐慌指数",
-    "price": 17.52,
-    "date": "2026-10-27",
-    "change_pct": -4.73
+    "price": 17.23,
+    "date": "2026-10-28",
+    "change_pct": -1.66
   },
   "^TNX": {
     "name": "10年期美债收益率",
-    "price": 4.99,
-    "date": "2026-10-27",
-    "change_pct": 0.14
+    "price": 5.02,
+    "date": "2026-10-28",
+    "change_pct": 0.62
   },
   "^TYX": {
     "name": "30年期美债收益率",
-    "price": 5.3,
-    "date": "2026-10-27",
-    "change_pct": 0.08
+    "price": 5.33,
+    "date": "2026-10-28",
+    "change_pct": 0.4
   },
   "^IRX": {
     "name": "13周国库券收益率",
-    "price": 4.04,
-    "date": "2026-10-27",
-    "change_pct": 0.37
+    "price": 4.03,
+    "date": "2026-10-28",
+    "change_pct": -0.3
   },
   "^FVX": {
     "name": "5年期美债收益率",
-    "price": 4.84,
-    "date": "2026-10-27",
-    "change_pct": 0.33
+    "price": 4.88,
+    "date": "2026-10-28",
+    "change_pct": 0.74
   },
   "^SOX": {
     "name": "费城半导体指数SOX",
-    "price": 11482.5,
-    "date": "2026-10-27",
-    "change_pct": 3.6
+    "price": 11593.01,
+    "date": "2026-10-28",
+    "change_pct": 0.96
   },
   "^IXIC": {
     "name": "纳斯达克综合指数",
-    "price": 26477.81,
-    "date": "2026-10-27",
-    "change_pct": 1.18
-  },
-  "^KS11": {
-    "name": "韩国KOSPI指数",
-    "price": 6011.07,
+    "price": 26477.33,
     "date": "2026-10-28",
-    "change_pct": 6.61
+    "change_pct": -0.0
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 110.83,
+    "price": 111.91,
     "date": "2026-10-28",
-    "change_pct": -2.68
+    "change_pct": -1.73
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 102.43,
+    "price": 102.33,
     "date": "2026-10-28",
-    "change_pct": 0.1
+    "change_pct": 0.01
   },
   "000001.SS": {
     "name": "上证指数",
-    "price": 3674.44,
+    "price": 3681.47,
     "date": "2026-10-28",
-    "change_pct": 0.72
+    "change_pct": 0.91
   },
   "^HSI": {
     "name": "恒生指数",
-    "price": 23140.64,
+    "price": 23094.83,
     "date": "2026-10-28",
-    "change_pct": 0.43
+    "change_pct": 0.23
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 64111.75,
-    "date": "2026-10-28",
-    "change_pct": 1.33
+    "price": 63268.37,
+    "date": "2026-10-27",
+    "change_pct": 1.73
   }
 }
