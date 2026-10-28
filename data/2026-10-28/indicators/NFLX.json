@@ -1,0 +1,93 @@
+{
+  "symbol": "NFLX",
+  "date": "2026-10-27",
+  "close": 62.52,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 64.87,
+    "ma10": 67.66,
+    "ma20": 68.5,
+    "ma60": 73.98,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 31.9,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -2.2619,
+    "dea": -1.5224,
+    "histogram": -1.479,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 33.5,
+    "d": 44.5,
+    "j": 11.4,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 73.64,
+    "middle": 68.5,
+    "lower": 63.35,
+    "bandwidth": 15.0,
+    "position": -0.08,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 0.8,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 83.6,
+    "low": 62.48,
+    "0.0%": 83.6,
+    "23.6%": 78.62,
+    "38.2%": 75.53,
+    "50.0%": 73.04,
+    "61.8%": 70.55,
+    "78.6%": 67.0,
+    "100.0%": 62.48
+  },
+  "trend_strength": "空头",
+  "supports": [
+    67.06,
+    67.6,
+    70.9
+  ],
+  "resistances": [
+    72.61,
+    80.32,
+    82.73
+  ],
+  "risk_flags": [
+    "跌破MA20",
+    "触及布林下轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 2969082716.27,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 73.4352,
+    "avwap_60d": 62.9567,
+    "anchor_idx": 99,
+    "anchor_date": "2026-10-27"
+  }
+}
