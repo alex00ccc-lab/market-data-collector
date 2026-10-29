@@ -1,0 +1,93 @@
+{
+  "symbol": "9992.HK",
+  "date": "2026-10-29",
+  "close": 129.6,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 131.4,
+    "ma10": 133.94,
+    "ma20": 142.34,
+    "ma60": 150.17,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 15.4,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": -6.1169,
+    "dea": -4.7779,
+    "histogram": -2.678,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 41.6,
+    "d": 47.2,
+    "j": 30.4,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 160.9,
+    "middle": 142.34,
+    "lower": 123.78,
+    "bandwidth": 26.1,
+    "position": 0.16,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.4,
+    "signal": "shrink"
+  },
+  "fibonacci": {
+    "high": 162.3,
+    "low": 123.8,
+    "0.0%": 162.3,
+    "23.6%": 153.21,
+    "38.2%": 147.59,
+    "50.0%": 143.05,
+    "61.8%": 138.51,
+    "78.6%": 132.04,
+    "100.0%": 123.8
+  },
+  "trend_strength": "空头",
+  "supports": [
+    128.5,
+    149.2,
+    152.2
+  ],
+  "resistances": [
+    154.6,
+    155.1
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20",
+    "缩量警示"
+  ],
+  "frame": {
+    "avg_dollar_volume": 1226560358.72,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 158.9369,
+    "avwap_60d": 129.9523,
+    "anchor_idx": 115,
+    "anchor_date": "2026-10-22"
+  }
+}
