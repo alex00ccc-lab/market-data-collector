@@ -1,54 +1,54 @@
 {
   "symbol": "9903.HK",
   "date": "2026-10-29",
-  "close": 68.55,
+  "close": 67.15,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 72.53,
-    "ma10": 75.48,
-    "ma20": 85.45,
-    "ma60": 240.23,
+    "ma5": 72.25,
+    "ma10": 75.34,
+    "ma20": 85.38,
+    "ma60": 240.21,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 26.8,
+    "value": 26.0,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -34.281,
-    "dea": -41.8996,
-    "histogram": 15.2372,
+    "diff": -34.3887,
+    "dea": -41.9064,
+    "histogram": 15.0354,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 33.8,
+    "k": 33.9,
     "d": 44.6,
-    "j": 12.2,
+    "j": 12.3,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 108.27,
-    "middle": 85.45,
-    "lower": 62.63,
-    "bandwidth": 53.4,
-    "position": 0.13,
+    "upper": 108.41,
+    "middle": 85.38,
+    "lower": 62.35,
+    "bandwidth": 54.0,
+    "position": 0.1,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.4,
-    "signal": "shrink"
+    "ratio": 0.8,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 502.0,
-    "low": 68.3,
+    "low": 66.85,
     "0.0%": 502.0,
-    "23.6%": 399.65,
-    "38.2%": 336.33,
-    "50.0%": 285.15,
-    "61.8%": 233.97,
-    "78.6%": 161.11,
-    "100.0%": 68.3
+    "23.6%": 399.3,
+    "38.2%": 335.77,
+    "50.0%": 284.43,
+    "61.8%": 233.08,
+    "78.6%": 159.97,
+    "100.0%": 66.85
   },
   "trend_strength": "震荡",
   "supports": [
@@ -63,11 +63,10 @@
   ],
   "risk_flags": [
     "RSI超卖",
-    "跌破MA20",
-    "缩量警示"
+    "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 464613162.41,
+    "avg_dollar_volume": 472902087.85,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 302.5893,
-    "avwap_60d": 70.1333,
-    "anchor_idx": 120,
+    "intraday": 300.1242,
+    "avwap_60d": 69.1833,
+    "anchor_idx": 119,
     "anchor_date": "2026-10-29"
   }
 }

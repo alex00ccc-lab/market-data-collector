@@ -1,42 +1,42 @@
 {
   "symbol": "RKLB",
-  "date": "2026-10-28",
-  "close": 58.6,
+  "date": "2026-10-29",
+  "close": 60.88999938964844,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 54.91,
-    "ma10": 53.66,
-    "ma20": 61.33,
-    "ma60": 67.37,
-    "alignment": "bearish"
+    "ma5": 56.84,
+    "ma10": 54.22,
+    "ma20": 60.85,
+    "ma60": 67.14,
+    "alignment": "mixed"
   },
   "rsi": {
-    "value": 34.3,
+    "value": 39.0,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -3.7773,
-    "dea": -4.2344,
-    "histogram": 0.9142,
+    "diff": -3.2051,
+    "dea": -4.2714,
+    "histogram": 2.1326,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 64.3,
-    "d": 54.8,
-    "j": 83.5,
+    "k": 66.1,
+    "d": 55.4,
+    "j": 87.5,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 78.5,
-    "middle": 61.33,
-    "lower": 44.16,
-    "bandwidth": 56.0,
-    "position": 0.42,
+    "upper": 77.51,
+    "middle": 60.85,
+    "lower": 44.2,
+    "bandwidth": 54.7,
+    "position": 0.5,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.8,
+    "ratio": 0.5,
     "signal": "normal"
   },
   "fibonacci": {
@@ -61,32 +61,30 @@
     73.95,
     75.06
   ],
-  "risk_flags": [
-    "跌破MA20"
-  ],
+  "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 1269556893.51,
+    "avg_dollar_volume": 1209844816.08,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
   },
   "resonance": {
     "bullish": 1,
-    "neutral": 2,
-    "bearish": 2,
+    "neutral": 4,
+    "bearish": 0,
     "overall": "neutral",
     "five_q": {
-      "trend": "bearish",
+      "trend": "neutral",
       "position": "bullish",
-      "structure": "bearish",
+      "structure": "neutral",
       "volume": "neutral",
       "momentum": "neutral"
     }
   },
   "vwap": {
-    "intraday": 77.4233,
-    "avwap_60d": 53.2707,
-    "anchor_idx": 91,
+    "intraday": 67.517,
+    "avwap_60d": 53.5756,
+    "anchor_idx": 56,
     "anchor_date": "2026-10-16"
   }
 }

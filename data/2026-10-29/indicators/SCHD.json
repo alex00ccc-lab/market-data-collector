@@ -1,53 +1,53 @@
 {
   "symbol": "SCHD",
-  "date": "2026-10-28",
-  "close": 35.09,
+  "date": "2026-10-29",
+  "close": 35.38,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 35.24,
-    "ma10": 34.82,
-    "ma20": 33.92,
-    "ma60": 34.12,
+    "ma5": 35.23,
+    "ma10": 34.95,
+    "ma20": 34.05,
+    "ma60": 34.14,
     "alignment": "bullish"
   },
   "rsi": {
-    "value": 81.1,
+    "value": 85.5,
     "signal": "overbought"
   },
   "macd": {
-    "diff": 0.4469,
-    "dea": 0.2576,
-    "histogram": 0.3786,
+    "diff": 0.4723,
+    "dea": 0.3115,
+    "histogram": 0.3216,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 57.4,
-    "d": 52.5,
-    "j": 67.4,
+    "k": 62.4,
+    "d": 54.1,
+    "j": 79.0,
     "signal": "bullish"
   },
   "bollinger": {
-    "upper": 35.9,
-    "middle": 33.92,
-    "lower": 31.94,
+    "upper": 36.04,
+    "middle": 34.05,
+    "lower": 32.07,
     "bandwidth": 11.7,
-    "position": 0.8,
+    "position": 0.83,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.9,
-    "signal": "normal"
+    "ratio": 0.0,
+    "signal": "shrink"
   },
   "fibonacci": {
-    "high": 35.45,
+    "high": 35.56,
     "low": 32.36,
-    "0.0%": 35.45,
-    "23.6%": 34.72,
-    "38.2%": 34.27,
-    "50.0%": 33.91,
-    "61.8%": 33.54,
-    "78.6%": 33.02,
+    "0.0%": 35.56,
+    "23.6%": 34.8,
+    "38.2%": 34.34,
+    "50.0%": 33.96,
+    "61.8%": 33.58,
+    "78.6%": 33.04,
     "100.0%": 32.36
   },
   "trend_strength": "多头",
@@ -57,15 +57,16 @@
     32.53
   ],
   "resistances": [
-    33.89,
     35.08,
-    35.21
+    35.21,
+    35.4
   ],
   "risk_flags": [
-    "RSI超买"
+    "RSI超买",
+    "缩量警示"
   ],
   "frame": {
-    "avg_dollar_volume": 766056717.13,
+    "avg_dollar_volume": 728198125.7,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 33.3392,
-    "avwap_60d": 33.8632,
-    "anchor_idx": 99,
+    "intraday": 33.3533,
+    "avwap_60d": 33.8657,
+    "anchor_idx": 98,
     "anchor_date": "2026-09-30"
   }
 }
