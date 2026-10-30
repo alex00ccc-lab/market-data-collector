@@ -1,14 +1,14 @@
 {
   "symbol": "KO",
   "date": "2026-10-29",
-  "close": 92.81999969482422,
+  "close": 92.82,
   "currency": "",
   "skeleton": false,
   "ma": {
     "ma5": 92.23,
     "ma10": 93.0,
     "ma20": 90.68,
-    "ma60": 88.84,
+    "ma60": 89.08,
     "alignment": "mixed"
   },
   "rsi": {
@@ -16,9 +16,9 @@
     "signal": "bullish"
   },
   "macd": {
-    "diff": 1.2846,
-    "dea": 1.4725,
-    "histogram": -0.3758,
+    "diff": 1.2621,
+    "dea": 1.4428,
+    "histogram": -0.3614,
     "signal": "death_cross"
   },
   "kdj": {
@@ -53,17 +53,17 @@
   "trend_strength": "震荡",
   "supports": [
     85.65,
-    87.03,
-    87.12
+    87.12,
+    87.55
   ],
   "resistances": [
-    88.82,
-    91.44,
+    89.35,
+    91.99,
     95.34
   ],
   "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 1521304741.4,
+    "avg_dollar_volume": 1521725372.29,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -82,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 88.803,
-    "avwap_60d": 90.7491,
-    "anchor_idx": 45,
+    "intraday": 86.4155,
+    "avwap_60d": 90.7482,
+    "anchor_idx": 80,
     "anchor_date": "2026-10-02"
   }
 }

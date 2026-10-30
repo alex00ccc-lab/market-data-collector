@@ -1,42 +1,42 @@
 {
   "symbol": "300408",
   "date": "2026-10-30",
-  "close": 83.57,
+  "close": 79.23,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 83.84,
-    "ma10": 88.78,
-    "ma20": 98.38,
-    "ma60": 112.92,
+    "ma5": 82.97,
+    "ma10": 88.35,
+    "ma20": 98.16,
+    "ma60": 112.85,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 27.4,
+    "value": 24.9,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -8.8562,
-    "dea": -7.9151,
-    "histogram": -1.8822,
+    "diff": -9.2024,
+    "dea": -7.9535,
+    "histogram": -2.4978,
     "signal": "death_cross"
   },
   "kdj": {
-    "k": 43.8,
-    "d": 47.9,
-    "j": 35.6,
+    "k": 36.7,
+    "d": 45.6,
+    "j": 19.0,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 122.11,
-    "middle": 98.38,
-    "lower": 74.65,
-    "bandwidth": 48.2,
-    "position": 0.19,
+    "upper": 122.5,
+    "middle": 98.16,
+    "lower": 73.82,
+    "bandwidth": 49.6,
+    "position": 0.11,
     "signal": "below_middle"
   },
   "volume": {
-    "ratio": 0.6,
+    "ratio": 0.9,
     "signal": "normal"
   },
   "fibonacci": {
@@ -66,7 +66,7 @@
     "跌破MA20"
   ],
   "frame": {
-    "avg_dollar_volume": 38959970.57,
+    "avg_dollar_volume": 39632451.22,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -85,9 +85,9 @@
     }
   },
   "vwap": {
-    "intraday": 121.6429,
-    "avwap_60d": 84.5277,
-    "anchor_idx": 117,
-    "anchor_date": "2026-10-27"
+    "intraday": 121.5343,
+    "avwap_60d": 80.5567,
+    "anchor_idx": 120,
+    "anchor_date": "2026-10-30"
   }
 }

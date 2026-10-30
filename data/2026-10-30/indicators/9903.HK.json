@@ -1,54 +1,54 @@
 {
   "symbol": "9903.HK",
   "date": "2026-10-30",
-  "close": 64.9,
+  "close": 61.5,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 70.07,
-    "ma10": 73.85,
-    "ma20": 83.33,
-    "ma60": 233.22,
+    "ma5": 69.39,
+    "ma10": 73.52,
+    "ma20": 83.16,
+    "ma60": 233.17,
     "alignment": "bearish"
   },
   "rsi": {
-    "value": 26.9,
+    "value": 25.2,
     "signal": "oversold"
   },
   "macd": {
-    "diff": -33.0106,
-    "dea": -39.9908,
-    "histogram": 13.9604,
+    "diff": -33.2792,
+    "dea": -40.0174,
+    "histogram": 13.4764,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 37.2,
-    "d": 45.7,
-    "j": 20.2,
+    "k": 33.7,
+    "d": 44.6,
+    "j": 11.9,
     "signal": "bearish"
   },
   "bollinger": {
-    "upper": 105.96,
-    "middle": 83.33,
-    "lower": 60.69,
-    "bandwidth": 54.3,
-    "position": 0.09,
+    "upper": 106.39,
+    "middle": 83.16,
+    "lower": 59.92,
+    "bandwidth": 55.9,
+    "position": 0.03,
     "signal": "lower_band"
   },
   "volume": {
-    "ratio": 0.4,
-    "signal": "shrink"
+    "ratio": 0.9,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 493.0,
-    "low": 62.1,
+    "low": 61.25,
     "0.0%": 493.0,
-    "23.6%": 391.31,
-    "38.2%": 328.4,
-    "50.0%": 277.55,
-    "61.8%": 226.7,
-    "78.6%": 154.31,
-    "100.0%": 62.1
+    "23.6%": 391.11,
+    "38.2%": 328.07,
+    "50.0%": 277.12,
+    "61.8%": 226.18,
+    "78.6%": 153.64,
+    "100.0%": 61.25
   },
   "trend_strength": "震荡",
   "supports": [
@@ -64,10 +64,10 @@
   "risk_flags": [
     "RSI超卖",
     "跌破MA20",
-    "缩量警示"
+    "触及布林下轨"
   ],
   "frame": {
-    "avg_dollar_volume": 446851567.45,
+    "avg_dollar_volume": 456084070.87,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -86,9 +86,9 @@
     }
   },
   "vwap": {
-    "intraday": 298.6387,
-    "avwap_60d": 64.1333,
-    "anchor_idx": 120,
+    "intraday": 295.8577,
+    "avwap_60d": 62.7833,
+    "anchor_idx": 119,
     "anchor_date": "2026-10-30"
   }
 }

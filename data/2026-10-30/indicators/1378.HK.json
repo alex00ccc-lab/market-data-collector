@@ -1,43 +1,43 @@
 {
   "symbol": "1378.HK",
   "date": "2026-10-30",
-  "close": 20.28,
+  "close": 20.22,
   "currency": "",
   "skeleton": false,
   "ma": {
-    "ma5": 19.86,
+    "ma5": 19.85,
     "ma10": 19.38,
     "ma20": 20.17,
     "ma60": 21.88,
     "alignment": "mixed"
   },
   "rsi": {
-    "value": 43.0,
+    "value": 42.5,
     "signal": "bearish"
   },
   "macd": {
-    "diff": -0.5424,
-    "dea": -0.7329,
-    "histogram": 0.381,
+    "diff": -0.5472,
+    "dea": -0.7334,
+    "histogram": 0.3724,
     "signal": "golden_cross"
   },
   "kdj": {
-    "k": 65.9,
-    "d": 55.3,
-    "j": 87.1,
+    "k": 64.9,
+    "d": 55.0,
+    "j": 84.7,
     "signal": "bullish"
   },
   "bollinger": {
     "upper": 22.1,
     "middle": 20.17,
-    "lower": 18.24,
+    "lower": 18.23,
     "bandwidth": 19.2,
-    "position": 0.53,
+    "position": 0.51,
     "signal": "above_middle"
   },
   "volume": {
-    "ratio": 0.3,
-    "signal": "shrink"
+    "ratio": 0.8,
+    "signal": "normal"
   },
   "fibonacci": {
     "high": 25.16,
@@ -61,11 +61,9 @@
     21.54,
     24.46
   ],
-  "risk_flags": [
-    "缩量警示"
-  ],
+  "risk_flags": [],
   "frame": {
-    "avg_dollar_volume": 684095227.33,
+    "avg_dollar_volume": 707944845.19,
     "pe_percentile_5y": null,
     "sector_momentum_30d": 0.0,
     "sector_ma_disparity": 0.0
@@ -84,9 +82,9 @@
     }
   },
   "vwap": {
-    "intraday": 23.9031,
-    "avwap_60d": 19.2968,
-    "anchor_idx": 114,
+    "intraday": 23.7916,
+    "avwap_60d": 19.3582,
+    "anchor_idx": 113,
     "anchor_date": "2026-10-22"
   }
 }
