@@ -1,0 +1,17 @@
+{
+  "symbol": "AMZN",
+  "date": "2026-10-31",
+  "underlying_price": 243.79,
+  "max_pain": 250,
+  "call_wall": 270,
+  "call_wall_oi": 46149,
+  "put_wall": 250,
+  "put_wall_oi": 25718,
+  "atm_iv": 0.5175,
+  "hv_20d": 0.3631,
+  "iv_hv_gap": 0.1544,
+  "expiration": "2026-11-21",
+  "dte": 22,
+  "source": "marketdata.app",
+  "timestamp": "2026-10-31T12:40:09.277200+08:00"
+}

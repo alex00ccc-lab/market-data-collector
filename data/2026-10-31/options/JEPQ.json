@@ -1,0 +1,17 @@
+{
+  "symbol": "JEPQ",
+  "date": "2026-10-31",
+  "underlying_price": 57.84,
+  "max_pain": 60,
+  "call_wall": 61,
+  "call_wall_oi": 4588,
+  "put_wall": 58,
+  "put_wall_oi": 2603,
+  "atm_iv": 0.1669,
+  "hv_20d": 0.1833,
+  "iv_hv_gap": -0.0164,
+  "expiration": "2026-11-21",
+  "dte": 22,
+  "source": "marketdata.app",
+  "timestamp": "2026-10-31T12:40:06.816483+08:00"
+}
