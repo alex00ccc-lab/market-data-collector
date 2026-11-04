@@ -1,0 +1,93 @@
+{
+  "symbol": "JEPQ",
+  "date": "2026-11-03",
+  "close": 56.59,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 57.97,
+    "ma10": 58.54,
+    "ma20": 59.42,
+    "ma60": 59.94,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 32.3,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -0.7804,
+    "dea": -0.4373,
+    "histogram": -0.6862,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 37.0,
+    "d": 45.7,
+    "j": 19.6,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 62.21,
+    "middle": 59.42,
+    "lower": 56.64,
+    "bandwidth": 9.4,
+    "position": -0.01,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 0.8,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 61.44,
+    "low": 56.16,
+    "0.0%": 61.44,
+    "23.6%": 60.19,
+    "38.2%": 59.42,
+    "50.0%": 58.8,
+    "61.8%": 58.18,
+    "78.6%": 57.29,
+    "100.0%": 56.16
+  },
+  "trend_strength": "空头",
+  "supports": [
+    58.42,
+    59.08,
+    60.81
+  ],
+  "resistances": [
+    60.31,
+    60.56,
+    61.27
+  ],
+  "risk_flags": [
+    "跌破MA20",
+    "触及布林下轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 404249942.6,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 59.6775,
+    "avwap_60d": 56.6688,
+    "anchor_idx": 118,
+    "anchor_date": "2026-11-02"
+  }
+}
