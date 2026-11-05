@@ -13,7 +13,7 @@
           "watch": "利差健康；若跌破 -0.20 → 🔴"
         },
         "BAMLH0A0HYM2": {
-          "value": 3.4,
+          "value": 3.32,
           "light": "🟢",
           "trend": "widening",
           "watch": "若升破 5.50 → 🔴，停新增 CSP"
@@ -30,10 +30,10 @@
           "watch": "缩表是否加速（4 周趋势；连续 2 周下降）"
         },
         "SOFR": {
-          "value": 3.97,
-          "light": "🟡",
-          "trend": "rising",
-          "watch": "若跳升 > 近期中位数+20bp → 🔴（回购压力）；当前偏离 +8bp"
+          "value": 3.94,
+          "light": "🟢",
+          "trend": "stable",
+          "watch": "若跳升 > 近期中位数+20bp → 🔴（回购压力）；当前偏离 +4bp"
         }
       },
       "light": "🟡"
@@ -64,5 +64,5 @@
     "Brent": 93.93
   },
   "source": "fred",
-  "timestamp": "2026-11-05T13:28:54.470480+08:00"
+  "timestamp": "2026-11-06T01:09:49.891333+08:00"
 }
