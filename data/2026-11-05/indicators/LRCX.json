@@ -1,0 +1,93 @@
+{
+  "symbol": "LRCX",
+  "date": "2026-11-04",
+  "close": 221.42999,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 234.64,
+    "ma10": 236.56,
+    "ma20": 262.03,
+    "ma60": 294.8,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 28.0,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": -20.2864,
+    "dea": -19.0242,
+    "histogram": -2.5244,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 35.7,
+    "d": 45.2,
+    "j": 16.5,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 323.61,
+    "middle": 262.03,
+    "lower": 200.44,
+    "bandwidth": 47.0,
+    "position": 0.17,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 1.2,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 352.56,
+    "low": 218.5,
+    "0.0%": 352.56,
+    "23.6%": 320.92,
+    "38.2%": 301.35,
+    "50.0%": 285.53,
+    "61.8%": 269.71,
+    "78.6%": 247.19,
+    "100.0%": 218.5
+  },
+  "trend_strength": "空头",
+  "supports": [
+    230.1,
+    269.23,
+    288.32
+  ],
+  "resistances": [
+    318.58,
+    320.42,
+    347.49
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20"
+  ],
+  "frame": {
+    "avg_dollar_volume": 2946655290.41,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 314.8304,
+    "avwap_60d": 224.3267,
+    "anchor_idx": 119,
+    "anchor_date": "2026-11-04"
+  }
+}

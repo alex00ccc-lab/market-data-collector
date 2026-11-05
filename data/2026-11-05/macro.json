@@ -1,21 +1,21 @@
 {
   "^VIX": {
     "name": "VIX 恐慌指数",
-    "price": 17.88,
+    "price": 16.61,
     "date": "2026-11-04",
-    "change_pct": -14.16
+    "change_pct": -20.26
   },
   "^TNX": {
     "name": "10年期美债收益率",
-    "price": 4.9,
+    "price": 4.89,
     "date": "2026-11-04",
-    "change_pct": -1.09
+    "change_pct": -1.17
   },
   "^TYX": {
     "name": "30年期美债收益率",
-    "price": 5.29,
+    "price": 5.28,
     "date": "2026-11-04",
-    "change_pct": -0.62
+    "change_pct": -0.79
   },
   "^IRX": {
     "name": "13周国库券收益率",
@@ -27,42 +27,54 @@
     "name": "5年期美债收益率",
     "price": 4.69,
     "date": "2026-11-04",
-    "change_pct": -1.2
+    "change_pct": -1.14
   },
   "^SOX": {
     "name": "费城半导体指数SOX",
-    "price": 10356.09,
+    "price": 10268.65,
     "date": "2026-11-04",
-    "change_pct": -2.3
+    "change_pct": -3.13
   },
   "^IXIC": {
     "name": "纳斯达克综合指数",
-    "price": 25918.49,
+    "price": 25736.51,
     "date": "2026-11-04",
-    "change_pct": 2.15
+    "change_pct": 1.44
+  },
+  "^KS11": {
+    "name": "韩国KOSPI指数",
+    "price": 5381.78,
+    "date": "2026-11-05",
+    "change_pct": -5.31
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 95.63,
-    "date": "2026-11-04",
-    "change_pct": -7.69
+    "price": 93.93,
+    "date": "2026-11-05",
+    "change_pct": -0.73
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 101.61,
-    "date": "2026-11-04",
-    "change_pct": -0.26
+    "price": 101.24,
+    "date": "2026-11-05",
+    "change_pct": -0.27
+  },
+  "000001.SS": {
+    "name": "上证指数",
+    "price": 3676.15,
+    "date": "2026-11-05",
+    "change_pct": -0.27
   },
   "^HSI": {
     "name": "恒生指数",
-    "price": 23525.97,
-    "date": "2026-11-03",
-    "change_pct": 0.57
+    "price": 24673.39,
+    "date": "2026-11-05",
+    "change_pct": 3.15
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 63081.86,
-    "date": "2026-11-02",
-    "change_pct": -0.33
+    "price": 61265.76,
+    "date": "2026-11-05",
+    "change_pct": -1.48
   }
 }
