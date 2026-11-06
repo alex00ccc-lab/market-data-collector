@@ -1,0 +1,94 @@
+{
+  "symbol": "LITE",
+  "date": "2026-11-05",
+  "close": 509.7,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 668.34,
+    "ma10": 761.56,
+    "ma20": 827.63,
+    "ma60": 900.03,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 28.3,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": -79.2025,
+    "dea": -44.4613,
+    "histogram": -69.4824,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 33.5,
+    "d": 44.5,
+    "j": 11.6,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 1091.86,
+    "middle": 827.63,
+    "lower": 563.41,
+    "bandwidth": 63.9,
+    "position": -0.1,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 1.0,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 1143.0,
+    "low": 506.69,
+    "0.0%": 1143.0,
+    "23.6%": 992.83,
+    "38.2%": 899.93,
+    "50.0%": 824.84,
+    "61.8%": 749.76,
+    "78.6%": 642.86,
+    "100.0%": 506.69
+  },
+  "trend_strength": "空头",
+  "supports": [
+    752.54,
+    835.03,
+    921.32
+  ],
+  "resistances": [
+    919.53,
+    954.49,
+    1133.4
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20",
+    "触及布林下轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 5220333552.96,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 851.6012,
+    "avwap_60d": 537.7365,
+    "anchor_idx": 99,
+    "anchor_date": "2026-11-05"
+  }
+}
