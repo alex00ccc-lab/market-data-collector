@@ -1,0 +1,17 @@
+{
+  "symbol": "COST",
+  "date": "2026-11-07",
+  "underlying_price": 1065.59,
+  "max_pain": 965,
+  "call_wall": 1000,
+  "call_wall_oi": 1662,
+  "put_wall": 845,
+  "put_wall_oi": 1651,
+  "atm_iv": 0.2647,
+  "hv_20d": 0.2313,
+  "iv_hv_gap": 0.0334,
+  "expiration": "2026-11-21",
+  "dte": 15,
+  "source": "marketdata.app",
+  "timestamp": "2026-11-07T13:10:52.902940+08:00"
+}

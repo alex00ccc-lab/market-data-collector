@@ -1,0 +1,17 @@
+{
+  "symbol": "MRVL",
+  "date": "2026-11-07",
+  "underlying_price": 133.55,
+  "max_pain": 200,
+  "call_wall": 270,
+  "call_wall_oi": 18863,
+  "put_wall": 200,
+  "put_wall_oi": 13892,
+  "atm_iv": 1.0395,
+  "hv_20d": 1.0856,
+  "iv_hv_gap": -0.0461,
+  "expiration": "2026-11-21",
+  "dte": 15,
+  "source": "marketdata.app",
+  "timestamp": "2026-11-07T13:10:55.231630+08:00"
+}
