@@ -1,74 +1,80 @@
 {
   "^VIX": {
     "name": "VIX 恐慌指数",
-    "price": 20.16,
+    "price": 19.92,
     "date": "2026-11-09",
-    "change_pct": -21.37
+    "change_pct": -22.31
   },
   "^TNX": {
     "name": "10年期美债收益率",
-    "price": 4.88,
+    "price": 4.86,
     "date": "2026-11-09",
-    "change_pct": 0.39
+    "change_pct": 0.1
   },
   "^TYX": {
     "name": "30年期美债收益率",
-    "price": 5.27,
+    "price": 5.26,
     "date": "2026-11-09",
-    "change_pct": 0.13
+    "change_pct": -0.08
   },
   "^IRX": {
     "name": "13周国库券收益率",
-    "price": 4.04,
+    "price": 4.03,
     "date": "2026-11-09",
-    "change_pct": 0.92
+    "change_pct": 0.87
   },
   "^FVX": {
     "name": "5年期美债收益率",
-    "price": 4.68,
+    "price": 4.66,
     "date": "2026-11-09",
-    "change_pct": 0.69
+    "change_pct": 0.24
   },
   "^SOX": {
     "name": "费城半导体指数SOX",
-    "price": 9959.04,
+    "price": 10033.93,
     "date": "2026-11-09",
-    "change_pct": 6.06
+    "change_pct": 6.85
   },
   "^IXIC": {
     "name": "纳斯达克综合指数",
-    "price": 25205.96,
+    "price": 25253.14,
     "date": "2026-11-09",
-    "change_pct": 2.55
+    "change_pct": 2.74
   },
   "^KS11": {
     "name": "韩国KOSPI指数",
-    "price": 5059.69,
-    "date": "2026-11-06",
-    "change_pct": -6.02
+    "price": 5254.05,
+    "date": "2026-11-10",
+    "change_pct": 4.69
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 93.45,
-    "date": "2026-11-09",
-    "change_pct": -4.95
+    "price": 91.61,
+    "date": "2026-11-10",
+    "change_pct": -1.04
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 101.8,
-    "date": "2026-11-09",
-    "change_pct": -0.49
+    "price": 101.67,
+    "date": "2026-11-10",
+    "change_pct": 0.02
+  },
+  "000001.SS": {
+    "name": "上证指数",
+    "price": 3666.83,
+    "date": "2026-11-10",
+    "change_pct": 0.16
   },
   "^HSI": {
     "name": "恒生指数",
-    "price": 24481.86,
-    "date": "2026-11-06",
-    "change_pct": -1.27
+    "price": 24561.42,
+    "date": "2026-11-10",
+    "change_pct": 0.46
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 57434.77,
-    "date": "2026-11-06",
-    "change_pct": -5.96
+    "price": 60655.01,
+    "date": "2026-11-10",
+    "change_pct": 3.2
   }
 }
