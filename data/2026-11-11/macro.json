@@ -1,68 +1,80 @@
 {
   "^VIX": {
     "name": "VIX 恐慌指数",
-    "price": 20.56,
+    "price": 19.46,
     "date": "2026-11-10",
-    "change_pct": 3.21
+    "change_pct": -2.31
   },
   "^TNX": {
     "name": "10年期美债收益率",
-    "price": 5.0,
+    "price": 4.98,
     "date": "2026-11-10",
-    "change_pct": 2.88
+    "change_pct": 2.45
   },
   "^TYX": {
     "name": "30年期美债收益率",
-    "price": 5.36,
+    "price": 5.35,
     "date": "2026-11-10",
-    "change_pct": 2.05
+    "change_pct": 1.79
   },
   "^IRX": {
     "name": "13周国库券收益率",
     "price": 4.12,
     "date": "2026-11-10",
-    "change_pct": 2.11
+    "change_pct": 1.98
   },
   "^FVX": {
     "name": "5年期美债收益率",
-    "price": 4.83,
+    "price": 4.81,
     "date": "2026-11-10",
-    "change_pct": 3.71
+    "change_pct": 3.18
   },
   "^SOX": {
     "name": "费城半导体指数SOX",
-    "price": 9844.15,
+    "price": 9998.33,
     "date": "2026-11-10",
-    "change_pct": -1.89
+    "change_pct": -0.35
   },
   "^IXIC": {
     "name": "纳斯达克综合指数",
-    "price": 24942.88,
+    "price": 25065.88,
     "date": "2026-11-10",
-    "change_pct": -1.23
+    "change_pct": -0.74
+  },
+  "^KS11": {
+    "name": "韩国KOSPI指数",
+    "price": 5368.66,
+    "date": "2026-11-11",
+    "change_pct": 2.47
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 91.92,
+    "price": 92.48,
     "date": "2026-11-10",
-    "change_pct": -0.7
+    "change_pct": -0.1
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 102.39,
+    "price": 102.27,
     "date": "2026-11-10",
-    "change_pct": 0.73
+    "change_pct": 0.61
+  },
+  "000001.SS": {
+    "name": "上证指数",
+    "price": 3654.95,
+    "date": "2026-11-11",
+    "change_pct": -0.24
   },
   "^HSI": {
     "name": "恒生指数",
-    "price": 24448.95,
-    "date": "2026-11-09",
-    "change_pct": -0.13
+    "price": 24352.69,
+    "date": "2026-11-11",
+    "change_pct": -0.83
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 58775.5,
-    "date": "2026-11-09",
-    "change_pct": 2.33
+    "price": 61267.68,
+    "date": "2026-11-11",
+    "change_pct": 1.34
   }
 }
