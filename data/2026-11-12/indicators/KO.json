@@ -1,0 +1,92 @@
+{
+  "symbol": "KO",
+  "date": "2026-11-11",
+  "close": 97.57,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 96.38,
+    "ma10": 95.52,
+    "ma20": 94.22,
+    "ma60": 90.37,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 58.7,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": 1.8872,
+    "dea": 1.6551,
+    "histogram": 0.4642,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 64.9,
+    "d": 55.0,
+    "j": 84.8,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 97.78,
+    "middle": 94.22,
+    "lower": 90.66,
+    "bandwidth": 7.6,
+    "position": 0.97,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 0.7,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 97.83,
+    "low": 85.13,
+    "0.0%": 97.83,
+    "23.6%": 94.83,
+    "38.2%": 92.98,
+    "50.0%": 91.48,
+    "61.8%": 89.98,
+    "78.6%": 87.85,
+    "100.0%": 85.13
+  },
+  "trend_strength": "多头",
+  "supports": [
+    85.65,
+    87.12,
+    91.18
+  ],
+  "resistances": [
+    89.35,
+    91.99,
+    95.34
+  ],
+  "risk_flags": [
+    "触及布林上轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 1776052956.61,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 3,
+    "neutral": 1,
+    "bearish": 1,
+    "overall": "mildly_bullish",
+    "five_q": {
+      "trend": "bullish",
+      "position": "bearish",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 88.0508,
+    "avwap_60d": 92.4704,
+    "anchor_idx": 71,
+    "anchor_date": "2026-10-02"
+  }
+}
