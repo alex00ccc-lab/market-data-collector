@@ -1,0 +1,90 @@
+{
+  "symbol": "AAPL",
+  "date": "2026-11-12",
+  "close": 354.88,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 350.42,
+    "ma10": 346.06,
+    "ma20": 345.51,
+    "ma60": 334.66,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 54.7,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": 3.7915,
+    "dea": 2.6864,
+    "histogram": 2.2102,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 62.3,
+    "d": 54.1,
+    "j": 78.6,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 356.21,
+    "middle": 345.51,
+    "lower": 334.81,
+    "bandwidth": 6.2,
+    "position": 0.94,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 0.7,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 359.37,
+    "low": 307.01,
+    "0.0%": 359.37,
+    "23.6%": 347.01,
+    "38.2%": 339.37,
+    "50.0%": 333.19,
+    "61.8%": 327.01,
+    "78.6%": 318.21,
+    "100.0%": 307.01
+  },
+  "trend_strength": "多头",
+  "supports": [
+    329.4,
+    331.9,
+    339.5
+  ],
+  "resistances": [
+    313.33,
+    316.83,
+    341.07
+  ],
+  "risk_flags": [],
+  "frame": {
+    "avg_dollar_volume": 16608091970.16,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 3,
+    "neutral": 1,
+    "bearish": 1,
+    "overall": "mildly_bullish",
+    "five_q": {
+      "trend": "bullish",
+      "position": "bearish",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 322.3306,
+    "avwap_60d": 335.2994,
+    "anchor_idx": 41,
+    "anchor_date": "2026-08-21"
+  }
+}

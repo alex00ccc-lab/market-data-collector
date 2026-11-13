@@ -1,0 +1,92 @@
+{
+  "symbol": "LRCX",
+  "date": "2026-11-12",
+  "close": 233.78,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 222.76,
+    "ma10": 221.78,
+    "ma20": 236.25,
+    "ma60": 283.54,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 51.2,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": -18.059,
+    "dea": -21.205,
+    "histogram": 6.292,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 61.2,
+    "d": 53.7,
+    "j": 76.1,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 278.16,
+    "middle": 236.25,
+    "lower": 194.34,
+    "bandwidth": 35.5,
+    "position": 0.47,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.5,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 352.56,
+    "low": 184.24,
+    "0.0%": 352.56,
+    "23.6%": 312.84,
+    "38.2%": 288.26,
+    "50.0%": 268.4,
+    "61.8%": 248.54,
+    "78.6%": 220.26,
+    "100.0%": 184.24
+  },
+  "trend_strength": "震荡",
+  "supports": [
+    185.2,
+    230.1,
+    269.23
+  ],
+  "resistances": [
+    254.39,
+    320.42,
+    347.49
+  ],
+  "risk_flags": [
+    "跌破MA20"
+  ],
+  "frame": {
+    "avg_dollar_volume": 3186132320.35,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 2,
+    "neutral": 2,
+    "bearish": 1,
+    "overall": "neutral",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "neutral",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 308.2188,
+    "avwap_60d": 210.6706,
+    "anchor_idx": 114,
+    "anchor_date": "2026-11-05"
+  }
+}
