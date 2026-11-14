@@ -1,0 +1,17 @@
+{
+  "symbol": "INTC",
+  "date": "2026-11-14",
+  "underlying_price": 61.2,
+  "max_pain": 70,
+  "call_wall": 130,
+  "call_wall_oi": 92258,
+  "put_wall": 80,
+  "put_wall_oi": 26938,
+  "atm_iv": 0.7483,
+  "hv_20d": 1.4388,
+  "iv_hv_gap": -0.6905,
+  "expiration": "2026-11-21",
+  "dte": 8,
+  "source": "marketdata.app",
+  "timestamp": "2026-11-14T13:30:41.245617+08:00"
+}

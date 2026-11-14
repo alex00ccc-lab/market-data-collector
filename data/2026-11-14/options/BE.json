@@ -1,0 +1,17 @@
+{
+  "symbol": "BE",
+  "date": "2026-11-14",
+  "underlying_price": 201.93,
+  "max_pain": 215,
+  "call_wall": 220,
+  "call_wall_oi": 4762,
+  "put_wall": 200,
+  "put_wall_oi": 5535,
+  "atm_iv": 0.9995,
+  "hv_20d": 1.2948,
+  "iv_hv_gap": -0.2953,
+  "expiration": "2026-11-21",
+  "dte": 8,
+  "source": "marketdata.app",
+  "timestamp": "2026-11-14T13:30:47.451031+08:00"
+}

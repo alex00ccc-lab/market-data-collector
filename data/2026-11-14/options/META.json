@@ -1,0 +1,17 @@
+{
+  "symbol": "META",
+  "date": "2026-11-14",
+  "underlying_price": 623.61,
+  "max_pain": 630,
+  "call_wall": 700,
+  "call_wall_oi": 29584,
+  "put_wall": 585,
+  "put_wall_oi": 8241,
+  "atm_iv": 0.42,
+  "hv_20d": 0.4099,
+  "iv_hv_gap": 0.0101,
+  "expiration": "2026-11-21",
+  "dte": 8,
+  "source": "marketdata.app",
+  "timestamp": "2026-11-14T13:30:43.515845+08:00"
+}

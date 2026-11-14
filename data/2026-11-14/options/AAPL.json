@@ -1,0 +1,17 @@
+{
+  "symbol": "AAPL",
+  "date": "2026-11-14",
+  "underlying_price": 354.88,
+  "max_pain": 330,
+  "call_wall": 365,
+  "call_wall_oi": 45955,
+  "put_wall": 300,
+  "put_wall_oi": 49643,
+  "atm_iv": 0.2273,
+  "hv_20d": 0.2754,
+  "iv_hv_gap": -0.048,
+  "expiration": "2026-11-21",
+  "dte": 8,
+  "source": "marketdata.app",
+  "timestamp": "2026-11-14T13:30:42.212772+08:00"
+}
