@@ -1,68 +1,80 @@
 {
   "^VIX": {
     "name": "VIX 恐慌指数",
-    "price": 20.35,
+    "price": 19.3,
     "date": "2026-11-13",
-    "change_pct": 8.82
+    "change_pct": 3.21
   },
   "^TNX": {
     "name": "10年期美债收益率",
-    "price": 5.13,
+    "price": 5.15,
     "date": "2026-11-13",
-    "change_pct": 0.51
+    "change_pct": 1.0
   },
   "^TYX": {
     "name": "30年期美债收益率",
-    "price": 5.46,
+    "price": 5.48,
     "date": "2026-11-13",
-    "change_pct": 0.57
+    "change_pct": 0.88
   },
   "^IRX": {
     "name": "13周国库券收益率",
     "price": 4.12,
     "date": "2026-11-13",
-    "change_pct": -0.19
+    "change_pct": -0.15
   },
   "^FVX": {
     "name": "5年期美债收益率",
-    "price": 4.96,
+    "price": 4.98,
     "date": "2026-11-13",
-    "change_pct": 0.26
+    "change_pct": 0.73
   },
   "^SOX": {
     "name": "费城半导体指数SOX",
-    "price": 9981.6,
+    "price": 10146.32,
     "date": "2026-11-13",
-    "change_pct": -5.0
+    "change_pct": -3.43
   },
   "^IXIC": {
     "name": "纳斯达克综合指数",
-    "price": 24981.92,
+    "price": 25136.27,
     "date": "2026-11-13",
-    "change_pct": -1.51
+    "change_pct": -0.91
+  },
+  "^KS11": {
+    "name": "韩国KOSPI指数",
+    "price": 5290.53,
+    "date": "2026-11-13",
+    "change_pct": -0.98
   },
   "BZ=F": {
     "name": "布伦特原油期货",
-    "price": 96.01,
+    "price": 95.84,
     "date": "2026-11-13",
-    "change_pct": 0.2
+    "change_pct": 0.02
   },
   "DX-Y.NYB": {
     "name": "美元指数DXY",
-    "price": 103.36,
+    "price": 103.41,
     "date": "2026-11-13",
-    "change_pct": 0.19
+    "change_pct": 0.23
+  },
+  "000001.SS": {
+    "name": "上证指数",
+    "price": 3634.35,
+    "date": "2026-11-13",
+    "change_pct": -0.59
   },
   "^HSI": {
     "name": "恒生指数",
-    "price": 24008.55,
-    "date": "2026-11-12",
-    "change_pct": -1.26
+    "price": 23637.6,
+    "date": "2026-11-13",
+    "change_pct": -1.55
   },
   "^N225": {
     "name": "日经225指数",
-    "price": 60819.36,
-    "date": "2026-11-12",
-    "change_pct": -0.7
+    "price": 61142.35,
+    "date": "2026-11-13",
+    "change_pct": 0.53
   }
 }

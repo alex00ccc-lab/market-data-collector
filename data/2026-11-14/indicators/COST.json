@@ -1,0 +1,93 @@
+{
+  "symbol": "COST",
+  "date": "2026-11-13",
+  "close": 1106.21,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 1083.67,
+    "ma10": 1064.38,
+    "ma20": 1032.11,
+    "ma60": 963.48,
+    "alignment": "bullish"
+  },
+  "rsi": {
+    "value": 73.8,
+    "signal": "overbought"
+  },
+  "macd": {
+    "diff": 34.9895,
+    "dea": 28.5338,
+    "histogram": 12.9114,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 65.5,
+    "d": 55.2,
+    "j": 86.1,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 1106.79,
+    "middle": 1032.11,
+    "lower": 957.42,
+    "bandwidth": 14.5,
+    "position": 1.0,
+    "signal": "upper_band"
+  },
+  "volume": {
+    "ratio": 0.9,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 1109.5,
+    "low": 883.1,
+    "0.0%": 1109.5,
+    "23.6%": 1056.07,
+    "38.2%": 1023.02,
+    "50.0%": 996.3,
+    "61.8%": 969.58,
+    "78.6%": 931.55,
+    "100.0%": 883.1
+  },
+  "trend_strength": "多头",
+  "supports": [
+    893.74,
+    933.51,
+    982.73
+  ],
+  "resistances": [
+    918.91,
+    971.4,
+    1018.21
+  ],
+  "risk_flags": [
+    "RSI超买",
+    "触及布林上轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 2433467855.46,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 3,
+    "neutral": 1,
+    "bearish": 1,
+    "overall": "mildly_bullish",
+    "five_q": {
+      "trend": "bullish",
+      "position": "bearish",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 955.9399,
+    "avwap_60d": 975.8503,
+    "anchor_idx": 57,
+    "anchor_date": "2026-09-16"
+  }
+}
