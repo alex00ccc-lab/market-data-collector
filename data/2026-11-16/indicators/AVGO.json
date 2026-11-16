@@ -1,0 +1,90 @@
+{
+  "symbol": "AVGO",
+  "date": "2026-11-13",
+  "close": 347.01,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 341.61,
+    "ma10": 327.31,
+    "ma20": 330.96,
+    "ma60": 348.56,
+    "alignment": "mixed"
+  },
+  "rsi": {
+    "value": 54.6,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": -2.2139,
+    "dea": -7.7603,
+    "histogram": 11.0928,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 57.2,
+    "d": 52.4,
+    "j": 66.7,
+    "signal": "bullish"
+  },
+  "bollinger": {
+    "upper": 364.92,
+    "middle": 330.96,
+    "lower": 297.0,
+    "bandwidth": 20.5,
+    "position": 0.74,
+    "signal": "above_middle"
+  },
+  "volume": {
+    "ratio": 0.9,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 380.84,
+    "low": 289.77,
+    "0.0%": 380.84,
+    "23.6%": 359.35,
+    "38.2%": 346.05,
+    "50.0%": 335.3,
+    "61.8%": 324.56,
+    "78.6%": 309.26,
+    "100.0%": 289.77
+  },
+  "trend_strength": "震荡",
+  "supports": [
+    291.53,
+    321.68,
+    343.64
+  ],
+  "resistances": [
+    351.81,
+    364.54,
+    376.51
+  ],
+  "risk_flags": [],
+  "frame": {
+    "avg_dollar_volume": 8841902272.6,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 2,
+    "neutral": 3,
+    "bearish": 0,
+    "overall": "neutral",
+    "five_q": {
+      "trend": "neutral",
+      "position": "neutral",
+      "structure": "bullish",
+      "volume": "neutral",
+      "momentum": "bullish"
+    }
+  },
+  "vwap": {
+    "intraday": 361.4741,
+    "avwap_60d": 327.405,
+    "anchor_idx": 93,
+    "anchor_date": "2026-11-05"
+  }
+}
