@@ -13,7 +13,7 @@
           "watch": "利差健康；若跌破 -0.20 → 🔴"
         },
         "BAMLH0A0HYM2": {
-          "value": 3.2,
+          "value": 3.23,
           "light": "🟢",
           "trend": "tightening",
           "watch": "若升破 5.50 → 🔴，停新增 CSP"
@@ -64,5 +64,5 @@
     "Brent": 95.84
   },
   "source": "fred",
-  "timestamp": "2026-11-16T13:06:27.322817+08:00"
+  "timestamp": "2026-11-17T03:20:03.888629+08:00"
 }
