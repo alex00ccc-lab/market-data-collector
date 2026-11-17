@@ -1,0 +1,93 @@
+{
+  "symbol": "LITE",
+  "date": "2026-11-16",
+  "close": 546.0,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 600.18,
+    "ma10": 595.23,
+    "ma20": 708.85,
+    "ma60": 865.25,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 27.9,
+    "signal": "oversold"
+  },
+  "macd": {
+    "diff": -88.6093,
+    "dea": -85.4918,
+    "histogram": -6.235,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 41.0,
+    "d": 47.0,
+    "j": 28.9,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 966.66,
+    "middle": 708.85,
+    "lower": 451.05,
+    "bandwidth": 72.7,
+    "position": 0.18,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 0.9,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 1143.0,
+    "low": 506.69,
+    "0.0%": 1143.0,
+    "23.6%": 992.83,
+    "38.2%": 899.93,
+    "50.0%": 824.84,
+    "61.8%": 749.76,
+    "78.6%": 642.86,
+    "100.0%": 506.69
+  },
+  "trend_strength": "空头",
+  "supports": [
+    509.7,
+    752.54,
+    921.32
+  ],
+  "resistances": [
+    919.53,
+    954.49,
+    1133.4
+  ],
+  "risk_flags": [
+    "RSI超卖",
+    "跌破MA20"
+  ],
+  "frame": {
+    "avg_dollar_volume": 4532082733.11,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 832.4073,
+    "avwap_60d": 580.102,
+    "anchor_idx": 92,
+    "anchor_date": "2026-11-05"
+  }
+}
