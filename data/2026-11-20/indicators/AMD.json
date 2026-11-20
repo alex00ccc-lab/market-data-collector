@@ -1,0 +1,93 @@
+{
+  "symbol": "AMD",
+  "date": "2026-11-19",
+  "close": 489.19,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 512.22,
+    "ma10": 517.21,
+    "ma20": 513.7,
+    "ma60": 542.34,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 48.4,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -9.8644,
+    "dea": -13.7749,
+    "histogram": 7.821,
+    "signal": "golden_cross"
+  },
+  "kdj": {
+    "k": 38.9,
+    "d": 46.3,
+    "j": 24.1,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 600.35,
+    "middle": 513.7,
+    "lower": 427.05,
+    "bandwidth": 33.7,
+    "position": 0.36,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 1.7,
+    "signal": "surge_down"
+  },
+  "fibonacci": {
+    "high": 658.52,
+    "low": 402.1,
+    "0.0%": 658.52,
+    "23.6%": 598.0,
+    "38.2%": 560.57,
+    "50.0%": 530.31,
+    "61.8%": 500.05,
+    "78.6%": 456.97,
+    "100.0%": 402.1
+  },
+  "trend_strength": "空头",
+  "supports": [
+    404.4,
+    507.93,
+    607.57
+  ],
+  "resistances": [
+    578.44,
+    585.3,
+    649.42
+  ],
+  "risk_flags": [
+    "跌破MA20",
+    "放量下跌"
+  ],
+  "frame": {
+    "avg_dollar_volume": 19988581228.82,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "bearish",
+      "momentum": "neutral"
+    }
+  },
+  "vwap": {
+    "intraday": 521.8015,
+    "avwap_60d": 504.6302,
+    "anchor_idx": 89,
+    "anchor_date": "2026-11-05"
+  }
+}

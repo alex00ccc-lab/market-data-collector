@@ -1,0 +1,93 @@
+{
+  "symbol": "JPM",
+  "date": "2026-11-19",
+  "close": 320.22,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 331.74,
+    "ma10": 336.35,
+    "ma20": 337.64,
+    "ma60": 341.25,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 39.0,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -2.4008,
+    "dea": 0.1896,
+    "histogram": -5.1808,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 36.5,
+    "d": 45.5,
+    "j": 18.4,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 352.05,
+    "middle": 337.64,
+    "lower": 323.24,
+    "bandwidth": 8.5,
+    "position": -0.1,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 1.1,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 362.86,
+    "low": 317.43,
+    "0.0%": 362.86,
+    "23.6%": 352.14,
+    "38.2%": 345.51,
+    "50.0%": 340.14,
+    "61.8%": 334.78,
+    "78.6%": 327.15,
+    "100.0%": 317.43
+  },
+  "trend_strength": "空头",
+  "supports": [
+    329.58,
+    331.58,
+    334.49
+  ],
+  "resistances": [
+    339.72,
+    352.11,
+    362.06
+  ],
+  "risk_flags": [
+    "跌破MA20",
+    "触及布林下轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 2239051518.3,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 343.7025,
+    "avwap_60d": 321.9733,
+    "anchor_idx": 99,
+    "anchor_date": "2026-11-19"
+  }
+}
