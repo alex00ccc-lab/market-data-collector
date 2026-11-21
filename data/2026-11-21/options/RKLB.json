@@ -1,0 +1,17 @@
+{
+  "symbol": "RKLB",
+  "date": "2026-11-21",
+  "underlying_price": 50.99,
+  "max_pain": 57,
+  "call_wall": 70,
+  "call_wall_oi": 8985,
+  "put_wall": 35,
+  "put_wall_oi": 8348,
+  "atm_iv": 1.3304,
+  "hv_20d": 1.0727,
+  "iv_hv_gap": 0.2577,
+  "expiration": "2026-11-21",
+  "dte": 1,
+  "source": "marketdata.app",
+  "timestamp": "2026-11-21T14:08:41.431991+08:00"
+}
