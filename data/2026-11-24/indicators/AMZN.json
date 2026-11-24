@@ -1,0 +1,92 @@
+{
+  "symbol": "AMZN",
+  "date": "2026-11-23",
+  "close": 255.39,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 257.04,
+    "ma10": 261.41,
+    "ma20": 257.74,
+    "ma60": 255.2,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 52.6,
+    "signal": "bullish"
+  },
+  "macd": {
+    "diff": 0.6047,
+    "dea": 2.4228,
+    "histogram": -3.6362,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 44.7,
+    "d": 48.2,
+    "j": 37.6,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 275.22,
+    "middle": 257.74,
+    "lower": 240.25,
+    "bandwidth": 13.6,
+    "position": 0.43,
+    "signal": "below_middle"
+  },
+  "volume": {
+    "ratio": 1.0,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 275.34,
+    "low": 229.36,
+    "0.0%": 275.34,
+    "23.6%": 264.49,
+    "38.2%": 257.78,
+    "50.0%": 252.35,
+    "61.8%": 246.93,
+    "78.6%": 239.2,
+    "100.0%": 229.36
+  },
+  "trend_strength": "空头",
+  "supports": [
+    240.35,
+    245.96,
+    246.15
+  ],
+  "resistances": [
+    262.43,
+    262.63,
+    270.87
+  ],
+  "risk_flags": [
+    "跌破MA20"
+  ],
+  "frame": {
+    "avg_dollar_volume": 13828302777.32,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 0,
+    "neutral": 2,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bearish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "neutral"
+    }
+  },
+  "vwap": {
+    "intraday": 255.6724,
+    "avwap_60d": 258.2784,
+    "anchor_idx": 83,
+    "anchor_date": "2026-10-30"
+  }
+}
