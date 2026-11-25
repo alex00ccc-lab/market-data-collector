@@ -1,0 +1,93 @@
+{
+  "symbol": "SPCX",
+  "date": "2026-11-24",
+  "close": 125.81,
+  "currency": "",
+  "skeleton": false,
+  "ma": {
+    "ma5": 133.78,
+    "ma10": 136.67,
+    "ma20": 137.36,
+    "ma60": 147.1,
+    "alignment": "bearish"
+  },
+  "rsi": {
+    "value": 43.1,
+    "signal": "bearish"
+  },
+  "macd": {
+    "diff": -3.9544,
+    "dea": -3.0587,
+    "histogram": -1.7914,
+    "signal": "death_cross"
+  },
+  "kdj": {
+    "k": 36.5,
+    "d": 45.5,
+    "j": 18.5,
+    "signal": "bearish"
+  },
+  "bollinger": {
+    "upper": 149.17,
+    "middle": 137.36,
+    "lower": 125.55,
+    "bandwidth": 17.2,
+    "position": 0.01,
+    "signal": "lower_band"
+  },
+  "volume": {
+    "ratio": 1.0,
+    "signal": "normal"
+  },
+  "fibonacci": {
+    "high": 176.42,
+    "low": 120.39,
+    "0.0%": 176.42,
+    "23.6%": 163.2,
+    "38.2%": 155.02,
+    "50.0%": 148.4,
+    "61.8%": 141.79,
+    "78.6%": 132.38,
+    "100.0%": 120.39
+  },
+  "trend_strength": "空头",
+  "supports": [
+    123.62,
+    143.49,
+    145.47
+  ],
+  "resistances": [
+    143.09,
+    159.31,
+    171.92
+  ],
+  "risk_flags": [
+    "跌破MA20",
+    "触及布林下轨"
+  ],
+  "frame": {
+    "avg_dollar_volume": 14136631676.96,
+    "pe_percentile_5y": null,
+    "sector_momentum_30d": 0.0,
+    "sector_ma_disparity": 0.0
+  },
+  "resonance": {
+    "bullish": 1,
+    "neutral": 1,
+    "bearish": 3,
+    "overall": "mildly_bearish",
+    "five_q": {
+      "trend": "bearish",
+      "position": "bullish",
+      "structure": "bearish",
+      "volume": "neutral",
+      "momentum": "bearish"
+    }
+  },
+  "vwap": {
+    "intraday": 140.5847,
+    "avwap_60d": 136.074,
+    "anchor_idx": 86,
+    "anchor_date": "2026-11-05"
+  }
+}
