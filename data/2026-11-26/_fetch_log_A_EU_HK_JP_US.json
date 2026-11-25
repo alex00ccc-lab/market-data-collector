@@ -1,0 +1,267 @@
+{
+  "run_at": "2026-11-26T02:59:39.019131+08:00",
+  "date": "2026-11-26",
+  "symbols_attempted": 30,
+  "symbols_succeeded": 4,
+  "symbols_stale": 0,
+  "symbols_skipped": 25,
+  "symbols_failed": [
+    "6981.T"
+  ],
+  "errors": [
+    "6981.T: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)"
+  ],
+  "skipped": [
+    "NOK (US: market closed or not in fetch window)",
+    "SGOV (US: market closed or not in fetch window)",
+    "TSLA (US: market closed or not in fetch window)",
+    "LRCX (US: market closed or not in fetch window)",
+    "SCHD (US: market closed or not in fetch window)",
+    "AVGO (US: market closed or not in fetch window)",
+    "JEPQ (US: market closed or not in fetch window)",
+    "INTC (US: market closed or not in fetch window)",
+    "GOOGL (US: market closed or not in fetch window)",
+    "KO (US: market closed or not in fetch window)",
+    "AAPL (US: market closed or not in fetch window)",
+    "MSFT (US: market closed or not in fetch window)",
+    "AMZN (US: market closed or not in fetch window)",
+    "META (US: market closed or not in fetch window)",
+    "NFLX (US: market closed or not in fetch window)",
+    "AMD (US: market closed or not in fetch window)",
+    "INTC (US: market closed or not in fetch window)",
+    "AVGO (US: market closed or not in fetch window)",
+    "COST (US: market closed or not in fetch window)",
+    "JPM (US: market closed or not in fetch window)",
+    "LITE (US: market closed or not in fetch window)",
+    "BE (US: market closed or not in fetch window)",
+    "MRVL (US: market closed or not in fetch window)",
+    "SPCX (US: market closed or not in fetch window)",
+    "RKLB (US: market closed or not in fetch window)"
+  ],
+  "per_symbol": {
+    "588080": {
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-11-26T02:59:31.126491+08:00",
+      "quote_date": "2026-11-25",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-11-26/quotes/588080.json"
+    },
+    "9992.HK": {
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-11-26T02:59:31.888380+08:00",
+      "quote_date": "2026-11-25",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-11-26/quotes/9992.HK.json"
+    },
+    "1548.HK": {
+      "status": "ok",
+      "source": "tencent",
+      "fetched_at": "2026-11-26T02:59:32.668081+08:00",
+      "quote_date": "2026-11-25",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-11-26/quotes/1548.HK.json"
+    },
+    "NOK": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:32.668615+08:00",
+      "quote_date": null
+    },
+    "SGOV": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:32.668624+08:00",
+      "quote_date": null
+    },
+    "TSLA": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:32.668628+08:00",
+      "quote_date": null
+    },
+    "SIVE.ST": {
+      "status": "ok",
+      "source": "yfinance",
+      "fetched_at": "2026-11-26T02:59:33.851460+08:00",
+      "quote_date": "2026-11-25",
+      "path": "/home/runner/work/market-data-collector/market-data-collector/data/2026-11-26/quotes/SIVE.ST.json"
+    },
+    "LRCX": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:33.851900+08:00",
+      "quote_date": null
+    },
+    "6981.T": {
+      "status": "missing",
+      "error": "6981.T: all sources failed (tried: yfinance, yahoo_chart; yfinance=failed, yahoo_chart=failed)",
+      "sources_tried": "yfinance, yahoo_chart",
+      "quote_date": null
+    },
+    "SCHD": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971510+08:00",
+      "quote_date": null
+    },
+    "AVGO": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971582+08:00",
+      "quote_date": null
+    },
+    "JEPQ": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971529+08:00",
+      "quote_date": null
+    },
+    "INTC": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971577+08:00",
+      "quote_date": null
+    },
+    "GOOGL": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971540+08:00",
+      "quote_date": null
+    },
+    "KO": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971549+08:00",
+      "quote_date": null
+    },
+    "AAPL": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971553+08:00",
+      "quote_date": null
+    },
+    "MSFT": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971556+08:00",
+      "quote_date": null
+    },
+    "AMZN": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971560+08:00",
+      "quote_date": null
+    },
+    "META": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971563+08:00",
+      "quote_date": null
+    },
+    "NFLX": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971566+08:00",
+      "quote_date": null
+    },
+    "AMD": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971572+08:00",
+      "quote_date": null
+    },
+    "COST": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971587+08:00",
+      "quote_date": null
+    },
+    "JPM": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971592+08:00",
+      "quote_date": null
+    },
+    "LITE": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971597+08:00",
+      "quote_date": null
+    },
+    "BE": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971602+08:00",
+      "quote_date": null
+    },
+    "MRVL": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971607+08:00",
+      "quote_date": null
+    },
+    "SPCX": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971612+08:00",
+      "quote_date": null
+    },
+    "RKLB": {
+      "status": "skipped",
+      "reason": "US market closed (holiday/weekend) on 2026-11-26",
+      "source": null,
+      "fetched_at": "2026-11-26T02:59:35.971616+08:00",
+      "quote_date": null
+    }
+  },
+  "source_health": {
+    "tencent": {
+      "success_rate": "100%",
+      "ok": 3,
+      "failed": 0,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 360
+    },
+    "yahoo_chart": {
+      "success_rate": "0%",
+      "ok": 0,
+      "failed": 1,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 0
+    },
+    "yfinance": {
+      "success_rate": "50%",
+      "ok": 1,
+      "failed": 1,
+      "geo_blocked": 0,
+      "unavailable": 0,
+      "stale": 0,
+      "bars_fetched": 128
+    }
+  }
+}
