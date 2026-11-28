@@ -1,0 +1,17 @@
+{
+  "symbol": "SCHD",
+  "date": "2026-11-28",
+  "underlying_price": 35.65,
+  "max_pain": 35,
+  "call_wall": 35,
+  "call_wall_oi": 1539,
+  "put_wall": 34,
+  "put_wall_oi": 3316,
+  "atm_iv": 0.183,
+  "hv_20d": 0.1911,
+  "iv_hv_gap": -0.0082,
+  "expiration": "2026-12-19",
+  "dte": 23,
+  "source": "marketdata.app",
+  "timestamp": "2026-11-28T14:53:35.705528+08:00"
+}
